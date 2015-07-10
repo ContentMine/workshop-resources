@@ -48,7 +48,7 @@ Three APIs are available at the moment, EuropePMC, IEEE, and ArXiv. Each API has
 - [IEEE query format](https://github.com/ContentMine/getpapers/wiki/ieee-query-format)
 - [ArXiv query format](https://github.com/ContentMine/getpapers/wiki/arxiv-query-format)
 
-### How to construct a query for EPMC
+### Construct a simple query and compare results
 
 Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
 permitted boolean operators etc…
@@ -60,17 +60,81 @@ A minimum query consists of ```-q 'query terms' -o outdirectory```.
 
 ```getpapers -q 'molecuar biology' -o test```
 
-This query would result in around 200.000 papers to be downloaded, so we cancel with ```Ctrl+C``` and refine our query. Without a specification of the API, getpapers will chose EuropePMC.
+This query results in around 200.000 papers to be downloaded, so we cancel with ```Ctrl+C``` and refine our query. Without a specification of the API, getpapers will chose EuropePMC.
 
-We will now compare the results of a query for *dinosaur biology* on EuropePMC, IEEE and ArXiv.
+We will now compare the results of a query for *dinosaurs* on EuropePMC, IEEE and ArXiv.
 
 ```bash
-getpapers -q 'dinosaur biology' --api eupmc -o test_epmc
-getpapers -q 'dinosaur biology' --api ieee -o test_ieee
-getpapers -q 'dinosaur biology' --api arxiv -o test_arxiv
+getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
+getpapers -q 'dinosaurs' --api ieee -o test_ieee
+getpapers -q 'dinosaurs' --api arxiv -o test_arxiv
 ```
 
+getpapers now queries each API for "dinosaur biology" and stores the results in separate folders. We can look into the files of each folder with ls folder, e.g.
 
+```bash
+ls test_eupmc/
+eupmc_results.json  fulltext_html_urls.txt
+```
+
+We can then look at the content of "fulltext_html_urls.txt" with [cat](https://en.wikipedia.org/wiki/Cat_%28Unix%29), [head](https://en.wikipedia.org/wiki/Head_%28Unix%29) or [tail](https://en.wikipedia.org/wiki/Tail_%28Unix%29).
+
+```bash
+cat test_eupmc/fulltext_html_urls.txt
+# prints the whole file to the terminal
+head test_eupmc/fulltext_html_urls.txt
+head -5 test_eupmc/fulltext_html_urls.txt
+# prints the top 10/5 lines
+tail test_eupmc/fulltext_html_urls.txt
+tail -5 test_eupmc/fulltext_html_urls.txt
+# prints the last 10/5 lines
+```
+
+We can also see how many fulltext results we may get by counting the lines of the fulltext_html_urls.txt with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltext is found, in this case there is no fulltext_html_urls.txt created.
+
+```bash
+wc -l test_eupmc/fulltext_html_urls.txt
+wc -l test_ieee/fulltext_html_urls.txt
+wc -l test_arxiv/fulltext_html_urls.txt
+```
+
+At this point you can use the urls.txt as input for [quickscrape](../quickscrape), but for the moment we'll continue exploring getpapers.
+The other file the simple query returns is called *apiname*_results.json [JSON](https://en.wikipedia.org/wiki/JSON). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...), using cat produces many lines of not very readable output. But we can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the word.
+
+```bash
+grep dinosaur test_eupmc/eupmc_results.json
+```
+
+If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText". 
+
+```bash
+grep -A1 abstractText test_eupmc/eupmc_results.json
+```
+
+These tools are useful in getting some first idea of the content of files, but ContentMine provides some more advanced tools in later stages of the pipeline ([ami](../ami/ami-tutorial.md)). For now we continue with more advanced queries.
+
+### Getting pdfs and other files
+
+PDF files can be retrieved by adding a ```-p``` flag to the query:
+
+```bash
+getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -p
+getpapers -q 'dinosaurs' --api ieee -o test_ieee -p
+getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
+```
+
+For every pdf found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
+
+```
+test_eupmc
+U+251C eupmc_results.json
+U+251C fulltext_html_urls.txt
+U+251C PMC1234567
+U+2502 U+2014 fulltext.pdf
+U+251C PMC1234568
+U+2502 U+2014 fulltext.pdf
+U+251C ...
+```
 
 ## What can go wrong, how do I solve problems?
 
