@@ -11,11 +11,11 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 [2. Usage](#Usage)
 
-[3. Construct a simple query and compare results](#Construct a simple query and compare results)
+[3. Construct a simple query and compare results](#Construct-a-simple-query-and-compare-results)
 
-[4. Getting pdfs and other files](#Getting pdfs and other files)
+[4. Getting pdfs and other files](#Getting-pdfs-and-other-files)
 
-[5. Complex queries for EPMC](#Complex queries for EPMC)
+[5. Complex queries for EPMC](#Complex-queries-for-EPMC)
 
 
 ### Installation
@@ -124,7 +124,7 @@ getpapers -q 'dinosaurs' --api ieee -o test_ieee -p
 getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
 ```
 
-For every pdf found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
+For every PDF found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
 
 ```
 test_eupmc
@@ -166,9 +166,35 @@ This is the beginning of the [ctree](../ctree/ctree-overview.md)-structure, whic
 
 ### Complex queries for EPMC
 
-Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
+<!-- Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
 permitted boolean operators etc…
-‘dinosaurs’ turns out to be a nice query that gives a reasonably low number of results across IEEE, arXiv and EPMC (I think). Fun to read how the string ‘dinosaurs’ is used in IEEE papers!
+‘dinosaurs’ turns out to be a nice query that gives a reasonably low number of results across IEEE, arXiv and EPMC (I think). Fun to read how the string ‘dinosaurs’ is used in IEEE papers! -->
+
+Queries are processed by EuropePMC. In their simplest form, they can be free text, like this:
+
+```
+getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
+```
+
+But they can also be much more detailed, using the EuropePMC webservice's query language. A selection of the most commonly useful search fields are explained [here](getpapers-eupmc-queries.md), and the a complete documentation of possible queries is in the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
+
+For example we can restrict our search to only papers that mention 'dinosaurs' in the abstract. Note that the query has to be encapsuled by single quotations marks '', and further specifications with double quotation marks "".
+
+```
+getpapers -q 'ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
+```
+
+Or to only papers with a CC-BY license:
+
+```
+getpapers -q 'LICENSE:"cc by" OR LICENSE:"cc-by"' --api eupmc -o test_eupmc
+```
+
+Note that in this case, we combine two restrictions using the logical `OR` keyword. We can also use `AND`, and can group operations using brackets:
+
+```
+getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
+```
 
 
 
