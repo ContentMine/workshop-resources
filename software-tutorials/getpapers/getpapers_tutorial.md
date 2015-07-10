@@ -1,24 +1,22 @@
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
 
-[1. Installation](# Installation)
-
-[2. Usage](# Usage)
-
-[3. Construct a simple query and compare results](# Construct a simple query and compare results)
-
-[4. Getting pdfs and other files](# Getting pdfs and other files)
-
-[5. Complex queries for EPMC](# Complex queries for EPMC)
-
 ## What is getpapers?
 <!-- (describe core functionality) -->
 
 getpapers is together with [quickscrape](quickscrape.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape take URLs as input and scrapes the whole page.
 
-## How do I use it?
-<!-- (explain options) -->
+This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
 
-This part covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
+[1. Installation](#Installation)
+
+[2. Usage](#Usage)
+
+[3. Construct a simple query and compare results](#Construct a simple query and compare results)
+
+[4. Getting pdfs and other files](#Getting pdfs and other files)
+
+[5. Complex queries for EPMC](#Complex queries for EPMC)
+
 
 ### Installation
 
