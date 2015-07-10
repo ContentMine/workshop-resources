@@ -17,6 +17,8 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 [5. Complex queries for EPMC](#Complex-queries-for-EPMC)
 
+[6. Complex queries for ArXiv](#Complex-queries-for-ArXiv)
+
 
 ### Installation
 
@@ -168,7 +170,7 @@ Queries are processed by EuropePMC. In their simplest form, they can be free tex
 $ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
 ```
 
-But they can also be much more detailed, using the EuropePMC webservice's query language. A selection of the most commonly useful search fields are explained [here](getpapers-eupmc-queries.md), and the a complete documentation of possible queries is in the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
+But they can also be much more detailed, using the EuropePMC webservice's query language. A selection of the most commonly useful search fields is explained [here](getpapers-eupmc-queries.md), and a complete documentation of possible queries is in Appendix I of the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
 
 For example we can restrict our search to only papers that mention 'dinosaurs' in the abstract. Note that the query has to be encapsuled by single quotations marks '', and further specifications by double quotation marks "".
 
@@ -188,10 +190,38 @@ We combined two restrictions using the logical `OR` keyword. We can also use `AN
 $ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
+Here are some other examples, combined from the [summary](getpapers-eupmc-queries.md):
+
+```
+$ getpapers -q 'INTRO:"dinosaur" AND METHODS:"survey"' --api eupmc -o test_eupmc
+```
+
+```
+$ getpapers -q 'AUTH:"Smith" AND (JOURNAL:"biology" OR JOURNAL:"cell")' --api eupmc -o test_eupmc
+```
+
+```
+$ getpapers -q 'ACK_FUND:ERC' --api eupmc -o test_eupmc
+```
 
 
-## What can go wrong, how do I solve problems?
+### Complex queries for ArXiv
 
-Be careful to warn participants that too general a search will result in a huge number of hits. 
-Teaching Ctrl+C to cancel a getpapers search would be very useful! 
-rm -rf to delete unwanted search folders would be useful to teach as well, with appropriate warnings over usage.
+ArXiv has a nice, clearly defined format. Queries can target individual fields of the articles records. A selection possible search fields is explained [here](getpapers-arxiv-queries.md), and a complete documentation of possible queries is provided by [ArXiv](http://arxiv.org/help/api/user-manual). 
+
+```
+$ getpapers -q 'abs:dinosaurs' --api arxiv -o test_arxiv
+```
+
+Queries may be combined with boolean operators ```AND, OR, ANDNOT```. ANDNOT is a particularly helpful operator, it excludes results that contain a phrase, and therefore works as a filter.
+
+
+```
+$ getpapers -q 'abs:dinosaurs ANDNOT all:physics' --api arxiv -o test_arxiv
+```
+
+```
+$ getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --api arxiv -o test_arxiv
+```
+
+Note that "quantum physics" has been grouped into a single phrase by double quotes "". 

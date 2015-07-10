@@ -35,3 +35,4 @@
 | `METHODS:` | Find articles with a phrase in the Materials & Methods section       |  `METHODS:“yeast two-hybrid”`  |
 | `RESULTS:` | Find articles with a phrase in the Results section                   | `RESULTS:"in vivo"`            |
 | `DISCUSS:` | Find articles with a phrase in the Discussion seciton                | `DISCUSS:cardivascular`        |
+| `ACK_FUND:` | Find articles with a phrase in the Acknowledgements & Funding section | `ACK_FUND:ERC`				 |
