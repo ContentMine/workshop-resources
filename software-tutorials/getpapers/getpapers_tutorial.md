@@ -125,6 +125,7 @@ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
 
 For every pdf found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
 
+```
 test_eupmc
 +-- eupmc_results.json
 +-- fulltext_html_urls.txt
@@ -133,6 +134,7 @@ test_eupmc
 +-- PMC1234568
 |   +-- fulltext.pdf
 +-- ...
+```
 
 
 ## What can go wrong, how do I solve problems?
