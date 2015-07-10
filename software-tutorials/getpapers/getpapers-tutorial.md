@@ -47,67 +47,61 @@ Options:
 
 ```
 
-Three APIs are available at the moment, EuropePMC, IEEE, and ArXiv. Each API has its own query format. Usage guides are provided on our wiki:
-
-- [EuropePMC query format](https://github.com/ContentMine/getpapers/wiki/europepmc-query-format)
-- [IEEE query format](https://github.com/ContentMine/getpapers/wiki/ieee-query-format)
-- [ArXiv query format](https://github.com/ContentMine/getpapers/wiki/arxiv-query-format)
-
 ### Construct a simple query and compare results
 
 A basic query consists of free text, without any further specification. This query **returns only metadata**. Without a specification of the API, getpapers will chose EuropePMC.
 
 A minimum query consists of ```-q 'query terms' -o outdirectory```. 
 
-```getpapers -q 'molecuar biology' -o test```
+```$ getpapers -q 'molecuar biology' -o test```
 
 We will now compare the results of a query for *dinosaurs* on EuropePMC, IEEE and ArXiv.
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
-getpapers -q 'dinosaurs' --api ieee -o test_ieee
-getpapers -q 'dinosaurs' --api arxiv -o test_arxiv
+$ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
+$ getpapers -q 'dinosaurs' --api ieee -o test_ieee
+$ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv
 ```
 
 getpapers now queries each API for "dinosaur biology" and stores the results in separate folders. We can look into the files of each folder with ls folder, e.g.
 
 ```bash
-ls test_eupmc/
+$ ls test_eupmc/
 eupmc_results.json  fulltext_html_urls.txt
 ```
 
 We can then look at the content of "fulltext_html_urls.txt" with [cat](https://en.wikipedia.org/wiki/Cat_%28Unix%29), [head](https://en.wikipedia.org/wiki/Head_%28Unix%29) or [tail](https://en.wikipedia.org/wiki/Tail_%28Unix%29).
 
 ```bash
-cat test_eupmc/fulltext_html_urls.txt
+$ cat test_eupmc/fulltext_html_urls.txt
 # prints the whole file to the terminal
-head test_eupmc/fulltext_html_urls.txt
-head -5 test_eupmc/fulltext_html_urls.txt
+$ head test_eupmc/fulltext_html_urls.txt
+$ head -5 test_eupmc/fulltext_html_urls.txt
 # prints the top 10/5 lines
-tail test_eupmc/fulltext_html_urls.txt
-tail -5 test_eupmc/fulltext_html_urls.txt
+$ tail test_eupmc/fulltext_html_urls.txt
+$ tail -5 test_eupmc/fulltext_html_urls.txt
 # prints the last 10/5 lines
 ```
 
 We can also see how many fulltext results we may get by counting the lines of the fulltext_html_urls.txt with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltext is found, in this case there is no fulltext_html_urls.txt created.
 
 ```bash
-wc -l test_eupmc/fulltext_html_urls.txt
-wc -l test_ieee/fulltext_html_urls.txt
-wc -l test_arxiv/fulltext_html_urls.txt
+$ wc -l test_eupmc/fulltext_html_urls.txt
+$ wc -l test_ieee/fulltext_html_urls.txt
+$ wc -l test_arxiv/fulltext_html_urls.txt
 ```
 
 At this point you can use the urls.txt as input for [quickscrape](../quickscrape), but for the moment we'll continue exploring getpapers.
-The other file the simple query returns is called *apiname*_results.json ([JSON?](https://en.wikipedia.org/wiki/JSON)). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...), using cat produces many lines of not very readable output. But we can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the word.
+The other file the simple query returns is called *apiname*_results.json ([JSON?](https://en.wikipedia.org/wiki/JSON)). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {attribute:value}-format, using cat produces many lines of not very readable output. But we can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the word.
 
 ```bash
-grep dinosaur test_eupmc/eupmc_results.json
+$ grep dinosaur test_eupmc/eupmc_results.json
 ```
 
-If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText". 
+If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText" with ```-A1```.
 
 ```bash
-grep -A1 abstractText test_eupmc/eupmc_results.json
+$ grep -A1 abstractText test_eupmc/eupmc_results.json
 ```
 
 These tools are useful in getting some first idea of the content of files, but ContentMine provides some more advanced tools in later stages of the pipeline ([ami](../ami/ami-tutorial.md)). For now we continue with more queries with getpapers.
@@ -117,9 +111,9 @@ These tools are useful in getting some first idea of the content of files, but C
 PDF files can be retrieved by adding a ```-p``` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with ```Ctrl+C``` in the command line.
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -p
-getpapers -q 'dinosaurs' --api ieee -o test_ieee -p
-getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
+$ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -p
+$ getpapers -q 'dinosaurs' --api ieee -o test_ieee -p
+$ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
 ```
 
 For every PDF found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
@@ -139,9 +133,9 @@ Since not all queries returned PDFs, we now try another query with ```-x``` for 
 
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -x
-getpapers -q 'dinosaurs' --api ieee -o test_ieee -x
-getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -x
+$ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -x
+$ getpapers -q 'dinosaurs' --api ieee -o test_ieee -x
+$ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -x
 ```
 
 Results are added to the existing results, so the folder structure may look like this now:
@@ -171,7 +165,7 @@ permitted boolean operators etc…
 Queries are processed by EuropePMC. In their simplest form, they can be free text, like this:
 
 ```
-getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
+$ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
 ```
 
 But they can also be much more detailed, using the EuropePMC webservice's query language. A selection of the most commonly useful search fields are explained [here](getpapers-eupmc-queries.md), and the a complete documentation of possible queries is in the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
@@ -179,19 +173,19 @@ But they can also be much more detailed, using the EuropePMC webservice's query 
 For example we can restrict our search to only papers that mention 'dinosaurs' in the abstract. Note that the query has to be encapsuled by single quotations marks '', and further specifications by double quotation marks "".
 
 ```
-getpapers -q 'ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
+$ getpapers -q 'ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
 Or to only get papers with a CC-BY license:
 
 ```
-getpapers -q 'LICENSE:"cc by" OR LICENSE:"cc-by"' --api eupmc -o test_eupmc
+$ getpapers -q 'LICENSE:"cc by" OR LICENSE:"cc-by"' --api eupmc -o test_eupmc
 ```
 
 We combined two restrictions using the logical `OR` keyword. We can also use `AND`, and can group operations using brackets:
 
 ```
-getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
+$ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
 
