@@ -1,17 +1,19 @@
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
 
 [1. Installation](# Installation)
+
 [2. Usage](# Usage)
+
 [3. Construct a simple query and compare results](# Construct a simple query and compare results)
+
 [4. Getting pdfs and other files](# Getting pdfs and other files)
+
+[5. Complex queries for EPMC](# Complex queries for EPMC)
 
 ## What is getpapers?
 <!-- (describe core functionality) -->
 
-Introduction to ctree structure probably appropriate in this module.
-distinction to quickscrape
-
-getpapers is together with [quickscrape](quickscrape.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics.
+getpapers is together with [quickscrape](quickscrape.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape take URLs as input and scrapes the whole page.
 
 ## How do I use it?
 <!-- (explain options) -->
@@ -54,10 +56,6 @@ Three APIs are available at the moment, EuropePMC, IEEE, and ArXiv. Each API has
 - [ArXiv query format](https://github.com/ContentMine/getpapers/wiki/arxiv-query-format)
 
 ### Construct a simple query and compare results
-
-Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
-permitted boolean operators etc…
-‘dinosaurs’ turns out to be a nice query that gives a reasonably low number of results across IEEE, arXiv and EPMC (I think). Fun to read how the string ‘dinosaurs’ is used in IEEE papers!
 
 A basic query consists of free text, without any further specification. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with ```Ctrl+C``` in the command line.
 
@@ -167,6 +165,14 @@ test_eupmc
 ```
 
 This is the beginning of the [ctree](../ctree/ctree-overview.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
+
+### Complex queries for EPMC
+
+Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
+permitted boolean operators etc…
+‘dinosaurs’ turns out to be a nice query that gives a reasonably low number of results across IEEE, arXiv and EPMC (I think). Fun to read how the string ‘dinosaurs’ is used in IEEE papers!
+
+
 
 ## What can go wrong, how do I solve problems?
 
