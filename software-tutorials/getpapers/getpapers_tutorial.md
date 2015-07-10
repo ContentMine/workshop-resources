@@ -1,5 +1,10 @@
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
 
+[1. Installation](# Installation)
+[2. Usage](# Usage)
+[3. Construct a simple query and compare results](# Construct a simple query and compare results)
+[4. Getting pdfs and other files](# Getting pdfs and other files)
+
 ## What is getpapers?
 <!-- (describe core functionality) -->
 
@@ -127,14 +132,41 @@ For every pdf found, getpapers creates a new folder containing a fulltext.pdf wi
 
 ```
 test_eupmc
-├── eupmc_results.json
-├── fulltext_html_urls.txt
-├── PMC1234567
-│   └ fulltext.pdf
-├── PMC1234568
-│   └  fulltext.pdf
-├── ...
+├─ eupmc_results.json
+├─ fulltext_html_urls.txt
+├─ PMC1234567
+│  └─ fulltext.pdf
+├─ PMC1234568
+│  └─ fulltext.pdf
+├─ ...
 ```
+
+Since not all queries returned PDFs, we now try another query with ```-x``` for xml-results.
+
+
+```bash
+getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -x
+getpapers -q 'dinosaurs' --api ieee -o test_ieee -x
+getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -x
+```
+
+Results are added to the existing results, so the folder structure may look like this now:
+
+```
+test_eupmc
+├─ eupmc_results.json
+├─ fulltext_html_urls.txt
+├─ PMC1234567
+│  ├─ fulltext.pdf
+│  └─ fulltext.xml
+├─ PMC1234568
+│  └─ fulltext.pdf
+├─ PMC1234569
+│  └─ fulltext.xml
+├─ ...
+```
+
+This is the beginning of the [ctree](../ctree/ctree-overview.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
 
 ## What can go wrong, how do I solve problems?
 
