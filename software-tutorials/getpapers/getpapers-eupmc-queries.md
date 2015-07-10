@@ -1,3 +1,9 @@
+[Restrict search by bibliographic metadata](#Restrict search by bibliographic metadata)
+
+[Restrict by article metadata](#Restrict by article metadata)
+
+[Section-level search](#Section-level search)
+
 
 ### Restrict search by bibliographic metadata
 
