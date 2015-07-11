@@ -19,6 +19,8 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 [6. Complex queries for ArXiv](#Complex-queries-for-ArXiv)
 
+[7. Complex queries for IEEE](#Complex queries for IEEE)
+
 
 ### Installation
 
@@ -225,3 +227,23 @@ $ getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --a
 ```
 
 Note that "quantum physics" has been grouped into a single phrase by double quotes "". 
+
+
+### Complex queries for IEEE
+
+
+The IEEE query format is loosely documented at [IEEE Xplore Gateway](http://ieeexplore.ieee.org/gateway/). In general, anything that works in the website search will also work in `getpapers` with the `--api ieee` option enabled.
+
+Note that IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downloadable (though we're working on it). `getpapers` will output metadata for the search results, and will attempt to reconstruct the fulltext HTML URLs for any papers that have fulltext HTML.
+
+As with the other APIs, any search is automatically restricted to Open Access papers.
+
+```
+$ getpapers -q 'dinosaurs' --api ieee -o test_ieee
+```
+
+
+```
+$ getpapers -q 'dinosaurs' --api ieee -o test_ieee
+```
+

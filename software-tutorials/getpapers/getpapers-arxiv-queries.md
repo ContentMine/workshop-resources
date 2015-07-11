@@ -15,13 +15,14 @@
 ### Boolean operators
 
 ```
-AND
-OR
-ANDNOT
+AND 	# logical "and"
+OR 		# logical "or"
+ANDNOT	# logical "exclude"
 ```
 
 #### Grouping operators
 
 | operator 	| description	|
+|-----------|---------------|
 | () | Used to group Boolean expressions for Boolean operator precedence. |
 | double quotes "" | Used to group multiple words into phrases to search a particular field. |
