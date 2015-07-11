@@ -57,9 +57,9 @@ Options:
 
 A basic query consists of free text, without any further specification. This query **returns only metadata**. Without a specification of the API, getpapers will chose EuropePMC.
 
-A minimum query consists of ```-q 'query terms' -o outdirectory```. 
+A minimum query consists of `-q 'query terms' -o outdirectory`. 
 
-We will now compare the results of a query for *dinosaurs* on EuropePMC, IEEE and ArXiv.
+We will now compare the results of a query for *"dinosaurs"* on EuropePMC, IEEE and ArXiv.
 
 ```bash
 $ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
@@ -67,7 +67,7 @@ $ getpapers -q 'dinosaurs' --api ieee -o test_ieee
 $ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv
 ```
 
-getpapers now queries each API for "dinosaur biology" and stores the results in separate folders. We can look into the files of each folder with ```ls folder```, e.g.
+getpapers now queries each API for "dinosaurs" and stores the results in separate folders. We can look into the files of each folder with `ls folder`, e.g.
 
 ```bash
 $ ls test_eupmc/
@@ -103,7 +103,7 @@ The other file a simple query returns is called *apiname*_results.[json](https:/
 $ grep dinosaur test_eupmc/eupmc_results.json
 ```
 
-If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText" with ```-A1```.
+If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText" with `-A1`.
 
 ```bash
 $ grep -A1 abstractText test_eupmc/eupmc_results.json
@@ -113,7 +113,7 @@ These tools are useful in getting some first idea of the content of files, but C
 
 ### Getting pdfs and other files
 
-Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a ```-p``` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with ```Ctrl+C``` in the command line.
+Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a `-p` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with `Ctrl+C` in the command line.
 
 ```bash
 $ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -p
@@ -134,7 +134,7 @@ test_eupmc
 ├─ ...
 ```
 
-Not all queries returned PDFs, we now try another query with ```-x``` for xml-results. The 
+Not all queries returned PDFs, we now try another query with `-x` for xml-results. The 
 
 
 ```bash
@@ -169,7 +169,7 @@ permitted boolean operators etc…
 
 Queries are processed by EuropePMC. In their simplest form, they can be free text, like this:
 
-```
+```bash
 $ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc
 ```
 
@@ -177,46 +177,46 @@ But they can also be much more detailed, using the EuropePMC webservice's query 
 
 For example we can restrict our search to only papers that mention 'dinosaurs' in the abstract. Note that the query has to be encapsuled by single quotations marks '', and further specifications by double quotation marks "".
 
-```
+```bash
 $ getpapers -q 'ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
 Or to only get papers with a CC-BY license:
 
-```
+```bash
 $ getpapers -q 'LICENSE:"cc by" OR LICENSE:"cc-by"' --api eupmc -o test_eupmc
 ```
 
 We combined two restrictions using the logical `OR` keyword. We can also use `AND`, and can group operations using brackets:
 
-```
+```bash
 $ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
 Some more examples, combined from the [documentation](getpapers-eupmc-queries.md):
 
-Here we query for papers which contain the phrase "dinosaur" in the introduction section and the phrase "survey" in the methods section.
-```
+Search for papers which contain the phrase "dinosaur" in the introduction section and the phrase "survey" in the methods section.
+```bash
 $ getpapers -q 'INTRO:"dinosaur" AND METHODS:"survey"' --api eupmc -o test_eupmc
 ```
 
-Here we query for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell".
-```
+Search for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell".
+```bash
 $ getpapers -q 'AUTH:"Smith" AND (JOURNAL:"biology" OR JOURNAL:"cell")' --api eupmc -o test_eupmc
 ```
 
-Here we query for papers that contain dinosaur and were published between 2010 and 2012.
-```
+Search for papers that contain "dinosaur" and were published between 2010 and 2012.
+```bash
 $ getpapers -q 'TITLE:dinosaur AND PUB_YEAR:[2010 TO 2012]' --api eupmc -o test_eupmc
 ```
 
-Here we query for papers that contain dinosaur in the title and were published between July 2009 and June 2013.
-```
+Search for papers that contain "dinosaur" in the title and were published between July 2009 and June 2013.
+```bash
 $ getpapers -q 'TITLE:dinosaur AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' --api eupmc -o test_eupmc
 ```
 
-Here we query for papers where the European Research Council (ERC) is mentioned in the acknowledgements section.
-```
+Search for papers where the European Research Council ("ERC") is mentioned in the acknowledgements section.
+```bash
 $ getpapers -q 'ACK_FUND:ERC' --api eupmc -o test_eupmc
 ```
 
@@ -225,19 +225,19 @@ $ getpapers -q 'ACK_FUND:ERC' --api eupmc -o test_eupmc
 
 ArXiv has a nice, clearly defined format. Queries can target individual fields of the articles records. A selection possible search fields is explained [here](getpapers-arxiv-queries.md), and a complete documentation of possible queries is provided by [ArXiv](http://arxiv.org/help/api/user-manual). 
 
-```
+```bash
 $ getpapers -q 'abs:dinosaurs' --api arxiv -o test_arxiv
 ```
 
-Queries may be combined with boolean operators ```AND, OR, ANDNOT```. ANDNOT is a particularly helpful operator, it excludes results that contain a phrase, and therefore works as a filter.
+Queries may be combined with boolean operators `AND, OR, ANDNOT`. ANDNOT is a particularly helpful operator, it excludes results that contain a phrase, and therefore works as a filter.
 
 Search for papers that contain dinosaurs in the abstract, but not physics in any search field.
-```
+```bash
 $ getpapers -q 'abs:dinosaurs ANDNOT all:physics' --api arxiv -o test_arxiv
 ```
 
 Search for papers that contain dinosaurs in the abstract, but neither "quantum physics" or "biology" in any search field (yes, those combinations exist!)
-```
+```bash
 $ getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --api arxiv -o test_arxiv
 ```
 
@@ -251,25 +251,26 @@ IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downl
 
 A selection of options is described [here](getpapers-ieee-queries.md) and the complete IEEE query format is loosely documented at [IEEE Xplore Gateway](http://ieeexplore.ieee.org/gateway/). In general, anything that works in the website search will also work in `getpapers` with the `--api ieee` option enabled. As with the other APIs, any search is automatically restricted to Open Access papers. 
 
-```
+```bash
 $ getpapers -q 'dinosaurs' --api ieee -o test_ieee
 ```
 
-Search for papers containing the phrase ```mining``` in the abstract, and which appear between 2010 and 2014:
-```
+Search for papers containing the phrase "mining" in the abstract, and which appear between 2010 and 2014:
+```bash
 $ getpapers -q 'ab=mining pys=2010 pye=2014' --api ieee -o test_ieee
 ```
 
-Search for papers containing the phrase ```mining```, filtered for the content type "Conferences" and returning 500 results per page:
-```
+Search for papers containing the phrase "mining", filtered for the content type "Conferences" and returning 500 results per page:
+```bash
 $ getpapers -q 'ti=mining ctype=Conferences hc=500' --api ieee -o test_ieee
 ```
 
 ## Summary
 
-* A minimum query consists of ```getpapers -q "query terms" -o outdir``` and returns only metadata.
-* Use ```-x``` for fulltext results, because XML-files provide better mining results in later stages of the tool chain.
-* Unless you use ```-a```, only Open Access papers will be returned.
+* A minimum query consists of `getpapers -q "query terms" -o outdir` and returns only metadata.
+* Use `-x` for machine-readable fulltext results, because XML-files provide better mining results in later stages of the tool chain.
+* Use `-p` if you want to retrieve human-readable fulltexts in PDF-format.
+* Unless you use `-a`, only Open Access papers will be returned.
 * Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
 ## Next Steps
