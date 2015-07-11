@@ -1,3 +1,5 @@
+[Official Documentation, Appendix 1](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf)
+
 [Restrict search by bibliographic metadata](#Restrict search by bibliographic metadata)
 
 [Restrict by article metadata](#Restrict by article metadata)

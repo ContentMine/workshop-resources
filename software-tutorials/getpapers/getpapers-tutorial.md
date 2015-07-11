@@ -21,6 +21,8 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 [7. Complex queries for IEEE](#Complex queries for IEEE)
 
+[8. Summary](#Summary)
+
 
 ### Installation
 
@@ -57,8 +59,6 @@ A basic query consists of free text, without any further specification. This que
 
 A minimum query consists of ```-q 'query terms' -o outdirectory```. 
 
-```$ getpapers -q 'molecuar biology' -o test```
-
 We will now compare the results of a query for *dinosaurs* on EuropePMC, IEEE and ArXiv.
 
 ```bash
@@ -67,7 +67,7 @@ $ getpapers -q 'dinosaurs' --api ieee -o test_ieee
 $ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv
 ```
 
-getpapers now queries each API for "dinosaur biology" and stores the results in separate folders. We can look into the files of each folder with ls folder, e.g.
+getpapers now queries each API for "dinosaur biology" and stores the results in separate folders. We can look into the files of each folder with ```ls folder```, e.g.
 
 ```bash
 $ ls test_eupmc/
@@ -87,7 +87,7 @@ $ tail -5 test_eupmc/fulltext_html_urls.txt
 # prints the last 10/5 lines
 ```
 
-We can also see how many fulltext results we may get by counting the lines of the fulltext_html_urls.txt with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltext is found, in this case there is no fulltext_html_urls.txt created.
+We can also see how many fulltext results we may get by counting the lines of the fulltext_html_urls.txt with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltexts are found, in which case no fulltext_html_urls.txt is created.
 
 ```bash
 $ wc -l test_eupmc/fulltext_html_urls.txt
@@ -96,7 +96,8 @@ $ wc -l test_arxiv/fulltext_html_urls.txt
 ```
 
 At this point you can use the urls.txt as input for [quickscrape](../quickscrape), but for the moment we'll continue exploring getpapers.
-The other file the simple query returns is called *apiname*_results.json ([JSON?](https://en.wikipedia.org/wiki/JSON)). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {attribute:value}-format, using cat produces many lines of not very readable output. But we can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the word.
+
+The other file a simple query returns is called *apiname*_results.[json](https://en.wikipedia.org/wiki/JSON). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {attribute:value}-format. Using cat produces many lines of not very readable output. We can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the search word.
 
 ```bash
 $ grep dinosaur test_eupmc/eupmc_results.json
@@ -112,7 +113,7 @@ These tools are useful in getting some first idea of the content of files, but C
 
 ### Getting pdfs and other files
 
-PDF files can be retrieved by adding a ```-p``` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with ```Ctrl+C``` in the command line.
+Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a ```-p``` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with ```Ctrl+C``` in the command line.
 
 ```bash
 $ getpapers -q 'dinosaurs' --api eupmc -o test_eupmc -p
@@ -133,7 +134,7 @@ test_eupmc
 ├─ ...
 ```
 
-Since not all queries returned PDFs, we now try another query with ```-x``` for xml-results.
+Not all queries returned PDFs, we now try another query with ```-x``` for xml-results. The 
 
 
 ```bash
@@ -232,18 +233,27 @@ Note that "quantum physics" has been grouped into a single phrase by double quot
 ### Complex queries for IEEE
 
 
-The IEEE query format is loosely documented at [IEEE Xplore Gateway](http://ieeexplore.ieee.org/gateway/). In general, anything that works in the website search will also work in `getpapers` with the `--api ieee` option enabled.
+IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downloadable (though we're working on it). `getpapers` will output metadata for the search results, and will attempt to reconstruct the fulltext HTML URLs for any papers that have fulltext HTML.
 
-Note that IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downloadable (though we're working on it). `getpapers` will output metadata for the search results, and will attempt to reconstruct the fulltext HTML URLs for any papers that have fulltext HTML.
-
-As with the other APIs, any search is automatically restricted to Open Access papers.
+A selection of options is described [here](getpapers-ieee-queries.md) and the complete IEEE query format is loosely documented at [IEEE Xplore Gateway](http://ieeexplore.ieee.org/gateway/). In general, anything that works in the website search will also work in `getpapers` with the `--api ieee` option enabled. As with the other APIs, any search is automatically restricted to Open Access papers. 
 
 ```
 $ getpapers -q 'dinosaurs' --api ieee -o test_ieee
 ```
 
-
+Search for papers containing the phrase ```mining``` in the abstract, and which appear between 2010 and 2014:
 ```
-$ getpapers -q 'dinosaurs' --api ieee -o test_ieee
+$ getpapers -q 'ab=mining pys=2010 pye=2014' --api ieee -o test_ieee
 ```
 
+Search for papers containing the phrase ```mining```, filtered for the content type "Conferences" and returning 500 results per page:
+```
+$ getpapers -q 'ti=mining ctype=Conferences hc=500' --api ieee -o test_ieee
+```
+
+## Summary
+
+* A minimum query consists of ```getpapers -q "query terms" -o outdir``` and returns only metadata.
+* Use ```-x``` for fulltext results, because XML-files provide better mining results in later stages of the tool chain.
+* Unless you use ```-a```, only Open Access papers will be returned.
+* Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))

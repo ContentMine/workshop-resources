@@ -1,5 +1,3 @@
-
-
 [Official documentation](http://ieeexplore.ieee.org/gateway/)
 
 ### Search in Fields 
@@ -22,6 +20,7 @@
 | md	| Terms to search for in all configured metadata fields and abstract. Accepts complex queries involving field names and boolean operators. |
 | querytext	| Terms to search for in all configured metadata fields, abstract and document text. Accepts complex queries involving field names and boolean operators. |
 
+
 ### Filtering parameters
 
 | parameter	| description	|
@@ -33,3 +32,8 @@
 | pu	| Publisher. One of: IEEE/AIP/IET/AVS/IBM |
 | ctype	| Content Type. One of: Conferences/Journals/Books/Early Access/Standards/Educational Courses |
 
+### Paging parameters
+
+| parameter	| description	|
+|-----------|---------------|
+| hc	| Number of records to fetch. Default: 25; Maximum: 1000 |
