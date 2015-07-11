@@ -193,16 +193,29 @@ We combined two restrictions using the logical `OR` keyword. We can also use `AN
 $ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
-Here are some other examples, combined from the [documentation](getpapers-eupmc-queries.md):
+Some more examples, combined from the [documentation](getpapers-eupmc-queries.md):
 
+Here we query for papers which contain the phrase "dinosaur" in the introduction section and the phrase "survey" in the methods section.
 ```
 $ getpapers -q 'INTRO:"dinosaur" AND METHODS:"survey"' --api eupmc -o test_eupmc
 ```
 
+Here we query for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell".
 ```
 $ getpapers -q 'AUTH:"Smith" AND (JOURNAL:"biology" OR JOURNAL:"cell")' --api eupmc -o test_eupmc
 ```
 
+Here we query for papers that contain dinosaur and were published between 2010 and 2012.
+```
+$ getpapers -q 'TITLE:dinosaur AND PUB_YEAR:[2010 TO 2012]' --api eupmc -o test_eupmc
+```
+
+Here we query for papers that contain dinosaur in the title and were published between July 2009 and June 2013.
+```
+$ getpapers -q 'TITLE:dinosaur AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' --api eupmc -o test_eupmc
+```
+
+Here we query for papers where the European Research Council (ERC) is mentioned in the acknowledgements section.
 ```
 $ getpapers -q 'ACK_FUND:ERC' --api eupmc -o test_eupmc
 ```
@@ -218,11 +231,12 @@ $ getpapers -q 'abs:dinosaurs' --api arxiv -o test_arxiv
 
 Queries may be combined with boolean operators ```AND, OR, ANDNOT```. ANDNOT is a particularly helpful operator, it excludes results that contain a phrase, and therefore works as a filter.
 
-
+Search for papers that contain dinosaurs in the abstract, but not physics in any search field.
 ```
 $ getpapers -q 'abs:dinosaurs ANDNOT all:physics' --api arxiv -o test_arxiv
 ```
 
+Search for papers that contain dinosaurs in the abstract, but neither "quantum physics" or "biology" in any search field (yes, those combinations exist!)
 ```
 $ getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --api arxiv -o test_arxiv
 ```
