@@ -134,7 +134,7 @@ test_eupmc
 ├─ ...
 ```
 
-Not all queries returned PDFs, we now try another query with `-x` for xml-results. The 
+Not all queries returned PDFs, we now try another query with `-x` for xml-results. In contrast to PDF, XML is a format that machines can understand well, and XML enables better mining results further down the pipeline.
 
 
 ```bash
@@ -195,9 +195,9 @@ $ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' -
 
 Some more examples, combined from the [documentation](getpapers-eupmc-queries.md):
 
-Search for papers which contain the phrase "dinosaur" in the introduction section and the phrase "survey" in the methods section.
+Search for papers which contain the phrase "dinosaurs" in the introduction section and the phrase "survey" in the methods section.
 ```bash
-$ getpapers -q 'INTRO:"dinosaur" AND METHODS:"survey"' --api eupmc -o test_eupmc
+$ getpapers -q 'INTRO:"dinosaurs" AND METHODS:"survey"' --api eupmc -o test_eupmc
 ```
 
 Search for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell".
@@ -205,14 +205,14 @@ Search for papers where the authors contain "Smith" and which were published in 
 $ getpapers -q 'AUTH:"Smith" AND (JOURNAL:"biology" OR JOURNAL:"cell")' --api eupmc -o test_eupmc
 ```
 
-Search for papers that contain "dinosaur" and were published between 2010 and 2012.
+Search for papers that contain "dinosaurs" in the abstract and were published between 2010 and 2012.
 ```bash
-$ getpapers -q 'TITLE:dinosaur AND PUB_YEAR:[2010 TO 2012]' --api eupmc -o test_eupmc
+$ getpapers -q 'ABSTRACT:dinosaurs AND PUB_YEAR:[2010 TO 2012]' --api eupmc -o test_eupmc
 ```
 
-Search for papers that contain "dinosaur" in the title and were published between July 2009 and June 2013.
+Search for papers that contain "dinosaur" in the title and were first published between July 2009 and June 2013.
 ```bash
-$ getpapers -q 'TITLE:dinosaur AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' --api eupmc -o test_eupmc
+$ getpapers -q 'TITLE:dinosaurs AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' --api eupmc -o test_eupmc
 ```
 
 Search for papers where the European Research Council ("ERC") is mentioned in the acknowledgements section.
@@ -225,6 +225,7 @@ $ getpapers -q 'ACK_FUND:ERC' --api eupmc -o test_eupmc
 
 ArXiv has a nice, clearly defined format. Queries can target individual fields of the articles records. A selection possible search fields is explained [here](getpapers-arxiv-queries.md), and a complete documentation of possible queries is provided by [ArXiv](http://arxiv.org/help/api/user-manual). 
 
+Search for papers that contain "dinosaurs" in the abstract.
 ```bash
 $ getpapers -q 'abs:dinosaurs' --api arxiv -o test_arxiv
 ```
@@ -260,9 +261,9 @@ Search for papers containing the phrase "mining" in the abstract, and which appe
 $ getpapers -q 'ab=mining pys=2010 pye=2014' --api ieee -o test_ieee
 ```
 
-Search for papers containing the phrase "mining", filtered for the content type "Conferences" and returning 500 results per page:
+Search for papers containing the phrase "mining" in the title and filtered for the content type "Conferences":
 ```bash
-$ getpapers -q 'ti=mining ctype=Conferences hc=500' --api ieee -o test_ieee
+$ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 ```
 
 ## Summary

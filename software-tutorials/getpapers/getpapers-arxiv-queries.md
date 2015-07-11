@@ -1,4 +1,4 @@
-[Official documentation](http://ieeexplore.ieee.org/gateway/)
+[Official documentation](http://arxiv.org/help/api/user-manual)
 
 ### Restrict by fields
 
@@ -26,5 +26,5 @@ ANDNOT	# logical "exclude"
 
 | operator 	| description	|
 |-----------|---------------|
-| () | Used to group Boolean expressions for Boolean operator precedence. |
-| double quotes "" | Used to group multiple words into phrases to search a particular field. |
+| `()` | Used to group Boolean expressions for Boolean operator precedence. |
+| `""` double quotes | Used to group multiple words into phrases to search a particular field. |
