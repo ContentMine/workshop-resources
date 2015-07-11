@@ -193,7 +193,7 @@ We combined two restrictions using the logical `OR` keyword. We can also use `AN
 $ getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o test_eupmc
 ```
 
-Here are some other examples, combined from the [summary](getpapers-eupmc-queries.md):
+Here are some other examples, combined from the [documentation](getpapers-eupmc-queries.md):
 
 ```
 $ getpapers -q 'INTRO:"dinosaur" AND METHODS:"survey"' --api eupmc -o test_eupmc
@@ -257,3 +257,9 @@ $ getpapers -q 'ti=mining ctype=Conferences hc=500' --api ieee -o test_ieee
 * Use ```-x``` for fulltext results, because XML-files provide better mining results in later stages of the tool chain.
 * Unless you use ```-a```, only Open Access papers will be returned.
 * Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
+
+## Next Steps
+
+* Continue to [quickscrape](../quickscrape-tutorial.md) for an introduction to scraping.
+* Continue to [norma](../norma-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../ctree-introduction.md) for an introduction of the main datastructure.
