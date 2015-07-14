@@ -7,21 +7,21 @@ getpapers is together with [quickscrape](quickscrape.md) one of the entry points
 
 This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
 
-[1. Installation](#Installation)
+[1. Installation](#installation)
 
-[2. Usage](#Usage)
+[2. Usage](#usage)
 
-[3. Construct a simple query and compare results](#Construct-a-simple-query-and-compare-results)
+[3. Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
 
-[4. Getting pdfs and other files](#Getting-pdfs-and-other-files)
+[4. Getting pdfs and other files](#getting-pdfs-and-other-files)
 
-[5. Complex queries for EPMC](#Complex-queries-for-EPMC)
+[5. Complex queries for EPMC](#complex-queries-for-epmc)
 
-[6. Complex queries for ArXiv](#Complex-queries-for-ArXiv)
+[6. Complex queries for ArXiv](#complex-queries-for-arxiv)
 
-[7. Complex queries for IEEE](#Complex queries for IEEE)
+[7. Complex queries for IEEE](#complex-queries-for-ieee)
 
-[8. Summary](#Summary)
+[8. Summary](#summary)
 
 
 ### Installation
