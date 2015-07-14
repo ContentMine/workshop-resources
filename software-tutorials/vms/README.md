@@ -2,7 +2,7 @@
 
 ## What is it, and why do you use it?
 
-A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). In our case it is a Linux-based [Debian distribution](https://www.debian.org/). The user interface may appear quite different on the first view, and we provide information how to navigate and use it [here](using_contentmine_vm.md).
+A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). In our case it is a Linux-based [Debian distribution](https://www.debian.org/). The user interface may appear quite different on the first view, and we provide information how to navigate and use it [here](# Working in the ContentMine virtual machine).
 
 We use virtual machines (VMs) in order to carry out hands-on exercises using the ContentMine software. This allows all attendees to run the software without having to modify their own systems. The ContentMine tool chain requires external software and third party tools, the setup of which is not trivial on some operating systems and takes time and effort (e.g. node.js, the right java version, latex2html,...). We therefore offer the virtual machine as a **pre-configured environment**, which can be guaranteed to work. This allows us to quickly and smoothly get content mining, with a mininum of fuss.
 
@@ -33,7 +33,7 @@ Please download the `direct link` for the virtual image corresponding to the rel
 
 When the file has downloaded, double-clicking it should open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 
-When this is done, you're ready to start [exploring the VM](using_contentmine_vm.md)!
+When this is done, you're ready to start [exploring the VM](../../../resources/images/software/vms/using_contentmine_vm.md)!
 
 ### Troubleshooting
 
@@ -63,13 +63,13 @@ This is a list of ContentMine virtual machines, with descriptions, in reverse da
 
 ### 1. Starting
 
-After installing the vm ([see here](installation_instructions.md)), you can start the machine from the VirtualBox interface. Choose the image called ContentMine-VM and click the "Start" button.
+After installing the vm ([see here](# Installation Instructions)), you can start the machine from the VirtualBox interface. Choose the image called ContentMine-VM and click the "Start" button.
 
-![Start the vm](images/starting-vm.png)
+![Start the vm](../../../resources/images/software/vms/starting-vm.png)
 
 After a few seconds you land on the desktop.
 
-![CM vm desktop](images/desktop.png)
+![CM vm desktop](../../../resources/images/software/vms/desktop.png)
 
 You can shut down the vm by right click and then "Exit", and "Power off".
 
@@ -78,7 +78,7 @@ You can shut down the vm by right click and then "Exit", and "Power off".
 Everything starts with a right click from here. If you want to visually navigate through the folders on the machine, right-click on the desktop and select "File Manager". There is also a browser included, which can be opened with right-click and "Web Browser".
 The ContentMine pipeline is controlled from the **command line interface**, which can be opened with right-click and "Terminal". This opens a text-based interface, from where we can navigate folders, look into files, and interact with the ContentMine software.
 
-![Terminal](images/terminal.png)
+![Terminal](../../../resources/images/software/vms/terminal.png)
 
 You can maximize it to fullscreen by double clicking on the title bar.
 
@@ -107,29 +107,29 @@ In general: autocompletion with 'tab' may save you a lot of typing.
 
 **ls**: **l**i**s**ts files and directories, takes the current working directory as root. You can also look into the content of nested directories by simply extending the path ```ls dir/nested_dir/nested_dir2```.
 
-![ls](images/ls.png)
+![ls](../../../resources/images/software/vms/ls.png)
 
 **cd**: **c**hange **d**irectory, moves the working directory location to the target location. You can move laterally between folders on the same level with ```cd ../new_location```. You can also move up in the directory hierarchy with ```cd ..```. If you want to navigate to an absolute path, you have to start with a slash "/", ```cd /home/workshop/workshop/absolute_path```.
 
-![cd](images/cd.png)
+![cd](../../../resources/images/software/vms/cd.png)
 
 **mkdir**: **m**a**k**e **dir**ectory: creates a new directory
 
-![mkdir](images/mkdir.png)
+![mkdir](../../../resources/images/software/vms/mkdir.png)
 
 **mv**: **m**o**v**es files and directories from the first location to the second. You can move them further down into already existing directories, but also up with ```mv dir ../higher_dir```, and into the current directory with ```mv lower_dir ./new_lower_dir```.
 
 mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_filename.txt```.
 
-![mv](images/mv.png)
+![mv](../../../resources/images/software/vms/mv.png)
 
 **cp**: **c**o**p**ies files from the first location to the second. If you want to copy a folder, you have to use ```cp -r source_dir target_dir``` where ```-r``` stands for recursive.
 
-![cp](images/cp.png)
+![cp](../../../resources/images/software/vms/cp.png)
 
 **rm**: **r**e**m**oves the specified file. If you want to remove a directory, use ```rm -r dir``` but make sure you want this.
 
-![rm](images/rm.png)
+![rm](../../../resources/images/software/vms/rm.png)
 
 ## Getting started with content mining
 
