@@ -3,7 +3,7 @@
 ## What is getpapers?
 <!-- (describe core functionality) -->
 
-`getpapers` is together with [quickscrape](../../quickscrape/quickscrape-tutorial.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
+`getpapers` is together with [quickscrape](../quickscrape/quickscrape-tutorial.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
 
 This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
 
@@ -95,7 +95,7 @@ $ wc -l test_ieee/fulltext_html_urls.txt
 $ wc -l test_arxiv/fulltext_html_urls.txt
 ```
 
-At this point you can use the urls.txt as input for [quickscrape](../quickscrape), but for the moment we'll continue exploring getpapers.
+At this point you can use the urls.txt as input for [quickscrape](../quickscrape/quickscrape-tutorial.md#scraping), but for the moment we'll continue exploring getpapers.
 
 The other file a simple query returns is called *apiname*_results.[json](https://en.wikipedia.org/wiki/JSON). This is a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {attribute:value}-format. Using cat produces many lines of not very readable output. We can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the search word.
 
@@ -162,10 +162,6 @@ test_eupmc
 This is the beginning of the [ctree](../ctree/ctree-overview.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
 
 ### Complex queries for EPMC
-
-<!-- Important to demonstrate EPMC filters fairly extensively, to build confidence e.g. JOURNAL:”PNAS” , FIRST_PDATE:[YYYY-MM-DD TO YYYY-MM-DD] 
-permitted boolean operators etc…
-‘dinosaurs’ turns out to be a nice query that gives a reasonably low number of results across IEEE, arXiv and EPMC (I think). Fun to read how the string ‘dinosaurs’ is used in IEEE papers! -->
 
 Queries are processed by EuropePMC. In their simplest form, they can be free text, like this:
 
@@ -275,6 +271,6 @@ $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 * Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
 **Next steps**
-* Continue to [quickscrape](../../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
-* Continue to [norma](../../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../../ctree/ctree-introduction.md) for an introduction of the main datastructure.
+* Continue to [quickscrape](../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
+* Continue to [norma](../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../ctree/ctree-overview.md) for an introduction of the main datastructure.

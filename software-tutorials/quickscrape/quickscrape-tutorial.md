@@ -2,7 +2,7 @@
 
 ## What is quickscrape?
 
-`quickscrape` is together with [getpapers](../../getpapers/getpapers-tutorial.md) one of the entry points of the ContentMine pipeline. quickscrape is not like other scraping tools. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
+`quickscrape` is together with [getpapers](../getpapers/getpapers-tutorial.md) one of the entry points of the ContentMine pipeline. quickscrape is not like other scraping tools. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
 
 [1. Installation](#installation)
 
@@ -22,7 +22,7 @@ $ npm install --global quickscrape
 
 ### Scraper definitions
 
-**Quickscrape is not complete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../../journal-scrapers/journal-scrapers-tutorial.md).
+**Quickscrape is not complete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/journal-scrapers-tutorial.md).
 
 You can download the newest scraper definitions with this command:
 ```bash
@@ -69,7 +69,7 @@ peerj-384/
 1 directory, 5 files
 ```
 
-In the next example we take the output we get from a [basic getpapers query](../../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers.
+In the next example we take the output we get from a [basic getpapers query](../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers.
 
 ```bash
 $ tree test_eupmc
@@ -121,6 +121,6 @@ This is one of the starting points for a [ctree](../ctree-introduction.md), the 
 * The result will be a collection of folders, containing 
 
 **Next steps**
-* Continue to [journal-scrapers](../../journal-scrapers/journal-scrapers-tutorial.md) if you want to define your own scraper.
-* Continue to [norma](../../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../../ctree/ctree-introduction.md) for an introduction of the main datastructure.
+* Continue to [journal-scrapers](../journal-scrapers/journal-scrapers-tutorial.md) if you want to define your own scraper.
+* Continue to [norma](../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../ctree/ctree-overview.md) for an introduction of the main datastructure.
