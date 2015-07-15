@@ -274,6 +274,7 @@ $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 * Unless you use `-a`, only Open Access papers will be returned.
 * Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
+**Next steps**
 * Continue to [quickscrape](../../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
 * Continue to [norma](../../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
 * Continue to [ctree](../../ctree/ctree-introduction.md) for an introduction of the main datastructure.
