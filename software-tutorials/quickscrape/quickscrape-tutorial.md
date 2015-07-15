@@ -38,19 +38,34 @@ There are two possible inputs for quickscrape, a single url, or list of urls. Th
 * with more to come.
 
 ```bash
-$ quickscrape -u url -s journal-scrapers/scrapers/scraper.json -o test
+$ quickscrape -u url -s journal-scrapers/scrapers/scraper.json -o test_folder
 ```
 
 The scraper you use should correspond the to URL you provide, e.g.
 
 ```bash
 quickscrape \
-  --url https://peerj.com/articles/384 \
-  --scraper journal-scrapers/scrapers/peerj.json \
-  --output peerj-384
+  -u https://peerj.com/articles/384 \
+  -s journal-scrapers/scrapers/peerj.json \
+  -o peerj-384
 ```
 
-In this example we take the output we get from a basic getpapers query, e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers.
+![quickscrape-url](../../../resources/images/software/quickscrape/quickscrape-url.pnd)
+
+```bash
+$ tree peerj-384/
+peerj-384/
+└── https_peerj.com_articles_384
+    ├── fig-1-full.png
+    ├── fulltext.html
+    ├── fulltext.pdf
+    ├── fulltext.xml
+    └── results.json
+
+1 directory, 5 files
+```
+
+In the next example we take the output we get from a [basic getpapers query](../../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers.
 
 ```
 test_eupmc
@@ -64,8 +79,9 @@ We now take the fulltext_html_urls.txt as input for quickscrape:
 $ quickscrape -r test_eupmc/fulltext_html_urls.txt -d journal-scrapers/scrapers/ -o test_eupmc
 ```
 
-Quickscrape now creates a subfolder for each searchresult, describing the article source, a fulltext.html with the scraping results, and a results.json containing metadata of the article, e.g. authors, title, abstract and bibliographic data. It may include other files such as 
+Quickscrape now creates a subfolder for each searchresult, describing the article source, a fulltext.html with the scraping results, and a results.json containing metadata of the article, e.g. authors, title, abstract and bibliographic data. It may include other files such as fulltext PDFs, fulltext XMLs, or scraped images.
 ```
+$ tree test_eupmc
 test_eupmc
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
@@ -73,13 +89,20 @@ test_eupmc
 │   ├── fulltext.html
 │   └── results.json
 ├── http_europepmc.org_articles_PMC1234568
-│   ├── fulltext.html
-│   ├── fulltext.html
-│   ├── fulltext.pdf
-│   ├── fulltext.xml
-│   ├── results.json
-│   └── results.json
+│   ├── fig-1-full.png
+│   ├── fig-2-full.png
+│   ├── fulltext.html
+│   ├── fulltext.pdf
+│   ├── fulltext.xml
+│   └── results.json
 ├── ...
+...
+└── http_europepmc.org_articles_PMC4448809
+    ├── fulltext.html
+    ├── fulltext.pdf
+    └── results.json
+
+19 directories, 43 files
 
 ```
 
@@ -90,8 +113,9 @@ This is one of the starting points for a [ctree](../ctree-introduction.md), the 
 
 * A minimum query consists of a URL (or URL-list) and the path to a specific scraper (or a folder containing scraper definitions).
 * Please be a respectful and responsible miner and apply a reasonable rate limit `-r` (recommended between 3 and 6).
-* The result will be a collection of folders, 
+* The result will be a collection of folders, containing 
 
+**Next steps**
 * Continue to [journal-scrapers](../../journal-scrapers/journal-scrapers-tutorial.md) if you want to define your own scraper.
 * Continue to [norma](../../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
 * Continue to [ctree](../../ctree/ctree-introduction.md) for an introduction of the main datastructure.
