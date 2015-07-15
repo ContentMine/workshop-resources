@@ -24,7 +24,7 @@ $ npm install --global quickscrape
 
 ### Scraper definitions
 
-**Quickscrape is not complete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/journal-scrapers-tutorial.md).
+**Quickscrape is incomplete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/journal-scrapers-tutorial.md).
 
 You can download the newest scraper definitions with this command:
 ```bash
@@ -54,7 +54,7 @@ $ quickscrape -u url -s journal-scrapers/scrapers/scraper.json -o test_folder
 The scraper you use should correspond the to URL you provide, if none is available, choose `generic_open.json`.
 
 ```bash
-quickscrape \
+$ quickscrape \
   --url https://peerj.com/articles/384 \
   --scraper journal-scrapers/scrapers/peerj.json \
   --output peerj-384
@@ -79,7 +79,7 @@ peerj-384/
 
 #### getpapers URL-lists
 
-In the next example we take the output we get from a [basic getpapers query](../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A **valid list of URLs** is a textfile with exactly one valid URL per line. A **valid URL** is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
+In the next example we take the output we get from a [basic getpapers query](../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
 
 ```bash
 $ tree test_eupmc
@@ -127,14 +127,15 @@ test_eupmc
 
 ### Other sources
 
-From other searches or citation data you may have a list of DOIs, such as `https://dx.doi.org/10.7717/peerj.384`. This is not a valid URL input for quickscrape. You must first resolve the DOI, which in this case leads to [https://dx.doi.org/10.7717/peerj.384](https://dx.doi.org/10.7717/peerj.384) the same landing page as before. Other examples are [http://dx.doi.org/10.4103%2F1817-1745.131497](http://dx.doi.org/10.4103%2F1817-1745.131497) which leads to the [article on pediatricneurosciences.com](http://www.pediatricneurosciences.com/article.asp?issn=1817-1745;year=2014;volume=9;issue=1;spage=79;epage=81;aulast=Vitaliti), or [http://dx.doi.org/10.1074%2Fmcp.M111.014167](http://dx.doi.org/10.1074%2Fmcp.M111.014167) which leads to the [article on MCPOnline.org](http://www.mcponline.org/content/11/7/M111.014167). It is important to distinguish between the DOI and the landing page. **Content can only be scraped from the landing page.**
+
+From other searches or citation data you may have a list of DOIs ([Digital Object Identifier](https://en.wikipedia.org/wiki/Digital_object_identifier)), such as `https://dx.doi.org/10.7717/peerj.384`. This is not a valid URL input for quickscrape. You must first resolve the DOI, in this case [https://dx.doi.org/10.7717/peerj.384](https://dx.doi.org/10.7717/peerj.384) leads to [https://peerj.com/articles/384/](https://peerj.com/articles/384/). Other examples are [http://dx.doi.org/10.4103%2F1817-1745.131497](http://dx.doi.org/10.4103%2F1817-1745.131497) which leads to the [article on pediatricneurosciences.com](http://www.pediatricneurosciences.com/article.asp?issn=1817-1745;year=2014;volume=9;issue=1;spage=79;epage=81;aulast=Vitaliti), or [http://dx.doi.org/10.1074%2Fmcp.M111.014167](http://dx.doi.org/10.1074%2Fmcp.M111.014167) which leads to the [article on MCPOnline.org](http://www.mcponline.org/content/11/7/M111.014167). It is important to distinguish between the DOI and the landing page. **Content can only be scraped from the landing page.**
 
 
-## Summary and next steps
+### Summary and next steps
 
 * A minimum query consists of a URL (or URL-list) and the path to a specific scraper (or a folder containing scraper definitions).
-* Please be a respectful and responsible miner and apply a reasonable rate limit `-r` (recommended between 3 and 6).
-* The result will be a collection of folders, containing 
+* Please be a respectful and responsible miner and apply a reasonable rate limit `-r` (recommended between 3 and 6 scrapes per minute).
+* The result will be a collection of [ctrees](../ctree/ctree-overview.md) containing fulltexts in various formats (PDF, XML), a results.json with metadata, and possibly images.
 
 **Next steps**
 * Continue to [journal-scrapers](../journal-scrapers/journal-scrapers-tutorial.md) if you want to define your own scraper.

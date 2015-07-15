@@ -261,7 +261,7 @@ Search for papers containing the phrase "mining" in the title and filtered for t
 $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 ```
 
-## Summary and next steps
+### Summary and next steps
 
 * A minimum query consists of `getpapers -q "query terms" -o outdir` and returns only metadata.
 * Use `-x` for machine-readable fulltext results, because XML-files provide better mining results in later stages of the tool chain.
