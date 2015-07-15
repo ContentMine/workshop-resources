@@ -50,7 +50,7 @@ quickscrape \
   -o peerj-384
 ```
 
-![quickscrape-url](../../../resources/images/software/quickscrape/quickscrape-url.pnd)
+![quickscrape-url](../../../resources/images/software/quickscrape/quickscrape-url.png)
 
 ```bash
 $ tree peerj-384/
