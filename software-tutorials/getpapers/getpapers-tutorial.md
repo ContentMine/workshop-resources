@@ -3,7 +3,7 @@
 ## What is getpapers?
 <!-- (describe core functionality) -->
 
-getpapers is together with [quickscrape](quickscrape.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
+`getpapers` is together with [quickscrape](../../quickscrape/quickscrape-tutorial.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
 
 This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
 
@@ -21,7 +21,7 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 [7. Complex queries for IEEE](#complex-queries-for-ieee)
 
-[8. Summary](#summary)
+[8. Summary and next steps](#summary-and-next-steps)
 
 
 ### Installation
@@ -266,7 +266,7 @@ Search for papers containing the phrase "mining" in the title and filtered for t
 $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 ```
 
-## Summary
+## Summary and next steps
 
 * A minimum query consists of `getpapers -q "query terms" -o outdir` and returns only metadata.
 * Use `-x` for machine-readable fulltext results, because XML-files provide better mining results in later stages of the tool chain.
@@ -274,8 +274,6 @@ $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 * Unless you use `-a`, only Open Access papers will be returned.
 * Each API has a different query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
-## Next Steps
-
-* Continue to [quickscrape](../quickscrape-tutorial.md) for an introduction to scraping.
-* Continue to [norma](../norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../ctree-introduction.md) for an introduction of the main datastructure.
+* Continue to [quickscrape](../../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
+* Continue to [norma](../../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../../ctree/ctree-introduction.md) for an introduction of the main datastructure.
