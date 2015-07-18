@@ -180,7 +180,7 @@ dinosaurs-htmls/
 
 ![pdf2txt](../../resources/images/software/norma/pdf2txt.png)
 
-If you have an existing collection of PDFs, norma can apply some normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you `cd`` into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
+If you have an existing collection of PDFs, norma can apply some normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you change into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
 
 ```
 $ cd dinosaur-pdfs
