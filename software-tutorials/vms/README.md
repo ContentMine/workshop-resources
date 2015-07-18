@@ -134,5 +134,7 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 ## Getting started with content mining
 
 Follow tutorials in our workshop repo for:
-* [quickscrape](https://github.com/ContentMine/workshops/tree/master/sessions/demo_scraping)
+* [getpapers](../getpapers/getpapers-tutorial.md) if you want to search in scientific literature.
+* [quickscrape](../quickscrape/quickscrape-tutorial.md) if you want to scrape webpages.
+* [norma](../norma/norma-tutorial.md) if you already have PDFs, XMLs or HTMLs and want to normalize them to a standardized format.
 * [AMI](https://github.com/ContentMine/workshops/tree/master/sessions/demo_ami)
