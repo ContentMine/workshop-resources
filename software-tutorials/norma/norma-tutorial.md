@@ -15,11 +15,11 @@ Now we will trace the path through norma for three use cases:
 
 [1. Installation](#installation)
 
-[2. XML to sHTML](#xml-to-shtml)
+[2. getpapers: XML to sHTML](#xml-to-shtml)
 
-[3. HTML to sHTML](#html-to-shtml)
+[3. quickscrape: HTML to sHTML](#html-to-shtml)
 
-[4. PDF collections to TXT](#pdf-collections-to-txt)
+[4. experimental: PDF collections to TXT](#pdf-collections-to-txt)
 
 [5. Summary and next steps](#summary-and-next-steps)
 
