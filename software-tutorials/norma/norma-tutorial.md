@@ -128,7 +128,7 @@ dinosaurs-htmls/
 ...
 ```
 
-We first need to tidy up the `fulltext.html`-files. For this we pass the project folder with `-q`, specify input and output files with `-i` and `-o` and use `--html jsoup` for cleaning the html.
+We first need to tidy up the `fulltext.html`-files, since not all html-files may be *well-formed* in the sense of conforming to the [W3C-standard](http://www.w3.org/TR/html5/). This is necessary for documents to be parseable. There are some tools that try to ensure well-formedness of a document. For this we pass the project folder with `-q`, specify input and output files with `-i` and `-o` and use `--html jsoup` for cleaning up the html.
 ```bash
 $ norma \
     -q dinosaurs-htmls \
@@ -156,7 +156,7 @@ dinosaurs-htmls/
 ...
 ```
 
-We perform the final transformation to shtml with a specific transformation, which requires specific html-styles for each publisher. At the moment only one is available for testing purposes.
+The final step removes content we do not want or need, such as publisher's related material, or social media feeds. This requires specific html-styles for each publisher, at the moment only one is available for testing purposes.
 ```bash
 $ norma \
     -q dinosaurs-htmls/ \
