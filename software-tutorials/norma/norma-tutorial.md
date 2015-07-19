@@ -21,7 +21,7 @@ Now we will trace the path through norma for three use cases:
 
 [4. experimental: PDF collections to TXT](#pdf-collections-to-txt)
 
-[5. Summary and next steps](#summary-and-next-steps)
+[5. Next steps](#next-steps)
 
 
 ### Installation
@@ -265,8 +265,7 @@ dinosaurs-pdfs/
 ```
 
 
-### Summary and next steps
-
+### Next steps
 
 
 **Next steps**
