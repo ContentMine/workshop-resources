@@ -192,9 +192,12 @@ dinosaurs-htmls/
 
 This is still in an experimental stage. It works, but the output is not very clean and not ready for further preprocessing. But if you want to extract the *raw content* of a PDF, this is possible here.
 
-![pdf2txt](../../resources/images/software/norma/pdf2txt.png)
-
 PDF is a notoriously bad format for automatic processing. While understandable for the human reader, PDF is a real obstacle for content mining. This lies in the nature of the document, which - from a machine's perspective - is essentially a 2-dimensional plane with symbols on it. The only information that a machine readily knows about any symbol is it's x- and y-location on the plane. Meaning, relations with other symbols, or logical concepts are not present in a PDF and have to be constructed by input from the outside.
+
+
+**Overview**
+
+![pdf2txt](../../resources/images/software/norma/pdf2txt.png)
 
 If you have an existing collection of PDFs, norma can apply some simple normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you change into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
 
