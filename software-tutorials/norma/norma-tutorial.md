@@ -81,8 +81,8 @@ $ norma \
 If a `scholarly.html`-file has been added to each ctree, norma was succesful.
 
 ```bash
-$ tree dinosaurs
-dinosaurs/
+$ tree dinosaurs-xmls
+dinosaurs-xmls/
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
 ├── PMC3893193
@@ -114,7 +114,7 @@ $ quickscrape \
 
 getpapers creates a project folder again containing ctrees. The metadata files are now within each ctree.
 ```bash
-$ tree dinosaurs-html
+$ tree dinosaurs-htmls
 dinosaurs-htmls/
 ├── http_europepmc.org_articles_PMC2214819
 │   ├── fulltext.html
@@ -131,7 +131,7 @@ dinosaurs-htmls/
 We first need to tidy up the `fulltext.html`-files. For this we pass the project folder with `q`, specify input and output files with `-i and `-o` and use `--html jsoup` for cleaning the html.
 ```bash
 $ norma \
-    -q dinosaurs-html \
+    -q dinosaurs-htmls \
     -i fulltext.html \
     -o fulltext.xhtml \
     --html jsoup
