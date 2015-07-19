@@ -128,7 +128,7 @@ dinosaurs-htmls/
 ...
 ```
 
-We first need to tidy up the `fulltext.html`-files. For this we pass the project folder with `q`, specify input and output files with `-i and `-o` and use `--html jsoup` for cleaning the html.
+We first need to tidy up the `fulltext.html`-files. For this we pass the project folder with `-q`, specify input and output files with `-i` and `-o` and use `--html jsoup` for cleaning the html.
 ```bash
 $ norma \
     -q dinosaurs-htmls \
