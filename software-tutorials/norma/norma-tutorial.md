@@ -6,7 +6,7 @@ Scientific literature is vast, and their representations are as manifold as thei
 
 norma offers a web of paths between three different input streams (an API-query from [getpapers](../getpapers/getpapers-tutorial.md), a URL-scrape from [quickscrape](../quickscrape-tutorial.md), and an existing collection of PDFs), and three different outputs (a collection of sHTML-files, ). The goal is to create a scholarly HTML-file for each source document, in order to run search and retrieve tools ([ami](../ami/ami-tutorial.md) or [cat](../cat/cat-tutorial.md)). We will learn how to compare and validate the output of norma in the tutorial for [scholarly HTML](../sHTML/sHTML-overview.md).
 
-[!normasmall0](../../resources/images/software/norma/normasmall0.png)
+![normasmall0](../../resources/images/software/norma/normasmall0.png)
 
 Here we will trace the path through norma for three use cases:
 * normalizing search results from getpapers towards sHTML
@@ -31,7 +31,7 @@ norma can be installed from the latest `.deb`-file on [link missing](404)
 
 ### XML to sHTML
 
-[!normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
+![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
 
 ![xml2shtml](../../resources/images/software/norma/xml2shtml.png)
 
@@ -83,7 +83,7 @@ dinosaurs/
 
 ### HTML to sHTML
 
-[!normahtml2shtml](../../resources/images/software/norma/normahtml2shtml0.png)
+![normahtml2shtml](../../resources/images/software/norma/normahtml2shtml0.png)
 
 ![html2shtml](../../resources/images/software/norma/html2shtml.png)
 
