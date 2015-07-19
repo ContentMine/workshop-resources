@@ -45,6 +45,7 @@ norma(0.1.8)
 ![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
 
 **Overview**
+
 ![xml2shtml](../../resources/images/software/norma/xml2shtml.png)
 
 
@@ -97,6 +98,8 @@ dinosaurs/
 ### HTML to sHTML
 
 ![normahtml2shtml](../../resources/images/software/norma/normahtml2shtml0.png)
+
+Overview
 
 ![html2shtml](../../resources/images/software/norma/html2shtml.png)
 
