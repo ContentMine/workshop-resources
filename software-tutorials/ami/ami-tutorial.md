@@ -39,11 +39,12 @@ https://github.com/ContentMine/ami/blob/master/regex/agriculture.xml
 #### ami2-gene
 
 
-only type human available at the moment `ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type [human]`
+only type human available at the moment `$ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type [human]`
+
 
 #### ami2-sequence
 
-minimum: `ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.sequence [dna|rna|prot|prot3|carb3]`
+minimum: `$ ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type [dna|rna|prot|prot3|carb3]`
 
 
 ### How to interpret ami-results
