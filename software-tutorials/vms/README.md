@@ -15,6 +15,7 @@ Before the workshop, all attendees should do the following (instructions below):
 
 1. Download and install the VirtualBox
 2. Download and install the ContentMine virtual machine image
+3. Try booting-up the virtual machine and test your keyboard mapping in a text editor
 
 ### 1. Getting VirtualBox
 
@@ -29,11 +30,9 @@ Requirements:
 * 3 GB RAM
 * Adequate hard drive space for the VM (at least 5 GB)
 
-Please download the `direct link` for the virtual image corresponding to the relevant workshop from the list [here](README.md#List of available machines). This should be a `.ova` file. Note, this is a large file ~1.2GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes.
+Please download from the `link` for the virtual image corresponding to the relevant workshop from the list below. This should be an `.ova` file. Note, this is a large file >1GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes.
 
 When the file has downloaded, double-clicking it should open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
-
-When this is done, you're ready to start [exploring the VM](../../../resources/images/software/vms/using_contentmine_vm.md)!
 
 ### Troubleshooting
 
@@ -45,9 +44,10 @@ The most common error is an incomplete download of the large VM image file, plea
 
 This is a list of ContentMine virtual machines, with descriptions, in reverse date order (i.e. most recent first).
 
-1. 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
-2. 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
-3. 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
+1. 'Biology' VM for University of Bath workshop [28/07/15] [link](https://onedrive.live.com/redir?resid=1652077CF1AA4E9F!1280&authkey=!AGyzu9zuzzKeJok&ithint=file%2cova)
+2. 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
+3. 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
+4. 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
 
 
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
@@ -65,11 +65,11 @@ This is a list of ContentMine virtual machines, with descriptions, in reverse da
 
 After installing the vm ([see here](# Installation Instructions)), you can start the machine from the VirtualBox interface. Choose the image called ContentMine-VM and click the "Start" button.
 
-![Start the vm](../../../resources/images/software/vms/starting-vm.png)
+![Start the vm](../../resources/images/software/vms/starting-vm.png)
 
 After a few seconds you land on the desktop.
 
-![CM vm desktop](../../../resources/images/software/vms/desktop.png)
+![CM vm desktop](../../resources/images/software/vms/desktop.png)
 
 You can shut down the vm by right click and then "Exit", and "Power off".
 
@@ -78,7 +78,7 @@ You can shut down the vm by right click and then "Exit", and "Power off".
 Everything starts with a right click from here. If you want to visually navigate through the folders on the machine, right-click on the desktop and select "File Manager". There is also a browser included, which can be opened with right-click and "Web Browser".
 The ContentMine pipeline is controlled from the **command line interface**, which can be opened with right-click and "Terminal". This opens a text-based interface, from where we can navigate folders, look into files, and interact with the ContentMine software.
 
-![Terminal](../../../resources/images/software/vms/terminal.png)
+![Terminal](../../resources/images/software/vms/terminal.png)
 
 You can maximize it to fullscreen by double clicking on the title bar.
 
@@ -107,34 +107,26 @@ In general: autocompletion with 'tab' may save you a lot of typing.
 
 **ls**: **l**i**s**ts files and directories, takes the current working directory as root. You can also look into the content of nested directories by simply extending the path ```ls dir/nested_dir/nested_dir2```.
 
-![ls](../../../resources/images/software/vms/ls.png)
+![ls](../../resources/images/software/vms/ls.png)
 
 **cd**: **c**hange **d**irectory, moves the working directory location to the target location. You can move laterally between folders on the same level with ```cd ../new_location```. You can also move up in the directory hierarchy with ```cd ..```. If you want to navigate to an absolute path, you have to start with a slash "/", ```cd /home/workshop/workshop/absolute_path```.
 
-![cd](../../../resources/images/software/vms/cd.png)
+![cd](../../resources/images/software/vms/cd.png)
 
 **mkdir**: **m**a**k**e **dir**ectory: creates a new directory
 
-![mkdir](../../../resources/images/software/vms/mkdir.png)
+![mkdir](../../resources/images/software/vms/mkdir.png)
 
 **mv**: **m**o**v**es files and directories from the first location to the second. You can move them further down into already existing directories, but also up with ```mv dir ../higher_dir```, and into the current directory with ```mv lower_dir ./new_lower_dir```.
 
 mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_filename.txt```.
 
-![mv](../../../resources/images/software/vms/mv.png)
+![mv](../../resources/images/software/vms/mv.png)
 
 **cp**: **c**o**p**ies files from the first location to the second. If you want to copy a folder, you have to use ```cp -r source_dir target_dir``` where ```-r``` stands for recursive.
 
-![cp](../../../resources/images/software/vms/cp.png)
+![cp](../../resources/images/software/vms/cp.png)
 
 **rm**: **r**e**m**oves the specified file. If you want to remove a directory, use ```rm -r dir``` but make sure you want this.
 
 ![rm](../../../resources/images/software/vms/rm.png)
-
-## Getting started with content mining
-
-Follow tutorials in our workshop repo for:
-* [getpapers](../getpapers/getpapers-tutorial.md) if you want to search in scientific literature.
-* [quickscrape](../quickscrape/quickscrape-tutorial.md) if you want to scrape webpages.
-* [norma](../norma/norma-tutorial.md) if you already have PDFs, XMLs or HTMLs and want to normalize them to a standardized format.
-* [AMI](https://github.com/ContentMine/workshops/tree/master/sessions/demo_ami)
