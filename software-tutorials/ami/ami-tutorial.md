@@ -108,7 +108,6 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			Smart (balanced) quotes can usually be replaced by \" or '
                      			mdash is often used where minus is better
                      			Format, strings of form u1234
-                     		
                   </help>
                </p>
             </li>
@@ -121,7 +120,6 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			List of expressions identifying XML element to wrap as divs/sections
                      			Examples might be h1, h2, h3, or numbers sections
                      			Still under development.
-                     		
                   </help>
                </p>
             </li>
@@ -135,7 +133,6 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			second. Example might be:
                      			em,i strong,b
                      			i.e. replace all &lt;em&gt;...&lt;/em&gt; by &lt;i&gt;...&lt;/i&gt;
-                     		
                   </help>
                </p>
             </li>
@@ -152,18 +149,13 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			of the XML or HTML, the metadata, and soon how to parse the PDF. At
                      			present we'll use
                      			mnemonics such as 'bmc' or 'biomedcentral.com' or 'cellpress'.
-                     
                      			To get a list of these use "+"--pubstyle"+" without arguments. 
-                     			
                      <p class="note">
                         			under early
                         			development and note also that publisher styles change and can be transferred
                         			between publishers and journals
-                        			
                      </p>
-                     			
                      <p class="note">Does not trigger any actions</p>
-                     		
                   </help>
                </p>
             </li>
@@ -175,7 +167,6 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			Treats XML document as standalone. Very useful as some parsers
                      			will take ages resolving the DTD and often fail
                      			if not connected to the net.
-                     		
                   </help>
                </p>
             </li>
@@ -184,83 +175,57 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                   <h3>Description</h3>
                   <help>
                      			List of XML components to strip from the raw well-formed HTML;
-                     			
                      <ul>
-                        				
                         <li>if a list is given, then use that; if this argument is missing
                            					(or
                            					the single string '#pubstyle' then the Pubstyle defaults are
                            					used.
-                           				
                         </li>
-                        				
                         <li>If there are no arguments then no stripping is done. a
                            					single '?'
                            					will list the Pubstyle defaults
-                           				
                         </li>
-                        			
                      </ul>
-                     			The following are allowed:
-                     			
+                     			The following are allowed:	
                      <ul>
-                        				
                         <li>
                            					an element local name (e.g.
                            					<tt>input</tt>
                            					)
-                           				
                         </li>
-                        				
                         <li>
                            					an XPath expression (e.g.
                            					<tt>//*[@class='foobar']</tt>
                            					)
-                           				
-                        </li>
-                        				
+                        </li>                        				
                         <li>
                            					<tt>!DOCTYPE</tt>
                            					(strips
                            					<tt>&lt;!DOCTYPE ...&gt;</tt>
-                           					which speeds up reading)
-                           				
-                        </li>
-                        				
-                        <li>an attribute (e.g. @class) (NotYetImplemented)</li>
-                        			
-                     </ul>
-                     			
+                           					which speeds up reading)                           				
+                        </li>                        				
+                        <li>an attribute (e.g. @class) (NotYetImplemented)</li>                        			
+                     </ul>                     			
                      <p class="note">
                         				tokens are whitespace-separated (sorry if this interacts with
                         				XPath)
-                        				Examples:
-                        				
-                        <ul>
-                           					
+                        				Examples:                        				
+                        <ul>                           					
                            <li>
                               						input script object (removes these three element
                               						<tt>//*[contains(@class,'sidebar')] (removes &lt;div
                                  							class='sidebar'&gt; ...
                                  							&lt;/div&gt;
-                                 						</tt>
-                              					
-                           </li>
-                           					
-                           <li>!DOCTYPE (removes &lt;!DOCTYPE ...&gt; before parsing))</li>
-                           					
+                                 						</tt>                              					
+                           </li>                           					
+                           <li>!DOCTYPE (removes &lt;!DOCTYPE ...&gt; before parsing))</li>                           					
                            <li>!DOCTYPE input script object //*[contains(@class,'sidebar')]
                               						(removes all the
-                              						above)
-                              					
-                           </li>
-                           				
-                        </ul>
-                        			
-                     </p>
-                     			
-                     <p class="note">some of this is hardcoded in HTMLCleaner and should be refactored</p>
-                     		
+                              						above)                              					
+                           </li>                           				
+                        </ul>                        			
+                     </p>                     			
+                     <p class="note">some of this is hardcoded in HTMLCleaner and should be refactored</p>                     		
                   </help>
                </p>
             </li>
@@ -272,8 +237,7 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      			TIDY:
                      			Choose an HTML tidy tool. At present we have:
                      			JTidy JSoup and HtmlUnit
-                     			(NYI) This is very experimental at present.
-                     		
+                     			(NYI) This is very experimental at present.                     		
                   </help>
                </p>
             </li>
@@ -281,31 +245,23 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                <h2><tt>html</tt></h2><code>--html [HTML tidy option, jsoup, jtidy, htmlunit]{1,1}</code><br><em>Methods: </em> parse: parseHtml run: runHtml<br><p>
                   <h3>Description</h3>
                   <help>
-                     			Clean raw HTML and produce XHTML. Requires heuristics:
-                     			
-                     <ul>
-                        			
+                     			Clean raw HTML and produce XHTML. Requires heuristics:                     			
+                     <ul>                        			
                         <li>quickscrape and getpapers create a JS DOM which has
                            			normalised some, but not all, elements
-                        </li>
-                        			
+                        </li>                        			
                         <li>remove &lt;script&gt; and other elements which are likely
                            			to be non-XML-compliant. Adjustable through &lt;value&gt;
-                        </li>
-                        			
-                        <li>remove other artefacts (e.g. attributes like "=""")</li>
-                        			
+                        </li>                        			
+                        <li>remove other artefacts (e.g. attributes like "=""")</li>                        			
                         <li>run through html-tidy (jsoup, jtidy, htmlunit). They all try
                            			to sort out mess - the last is probably the best but I haven't
                            			bolted it in yet.
-                        </li>
-                        			
-                        <li>remove empty &lt;div&gt;s, &lt;p&gt;s, etc.</li>
-                        			
+                        </li>                        			
+                        <li>remove empty &lt;div&gt;s, &lt;p&gt;s, etc.</li>                        			
                      </ul>
                      			This is NOT scholarly.html and will need a publisher-specific
-                     			stylesheet for further processing.
-                     		
+                     			stylesheet for further processing.                     		
                   </help>
                </p>
             </li>
@@ -313,35 +269,28 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                <h2><tt>xsl</tt></h2><code>--xsl stylesheet{1,5}</code><br><em>Methods: </em> parse: parseXsl run: transform<br><br><em>  b: </em><code>-x</code><em>  c: </em><code></code><p>
                   <h3>Description</h3>
                   <help>
-                     			DEPRECATED (use transform)
-                     		
+                     			DEPRECATED (use transform)                     		
                   </help>
                </p>
             </li>
             <li>
                <h2><tt>transform</tt></h2><code>--transform stylesheet{1,*}</code><br><em>Methods: </em> parse: parseTransform run: runTransform<br><p>
                   <h3>Description</h3>
-                  <help>
-                     		
+                  <help>                     		
                      <p class="brief">
                         			Transform XML or HTML or PDF or other input
-                     </p>
-                     			
-                     <p class="note">Relacement for --xsl</p>
-                     			
+                     </p>                     			
+                     <p class="note">Relacement for --xsl</p>                     			
                      <p>Argument may be a file/URL reference to a
                         			stylesheet,
                         			or a code from one of {nlm, jats, pdfbox, hocr2svg, pdf2txt, jsoup,
                         			[jtidy, htmlunit NYI]}
-                        			the codes are checked first and then the document reference.
-                        
+                        			the codes are checked first and then the document reference.                        
                         			Requires input and output files (--input and --output). These must be
                         			reserved names
                         			(e.g. fulltext.xml) in cmDir OR files in reserved directories and
-                        			determine the type of files to convert.
-                        			
-                     </p>
-                     		
+                        			determine the type of files to convert.                        			
+                     </p>                     		
                   </help>
                </p>
             </li>
@@ -350,34 +299,26 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                   					Default:
                   					 src/main/resources/org/xmlcml/norma/pubstyle/sectionTagger.xml</code><em>Methods: </em> parse: parseTag<br><br><em>  b: </em><code></code><em>  c: </em><code>java.lang.String</code><p>
                   <h3>Description</h3>
-                  <help>
-                     
-                     <p class="brief">Adds section tags to scholarly.html</p>
-                     
-                     <p>Not yet implemented</p>
-                     
+                  <help>                     
+                     <p class="brief">Adds section tags to scholarly.html</p>                     
+                     <p>Not yet implemented</p>                     
                   </help>
                </p>
             </li>
          </ul>
          <p>
-            			NOTE:
-            			
+            			NOTE:            			
             <p class="note">
-               			These examples contain some symbolic directory names.
-               			
-               <ul>
-                  				
+               			These examples contain some symbolic directory names.               			
+               <ul>                  				
                   <li>
                      					<code>$ctree</code>
                      					represent the top of a ctree (e.g.
                      					<code>PMC12345</code>
                      					in
                      					<code>PMC12345/fulltext.xml</code>
-                     					)
-                     				
-                  </li>
-                  				
+                     					)                     				
+                  </li>                  				
                   <li>
                      					<code>$parent</code>
                      					represents the parent of one or more <em><code>ctree</code></em>s, e.g.
@@ -387,10 +328,8 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      					<code>my/files/PMC12345/fulltext.xml
                         					, my/files/PMC12349/fulltext.xml
                         				</code>
-                     					)
-                     				
-                  </li>
-                  				
+                     					)                     				
+                  </li>                  				
                   <li>
                      					<code>*</code>
                      					is implicit and represents one or more <em><code>ctree</code></em>s, e.g.
@@ -399,10 +338,8 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      					<code>my/files/PMC12345/fulltext.xml
                         					, my/files/PMC12349/fulltext.xml
                         				</code>
-                     					)
-                     				
-                  </li>
-                  				
+                     					)                     				
+                  </li>                  				
                   <li>
                      					<code>wild*</code>
                      					is explicit and represents one or more <em><code>ctree</code></em>s, e.g.
@@ -411,12 +348,9 @@ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
                      					<code>my/files/PMC12345/fulltext.xml
                         					, my/files/PMC12349/fulltext.xml
                         				</code>
-                     					)
-                     				
-                  </li>
-                  			
-               </ul>
-               		
+                     					)                     				
+                  </li>                  			
+               </ul>               		
             </p>
          </p>
          <h3>Examples</h3>
