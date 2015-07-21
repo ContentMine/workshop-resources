@@ -29,21 +29,12 @@ norma(0.1.8)
 
 ### How to interpret ami-results
 
-#### ami2-bagOfWords
-
 
 #### ami2-species
 
 
-minimum
-```bash
-$ ami2-species -q dinosaurs-xmls/ -i scholarly.html --sp.species
-```
+minimum: `$ ami2-species -q dinosaurs-xmls/ -i scholarly.html --sp.species --sp.type [genus|binomial|genussp]`
 
-options
-```
---sp.type genus binomial genussp
-```
 
 #### ami2-regex
 
@@ -56,19 +47,15 @@ https://github.com/ContentMine/ami/blob/master/regex/agriculture.xml
 #### ami2-gene
 
 
-only type human available at the moment
-```bash
-ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
-```
+only type human available at the moment `ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type [human]`
 
 #### ami2-sequence
 
-
+minimum: `ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.sequence [dna|rna|prot|prot3|carb3]`
 
 ### Next steps
 
 
 **Next steps**
-* Continue to [sHTML](../sHTML/sHTML-overview.md) if you want to learn more about scholarly HTML.
-* Continue to [ami](../norma/ami-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [cat](../cat/cat-tutorial.md) for the next step of the ContentMine pipeline.
 
