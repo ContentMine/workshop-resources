@@ -132,9 +132,3 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 **rm**: **r**e**m**oves the specified file. If you want to remove a directory, use ```rm -r dir``` but make sure you want this.
 
 ![rm](../../resources/images/software/vms/rm.png)
-
-## Getting started with content mining
-
-Follow tutorials in our workshop repo for:
-* [quickscrape](https://github.com/ContentMine/workshops/tree/master/sessions/demo_scraping)
-* [AMI](https://github.com/ContentMine/workshops/tree/master/sessions/demo_ami)
