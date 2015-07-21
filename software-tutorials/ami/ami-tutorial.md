@@ -59,6 +59,7 @@ https://github.com/ContentMine/ami/blob/master/regex/agriculture.xml
 only type human available at the moment
 ```bash
 ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
+```
 
 #### ami2-sequence
 
