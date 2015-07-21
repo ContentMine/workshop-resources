@@ -117,7 +117,51 @@ Results are stored in the [XML-format](https://en.wikipedia.org/wiki/XML), which
  <result pre=" sp. RAM 14000 ( Farke et al., 2013) and unlike in Hypacrosaurus altispinus ROM 702 and " exact="Lambeosaurus sp" match="Lambeosaurus sp" post=". ROM 758 ( Evans, Ridgely &amp;amp;amp; Witmer, 2009), where the anterior ampulla is the largest, foll" name="genussp"/>
 </results>
 ```
-An individual result is stored within result-tags `<result>`. A search result contains the exact match, e.g. `exact="Parasaurolophus sp"`, where "exact" is the name of the attribute, and "Parasaurolophus sp" its value. Additionally, a search result contains 99 characters *before* and 99 characters *after* the match in the `pre` and `post` attributes.
+An individual result is stored within result-tags: `<result>`. A search result contains the exact match, e.g. `exact="Parasaurolophus sp"`, where "exact" is the name of the attribute, and "Parasaurolophus sp" its value. Additionally, a search result contains 99 characters *before* and 99 characters *after* the match in the `pre` and `post` attributes.
+
+
+#### ami2-gene
+
+The search for genes works in the same way, just with another command: `$ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human`. At the moment there is only one gene type available (`human`). Results are again stored within the ctree.
+
+```
+$ tree dinosaurs-xmls-gene/ | head -50
+dinosaurs-xmls-gene/
+├── eupmc_results.json
+├── fulltext_html_urls.txt
+├── PMC3893193
+│   ├── fulltext.xml
+│   ├── results
+│   │   └── gene
+│   │       └── human
+│   │           └── results.xml
+│   └── scholarly.html
+├── PMC3893247
+│   ├── fulltext.xml
+│   ├── results
+│   │   └── gene
+│   │       └── human
+│   │           └── results.xml
+│   └── scholarly.html
+...
+```
+
+The results.xml follows the same structure, a results-tag with pre, post, and exact attributes.
+
+`$ cat dinosaurs-xmls-gene/PMC4454486/results/gene/human/results.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<results title="human">
+ <result pre=" individual vertebrae in Cretoxyrhina mantelli. The relationship between centrum diameter ( " exact="CD" post=" in mm) and total length ( TL) can be estimated with the following formula: " name="human"/>
+ <result pre="hina mantelli. The relationship between centrum diameter ( CD in mm) and total length ( " exact="TL" post=") can be estimated with the following formula: " name="human"/>
+</results>
+```
+
+
+#### ami2-sequence
+
+
+minimum: `$ ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type [dna|rna|prot|prot3|carb3]`
 
 
 
@@ -129,19 +173,7 @@ How to construct a regex query
 https://github.com/ContentMine/ami/blob/master/regex/agriculture.xml
 
 
-#### ami2-gene
-
-
-only type human available at the moment `$ ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type [human]`
-
-
-#### ami2-sequence
-
-
-minimum: `$ ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type [dna|rna|prot|prot3|carb3]`
-
-
-### How to interpret ami-results
+### What can I do with ami-results?
 
 
 ### Next steps
