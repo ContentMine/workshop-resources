@@ -4,18 +4,18 @@
 
 ami is a collection of plugins that search, index and extract pieces of information from structured documents. A piece of information can be a mention of a certain species (e.g. Brachiosaurus) in a text, a gene sequence, or an expression of a chemical compound. The type of relevant information varies from discipline to discipline. We are continously developing new plugins to cover different types of encoded knowledge.
 
-The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores result in a folder in the ctree.
+The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores results in a folder in the ctree.
 
 
 [1. Installation](#installation)
 
 [2. species](#ami2-species)
 
-[3. regex](#ami2-regex)
+[3. genes](#ami2-gene)
 
-[4. genes](#ami2-gene)
+[4. sequences](#ami2-sequences)
 
-[5. sequences](#ami2-sequences)
+[5. regex](#ami2-regex)
 
 [6. Next steps](#next-steps)
 
@@ -32,7 +32,7 @@ sudo dpkg -i norma-0.1-SNAPSHOT.deb
 
 ### How to use ami-plugins
 
-It all starts with scholarly.html-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
+It all starts with a `scholarly.html`-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
 
 ```bash
 $ tree dinosaurs-xmls/
@@ -93,17 +93,6 @@ dinosaurs-xmls
 │   │       └── genussp
 │   │           └── results.xml
 │   └── scholarly.html
-├── PMC3898307
-│   ├── fulltext.xml
-│   ├── results
-│   │   └── species
-│   │       ├── binomial
-│   │       │   └── results.xml
-│   │       ├── genus
-│   │       │   └── results.xml
-│   │       └── genussp
-│   │           └── results.xml
-│   └── scholarly.html
 ...
 ```
 Results are stored in the [XML-format](https://en.wikipedia.org/wiki/XML), which is similar to json in the sense that it stores named values in tags and elements. If you take a look into a `results.xml` you find a list of all matching results.
@@ -146,7 +135,7 @@ dinosaurs-xmls-gene/
 ...
 ```
 
-The results.xml follows the same structure, a results-tag with pre, post, and exact attributes.
+The `results.xml` follows the same structure, a results-tag with pre, post, and exact attributes.
 
 `$ cat dinosaurs-xmls-gene/PMC4454486/results/gene/human/results.xml`
 ```xml
@@ -159,6 +148,7 @@ The results.xml follows the same structure, a results-tag with pre, post, and ex
 
 
 #### ami2-sequence
+
 
 
 minimum: `$ ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type [dna|rna|prot|prot3|carb3]`
