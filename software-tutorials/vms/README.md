@@ -15,6 +15,7 @@ Before the workshop, all attendees should do the following (instructions below):
 
 1. Download and install the VirtualBox
 2. Download and install the ContentMine virtual machine image
+3. Try booting-up the virtual machine and test your keyboard mapping in a text editor
 
 ### 1. Getting VirtualBox
 
@@ -29,7 +30,7 @@ Requirements:
 * 3 GB RAM
 * Adequate hard drive space for the VM (at least 5 GB)
 
-Please download the `direct link` for the virtual image corresponding to the relevant workshop from the list [here](README.md#List of available machines). This should be a `.ova` file. Note, this is a large file ~1.2GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes.
+Please download the `direct link` for the virtual image corresponding to the relevant workshop from the list [here](README.md#List of available machines). This should be a `.ova` file. Note, this is a large file >1GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes.
 
 When the file has downloaded, double-clicking it should open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 
@@ -45,9 +46,10 @@ The most common error is an incomplete download of the large VM image file, plea
 
 This is a list of ContentMine virtual machines, with descriptions, in reverse date order (i.e. most recent first).
 
-1. 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
-2. 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
-3. 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
+1. 'Biology' VM for University of Bath workshop [28/07/15] [link](https://onedrive.live.com/redir?resid=1652077CF1AA4E9F!1280&authkey=!AGyzu9zuzzKeJok&ithint=file%2cova)
+2. 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
+3. 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
+4. 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
 
 
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
