@@ -27,8 +27,6 @@ norma(0.1.8)
 
 ### How to use ami-plugins
 
-### How to interpret ami-results
-
 
 #### ami2-species
 
@@ -52,6 +50,10 @@ only type human available at the moment `ami2-gene -q dinosaurs-xmls/ -i scholar
 #### ami2-sequence
 
 minimum: `ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.sequence [dna|rna|prot|prot3|carb3]`
+
+
+### How to interpret ami-results
+
 
 ### Next steps
 
