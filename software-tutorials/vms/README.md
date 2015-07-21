@@ -34,8 +34,6 @@ Please download the `direct link` for the virtual image corresponding to the rel
 
 When the file has downloaded, double-clicking it should open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 
-When this is done, you're ready to start [exploring the VM](../../resources/images/software/vms/using_contentmine_vm.md)!
-
 ### Troubleshooting
 
 If you have any problems getting VirtualBox, or downloading and importing the virtual image, don't worry. Just contact the workshop organizer before the event and we can help you via email or skype. Please, please try and get these pre-workshop tasks done _before_ arriving at the workshop. There will be little time on the day to help with Virtualbox issues.
