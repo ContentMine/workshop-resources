@@ -165,7 +165,7 @@ The results are in general of the same structure, with an additional attribute `
 
 #### ami2-regex
 
-Constructing a regex-query with ami works a bit different: `ami2-regex -q dinosaurs-xml -i scholarly.html --context 25 40 --r.regex regex/consort0.xml`. Two new arguments come in here, `--context pre post`, which tells ami how many characters before and after a match should be captured; and `--r.regex path-to/regex.xml`. The `regex.xml` is a file we create beforehand, and which contains all regex-queries we want ami to do. 
+Constructing a regex-query with ami works a bit different: `ami2-regex -q dinosaurs-xml -i scholarly.html --context 25 40 --r.regex path-to/regex.xml`. Two new arguments come in here, `--context pre post`, which tells ami how many characters before and after a match should be captured; and `--r.regex path-to/regex.xml`. The `regex.xml` is a file we create beforehand, and which contains all regex-queries we want ami to do. 
 
 **Now, what is a regex?** A regex ([regular expressions](https://en.wikipedia.org/wiki/Regular_expression)) is a sequence of characters that can be used for matching a search pattern (e.g. dinosaurs) in a text ("This text is about dinosaurs."). It is formalized and more complex patterns can be constructed, `[Dd]inosaur[s]?` matches upper and lower case words in singular and plural form. With `[Dd]inosaur[s]?` you look at the same time for Dinosaur, dinosaur, Dinosaurs, and dinosaurs. Do you see the potential for formalizing searches?
 
@@ -188,7 +188,9 @@ If you take "food" from line two, one variable named "food" is expected within a
 </compoundRegex>
 ```
 
-What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`. The following characters `ood` are fixed for this query, they have to be matched. For the second query, we want to find all mentions of "predator regime/s". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. This query will be ([Pp]redator\sregime[s]?). The questions mark `[s]?` makes the "s" optional.
+What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`: `([Ff]ood)`
+
+The following characters `ood` are fixed for this query, they have to be matched. For the second query, we want to find all mentions of "predator regime/s". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. The questions mark `[s]?` makes the "s" optional: `([Pp]redator\sregime[s]?)`
 
 ```xml
 <compoundRegex title="dinosaurfood">
@@ -212,7 +214,7 @@ $ ami2-regex -q dinosaurs-xmls/ -i scholarly.html --r.regex dinosaurs-xmls/dinos
 </results>
 ```
 
-The output contains 50 characters `pre` and 50 character `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
+The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
 
 ### What can I do with ami-results?
