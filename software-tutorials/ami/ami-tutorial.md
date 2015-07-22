@@ -166,6 +166,7 @@ The results are in general of the same structure, with an additional attribute `
 #### ami2-regex
 
 Constructing a regex-query with ami works a bit different: `ami2-regex -q dinosaurs-xml -i scholarly.html --context 25 40 --r.regex regex/consort0.xml`. Two new arguments come in here, `--context pre post`, which tells ami how many characters before and after a match should be captured; and `--r.regex path-to/regex.xml`. The `regex.xml` is a file we create beforehand, and which contains all regex-queries we want ami to do. 
+
 **Now, what is a regex?** A regex ([regular expressions](https://en.wikipedia.org/wiki/Regular_expression)) is a sequence of characters that can be used for matching a search pattern (e.g. dinosaurs) in a text ("This text is about dinosaurs."). It is formalized and more complex patterns can be constructed, `[Dd]inosaur[s]?` matches upper and lower case words in singular and plural form. With `[Dd]inosaur[s]?` you look at the same time for Dinosaur, dinosaur, Dinosaurs, and dinosaurs. Do you see the potential for formalizing searches?
 
 Digits can be added by e.g. `[0-9]`, which matches any digit, or by fixed sequences `(00111001)`. Non-alphanumeric characters have to be escaped by `\`, so if you want to search for the number 3.14 explicitly, the regex looks like `(3\.14)`.
