@@ -17,7 +17,7 @@ The input for ami is always a ctree containing documents in [scholarly HTML](../
 
 [5. regex](#ami2-regex)
 
-[6. Next steps](#next-steps)
+[6. Summary and next steps](#summary-and-next-steps)
 
 
 ### Installation
@@ -219,9 +219,51 @@ The output contains 50 characters `pre` and 50 characters `post` the `value0`, a
 
 ### What can I do with ami-results?
 
+A project folder with a ctree after using ami-plugins looks like this:
 
-### Next steps
+```bash
+$ tree dinosaurs-xmls
+dinosaurs-xmls
+├── dinosaurfood.xml
+├── eupmc_results.json
+├── fulltext_html_urls.txt
+├── PMC3893193
+│   ├── fulltext.xml
+│   ├── results
+│   │   ├── gene
+│   │   │   └── human
+│   │   │       └── results.xml
+│   │   ├── regex
+│   │   │   └── dinosaurfood
+│   │   │       └── results.xml
+│   │   ├── sequence
+│   │   │   ├── carb3
+│   │   │   │   └── results.xml
+│   │   │   ├── dna
+│   │   │   │   └── results.xml
+│   │   │   ├── prot
+│   │   │   │   └── results.xml
+│   │   │   ├── prot3
+│   │   │   │   └── results.xml
+│   │   │   └── rna
+│   │   │       └── results.xml
+│   │   └── species
+│   │       ├── binomial
+│   │       │   └── results.xml
+│   │       ├── genus
+│   │       │   └── results.xml
+│   │       └── genussp
+│   │           └── results.xml
+│   └── scholarly.html
+├── PMC3893247
+...
+```
 
+### Summary and next steps
+
+* Plugins each have their own commands.
+* A project folder containing ctrees is always the input.
+* Results are stored within the ctree in a plugin-specific folder.
 
 **Next steps**
 * Continue to [cat](../cat/cat-tutorial.md) for the next step of the ContentMine pipeline.
