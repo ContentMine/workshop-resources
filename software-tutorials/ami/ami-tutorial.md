@@ -151,6 +151,8 @@ The `results.xml` follows the same structure, a results-tag with pre, post, and 
 
 The search for sequences follows the same structure: `$ ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type [dna|rna|prot|prot3|carb3]`, where `--sq.type` is one of `dna rna prot prot3 carb3`. 
 
+The results are in general of the same structure, with an additional attribute `xpath` that shows the location of the match within the html-structure of the `scholarly.html`.
+
 `$ cat dinosaurs-xmls/PMC4447998/results/sequence/rna/results.xml`
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -205,7 +207,7 @@ If you take "deeproot" from line two, one variable named "deeproot" is expected 
 </compoundRegex>
 ```
 
-What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("deeproot") is defined, and we want to get both upper and lower cases. `[Dd]` matches either `D` or `d`, same for `[Rr]`. The following characters `eep` and `oot` are fixed for this query, they have to be matched. `\s` is a special character, it does not stand for `s`, but for ` ` - the whitespace, blank character. So `([Dd]eep\s+[Rr]oot)` matches any of the following: "Deep Root", "Deep root", "deep Root", "deep root". The regex for that is `([Dd]eep\s+[Rr]oot)`.
+What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("deeproot") is defined, and we want to get both upper and lower cases. `[Dd]` matches either `D` or `d`, same for `[Rr]`. The following characters `eep` and `oot` are fixed for this query, they have to be matched. `\s` is a special character, it does not stand for `s`, but for ` ` - the whitespace, blank character. So `([Dd]eep\s+[Rr]oot)` matches any of the following: "Deep Root", "Deep root", "deep Root", "deep root".
 
 A more complex example, the query for "flower" in line three returns three variables for each match, "pre", "word", and "post". The corresponding match in the regex is specified by round brackets `()`. For "pre", we want to get 50 characters before "word", and the same amount after for "post". In regex, the `.` dot-character stands for any character. `{1,50}` repeats the regex between 1 and 50 times. `(.{1,50})` matches a sequence of any characters with a length between 1 and 50. The complete query for `(a sequence of 1 up to 50 arbitrary characters)(Flower or flower) (a sequence of 1 up to 50 arbitrary characters)` looks in regex `((.{1,50})([Ff]lower)\s+(.{1,50}))` - notice the whitespace after flower. 
 
