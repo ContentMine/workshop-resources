@@ -171,70 +171,49 @@ Constructing a regex-query with ami works a bit different: `ami2-regex -q dinosa
 
 Digits can be added by e.g. `[0-9]`, which matches any digit, or by fixed sequences `(00111001)`. Non-alphanumeric characters have to be escaped by `\`, so if you want to search for the number 3.14 explicitly, the regex looks like `(3\.14)`.
 
-We will now see a variety of regex-s and how they are used in a regex.xml ([source](https://github.com/ContentMine/ami/blob/master/regex/agriculture.xml)).
+We will now see a variety of regex-s and how they are used in a `regex.xml`.
 
+A `regex.xml` has to be always wrapped by opening tags `<compoundRegex title="title">` and closing tags `</compoundRegex>` - notice the `/` at the beginning of the closing tag. You can set `"title"` to any representative name you want - it will be the folder name where the outputs are stored.
 ```xml
-<compoundRegex title="agriculture">
-<regex weight="1.0" fields="deeproot">([Dd]eep\s+[Rr]oot)</regex>
-<regex weight="1.0" fields="flower pre word post">((.{1,50})([Ff]lower)\s+(.{1,50}))</regex>
-<regex weight="1.0" fields="droughttol">([Dd]rought\s+[Tt]olerance)</regex>
-<regex weight="1.0" fields="sunlight amount sunshade">(([Ff]ull|[Pp]artial)\s+([Ss]hade|[Ss]un))</regex>
-<regex weight="1.0" fields="growingdegrees until">([Gg]rowing\s+[Dd]egree\s+[Dd]ays\s+[Uu]ntil\s+([^\s]+))</regex>
-<regex weight="1.0" fields="growthrate">([Gg]rowth\s+[Rr]ate)</regex>
-<regex weight="1.0" fields="heightmaturity">([Hh]eight\s+[Aa]t\s+[Mm]aturity)</regex>
-<regex weight="1.0" fields="lifespan">([Ll]ifespan)</regex>
-<regex weight="1.0" fields="mintoltemp">([Mm]inimum\s+[Tt]olerated\s+[Tt]emperature)</regex>
-<regex weight="1.0" fields="nfix">([Nn]itrogen\s+[Ff]ix[^\s+]+)</regex>
-<regex weight="1.0" fields="rootdepth">([Rr]oot\s+[Dd]epth)</regex>
-<regex weight="1.0" fields="roottype">([Rr]oot\s+[Tt]ype)</regex>
-<regex weight="1.0" fields="shadecover">([Ss]hade\s+[Cc]over)</regex>
-<regex weight="1.0" fields="soilph">([Ss]oil\s+pH)</regex>
-<regex weight="1.0" fields="soiltype">([Ss]oil\s+[Tt]ype)</regex>
-<regex weight="1.0" fields="taproot">([Tt]ap\s+[Rr]oot)</regex>
-<regex weight="1.0" fields="wateruse pre water post">(([^\.]{1,200})([Ww]ater\s+[Uu]se)([^\.]{1,200}))</regex>
-</compoundRegex>
-```
-
-A `regex.xml` has to be always wrapped by opening tags `<compoundRegex title="title">` and closing tags `</compoundRegex>` - notice the `/` at the beginning of the closing tag. You can set `"title"` to any representative name you want.
-```xml
-<compoundRegex title="agriculture">
+<compoundRegex title="dinosaurfood">
 </compoundRegex>
 ```
 
 In the `regex.xml` each regex-query is written to a new line, and consists of opening and closing tags `<regex></regex>`. Within the opening tag there are two attributes declared, `weight` and `fields`. `weight` is the relative importance given to each match, and influences indexing engines - we can use the default value of `"1.0"`. `fields` corresponds to the regex-query, and specifies the name and additional variables the query returns. 
-If you take "deeproot" from line two, one variable named "deeproot" is expected within a match. If you take "flower pre word post" from line three, you specify the name and three fields, and your query should also be returning three variables within a match.
+If you take "food" from line two, one variable named "food" is expected within a match. If you take "predator" from line three, you specify the name and another field, and your query should also be returning two variables within a match.
 ```xml
-<compoundRegex title="agriculture">
-<regex weight="1.0" fields="deeproot"></regex>
-<regex weight="1.0" fields="flower pre word post"></regex>
+<compoundRegex title="dinosaurfood">
+<regex weight="1.0" fields="food"></regex>
+<regex weight="1.0" fields="predator"></regex>
 </compoundRegex>
 ```
 
-What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("deeproot") is defined. We want to get both upper and lower cases, and `[Dd]` matches either `D` or `d`, same for `[Rr]`. The following characters `eep` and `oot` are fixed for this query, they have to be matched. `\s` is a special character, it does not stand for `s`, but for ` ` - the whitespace, blank character. So `([Dd]eep\s+[Rr]oot)` matches any of the following: "Deep Root", "Deep root", "deep Root", "deep root".
-
-A more complex example, the query for "flower" in line three returns three variables for each match, "pre", "word", and "post". The corresponding match in the regex is specified by round brackets `()`. For "pre", we want to get 50 characters before "word", and the same amount after for "post". In regex, the `.` dot-character stands for any character. `{1,50}` repeats the regex between 1 and 50 times. `(.{1,50})` matches a sequence of any characters with a length between 1 and 50. The complete query for `(a sequence of 1 up to 50 arbitrary characters)(Flower or flower) (a sequence of 1 up to 50 arbitrary characters)` looks in regex `((.{1,50})([Ff]lower)\s+(.{1,50}))` - notice the whitespace after flower. 
-
-```xml
-<compoundRegex title="agriculture">
-<regex weight="1.0" fields="deeproot">([Dd]eep\s+[Rr]oot)</regex>
-<regex weight="1.0" fields="flower pre word post">((.{1,50})([Ff]lower)\s+(.{1,50}))</regex>
-</compoundRegex>
-```
-
-If we want to search for any mention of what dinosaurs ate and some textual context, we can construct a regex.xml like that (use any texteditor for that):
+What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`. The following characters `ood` are fixed for this query, they have to be matched. For the second query, we want to find all mentions of "predator regime/s". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. This query will be ([Pp]redator\sregime[s]?). The questions mark `[s]?` makes the "s" optional.
 
 ```xml
 <compoundRegex title="dinosaurfood">
-<regex weight="1.0" fields="food pre word post">((.{1,50})([Ff]ood)(.{1,50}))</regex>
-<regex weight="1.0" fields="sustentation pre word post">((.{1,50})([Ss]ustentation)(.{1,50}))</regex>
+<regex weight="1.0" fields="food">([Ff]ood)</regex>
+<regex weight="1.0" fields="predator">([Pp]redator\sregime[s]?)</regex>
 </compoundRegex>
 ```
 
-We place this XML in our project folder as `dinosaurfood.xml`, and run ami with it:
+We now construct a regex.xml like that (use any texteditor for that) and place this XML in our project folder as `dinosaurfood.xml`. We run ami with it, and because we want to get some context around our matches, add the `--context pre post` option, which captures character before and after the match.
 
 ```bash
-$ ami2-regex -q dinosaurs-xmls/ -i scholarly.html --r.regex dinosaurs-xmls/dinosaurfood.xml 
+$ ami2-regex -q dinosaurs-xmls/ -i scholarly.html --r.regex dinosaurs-xmls/dinosaurfood.xml --context 50 50
 ```
+
+`$ cat dinosaurs-xmls-regex/PMC4298445/results/regex/dinosaurfood/results.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<results title="dinosaurfood">
+ <result pre="rs of Darwin's finches entered a lard of abundant " name0="food" value0="food" post="and varied living quarters, unmarred by the presen" xpath="/html[1]/body[1]/div[1]/div[4]/p[2]"/>
+ <result pre="amas mosquitofish populations occupying different " name0="predator" value0="predator regimes" post="causes premating reproductive isolation due to sex" xpath="/html[1]/body[1]/div[1]/div[10]/div[1]/div[1]/p[4]"/>
+</results>
+```
+
+The output contains 50 characters `pre` and 50 character `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
+
 
 ### What can I do with ami-results?
 
