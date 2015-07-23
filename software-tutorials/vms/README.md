@@ -97,7 +97,7 @@ If you want to transfer files between the host system and the vm, you have to se
 
 If you run into issues with your keyboard layout, open a terminal window and set the layout to your locale, e.g. uk/us/de
 ```
-setxkmap us
+setxkbmap us
 ```
 
 
@@ -129,4 +129,4 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 
 **rm**: **r**e**m**oves the specified file. If you want to remove a directory, use ```rm -r dir``` but make sure you want this.
 
-![rm](../../../resources/images/software/vms/rm.png)
+![rm](../../resources/images/software/vms/rm.png)
