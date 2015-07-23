@@ -1,6 +1,6 @@
 # ContentMine virtual machines
 
-## What is it, and why do you use it?
+## What is it, and how do you use it?
 
 A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). In our case it is a Linux-based [Debian distribution](https://www.debian.org/). The user interface may appear quite different on the first view, and we provide information how to navigate and use it [here](# Working in the ContentMine virtual machine).
 
