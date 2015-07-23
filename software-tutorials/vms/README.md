@@ -36,7 +36,7 @@ When the file has downloaded, double-clicking it should open VirtualBox and offe
 
 ### Troubleshooting
 
-If you have any problems getting VirtualBox, or downloading and importing the virtual image, don't worry. Just contact the workshop organizer before the event and we can help you via email or skype. Please, please try and get these pre-workshop tasks done _before_ arriving at the workshop. There will be little time on the day to help with Virtualbox issues.
+If you have any problems getting VirtualBox, or downloading and importing the virtual image, don't worry. Just contact the workshop organizer before the event and we can help you via email or skype. **Please, please try and get these pre-workshop tasks done _before_ arriving at the workshop. There will be little time on the day to help with Virtualbox issues**.
 
 The most common error is an incomplete download of the large VM image file, please verify that the download has been succesfully and _fully_ completed.
 
