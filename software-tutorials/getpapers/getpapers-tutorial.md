@@ -270,5 +270,4 @@ $ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o test_ieee
 
 **Next steps**
 * Continue to [quickscrape](../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
-* Continue to [norma](../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../ctree/ctree-overview.md) for an introduction of the main datastructure.
+
