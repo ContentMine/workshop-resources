@@ -91,7 +91,6 @@ We can also see how many fulltext results we may get by counting the lines of th
 ```bash
 $ wc -l test_eupmc/fulltext_html_urls.txt
 $ wc -l test_ieee/fulltext_html_urls.txt
-$ wc -l test_arxiv/fulltext_html_urls.txt
 ```
 
 At this point you can use the urls.txt as input for [quickscrape](../quickscrape/quickscrape-tutorial.md#scraping), but for the moment we'll continue exploring getpapers.
