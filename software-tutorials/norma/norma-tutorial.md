@@ -21,7 +21,7 @@ Now we will trace the path through norma for three use cases:
 
 [4. experimental: PDF collections to TXT](#pdf-collections-to-txt)
 
-[5. Next steps](#next-steps)
+[5. Summary and next steps](#sumamry-and-next-steps)
 
 
 ### Installation
@@ -265,7 +265,9 @@ dinosaurs-pdfs/
 ```
 
 
-### Next steps
+### Summary and next steps
+
+* Follow the XML-chain (starting with `getpapers -x`) to `scholarly.html` for the best results.
 
 
 **Next steps**

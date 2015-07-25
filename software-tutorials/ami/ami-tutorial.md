@@ -179,8 +179,8 @@ A `regex.xml` has to be always wrapped by opening tags `<compoundRegex title="ti
 </compoundRegex>
 ```
 
-In the `regex.xml` each regex-query is written to a new line, and consists of opening and closing tags `<regex></regex>`. Within the opening tag there are two attributes declared, `weight` and `fields`. `weight` is the relative importance given to each match, and influences indexing engines - we can use the default value of `"1.0"`. `fields` corresponds to the regex-query, and specifies the name and additional variables the query returns. 
-If you take "food" from line two, one variable named "food" is expected within a match. If you take "predator" from line three, you specify the name and another field, and your query should also be returning two variables within a match.
+In the `regex.xml` each regex-query is written to a new line, and consists of opening and closing tags `<regex></regex>`. Within the opening tag there are two attributes declared, `weight` and `fields`. `weight` is the relative importance given to each match, and influences indexing engines - we can use the default value of `"1.0"`. `fields` corresponds to the regex-query, and specifies the name of the query. 
+If you take "food" from line two, one variable named "food" is expected within a match. If you take "predator" from line three, you specify the name, but your query should also be returning two variables within a match.
 ```xml
 <compoundRegex title="dinosaurfood">
 <regex weight="1.0" fields="food"></regex>
