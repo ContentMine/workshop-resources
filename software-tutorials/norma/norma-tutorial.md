@@ -272,4 +272,4 @@ dinosaurs-pdfs/
 
 **Next steps**
 * Continue to [sHTML](../sHTML/sHTML-overview.md) if you want to learn more about scholarly HTML.
-* Continue to [ami](../norma/ami-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [ami](../ami/ami-tutorial.md) for the next step of the ContentMine pipeline.
