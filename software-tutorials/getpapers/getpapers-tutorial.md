@@ -86,7 +86,7 @@ $ tail -5 test_eupmc/fulltext_html_urls.txt
 # prints the last 10/5 lines
 ```
 
-We can also see how many fulltext results we may get by counting the lines of the fulltext_html_urls.txt with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltexts are found, in which case no fulltext_html_urls.txt is created.
+We can also see how many fulltext results we may get by counting the lines of the `fulltext_html_urls.txt` with [wc](https://en.wikipedia.org/wiki/Wc_%28Unix%29). For some queries and APIs it may happen that no fulltexts are found, in which case no `fulltext_html_urls.txt` is created.
 
 ```bash
 $ wc -l test_eupmc/fulltext_html_urls.txt
