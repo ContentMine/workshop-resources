@@ -1,6 +1,6 @@
 # ContentMine virtual machines
 
-## What is it, and why do you use it?
+## What is it, and how do you use it?
 
 A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). In our case it is a Linux-based [Debian distribution](https://www.debian.org/). The user interface may appear quite different on the first view, and we provide information how to navigate and use it [here](# Working in the ContentMine virtual machine).
 
@@ -30,13 +30,13 @@ Requirements:
 * 3 GB RAM
 * Adequate hard drive space for the VM (at least 5 GB)
 
-Please download from the `link` for the virtual image corresponding to the relevant workshop from the list below. This should be an `.ova` file. Note, this is a large file >1GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes.
+Please download from the `link` for the virtual image corresponding to the relevant workshop from the list below. This should be an `.ova` file. Note, this is a large file >1GB, please be patient while it downloads. Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
 
 When the file has downloaded, double-clicking it should open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 
 ### Troubleshooting
 
-If you have any problems getting VirtualBox, or downloading and importing the virtual image, don't worry. Just contact the workshop organizer before the event and we can help you via email or skype. Please, please try and get these pre-workshop tasks done _before_ arriving at the workshop. There will be little time on the day to help with Virtualbox issues.
+If you have any problems getting VirtualBox, or downloading and importing the virtual image, don't worry. Just contact the workshop organizer before the event and we can help you via email or skype. **Please, please try and get these pre-workshop tasks done _before_ arriving at the workshop. There will be little time on the day to help with Virtualbox issues**.
 
 The most common error is an incomplete download of the large VM image file, please verify that the download has been succesfully and _fully_ completed.
 
@@ -97,7 +97,7 @@ If you want to transfer files between the host system and the vm, you have to se
 
 If you run into issues with your keyboard layout, open a terminal window and set the layout to your locale, e.g. uk/us/de
 ```
-setxkmap us
+setxkbmap us
 ```
 
 
@@ -129,4 +129,4 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 
 **rm**: **r**e**m**oves the specified file. If you want to remove a directory, use ```rm -r dir``` but make sure you want this.
 
-![rm](../../../resources/images/software/vms/rm.png)
+![rm](../../resources/images/software/vms/rm.png)
