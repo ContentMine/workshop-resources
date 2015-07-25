@@ -122,6 +122,7 @@ $ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -p
 For every PDF found, getpapers creates a new folder containing a fulltext.pdf within the test_eupmc folder. After such a search, the folder structure looks like this:
 
 ```
+$ tree test_eupmc
 test_eupmc
 ├─ eupmc_results.json
 ├─ fulltext_html_urls.txt
@@ -144,6 +145,7 @@ $ getpapers -q 'dinosaurs' --api arxiv -o test_arxiv -x
 Results are added to the existing results, so the folder structure may look like this now:
 
 ```
+$ tree test_eupmc
 test_eupmc
 ├─ eupmc_results.json
 ├─ fulltext_html_urls.txt
