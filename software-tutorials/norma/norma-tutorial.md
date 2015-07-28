@@ -94,6 +94,15 @@ dinosaurs-xmls/
 ...
 ```
 
+#### Troubleshooting
+
+To solve an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)), perform the following steps:
+
+```bash
+cd dinosaurs-xmls
+find -empty -delete
+cd ..
+```
 
 ### HTML to sHTML
 
