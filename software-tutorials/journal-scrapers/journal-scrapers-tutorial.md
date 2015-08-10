@@ -106,11 +106,11 @@ Every journal scraper in the collection targets the same data. An ideal scraper 
 
 Here we will create a scraper for the [IJESM](http://ijs.sgmjournals.org/) based on [this article](http://ijs.sgmjournals.org/content/journal/ijsem/10.1099/ijs.0.063172-0).
 
-To find out where in the html a specific information is stored, you need a debug tool like [Firebug](https://addons.mozilla.org/de/firefox/addon/firebug) for Firefox or [Web Inspector](https://developer.apple.com/safari/tools/) for Safari. Open [the article](http://ijs.sgmjournals.org/content/journal/ijsem/10.1099/ijs.0.063172-0) with Firefox or Safari, and then view it with Firebug/Web Inspector - right click -> View Source. This shows the page how a machine would see it. The top 18 lines look somehow like this:
+To find out where in the html a specific information is stored, you need a debug tool like [Firebug](https://addons.mozilla.org/de/firefox/addon/firebug) for Firefox or [Web Inspector](https://developer.apple.com/safari/tools/) for Safari. Open [the article](http://ijs.sgmjournals.org/content/journal/ijsem/10.1099/ijs.0.063172-0) with Firefox or Safari, and then view it with Firebug/Web Inspector - right click -> View Source. This shows the page how a machine would see it. The top 18 lines look like this:
 
 ![sourceview001](../../resources/images/software/journal-scrapers/001.png)
 
-HTML may be conceptualized like a tree structure, and the source of the page may very simplified have a structure somehow like this, where `head` and `meta` are tags signifying different branches, and `dc.publisher` being the `name` attribute of a branch.
+HTML may be conceptualized like a tree structure, where `head` and `meta` are tags signifying different branches, and `dc.publisher` being the `name` attribute of a branch.
 
 ```
 html
@@ -129,8 +129,7 @@ html
 
 #### Selectors
 
-
-The mapping between a content and the extractor is stored in the JSON format in nested key-value-dictionaries. First we lay the groundwork for the scraper definition, by creating a file name `ijsem.json`. We then create the top-level dictionary that will hold the rest:
+The selectors we learn to construct are essentially [XPATH](https://en.wikipedia.org/wiki/Xpath)-queries, which you can test e.g. [here](http://videlibri.sourceforge.net/cgi-bin/xidelcgi). The mapping between a content and the extractor is stored in the JSON format in nested key-value-dictionaries. First we lay the groundwork for the scraper definition, by creating a file name `ijsem.json`. We then create the top-level dictionary that will hold the rest:
 
 ```
 {
@@ -140,6 +139,7 @@ The mapping between a content and the extractor is stored in the JSON format in 
 ```
 On the top level are two entries, `url` and `elements`. `url` specifies the domain where the scraper definition is valid. `elements` opens a second level of entries, such as `publisher`, `doi` or `figure_caption`. Each of these entries is a dictionary itself, containing `selector`, `attribute`, and optionally `download`. The two backslash `\\` are escape characters so that the scraper recognizes a dot `.` as a dot and not as placeholder.
 
+![sourceview001](../../resources/images/software/journal-scrapers/001.png)
 
 We find information about the publisher in line 16, in the `meta` tag, identified by `dc.publisher` in the `name` attribute (referring to the name of the tag, not the name of the publisher), with the value in the `content` attribute. The `publisher` element of the scraper definition then looks like this:
 
@@ -170,7 +170,7 @@ We add some bibliographic metadata, `journal_name`, `journal_issn`, `volume`, `i
 
 ![sourceview002](../../resources/images/software/journal-scrapers/002.png)
 
-The selectors are short, because the `name` attributes are unique. Some parts of the document will require more complex queries involving multiple tags and conditions, in order to uniquely identify an element. Our scraper now looks like this:
+The selectors are short, because the combinations of `meta`-tag and each `name` attribute are unique. Some parts of the document will require more complex queries involving multiple tags and conditions, in order to uniquely identify an element. Our scraper now looks like this:
 
 ```
 {
@@ -204,7 +204,8 @@ The selectors are short, because the `name` attributes are unique. Some parts of
 }
 ```
 
-We add any further metadata we can find in the `meta`-section. If some information is not present for some journals, in this case e.g. `keywords` or `author_orcid`, we skip these elements. Our scraper now should look like this:
+We add any further metadata we can find in the `meta`-section, please have a thorough look through the source code to get an impression of the data. If some information is not present for some journals, in this case e.g. `keywords` or `author_orcid`, we skip these elements. Our scraper now should look like this:
+
 ```
 {
   "url": "ijs\\.sgmjournals\\.org",
@@ -261,7 +262,7 @@ We add any further metadata we can find in the `meta`-section. If some informati
 
 We now proceed to the content, unfortunately with this journal this is not as straightforward as the metadata. Downloads for PDF are behind links, and fulltext, figures, and supplementary data are on different tabs. It is not possible to find the content within the source view of the page, since it is hidden behind scripts.
 
-We therefore have to define `followables`, that quickscrape then can follow to the real content. We do this as an extra entry between `url` and `elements`. You can find the selectors and attributes by clicking on fulltext, right clicking on the text of the introduction and choosing `Inspect element (Q)`. This opens a firebug window, the fulltext can be found by quickscrape through following the `div` tag with the `id='itemfulltext'` to the `data-fulltexturl`. 
+We therefore have to define `followables`, that quickscrape then can follow to the real content. We do this as an extra entry between `url` and `elements`. After switching to the `Fulltext`-tab, you can find the selectors and attributes by clicking on fulltext, right clicking on the text of the introduction and choosing `Inspect element (Q)`. This opens a firebug window, the fulltext can be found by quickscrape through following the `div` tag with the `id='itemfulltext'` to the `data-fulltexturl`. 
 
 ![sourceview003](../../resources/images/software/journal-scrapers/003.png)
 
@@ -271,7 +272,7 @@ We therefore have to define `followables`, that quickscrape then can follow to t
       "attribute": "data-fulltexturl"
     }
 ```
-If you mouseover a line in the inspector, it highlights the corresponding element in the browser. For the case of figures, we aim to select the element which contains all figures, and not a single one.
+If you mouseover a line in the inspector, it highlights the corresponding element in the browser. For the case of the `Figures`-tab, we aim to select the element which contains all figures, and not a single one.
 
 ![sourceview004](../../resources/images/software/journal-scrapers/004.png)
 
@@ -309,7 +310,7 @@ If you mouseover a line in the inspector, it highlights the corresponding elemen
 
 #### Downloads
 
-Please note that the followables only define where quickscrape should start looking, they do not specify a figure, image, or downloadable PDF. This we will do now. We start with downloadable material, e.g. PDF, HTML, XML, and figures.
+Please note that the followables only define where quickscrape should start looking, they do not specify a figure, image, or downloadable PDF. This we will do now. 
 
 ![sourceview006](../../resources/images/software/journal-scrapers/006.png)
 
@@ -381,27 +382,27 @@ Now that we have the downloadable material, we want to scrape the fulltext, and 
 ```
     "introduction_text": {
       "follow": "fulltext_expansion",
-      "selector": "//div[@class='articleSection' and /div/div/div/a[contains(@name, 'introduction')]]",
+      "selector": "//div[@class='articleSection' and div[@class='articleSection']/div/div/a[@name='introduction-1']]//*",
       "attribute": "text"
-    },
+    }
 ```
 
-In this selector we make use of the boolean operator `and` which combines two conditions. Through this we can separate the different section, which have the same class attribute `articleSection` and differ through the `name` attribute which is a three `div`s further down the tree.
+In this selector we make use of the boolean operator `and` which combines two conditions. Through this we can separate the different section, which have the same class attribute `articleSection` and differ through the `name` attribute which is within an `a` three `div`s further down the tree. This looks like quite a leap of faith in this case. Please compare the different sections and it is very likely you come up with another, alternative query here.
 
 ```
     "methods_text": {
       "follow": "fulltext_expansion",
-      "selector": "//div[@class='articleSection' and /div/div/div/a[contains(@name, 'methods')]]",
+      "selector": "//div[@class='articleSection' and div[@class='articleSection']/div/div/a[@name='methods-1']]//*",
       "attribute": "text"
     },
     "results_text": {
       "follow": "fulltext_expansion",
-      "selector": "//div[@class='articleSection' and /div/div/div/a[contains(@name, 'resultsanddiscussion')]]",
+      "selector": "//div[@class='articleSection' and div[@class='articleSection']/div/div/a[@name='resultsanddiscussion-1']]//*",
       "attribute": "text"
     },
     "acknowledgements_text": {
       "follow": "fulltext_expansion",
-      "selector": "//div[@class='articleSection' and /div/div/div/a[contains(@name, 'acknowledgements')]]",
+      "selector": "//div[@class='articleSection' and div[@class='articleSection']/div/div/a[@name='acknowledgement-1']]//*",
       "attribute": "text"
     }
 ```
@@ -431,7 +432,7 @@ Go to the [ContentMine-scrapers repository](https://github.com/ContentMine/journ
 
 Then you switch to your fork of the repository which can be found under `https://github.com/**your_username**/journal-scrapers`. Copy the URL, open a commandline and clone the repository to a working directory with `git clone https://github.com/**your_username**/journal-scrapers`. 
 
-You can now edit existing scraper definitions or add you own. The repository has the following structure: Scraper definitions go into the `scrapers`-folder, and testing material (a list of 5-10 urls where the scraper works) go into `test`.
+You can now edit existing scraper definitions or add you own. The repository has the following structure: Scraper definitions go into the `scrapers`-folder, and testing material (a list of 5-10 urls where the scraper works, 1 per line) go into `test`.
 
 ```
 .
@@ -467,7 +468,7 @@ name@computer ~/journal-scrapers (git)-[ijsem] % git status
 ```
 Add the three files to the next commit by `git add scrapers/ijsem.json`, `git add test/ijsem-testurls.txt` and `git add test/ijsem.json`.
 
-Then commit your files together with a short explanation what you changed by `git commit -m 'ijsem definition and test added'`. This collects all your changes in one package and prepares it for merging with the existing scrapers.
+Then commit your files together with a short explanation what you changed by e.g. `git commit -m 'ijsem definition and test added'`. This collects all your changes in one package and prepares it for merging with the existing scrapers.
 
 Now push your commit from the local machine to the GitHub repository with `git push origin master` (may require your username and password).
 
@@ -475,7 +476,7 @@ On the GitHub-page of your repository, create a pull request:
 
 ![sourceview011](../../resources/images/software/journal-scrapers/011.png)
 
-The next page shows you a comparison between our repository and your repository. Depending on how many changes have been made since your fork, more or less difference will show up. Unless other people have worked on the same scraper, there should not be any problems with the pull request. Don't be afraid to make changes! Other people will have a look and try to detect errors, and ifsomething breaks changes can be reverted easily.
+The next page shows you a comparison between our repository and your repository. Depending on how many changes have been made since your fork, a few differences will show up. Unless other people have worked on the same scraper, there should not be any problems with the pull request. Don't be afraid to make changes! Other people will have a look and try to detect errors, and if something breaks changes can be reverted easily.
 
 ![sourceview0127](../../resources/images/software/journal-scrapers/012.png)
 
