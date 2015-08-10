@@ -3,7 +3,7 @@
 ## What are journal scrapers?
 
 
-Journal scrapers are used in [quickscrape](../quickscrape/quickscrape-tutorial.md) to find and extract specific pieces of content from a website. What you see whenyou open a website is your browsers visual interpretation of HTML (content) and CSS (layout). A scraper takes the HTML, takes a certain piece of content (author names, doi, a heading, a paragraph) and restructures it into a format that is re-usable by machines. 
+Journal scrapers are used in [quickscrape](../quickscrape/quickscrape-tutorial.md) to find and extract specific pieces of content from a website. What you see when you open a website is your browsers visual interpretation of HTML (content) and CSS (layout). A scraper takes the HTML, takes a certain piece of content (author names, doi, a heading, a paragraph) and restructures it into a format that is re-usable by machines. 
 
 In academic literature the types of content are the same, even between disciplines - journal layouts on the other hand vary widely. ContentMine aims to offer a comprehensive collection of scrapers (maintained in [this repo](https://github.com/ContentMine/journal-scrapers)), but we - and your scientific community - need your help for that. In this tutorial we're going to cover how to contribute a scraper to the collection. We're going to look at a how a website is structured and how a scraper is defined, and we'll also walk through the github workflow in order to make the scraper definition available to the community.
 
