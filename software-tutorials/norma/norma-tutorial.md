@@ -34,6 +34,8 @@ sudo dpkg -i norma-0.1-SNAPSHOT.deb
 # the password is password
 ```
 
+You can find the technical documentation for `norma` in its [repository](https://github.com/ContentMine/norma).
+
 The tutorial has been developed on 
 ```
 $ norma --version

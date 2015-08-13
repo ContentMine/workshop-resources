@@ -30,6 +30,8 @@ sudo dpkg -i norma-0.1-SNAPSHOT.deb
 # the password is password
 ```
 
+You can find the technical documentation for `ami` in its [repository](https://github.com/ContentMine/ami-plugin).
+
 ### How to use ami-plugins
 
 It all starts with a `scholarly.html`-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:

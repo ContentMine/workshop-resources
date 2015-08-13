@@ -29,7 +29,11 @@ This tutorial covers the installation of getpapers, explains possible options, d
 $ npm install --global getpapers
 ```
 
+You can find the technical documentation for `getpapers` in its [repository](https://github.com/ContentMine/getpapers).
+
 ### Usage
+
+The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/shell-tutorial.md), please have a look if you are new to using the command line.
 
 Use `getpapers --help` to see the command-line help:
 

@@ -21,6 +21,8 @@
 $ npm install --global quickscrape
 ```
 
+You can find the technical documentation for `quickscrape` in its [repository](https://github.com/ContentMine/quickscrape).
+
 ### Scraper definitions
 
 **Quickscrape is incomplete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/journal-scrapers-tutorial.md).
