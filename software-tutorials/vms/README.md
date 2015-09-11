@@ -101,3 +101,25 @@ setxkbmap us
 ```
 
 The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/shell-tutorial.md), please have a look if you are new to using the command line.
+
+
+#### Technical Information and Reproducibility
+
+The VM comes with following packages and environments installed:
+
+Environments:
+- node.js and npm
+- java??
+- zsh
+
+ContentMine tools:
+- getpapers - version
+- quickscrape - version
+- norma - version
+- AMI-plugins - version
+
+Data analysis packages:
+
+- [anaconda](http://continuum.io/downloads#py34)
+- [jupyter](http://jupyter.readthedocs.org/en/latest/install.html)
+- [R 3.2]
