@@ -13,7 +13,7 @@ The input for ami is always a ctree containing documents in [scholarly HTML](../
 
 [3. genes](#ami2-gene)
 
-[4. sequences](#ami2-sequence)
+[4. sequence](#ami2-sequence)
 
 [5. regex](#ami2-regex)
 
