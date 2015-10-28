@@ -32,3 +32,21 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 
 ![rm](../../resources/images/software/vms/rm.png)
 
+
+
+´´´
+# prints the whole file to the terminal
+cat test_eupmc/fulltext_html_urls.txt
+# prints the top 10 lines
+head test_eupmc/fulltext_html_urls.txt
+# prints the last 5 lines
+tail -5 test_eupmc/fulltext_html_urls.txt
+wc -l test_eupmc/fulltext_html_urls.txt
+grep dinosaur test_eupmc/eupmc_results.json
+grep -A1 abstractText test_eupmc/eupmc_results.json
+
+´´´
+
+
+
+cancel a command with ctrl + c !!!
