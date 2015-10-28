@@ -30,6 +30,11 @@
 * Q&A
 
 
+### Duration
+
+45min
+
+
 ### Prerequisites
 
 * none

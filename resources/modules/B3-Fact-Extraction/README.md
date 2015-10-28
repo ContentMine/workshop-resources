@@ -20,6 +20,10 @@
 
 * command line
 
+### Duration
+
+60min
+
 ### Resources
 
 * readymade executable examples

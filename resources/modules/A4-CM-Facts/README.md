@@ -21,6 +21,11 @@
 * step-by-step walkthrough: showing an example input, and what happens after CM is applied to it
 
 
+
+### Duration
+
+45min
+
 ### Prerequisites
 
 * none

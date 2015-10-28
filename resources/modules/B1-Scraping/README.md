@@ -18,6 +18,10 @@
 * write scraper
 
 
+### Duration
+
+60min
+
 ### Prerequisites
 
 * command line

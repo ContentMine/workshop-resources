@@ -22,6 +22,11 @@
 
 * none
 
+
+### Duration
+
+15min
+
 ### Resources
 
 

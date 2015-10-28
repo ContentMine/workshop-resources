@@ -23,6 +23,10 @@
 * demo of CM product
 
 
+### Duration
+
+45min
+
 ### Prerequisites
 
 * none

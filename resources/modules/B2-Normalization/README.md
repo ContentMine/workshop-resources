@@ -17,6 +17,10 @@
 * compare one input document with an output document in detail
 
 
+### Duration
+
+60min
+
 ### Prerequisites
 
 * command line

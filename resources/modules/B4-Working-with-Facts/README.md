@@ -21,6 +21,10 @@
 
 * command line
 
+### Duration
+
+90min
+
 ### Resources
 
 * prepared ipython notebook
