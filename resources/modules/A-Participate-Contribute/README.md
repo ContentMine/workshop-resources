@@ -26,7 +26,9 @@
 
 ### Duration
 
-45min
+15min
+10min presentation
+5min questions
 
 
 ### Prerequisites

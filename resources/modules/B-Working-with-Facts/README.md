@@ -23,7 +23,13 @@
 
 ### Duration
 
-90min
+60min
+5min introduce notebooks
+10min getting notebooks to run
+5min reserve for error handling
+30min going through notebook workflow
+10min discussion
+
 
 ### Resources
 

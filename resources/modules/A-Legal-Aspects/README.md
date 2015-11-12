@@ -32,6 +32,8 @@
 ### Duration
 
 45min
+15min presentation
+30min quiz + discussion
 
 
 ### Prerequisites
