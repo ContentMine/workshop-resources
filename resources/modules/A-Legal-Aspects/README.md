@@ -2,16 +2,13 @@
 
 ### Contents
 
+* Under what circumstances is it legal to content mine, and how?
 * copyright
 * publisher licences
 * country-specific legislation
-* List the legal areas that impact content mining
-* Describe under what circumstances it is legal to content mine.
-* Be aware of current consultations and plans in the EU around TDM
-* Be aware of copyright restrictions (or exceptions) in your jurisdication.
-* specify licensing /status of resulting facts?
+* legal areas that impact content mining
+* specify licensing /status of resulting facts
 * introduce concept of fact from a legal perspective
-
 
 
 ### Learning Goals
@@ -20,6 +17,8 @@
 * learn the differences between licences
 * learn about current legal developments regarding text and data mining, including updates on H2020, EU copyright revisions
 * learn about barriers erected by publishers, including restrictive licences, API ToS
+* learn about current consultations and plans in the EU around TDM
+* learn about copyright restrictions (or exceptions) in your jurisdication.
 
 
 
