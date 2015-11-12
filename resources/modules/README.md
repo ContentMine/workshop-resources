@@ -15,12 +15,12 @@ Modules beginning with "C" build on what has been learned in "B". They are desig
 | Module | Description | Estimated length |
 |--------|------------|-------------------|
 | A | Introduction sessions | 180min |
-| A1 | What is content mining in general, what does ContentMine do specifically? | 45 min |
-| A2 | Under what circumstances is it legal to content mine, and how? | 45 min |
+| A1 | What is content mining in general, what does ContentMine do specifically? | 45min |
+| A2 | Under what circumstances is it legal to content mine, and how? | 45min |
 | A3 | What is a fact, where does it come from, what can I do with it? | 45min |
 | A4 | Participate and contribute to the ContentMine | 15min |
 | A5 | Getting an easy start with Canary | 30min | 
-|----|-------------------------------------------|------|
+|----|------------------------------------------------|------|
 | B | Practical sessions | 335min | 
 | B1 | Overview of tool chain: What happens how, where can I jump in? | 45min |
 | B2 | How to work with ContentMine tools | 45min |
@@ -29,7 +29,7 @@ Modules beginning with "C" build on what has been learned in "B". They are desig
 | B5 | Normalizing the literature | 30min |
 | B6 | Extracting facts with AMI | 60min |
 | B7 | Putting facts in context with jupyter | 60min |
-|----|-----------------------------------|------|
+|----|------------------------------------------------|------|
 | C | Hacking sessions | 60min - 390min |
 | C1 | ami-regex |  60min - 90min |
 | C2 | Writing scraper definitions | 60min - 120min |
