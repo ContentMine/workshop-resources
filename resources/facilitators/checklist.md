@@ -1,8 +1,15 @@
 # General ToDo list for running a ContentMine workshop
 
-This document is intended as a guideline for the workshop coordinator role. It helps keeping track of organizational issues before and after a workshop.
+This document is intended as a guideline for the workshops. It helps keeping track of organizational issues before and after a workshop.
 
-## Before the event
+
+[1. Before the workshop](#before-the-workshop)
+
+[2. During the workshop](#during-the-workshop)
+
+[3. After the workshop](#after-the-workshop)
+
+## Before the workshop
 ### For coordinators
 
 - [ ] Liase with local org on basic info, decide on:
@@ -56,7 +63,7 @@ This document is intended as a guideline for the workshop coordinator role. It h
 
 
 
-## During the event
+## During the workshop
 
 ### For coordinators
 
@@ -79,7 +86,9 @@ This document is intended as a guideline for the workshop coordinator role. It h
 	- [ ] discourse, github
 	- [ ] Give out evaluation forms (preferably before people start to leave)
 
-## After the event
+## After the workshop
+
+### For coordinators
 
 - [ ] follow up
 	- [ ] Thanks for coming-email, links to our pages on the web
@@ -89,3 +98,6 @@ This document is intended as a guideline for the workshop coordinator role. It h
 	- [ ] Add latest VM to [VM repo](https://github.com/ContentMine/workshops)
 
 
+### For facilitators
+
+- [ ] send out feedback forms
