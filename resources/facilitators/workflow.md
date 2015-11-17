@@ -1,33 +1,33 @@
-This should give some facilitators and organizers some orientation on which steps to perform when.
+This should give some facilitators and organizers some orientation on which steps to perform when. The *days ahead* estimations roughly indicate when this process should start, since there are dependencies later on.
 
 
-- Set up repo via template [LINK]
+1. Set up repo via template [LINK]() (*21d ahead*)
 	- fill in informations together with organizer
-- Think/talk about what people want to learn, we have three major use cases
-	- send out pre-assessment
-- choose modules according to audience, we have three module categories
+2. Think/talk about what people want to learn, we have three major use cases
+	- send out pre-assessment (*21d ahead*)
+3. choose modules according to audience, we have three module categories (*14d ahead*)
 	- introduction
 	- application of CMtools to do content mining
 	- hacky, working together on user problems
-- draft session schedule
+4. draft session schedule (*14d ahead*)
   The session schedule should include short breaks after each session, possibly
 	- think about: framing
 	- discuss what should not / can not be done and why
 	- potential technical issues -> prepare solution (additional documentation)
 	- potential content questions / problems -> prepare answers
 	- offer some social event in the evening
-- prepare materials
+5. fill repo with anything necessary in advance (*14d ahead*)
+	- downloads / installations / datasets / tech requirements
+	- go through "before workshop" checklist
+6. prepare materials (*10 ahead*)
 	- slides -> upload
 	- tech -> VM / USBs
 	- handouts / posters / flipchart workshop sheets
 	- online stuff -> pad, repo
 	- personal notes
-- fill repo with anything necessary in advance
-	- downloads / installations / datasets / tech requirements
-	- go through "before workshop" checklist
-- do workshop
+7. do workshop
 	-  go through "during workshop" checklist
 	- prepare locality (beamer, seating arrangement, material for harvesting)
-- review / evaluate
+8. review / evaluate (*1d later*)
 	- update repo with content generated during workshop
 	- send out follow ups, evaluation

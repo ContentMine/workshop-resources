@@ -4,10 +4,10 @@
 
 *This directory contains resources for the organisation of a ContentMine workshop. The following files are avaiable to use:*
 
-* [Facilitator Checklist](checklist_facilitators.md)
-  This should help facilitators preparing their sessions. Can be converted into github issues and be used as a to do list throughout the planning and execution of the workshop.
-* [Coordinator Checklist](checklist_coordinator.md)
-  This should help organizers setting up the frame for a workshop. Can be converted into github issues and be used as a to do list.
+* [Workflow](workflow.md)
+  This should give some facilitators and organizers some orientation on which steps to perform when.
+* [Checklist](checklist.md)
+  This should help facilitators and organizers prepare their sessions. Can be converted into github issues and be used as a to do list throughout the planning and execution of the workshop.
 * `template_programme`
   - this can be edited to make a programme for the day with the ContentMine theme. There are Pages and MS Word versions for Apple/Office users
 * `template_README.md`
