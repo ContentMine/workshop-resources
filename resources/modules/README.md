@@ -30,7 +30,7 @@ Modules beginning with "C" build on what has been learned in "B". They are desig
 | B6 | [Extracting facts with AMI](B-Fact-Extraction) | 60min |
 | B7 | [Putting facts in context with jupyter](B-Working-with-Facts) | 60min |
 |----|------------------------------------------------|------|
-| C | **Hacking sessions** | 60min - 390min |
+| C | **Hacking sessions** | 180min - 390min |
 | C1 | [ami-regex](C-Regex) |  60min - 90min |
 | C2 | Writing scraper definitions | 60min - 120min |
 | C3 | Explore facts in context | 60min - 180min |
