@@ -25,9 +25,9 @@
 
 ### Duration
 
-45min
-20min introduction presentation
-25min discussion of participants interests/visions
+* 45min
+  * 20min introduction presentation
+  * 25min discussion of participants interests/visions
 
 ### Prerequisites
 

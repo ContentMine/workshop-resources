@@ -25,7 +25,7 @@
 
 ### Duration
 
-15min
+* 15min
 
 ### Resources
 

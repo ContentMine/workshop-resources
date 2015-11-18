@@ -22,13 +22,13 @@
 
 ### Duration
 
-45min
-7min presentation
-7min looking at publisher APIs and scope of data sources
-7min looking at CProject/CTree
-7min looking at a fulltext.xml / scholarly.html
-7min looking at facts in context
-10min reserve for questions
+* 45min
+  * 7min presentation
+  * 7min looking at publisher APIs and scope of data sources
+  * 7min looking at CProject/CTree
+  * 7min looking at a fulltext.xml / scholarly.html
+  * 7min looking at facts in context
+  * 10min reserve for questions
 
 ### Prerequisites
 

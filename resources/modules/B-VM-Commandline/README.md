@@ -19,12 +19,12 @@ How to set up the working environment of the Virtual Machine
 
 ### Duration
 
-45min
-10min installation
-5min reserve for error handling
-15min hands on example of command line
-10min showing how to keep software updated
-5min reserve for questions
+* 45min
+  * 10min installation
+  * 5min reserve for error handling
+  * 15min hands on example of command line
+  * 10min showing how to keep software updated
+  * 5min reserve for questions
 
 ### Prerequisites
 

@@ -24,7 +24,7 @@
 
 ### Duration
 
-60min
+* 60min
 
 
 ### Prerequisites

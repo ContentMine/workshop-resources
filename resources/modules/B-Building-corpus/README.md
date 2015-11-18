@@ -20,12 +20,12 @@
 
 ### Duration
 
-50min
-10min presentation
-5min looking at API
-5min demo of getpapers-query
-20min hands-on of querying
-10min reserve for error handling
+* 50min
+  * 10min presentation
+  * 5min looking at API
+  * 5min demo of getpapers-query
+  * 20min hands-on of querying
+  * 10min reserve for error handling
 
 ### Prerequisites
 

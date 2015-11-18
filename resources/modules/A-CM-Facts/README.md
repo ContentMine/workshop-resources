@@ -24,9 +24,9 @@
 
 ### Duration
 
-45min
-15min introduction
-30min manual markup exercise
+* 45min
+  * 15min introduction
+  * 30min manual markup exercise
 
 ### Prerequisites
 

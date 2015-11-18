@@ -21,7 +21,7 @@
 
 ### Duration
 
-1 day
+* 60min - 180min
 
 
 ### Prerequisites

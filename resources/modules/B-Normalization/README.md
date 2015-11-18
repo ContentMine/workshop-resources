@@ -19,7 +19,11 @@
 
 ### Duration
 
-60min
+* 30min
+  * 10min presentation
+  * 5min hands on with norma
+  * 5min buffer for problems
+  * 10min discussion / questions
 
 ### Prerequisites
 

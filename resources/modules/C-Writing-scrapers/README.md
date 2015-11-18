@@ -1,16 +1,17 @@
-## Regex in ami
+## Writing scraper definitions
 
 ### Contents
 
-* what is a regex, why is it useful for me?
+* What is a scraper definition?
+* What do I need it for?
+* How can I build one?
 
 ### Learning Goals
 
-* learn how to create their own regex queries
+* learn how to create their own scraper definitions
 * be able to interpret why something is not as expected
-* how to input a regex into ami and run it
-* work with results
-
+* how to add a new definition to quickscrape and run it
+* get an intuition for results
 
 
 ### Activities and Methods
@@ -22,7 +23,7 @@
 
 ### Duration
 
-* 60min - 90min
+* 60min - 120min
 
 
 ### Prerequisites
@@ -36,7 +37,6 @@
 
 ### Resources
 
-* http://regexr.com/ 
 * an example dataset
 
 ### Watch for

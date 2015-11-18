@@ -20,11 +20,11 @@
 
 ### Duration
 
-45min
-10min presentation
-5min demo of quickscrape
-20min hands on example, comparing source-html with scraper-definition and output
-10min reserve for questions
+* 45min
+  * 10min presentation
+  * 5min demo of quickscrape
+  * 20min hands on example, comparing source-html with scraper-definition and output
+  * 10min reserve for questions
 
 ### Prerequisites
 
