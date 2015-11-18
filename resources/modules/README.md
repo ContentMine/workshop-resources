@@ -32,5 +32,5 @@ Modules beginning with "C" build on what has been learned in "B". They are desig
 |----|------------------------------------------------|------|
 | C | **Hacking sessions** | 180min - 390min |
 | C1 | [ami-regex](C-Regex) |  60min - 90min |
-| C2 | Writing scraper definitions | 60min - 120min |
-| C3 | Explore facts in context | 60min - 180min |
+| C2 | [Writing scraper definitions](C-Writing-scrapers) | 60min - 120min |
+| C3 | [Explore own use case](C-Own-Usecase) | 60min - 180min |
