@@ -1,5 +1,6 @@
-This should give some facilitators and organizers some orientation on which steps to perform when. The *days ahead* estimations roughly indicate when this process should start, since there are dependencies later on.
+This should give facilitators and organizers some orientation on which steps to perform when. The *days ahead* estimations roughly indicate when this process should start, since there are dependencies later on.
 
+The major points can be raised as personal issues for the facilitators/organizers, with the subpoints as issue notes. This helps keeping track of progress. Also, each major point should be discussed directly between facilitators/organizers at least once.
 
 1. Set up repo via template [LINK]() (*21d ahead*)
 	- fill in informations together with organizer
