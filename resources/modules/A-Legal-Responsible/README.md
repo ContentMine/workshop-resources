@@ -1,4 +1,4 @@
-## Legal Aspects of Content Mining
+## Legal Aspects and Responsible Mining
 
 ### Contents
 
@@ -19,7 +19,8 @@
 * learn about barriers erected by publishers, including restrictive licences, API ToS
 * learn about current consultations and plans in the EU around TDM
 * learn about copyright restrictions (or exceptions) in your jurisdication.
-
+* Understand the impact of crawlers on websites
+* Describe steps one can take to limit impact of crawling e.g. limit requests
 
 
 ### Activities and Methods
@@ -31,9 +32,12 @@
 
 ### Duration
 
-* 45min
-  * 15min presentation
-  * 30min quiz + discussion
+* 50min
+  * 10min presentation about legal aspects
+  * 15min quiz + discussion of answers
+  * 10min wrap up and questions
+  * 10min presentation about responsible mining
+  * 5min discussion / questions
 
 
 ### Prerequisites
