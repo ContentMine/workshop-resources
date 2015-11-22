@@ -1,6 +1,6 @@
 # ContentMine Virtual Machines
 
-## Description
+## DESCRIPTION
 
 **What is a virtual machine?**
 A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). It consists of two parts: 
@@ -11,12 +11,16 @@ A virtual machine is a simulated operating system 'within' your operating system
 Virtual Machines makes it easy to use pre-configured software environments on different operating systems. In our case, it allows us to run the ContentMine software easily on all kinds of operating systems (Linux, Windows and Mac). This is used mostly for hands-on workshops and allows all attendees to run the software without having to modify their own systems. This allows us to quickly and smoothly start content mining, with a mininum of fuss.
 
 **How can I use the virtual machine?**
-For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You can find further [details](# Working in the ContentMine virtual machine) down below.
+For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You will find more details in the install section.
 
-## Tutorial
-Before you can start to work with the ContentMine software, you should follow the instructions below:
+## TUTORIAL
+**Table of Content**
 
-![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
+1.[Installation](#installation)
+2.[Scraper definitions](#scraper-definitions)
+3.[Scraping](#scraping)
+4.[Other sources](#other-sources)
+5.[Summary and next steps](#summary-and-next-steps)
 
 ### 1. Install VirtualBox
 VirtualBox runs on Windows, Linux, Macintosh, and Solaris and licensed under GNU General Public License (GPL) version 2.
@@ -94,21 +98,21 @@ If you run into issues with your keyboard layout, open a terminal window and set
 setxkbmap us
 ```
 
-## Problems
+## PROBLEMS
 
 The most common error is an incomplete download of the large VM image file, please verify that the download has been succesfully and _fully_ completed.
 
 If you have any problems getting VirtualBox, or downloading and starting the virtual image, don't worry. Please contact the workshop organizer for support, or ask us on our [website](http://contentmine.org/contact).
 
-## Documentation
+## DOCUMENTATION
 #### Technical Information and Reproducibility
 
 The VM comes with following packages and environments installed:
 
 Environments:
-- node.js and npm
-- java??
-- zsh
+- node.js v0.10.24
+- npm 1.3.21
+- zsh 4.3.17
 
 ContentMine tools:
 - getpapers - version
@@ -117,7 +121,6 @@ ContentMine tools:
 - AMI-plugins - version
 
 Data analysis packages:
-
 - [anaconda](http://continuum.io/downloads#py34)
 - [jupyter](http://jupyter.readthedocs.org/en/latest/install.html)
 - [R 3.2]

@@ -4,6 +4,8 @@
 
 In general: autocompletion with 'tab' may save you a lot of typing.
 
+If you want to interrupt and cancel the execution of a command, just press ```CTRL``` + ```c```.
+
 **ls**: **l**i**s**ts files and directories, takes the current working directory as root. You can also look into the content of nested directories by simply extending the path ```ls dir/nested_dir/nested_dir2```.
 
 ![ls](../../resources/images/software/vms/ls.png)
@@ -49,4 +51,4 @@ grep -A1 abstractText test_eupmc/eupmc_results.json
 
 
 
-cancel a command with ctrl + c !!!
+ !!!
