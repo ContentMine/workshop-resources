@@ -14,12 +14,12 @@ Modules beginning with "C" build on what has been learned in "B". They are desig
 
 | Module | Description | Estimated length |
 |--------|------------|-------------------|
-| A | **Introduction sessions** | 180min |
+| A | **Introduction sessions** | 195min |
 | A1 | [What is content mining in general, what does ContentMine do specifically?](A-About-ContentMine) | 45min |
-| A2 | [Under what circumstances is it legal to content mine, and how?](A-Legal-Aspects) | 45min |
+| A2 | [Under what circumstances is it legal to content mine, and how?](A-Legal-Responsible) | 45min |
 | A3 | [What is a fact, where does it come from, what can I do with it?](A-CM-Facts) | 45min |
 | A4 | [Participate and contribute to the ContentMine](A-Participate-Contribute) | 15min |
-| A5 | [Getting an easy start with Canary](A-Canary) | 30min | 
+| A5 | [Getting an easy start with Canary](A-Canary) | 45min | 
 |----|------------------------------------------------|------|
 | B | **Practical sessions** | 335min | 
 | B1 | [Overview of tool chain: What happens how, where can I jump in?](B-Architecture) | 45min |
