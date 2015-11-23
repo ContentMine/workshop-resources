@@ -37,4 +37,3 @@ This repository is aimed at the roles of workshop facilitators and organizers. B
   * Prepare content 
   * Run workshop
   * pre-assessment and post-evaluation
-describe facilitator and organizer roles
