@@ -33,7 +33,8 @@
 
 ### Resources
 
-* readymade executable examples
+* readymade executable examples [tutorial link]
+* Ross's getpapers screencast
 * slides [LINK]
 
 

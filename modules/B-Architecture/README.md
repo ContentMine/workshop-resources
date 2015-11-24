@@ -36,8 +36,11 @@
 
 ### Resources
 
-* a precompiled dataset with ami-plugins run
 * slides [LINK]
+* a precompiled dataset with ami-plugins run
+* links and documentation to 2-3 publisher APIs (EUPMC, ...)
+* an example CProject/CTree
+* an example fact + surrounding context
 
 ### Watch for
 

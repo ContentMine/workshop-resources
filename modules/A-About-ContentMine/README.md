@@ -11,16 +11,16 @@
 
 ### Learning Goals
 
-* see / hear the vision and purpose of CM
-* get an overview about the products of CM
-* can relate CM to their own work
+* what is the vision and purpose of content mining
+* get an overview about the products of ContentMine
+* how to relate content mining to their own work
 
 
 ### Activities and Methods
 
 * presentation
+* demo of CM product: IUCN redlist, FotD
 * Q&A
-* demo of CM product
 
 
 ### Duration

@@ -24,7 +24,13 @@
 
 ### Duration
 
-* 60min
+* 45min
+  * 5min intro
+  * 5min create own workspace, explain options
+  * 10min execute query: finding papers, removing failures, run plugins (do it with a narrow query)
+  * 5min error handling
+  * 10min exploring facts: context, source, options
+  * 10min own exploration: show documentation, then hands on, while answering questions
 
 
 ### Prerequisites
