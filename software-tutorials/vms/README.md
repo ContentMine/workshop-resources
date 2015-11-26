@@ -17,9 +17,13 @@ For this, you have to install [VirtualBox](https://www.virtualbox.org/) and star
 **Table of Content**
 
 1.[Installation](#installation)
+
 2.[Scraper definitions](#scraper-definitions)
+
 3.[Scraping](#scraping)
+
 4.[Other sources](#other-sources)
+
 5.[Summary and next steps](#summary-and-next-steps)
 
 ### 1. Install VirtualBox

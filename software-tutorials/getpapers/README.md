@@ -22,13 +22,20 @@ This tutorial covers the installation of getpapers, explains possible options, d
 ## TUTORIAL
 **Table of Content**
 1. [Installation](#installation)
+
 2. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
+
 3. [Getting pdfs and other files](#getting-pdfs-and-other-files)
+
 4. [Complex queries for EPMC](#complex-queries-for-epmc)
+
 5. [Complex queries for ArXiv](#complex-queries-for-arxiv)
+
 6. [Complex queries for IEEE](#complex-queries-for-ieee)
 
-### 1. Installation
+7. [Summary and next steps](#summary-and-next-steps)
+
+### Installation
 
 ```bash
 sudo npm install --global getpapers
@@ -60,7 +67,7 @@ Options:
   -a, --all               search all papers, not just open access
 ```
 
-### 2. Construct a simple query and compare results
+### Construct a simple query and compare results
 
 The most basic query **returns only metadata**. Without a specification of the API, getpapers will chose EuropePMC as default data source.
 
@@ -189,7 +196,7 @@ eupmc
 
 This is the beginning of the [ctree](../ctree/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
 
-### 4. Complex queries for EuropePMC
+### Complex queries for EuropePMC
 
 [Europe PubMedCentral](https://europepmc.org/) (EUPMC)
 
@@ -256,7 +263,7 @@ getpapers -q 'ACK_FUND:ERC' --api eupmc -o eupmc_acknowledgement
 
 You can find some more queries from the [documentation](getpapers-eupmc-queries.md)
 
-### 5. Complex queries for ArXiv
+### Complex queries for ArXiv
 
 The ArXiv API has a nice, clearly defined format and offers full access to all publications on [arxiv.org](http://arxiv.org). Queries can target individual fields of the articles records. A selection of possible search fields is explained [here](getpapers-arxiv-queries.md), and a complete documentation is provided by [ArXiv](http://arxiv.org/help/api/user-manual). 
 
@@ -277,7 +284,7 @@ Search for papers that contain dinosaurs in the abstract, but neither "quantum p
 getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --api arxiv -o arxiv_abstract_not-quantum-physics_not-biology -p
 ```
 
-### 6. Complex queries for IEEE
+### Complex queries for IEEE
 
 IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downloadable (though we're working on it). `getpapers` will output metadata for the search results, and will attempt to reconstruct the fulltext HTML URLs for any papers that have fulltext HTML.
 
