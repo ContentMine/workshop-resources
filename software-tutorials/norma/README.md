@@ -63,6 +63,20 @@ We start with a search results with getpapers
 $ getpapers -q dinosaurs -o dinosaurs-xmls -x
 ```
 
+If you get an error that reads like this
+```
+270  [main] WARN  org.xmlcml.cmine.args.DefaultArgProcessor  - Recursing CMDIRs is probably  a BUG
+270  [main] DEBUG org.xmlcml.cmine.args.DefaultArgProcessor  - ... No reserved files or directories: dir: dinosaurs-xmls/PMC3390907
+```
+it relates to an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)). To solve it temporarily, perform the following steps, which will delete the empty folders and keeps the ones with files:
+
+```bash
+cd dinosaurs-xmls
+find -empty -delete
+cd ..
+```
+
+
 getpapers returns a **project folder** containing search metadata and ctrees. Each ctree holds all data regarding one paper, in this case a `fulltext.xml`.
 ```
 $ tree dinosaurs-xmls
@@ -102,15 +116,7 @@ dinosaurs-xmls/
 ...
 ```
 
-#### Troubleshooting
 
-To solve an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)), perform the following steps:
-
-```bash
-cd dinosaurs-xmls
-find -empty -delete
-cd ..
-```
 
 ### HTML to sHTML
 
