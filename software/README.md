@@ -1,5 +1,10 @@
 ![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
 
+The basic usage of ContentMine tools can be learned step-by-step with the help of the tutorials. They describe functionalities, what results to expect, and how to link the different elements of the content mining pipeline.
+
+The tutorials can be used in workshops as well as for self-guided learning.
+
+
 # Table of contents
 
 1. [Purpose and installation of the ContentMine-VirtualMachine](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/vms)
