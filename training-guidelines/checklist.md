@@ -1,13 +1,11 @@
 # General ToDo list for running a ContentMine workshop
 
-This document is intended as a guideline for the workshops. It helps keeping track of organizational issues before and after a workshop.
+This document is intended as a guideline for the workshops. It helps keeping track of organizational issues before and after a workshop. Most useful in conjunction with the [workflow description](workflow.md).
 
 
-[1. Before the workshop](#before-the-workshop)
-
-[2. During the workshop](#during-the-workshop)
-
-[3. After the workshop](#after-the-workshop)
+1. [Before the workshop](#before-the-workshop)
+2. [During the workshop](#during-the-workshop)
+3. [After the workshop](#after-the-workshop)
 
 ## Before the workshop
 ### For coordinators

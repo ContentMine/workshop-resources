@@ -3,7 +3,7 @@
 ## DESCRIPTION
 **What does getpapers?**
 
-`getpapers` is together with [quickscrape](../quickscrape/quickscrape-tutorial.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
+`getpapers` is together with [quickscrape](../quickscrape/README.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
 
 This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
 
@@ -39,7 +39,7 @@ You can find the technical documentation for `getpapers` in its [repository](htt
 **Help**
 
 
-The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/shell-tutorial.md), please have a look if you are new to using the command line.
+The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/README.md), please have a look if you are new to using the command line.
 
 Use `getpapers --help` to see the command-line help:
 
@@ -111,15 +111,15 @@ head eupmc/fulltext_html_urls.txt
 tail -5 eupmc/fulltext_html_urls.txt
 ```
 
-If you want to know how many lines (publications) the query found, use the command ```wc``` ([doc](https://en.wikipedia.org/wiki/Wc_%28Unix%29)). 
+If you want to know how many lines (publications) the query found, use the command `wc` ([doc](https://en.wikipedia.org/wiki/Wc_%28Unix%29)). 
 
 ```bash
 wc -l eupmc/fulltext_html_urls.txt
 ```
 
-It can happen, that for the query were found no fulltexts, in which case it the file ```fulltext_html_urls.txt``` will not be created.
+It can happen, that for the query were found no fulltexts, in which case it the file `fulltext_html_urls.txt` will not be created.
 
-At this point you could use the ```fulltext_html_urls.txt``` as input for [quickscrape](../quickscrape/quickscrape-tutorial.md#scraping), but for the moment we'll continue exploring getpapers.
+At this point you could use the `fulltext_html_urls.txt` as input for [quickscrape](../quickscrape/README.md#scraping), but for the moment we'll continue exploring getpapers.
 
 The other file a simple query returns is called ```APINAME_results.json``` and consists as described above the metadata of each found publication. 
 
@@ -135,7 +135,7 @@ If we want to read the abstracts, which are stored under the "abstractText" attr
 grep -A1 abstractText eupmc/eupmc_results.json
 ```
 
-These tools are useful in getting some first idea of the content of files, but ContentMine provides some more advanced tools in later stages of the pipeline, like ([ami](../ami/ami-tutorial.md)). For now we continue with more sophisticated queries with getpapers.
+These tools are useful in getting some first idea of the content of files, but ContentMine provides some more advanced tools in later stages of the pipeline, like ([ami](../ami/README.md)). For now we continue with more sophisticated queries with getpapers.
 
 ### 3. Getting pdfs and other files
 
@@ -306,6 +306,6 @@ getpapers -q 'ti=mining ctype=Conferences' --api ieee -o ieee_title_content-type
 * Each API has a different native query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
 **Next steps**
-* Continue to [quickscrape](../quickscrape/quickscrape-tutorial.md) for an introduction to scraping.
-* Continue to [norma](../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../ctree/ctree-overview.md) for an introduction of the main datastructure.
+* Continue to [quickscrape](../quickscrape/README.md) for an introduction to scraping.
+* Continue to [norma](../norma/README.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../ctree/README.md) for an introduction of the main datastructure.

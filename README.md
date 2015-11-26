@@ -26,12 +26,12 @@ The material offered here is subject to continuous change and improvement, so pl
 
 There are three main sections in this repository: modules, tutorials, and guidelines.
 
-* [modules](modules): This folder contains learning modules which can be combined as needed by workshop facilitators.
+* [training modules](training-modules): This folder contains learning modules which can be combined as needed by workshop facilitators.
 Each module contains a description of learning goals, links to additional resources like slides or software tutorials, and a description of course of action.
 
-* [tutorials](tutorials): The basic usage of ContentMine tools can be learned step-by-step with the help of the tutorials. They describe functionalities, what results to expect, and how to link the different elements of the content mining pipeline. The tutorials can be used in workshops as well as for self-guided learning.
+* [software tutorials](software-tutorials): The basic usage of ContentMine tools can be learned step-by-step with the help of the tutorials. They describe functionalities, what results to expect, and how to link the different elements of the content mining pipeline. The tutorials can be used in workshops as well as for self-guided learning.
 
-* [guidelines](guidelines): This folder contains organizer and facilitator resources for the organisation of a ContentMine workshop. It describes the workflow of facilitators and organizers on which steps to perform when, and which dependencies exist. A checklist helps facilitators and organizers prepare their sessions. Additionally it contains a description of the teaching methods used in a workshop as well as links to helpful external teaching resources.
+* [training guidelines](training-guidelines): This folder contains organizer and facilitator resources for the organisation of a ContentMine workshop. It describes the workflow of facilitators and organizers on which steps to perform when, and which dependencies exist. A checklist helps facilitators and organizers prepare their sessions. Additionally it contains a description of the teaching methods used in a workshop as well as links to helpful external teaching resources.
 
 
 ## For whom is this repository?

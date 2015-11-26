@@ -3,7 +3,7 @@
 ## DESCRIPTION
 **What is quickscrape?**
 
-`quickscrape` is together with [getpapers](../getpapers/getpapers-tutorial.md) one of the entry points of the ContentMine pipeline. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
+`quickscrape` is together with [getpapers](../getpapers/README.md) one of the entry points of the ContentMine pipeline. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
 
 **For what do we need quickscrape?**
 
@@ -27,7 +27,7 @@ You can find the technical documentation for `quickscrape` in its [repository](h
 
 ### 2. Scraper definitions
 
-**Quickscrape is incomplete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/journal-scrapers-tutorial.md) for a journal.
+**Quickscrape is incomplete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/README.md) for a journal.
 
 At the moment there exist definitions for following publishers/journals:
 * BMC
@@ -63,9 +63,9 @@ quickscrape \
   --output peerj-384
 ```
 
-![quickscrape-url](../../resources/images/software/quickscrape/quickscrape-url.png)
+![quickscrape-url](../assets/images/software/quickscrape/quickscrape-url.png)
 
-Quickscrape now creates a subfolder for each searchresult, describing the article source, a fulltext.html with the scraping results, and a results.json containing metadata of the article, e.g. authors, title, abstract and bibliographic data. It may include other files such as fulltext PDFs, fulltext XMLs, or scraped images.  This is also one of the starting points for a [ctree](../ctree-introduction.md), the main datastructure of the ContentMine pipeline.
+Quickscrape now creates a subfolder for each searchresult, describing the article source, a fulltext.html with the scraping results, and a results.json containing metadata of the article, e.g. authors, title, abstract and bibliographic data. It may include other files such as fulltext PDFs, fulltext XMLs, or scraped images.  This is also one of the starting points for a [ctree](../ctree/README.md), the main datastructure of the ContentMine pipeline.
 
 ```bash
 tree peerj-384/
@@ -82,7 +82,7 @@ peerj-384/
 
 #### getpapers URL-lists
 
-In the next example we take the output we get from a [basic getpapers query](../getpapers/getpapers-tutorial.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
+In the next example we take the output we get from a [basic getpapers query](../getpapers/README.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
 
 ```bash
 tree test_eupmc
@@ -134,9 +134,9 @@ From other searches or citation data you may have a list of DOIs ([Digital Objec
 ## 5. SUMMARY AND NEXT STEPS
 * A minimum query consists of a URL (or URL-list) and the path to a specific scraper (or a folder containing scraper definitions).
 * Please be a respectful and responsible miner and apply a reasonable rate limit `-r` (recommended between 3 and 6 scrapes per minute).
-* The result will be a collection of [ctrees](../ctree/ctree-overview.md) containing fulltexts in various formats (PDF, XML), a results.json with metadata, and possibly images.
+* The result will be a collection of [ctrees](../ctree/README.md) containing fulltexts in various formats (PDF, XML), a results.json with metadata, and possibly images.
 
 **Next steps**
-* Continue to [journal-scrapers](../journal-scrapers/journal-scrapers-tutorial.md) if you want to define your own scraper.
-* Continue to [norma](../norma/norma-tutorial.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../ctree/ctree-overview.md) for an introduction of the main datastructure.
+* Continue to [journal-scrapers](../journal-scrapers/README.md) if you want to define your own scraper.
+* Continue to [norma](../norma/README.md) for the next step of the ContentMine pipeline.
+* Continue to [ctree](../ctree/README.md) for an introduction of the main datastructure.
