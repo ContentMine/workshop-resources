@@ -2,9 +2,15 @@
 
 ## What is norma?
 
-Scientific literature is vast, and their representations are as manifold as their content. But below the superficial differences in appearance and layout, scientific literature follows a generally accepted structure. This structure has been formalized and translated into machine readable format via [scholarly HTML](../sHTML/sHTML-overview.md) (sHTML). If you want to successfully apply search and retrieval techniques onto a collection of papers, or to do a comprehensive literature review, the diverse website, PDF or other document formats have to be converted into a uniform, consistent structure. This process is called *normalization*, and the tool in the ContentMine pipeline performing this step is called **norma**. norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
+`norma` normalizes the outcomes of [getpapers](../getpapers/README.md) and [quickscrape](../quickscrape/README.md) into an unified data structure called [scholarly HTML (sHTML)](../sHTML/README.md). Normalization means, that no matter where the scientific publication comes from and how the text we get looks like, after getting through norma it is all in the same uniformly, consise data structure. This guarantees, that after norma you can use the same processes (analysis, data processing, viewing) for papers from all the different sources (arXiv, EUPMC, etc).
 
-norma offers a web of paths between three different input streams (an API-query from [getpapers](../getpapers/getpapers-tutorial.md), a URL-scrape from [quickscrape](../quickscrape-tutorial.md), and an existing collection of PDFs), and three different outputs (a collection of sHTML-files, ). The goal is to create a scholarly HTML-file for each source document, in order to run search and retrieve tools ([ami](../ami/ami-tutorial.md) or [cat](../cat/cat-tutorial.md)). We will learn how to compare and validate the output of norma in the [overview for scholarly HTML](../sHTML/sHTML-overview.md).
+This is necessary, because the data where we get the publications from use different file formats (PDF, XML), data structures, tagging for sections and so on. Norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
+
+Norma offers a different paths regarding the three different input streams:
+- an API-query from [getpapers](../getpapers/getpapers-tutorial.md)
+- a URL-scrape from [quickscrape](../quickscrape-tutorial.md)
+- an existing collection of PDFs. The goal is to create a scholarly HTML-file for each source document, in order to run search and retrieve tools ([ami]
+X(../ami/ami-tutorial.md) or [cat](../cat/cat-tutorial.md)). We will learn how to compare and validate the output of norma in the [overview for scholarly HTML](../sHTML/sHTML-overview.md).
 
 ![normasmall0](../../resources/images/software/norma/normasmall0.png)
 

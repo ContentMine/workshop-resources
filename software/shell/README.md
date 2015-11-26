@@ -4,6 +4,8 @@
 
 In general: autocompletion with 'tab' may save you a lot of typing.
 
+If you want to interrupt and cancel the execution of a command, just press ```CTRL``` + ```c```.
+
 **ls**: **l**i**s**ts files and directories, takes the current working directory as root. You can also look into the content of nested directories by simply extending the path ```ls dir/nested_dir/nested_dir2```.
 
 ![ls](../../resources/images/software/vms/ls.png)
@@ -32,3 +34,21 @@ mv is also used to rename files or folders, e.g. ```mv old_filename.txt new_file
 
 ![rm](../../resources/images/software/vms/rm.png)
 
+
+
+´´´
+# prints the whole file to the terminal
+cat test_eupmc/fulltext_html_urls.txt
+# prints the top 10 lines
+head test_eupmc/fulltext_html_urls.txt
+# prints the last 5 lines
+tail -5 test_eupmc/fulltext_html_urls.txt
+wc -l test_eupmc/fulltext_html_urls.txt
+grep dinosaur test_eupmc/eupmc_results.json
+grep -A1 abstractText test_eupmc/eupmc_results.json
+
+´´´
+
+
+
+ !!!
