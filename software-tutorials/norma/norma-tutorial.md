@@ -1,50 +1,102 @@
-![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
+# norma
 
-## What is norma?
+## DESCRIPTION
 
-Scientific literature is vast, and their representations are as manifold as their content. But below the superficial differences in appearance and layout, scientific literature follows a generally accepted structure. This structure has been formalized and translated into machine readable format via [scholarly HTML](../sHTML/sHTML-overview.md) (sHTML). If you want to successfully apply search and retrieval techniques onto a collection of papers, or to do a comprehensive literature review, the diverse website, PDF or other document formats have to be converted into a uniform, consistent structure. This process is called *normalization*, and the tool in the ContentMine pipeline performing this step is called **norma**. norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
+**What does norma?**
+Norma helps to normalize the data coming from different sources into the unified, consistend data structure. For publicaions coming from [quickscrape](../qucikscrape/) and for publications coming from [getpapers](../getpapers/) as XML it transform the content into [scholarly HTML](../sHTML/) (sHTML). For PDF's coming from [getpapers](../getpapers/) it creates XXXXXX. Norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
 
-norma offers a web of paths between three different input streams (an API-query from [getpapers](../getpapers/getpapers-tutorial.md), a URL-scrape from [quickscrape](../quickscrape-tutorial.md), and an existing collection of PDFs), and three different outputs (a collection of sHTML-files, ). The goal is to create a scholarly HTML-file for each source document, in order to run search and retrieve tools ([ami](../ami/ami-tutorial.md) or [cat](../cat/cat-tutorial.md)). We will learn how to compare and validate the output of norma in the [overview for scholarly HTML](../sHTML/sHTML-overview.md).
+**Why do we need norma?**
 
-![normasmall0](../../resources/images/software/norma/normasmall0.png)
+Norma does all the unfunny stuff of taking all kinds of different file formats as PDF, XML and HTML from different publishing websites and API's with different layouts and taggings and combines it to our internal standard for scientific literature sHTML. So it takes all the hard work of parsing and merging together all the pieces, and offers an output, which can then be easily used for further processing.
 
-Now we will trace the path through norma for three use cases:
-* normalizing search results from getpapers towards sHTML
-* normalizing search results from quickscrape towards sHTML
-* normalizing a collection of PDFs towards simple text files
+**How can I use norma?**
 
-[1. Installation](#installation)
+Norma offers a web of paths between three different input streams (an API-query from [getpapers](../getpapers/getpapers-tutorial.md), a URL-scrape from [quickscrape](../quickscrape-tutorial.md), and an existing collection of PDFs)
 
+BLABLABLALBA
+
+**What you will learn here**
+
+This tutorial shows you how to
+* normalize results from getpapers towards sHTML
+* normalize results from quickscrape towards sHTML
+* and normalize a collection of PDFs towards simple text files
+
+**How to use the tutorial**
+
+We have some conventions at work, which will be used through-out the tutorial. 
+- Variables as placeholders are always caps, like NAME, YOURDIRECTORY etc.
+
+**Glossary**
+- API
+- PDF
+- XML
+- HTML
+- Normalizing
+- Parsing
+- Scraping
+
+**Table of Content**
+[1. Used Data](#used-data)
 [2. getpapers: XML to sHTML](#xml-to-shtml)
-
 [3. quickscrape: HTML to sHTML](#html-to-shtml)
-
 [4. experimental: PDF collections to TXT](#pdf-collections-to-txt)
+[5. Outcome](#Outcome)
+[6. Next Tutorial](#next-tutorial)
 
-[5. Summary and next steps](#sumamry-and-next-steps)
+## PREPARATIONS
+### Pre-Requisites
+PC stuff
 
+### Used Software
+- [Future TDM Virtual Machine]()
+- norma 0.1.4
 
 ### Installation
 
-norma can be installed from the latest `.deb`-file, [Download here](https://jenkins.ch.cam.ac.uk/view/AMI2/job/norma/org.xml-cml$norma/lastSuccessfulBuild/artifact/org.xml-cml/norma/0.1-SNAPSHOT/norma-0.1-SNAPSHOT.deb)
+Norma can be installed from the latest `.deb`-file, [Download here](https://jenkins.ch.cam.ac.uk/view/AMI2/job/norma/org.xml-cml$norma/lastSuccessfulBuild/artifact/org.xml-cml/norma/0.1-SNAPSHOT/norma-0.1-SNAPSHOT.deb)
 
-```
+Get the file via terminal:
+```bash
 wget https://jenkins.ch.cam.ac.uk/view/AMI2/job/norma/org.xml-cml$norma/lastSuccessfulBuild/artifact/org.xml-cml/norma/0.1-SNAPSHOT/norma-0.1-SNAPSHOT.deb
 sudo dpkg -i norma-0.1-SNAPSHOT.deb
-# the password is password
 ```
+
+The password is password.
 
 You can find the technical documentation for `norma` in its [repository](https://github.com/ContentMine/norma).
 
-The tutorial has been developed on 
-```
-$ norma --version
-norma(0.1.8)
-```
+## TUTORIAL
+
+
+
+### 1. Used Data
+
+![normasmall0](../../resources/images/software/norma/normasmall0.png)
+
+Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. Most likely the data comes as output from getpapers or quickscrape, but you also can use your own PDF's or HTML.
+
+
+
+### 2. getpapers: XML to sHTML
+
+![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
+
+
+### 3. quickscrape: HTML to sHTML
+
+
+
+### 4. PDF collections to TXT
+
+
+
+### 5. Outcome
+
+
 
 ### XML to sHTML
 
-![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
 
 **Overview**
 
@@ -54,12 +106,12 @@ norma(0.1.8)
 We start with a search results with getpapers
 
 ```bash
-$ getpapers -q dinosaurs -o dinosaurs-xmls -x
+getpapers -q dinosaurs -o dinosaurs-xmls -x
 ```
 
 getpapers returns a **project folder** containing search metadata and ctrees. Each ctree holds all data regarding one paper, in this case a `fulltext.xml`.
 ```
-$ tree dinosaurs-xmls
+tree dinosaurs-xmls
 dinosaurs-xmls/
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
@@ -73,7 +125,7 @@ dinosaurs-xmls/
 We transform the fulltext.xml-files into sHTML. This can be done in bulk by passing the project folder with `-q`. The input/output-parameters `-i` and `-o` are verbose at the moment, we are working on simplifying to command, so that only the transformation parameter `--transform nlm2html` is needed. It is possible that norma prints a lot of debugging information, this does not automatically mean that something is wrong.
 
 ```bash
-$ norma \
+norma \
      -q dinosaurs-xmls \
      -i fulltext.xml \
      -o scholarly.html \
@@ -83,7 +135,7 @@ $ norma \
 If a `scholarly.html`-file has been added to each ctree, norma was succesful.
 
 ```bash
-$ tree dinosaurs-xmls
+tree dinosaurs-xmls
 dinosaurs-xmls/
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
@@ -117,7 +169,7 @@ cd ..
 The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of a quickscrape of a list of fulltext-urls (this has to be provided by you).
 
 ```bash
-$ quickscrape \
+quickscrape \
     -r urllist.txt \
     -o dinosaurs-htmls \
     -d journal-scrapers/scrapers
@@ -125,7 +177,7 @@ $ quickscrape \
 
 getpapers creates a project folder again containing ctrees. The metadata files are now within each ctree.
 ```bash
-$ tree dinosaurs-htmls
+tree dinosaurs-htmls
 dinosaurs-htmls/
 ├── http_europepmc.org_articles_PMC2214819
 │   ├── fulltext.html
@@ -141,7 +193,7 @@ dinosaurs-htmls/
 
 We first need to tidy up the `fulltext.html`-files, since not all html-files may be *well-formed* in the sense of conforming to the [W3C-standard](http://www.w3.org/TR/html5/). This is necessary for documents to be parseable. There are some tools that try to ensure well-formedness of a document. For this we pass the project folder with `-q`, specify input and output files with `-i` and `-o` and use `--html jsoup` for cleaning up the html.
 ```bash
-$ norma \
+norma \
     -q dinosaurs-htmls \
     -i fulltext.html \
     -o fulltext.xhtml \
@@ -150,7 +202,7 @@ $ norma \
 
 This procedures creates an intermediary document `fulltext.xhtml`. 
 ```bash
-$ tree dinosaurs-htmls/
+tree dinosaurs-htmls/
 dinosaurs-htmls/
 ├── http_europepmc.org_articles_PMC2214819
 │   ├── fulltext.html
@@ -169,7 +221,7 @@ dinosaurs-htmls/
 
 The final step removes content we do not want or need, such as publisher's related material, or social media feeds. This requires specific html-styles for each publisher, at the moment only one is available for testing purposes.
 ```bash
-$ norma \
+norma \
     -q dinosaurs-htmls/ \
     -i fulltext.xhtml \
     -o scholarly.html \
@@ -178,7 +230,7 @@ $ norma \
 
 We then have a project folder with ctrees, that trace the path from `fulltext.html` to `scholarly.html`
 ```bash
-$ tree dinosaurs-htmls/
+tree dinosaurs-htmls/
 dinosaurs-htmls/
 ├── http_europepmc.org_articles_PMC2214819
 │   ├── fulltext.html
@@ -213,8 +265,8 @@ PDF is a notoriously bad format for automatic processing. While understandable f
 If you have an existing collection of PDFs, norma can apply some simple normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you change into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
 
 ```
-$ cd dinosaur-pdfs
-$ tree
+cd dinosaur-pdfs
+tree
 .
 ├── Natarajan - Bone Cancer.pdf
 ├── Taylor - Aspects of sauropod dinosaurs.pdf
@@ -227,7 +279,7 @@ $ tree
 You can then use this small shell script to create folders based on the names of PDFs, move each PDF into the corresponding folder, and rename it to fulltext.pdf. This is now our project folder. We then move one level back in the hierarchy with `cd ..`, in order to run norma from outside the folder.
 
 ```bash
-$ for fname in *.pdf; do
+for fname in *.pdf; do
 filename=$(basename "$fname");
 filename="${filename%.*}";
 mkdir "$filename";
@@ -239,7 +291,7 @@ cd ..
 The folder structure should then look like this:
 
 ```
-$ tree dinosaur-pdfs
+tree dinosaur-pdfs
 dinosaur-pdfs
 ├── Natarajan - Bone Cancer
 │   └── fulltext.pdf
@@ -256,8 +308,8 @@ dinosaur-pdfs
 The following command creates simple *.txt files from each pdf
 
 ```bash
-$ norma -q dinosaurs-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
-$ tree dinosaurs-pdfs/
+norma -q dinosaurs-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
+tree dinosaurs-pdfs/
 dinosaurs-pdfs/
 ├── Natarajan - Bone Cancer
 │   ├── fulltext.pdf
@@ -284,3 +336,29 @@ dinosaurs-pdfs/
 **Next steps**
 * Continue to [sHTML](../sHTML/sHTML-overview.md) if you want to learn more about scholarly HTML.
 * Continue to [ami](../ami/ami-tutorial.md) for the next step of the ContentMine pipeline.
+
+
+
+
+
+### 6. Next Tutorial
+
+## FURTHER MATERIAL
+**Slides**
+
+
+**Assets**
+
+**Videos**
+
+
+**Learning Materials**
+
+**www**
+
+
+**Papers**
+
+
+
+
