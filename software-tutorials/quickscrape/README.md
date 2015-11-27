@@ -1,16 +1,9 @@
 # quickscrape
 
-## DESCRIPTION
-**What is quickscrape?**
+## Table of content
 
-`quickscrape` is together with [getpapers](../getpapers/README.md) one of the entry points of the ContentMine pipeline. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
+1.[Description](#description)
 
-**For what do we need quickscrape?**
-
-**How can I use quickscrape?**
-
-## TUTORIAL
-**Table of Content**
 1.[Installation](#installation)
 
 2.[Scraper definitions](#scraper-definitions)
@@ -21,7 +14,17 @@
 
 5.[Summary and next steps](#summary-and-next-steps)
 
-### Installation
+## Description
+**What is quickscrape?**
+
+`quickscrape` is together with [getpapers](../getpapers/README.md) one of the entry points of the ContentMine pipeline. It is designed to enable large-scale content mining, and retrieve PDFs, images and fulltext-htmls of scientific literature.
+
+**For what do we need quickscrape?**
+
+**How can I use quickscrape?**
+
+
+## Installation
 
 ```bash
 sudo npm install --global quickscrape
@@ -29,7 +32,7 @@ sudo npm install --global quickscrape
 
 You can find the technical documentation for `quickscrape` in its [repository](https://github.com/ContentMine/quickscrape).
 
-### Scraper definitions
+## Scraper definitions
 
 **Quickscrape is incomplete without the scraper definitions**. They are developed individually for each journal to accustom for different page layouts or html-tags. Scraper definitions are maintained in a [separate repository](https://github.com/ContentMine/journal-scrapers.git), and it is possible to [create your own definitions](../journal-scrapers/README.md) for a journal.
 
@@ -46,11 +49,11 @@ git clone https://github.com/ContentMine/journal-scrapers.git
 ```
 The scraper definitions will then be found in `your_path/journal-scraper/scrapers/`. Remember your path, cause it will be needed later on. 
 
-### Scraping
+## Scraping
 
 There are two possible inputs for quickscrape, a single url, or list of urls. The single url can be passed directly as a parameter from the command line, the list of urls should be collected either manually by you, or may be taken from a basic getpapers query. Quickscrape will then visit every URL in this list and grab everything it can. This includes sections according to tags, images or tables. This process depends heavily on the format that is provided by the publisher. 
 
-#### Single URLs
+### Single URLs
 
 A minimum query consists of a URL (or URL-list) and the path to a specific scraper (or a folder containing scraper definitions). You pass the url with `-u or --url`, the scraper definition with `-s or --scraper` and the output-directory with `-o or --output`.
 
@@ -84,7 +87,7 @@ peerj-384/
 1 directory, 5 files
 ```
 
-#### getpapers URL-lists
+### getpapers URL-lists
 
 In the next example we take the output we get from a [basic getpapers query](../getpapers/README.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
 
@@ -132,10 +135,11 @@ test_eupmc
 
 ```
 
-### Other sources
+## Other sources
 From other searches or citation data you may have a list of DOIs ([Digital Object Identifier](https://en.wikipedia.org/wiki/Digital_object_identifier)), such as `https://dx.doi.org/10.7717/peerj.384`. This is not a valid URL input for quickscrape. You must first resolve the DOI, in this case [https://dx.doi.org/10.7717/peerj.384](https://dx.doi.org/10.7717/peerj.384) leads to [https://peerj.com/articles/384/](https://peerj.com/articles/384/). Other examples are [http://dx.doi.org/10.4103%2F1817-1745.131497](http://dx.doi.org/10.4103%2F1817-1745.131497) which leads to the [article on pediatricneurosciences.com](http://www.pediatricneurosciences.com/article.asp?issn=1817-1745;year=2014;volume=9;issue=1;spage=79;epage=81;aulast=Vitaliti), or [http://dx.doi.org/10.1074%2Fmcp.M111.014167](http://dx.doi.org/10.1074%2Fmcp.M111.014167) which leads to the [article on MCPOnline.org](http://www.mcponline.org/content/11/7/M111.014167). It is important to distinguish between the DOI and the landing page. **Content can only be scraped from the landing page.**
 
 ## Summary and next steps
+
 * A minimum query consists of a URL (or URL-list) and the path to a specific scraper (or a folder containing scraper definitions).
 * Please be a respectful and responsible miner and apply a reasonable rate limit `-r` (recommended between 3 and 6 scrapes per minute).
 * The result will be a collection of [ctrees](../ctree/README.md) containing fulltexts in various formats (PDF, XML), a results.json with metadata, and possibly images.

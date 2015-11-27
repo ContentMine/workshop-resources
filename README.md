@@ -36,15 +36,14 @@ Each module contains a description of learning goals, links to additional resour
 
 ## For whom is this repository?
 
-This repository is aimed at the roles of workshop facilitators and organizers. Both roles work on different aspects of a workshop, but work together closely.
+* Learners:
+  * A large part of this repository is devoted to software tutorials, which can be used in the workshops but also for self-guided learning.
 
-* Organizer: Ensures a working framework of a workshop
+* Organizers and Facilitators: Ensures a working framework of a workshop and develop the content
   * Liasing with the local hosts/partners
   * Organize time and space requirements
   * Managing communication with participants
   * Setting up the physical requirements
-
-* Facilitator: Focussing on the content of a workshop
   * Design session schedule
   * setup technical requirements
   * Prepare content 

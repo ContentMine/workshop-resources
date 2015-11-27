@@ -1,6 +1,25 @@
 # getpapers
 
-## DESCRIPTION
+## Table of content
+
+1. [Description](#description)
+
+1. [Installation](#installation)
+
+2. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
+
+3. [Getting pdfs and other files](#getting-pdfs-and-other-files)
+
+4. [Complex queries for EPMC](#complex-queries-for-epmc)
+
+5. [Complex queries for ArXiv](#complex-queries-for-arxiv)
+
+6. [Complex queries for IEEE](#complex-queries-for-ieee)
+
+7. [Summary and next steps](#summary-and-next-steps)
+
+## Description
+
 **What does getpapers?**
 
 `getpapers` is together with [quickscrape](../quickscrape/README.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
@@ -19,21 +38,7 @@ This tutorial covers the installation of getpapers, explains possible options, d
 - API
 - Query
 
-## TUTORIAL
-**Table of Content**
-1. [Installation](#installation)
 
-2. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
-
-3. [Getting pdfs and other files](#getting-pdfs-and-other-files)
-
-4. [Complex queries for EPMC](#complex-queries-for-epmc)
-
-5. [Complex queries for ArXiv](#complex-queries-for-arxiv)
-
-6. [Complex queries for IEEE](#complex-queries-for-ieee)
-
-7. [Summary and next steps](#summary-and-next-steps)
 
 ### Installation
 
