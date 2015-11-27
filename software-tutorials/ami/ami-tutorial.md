@@ -3,23 +3,26 @@
 
 ## 1. DESCRIPTION
 
-ami is a collection of plugins that search, index and extract pieces of information from structured documents. A piece of information can be a mention of a certain species (e.g. Brachiosaurus) in a text, a gene sequence, or an expression of a chemical compound. The type of relevant information varies from discipline to discipline. We are continously developing new plugins to cover different types of encoded knowledge.
-
-The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores results in a folder in the ctree.
-
 **What does ami?**
 
+Ami is a collection of plugins that search, index and extract pieces of information from structured documents. So this is where the facts get extracted into XML files, so they can be used for further usage.
 
 **Why do we need ami?**
 
-
+Ami offers a plugin-style architecture with some powerful modules to extract facts like genes, species and sequences and to use regular expressions. We are continously developing new plugins to cover different types of encoded knowledge.
 
 **How can I use ami?**
 
+BLABLABLA
 
 **What you will learn here**
 
-This tutorial shows you how to
+This tutorial shows you:
+- how to use the species plugin
+- how to use the genes plugin
+- how to use the sequences plugin
+- how to use regular expressions
+- what to do with the extracted facts
 
 **How to use the tutorial**
 
@@ -30,17 +33,18 @@ We have some conventions at work, which will be used through-out the tutorial.
 **Glossary**
 
 **Table of Content**
-[1. Description](#installation)
-[2. Preparations](#ami2-species)
-[3. How to use ami-plugins](#ami2-gene)
-  a) ami2-species]()
-  b) ami2-gene]()
-  c) ami2-sequence]()
-  d) ami2-regex]()
-[4. What can I do with ami-results?](#ami2-sequence)
-[5. regex](#ami2-regex)
-[6. Summary and next steps](#summary-and-next-steps)
-[7. Further Materials](#summary-and-next-steps)
+[1. Description](#description)
+[2. Preparations](#preparations)
+[3. Data Input](#data-input)
+[4. How to use ami-plugins](#how-to-use-ami-plugins)
+  a) [ami2-species](#ami2-species)
+  b) [ami2-gene](#ami2-gene)
+  c) [ami2-sequence](#ami2-sequence)
+  d) [ami2-regex](#ami2-regex)
+[5. What can I do with ami-results?](#what-can-i-do-with-ami-results)
+[6. Summary](#summary)
+[7. Next Steps](#next-steps)
+[8. Further Materials](#further-materials)
 
 ## 2. PREPARATIONS
 ### Pre-Requisites
@@ -50,6 +54,8 @@ PC stuff -> ask peter
 - [Future TDM Virtual Machine](LINK)
 - ami2-species HAVE NO VERSION ATTRIBUTE!
 - ami2-gene HAVE NO VERSION ATTRIBUTE!
+- ami2-sequence HAVE NO VERSION ATTRIBUTE!
+- ami2-regex HAVE NO VERSION ATTRIBUTE!
 
 ### Installation
 
@@ -65,9 +71,11 @@ The password is 'password'.
 
 You can find the technical documentation for `ami` in its [repository](https://github.com/ContentMine/ami-plugin).
 
+## 3. DATA INPUT
 
+The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores results in a folder in the ctree.
 
-## 3. HOW TO USE AMI-PLUGINS
+## 4. HOW TO USE AMI-PLUGINS
 
 It all starts with a `scholarly.html`-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
 
@@ -89,7 +97,6 @@ dinosaurs-xmls/
 ```
 
 ### a) ami2-species
-
 
 You can then search for all occurences of a species name with 
 ```bash
@@ -327,7 +334,7 @@ cat dinosaurs-xmls-regex/PMC4298445/results/regex/dinosaurfood/results.xml
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
 
-## 4. WHAT CAN I DO WITH AMI RESULTS?
+## 5. WHAT CAN I DO WITH AMI RESULTS?
 
 A project folder with a ctree after using ami-plugins looks like this:
 
@@ -369,7 +376,7 @@ dinosaurs-xmls
 ...
 ```
 
-## 5. SUMMARY
+## 6. SUMMARY
 
 * A project folder containing ctrees is always the input.
 * Plugins are own software parts with own commands.
@@ -381,11 +388,11 @@ dinosaurs-xmls
 * Continue to  for the next step of the ContentMine pipeline.
 
 
-## 6. NEXT TUTORIAL
+## 7. NEXT TUTORIAL
 
 To find out more of how we index the facts and make them usable for others, look at the [cat tutorial](../cat/cat-tutorial.md).
 
-## 7. FURTHER MATERIAL
+## 8. FURTHER MATERIAL
 
 **ContentMine**
 - [contentmine.org](http://contentmine.org)

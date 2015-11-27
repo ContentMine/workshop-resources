@@ -1,6 +1,7 @@
 # norma
+==============================
 
-## DESCRIPTION
+## 1. DESCRIPTION
 
 **What does norma?**
 Norma helps to normalize the data coming from different sources into the unified, consistend data structure. For publicaions coming from [quickscrape](../qucikscrape/) and for publications coming from [getpapers](../getpapers/) as XML it transform the content into [scholarly HTML](../sHTML/) (sHTML). For PDF's coming from [getpapers](../getpapers/) it creates XXXXXX. Norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
@@ -37,19 +38,23 @@ We have some conventions at work, which will be used through-out the tutorial.
 - Scraping
 
 **Table of Content**
-[1. Used Data](#used-data)
-[2. getpapers: XML to sHTML](#xml-to-shtml)
-[3. quickscrape: HTML to sHTML](#html-to-shtml)
-[4. experimental: PDF collections to TXT](#pdf-collections-to-txt)
-[5. Outcome](#Outcome)
-[6. Next Tutorial](#next-tutorial)
+[1. Description](#description)
+[2. Preparations](#preparations)
+[3. Used Data](#used-data)
+[4. getpapers: XML to sHTML](#getpapers-xml-to-shtml)
+[5. quickscrape: HTML to sHTML](#quickscrape-html-to-shtml)
+[6. PDF collections to TXT](#pdf-collections-to-txt)
+[7. Outcome](#outcome)
+[8. Summary](#summary)
+[9. Next Tutorial](#next-tutorial)
+[10. Further Materials](#further-materials)
 
-## PREPARATIONS
+## 2. PREPARATIONS
 ### Pre-Requisites
 PC stuff
 
 ### Used Software
-- [Future TDM Virtual Machine]()
+- [Future TDM Virtual Machine](LINK)
 - norma 0.1.4
 
 ### Installation
@@ -66,37 +71,16 @@ The password is password.
 
 You can find the technical documentation for `norma` in its [repository](https://github.com/ContentMine/norma).
 
-## TUTORIAL
-
-
-
-### 1. Used Data
+## 3. USED DATA
 
 ![normasmall0](../../resources/images/software/norma/normasmall0.png)
 
 Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. Most likely the data comes as output from getpapers or quickscrape, but you also can use your own PDF's or HTML.
 
 
-
-### 2. getpapers: XML to sHTML
+## 4. GETPAPERS: XML 2 sHTML
 
 ![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
-
-
-### 3. quickscrape: HTML to sHTML
-
-
-
-### 4. PDF collections to TXT
-
-
-
-### 5. Outcome
-
-
-
-### XML to sHTML
-
 
 **Overview**
 
@@ -109,7 +93,7 @@ We start with a search results with getpapers
 getpapers -q dinosaurs -o dinosaurs-xmls -x
 ```
 
-getpapers returns a **project folder** containing search metadata and ctrees. Each ctree holds all data regarding one paper, in this case a `fulltext.xml`.
+getpapers returns a **project folder** containing search metadata and [ctrees](../ctree). Each ctree holds all data regarding one paper, in this case a `fulltext.xml`.
 ```
 tree dinosaurs-xmls
 dinosaurs-xmls/
@@ -148,9 +132,9 @@ dinosaurs-xmls/
 ...
 ```
 
-#### Troubleshooting
+### Troubleshooting
 
-To solve an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)), perform the following steps:
+To solve an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)), perform the following steps to delete them:
 
 ```bash
 cd dinosaurs-xmls
@@ -158,7 +142,7 @@ find -empty -delete
 cd ..
 ```
 
-### HTML to sHTML
+## 5. QUICKSCRAPE: HTML 2 sHTML
 
 ![normahtml2shtml](../../resources/images/software/norma/normahtml2shtml0.png)
 
@@ -166,7 +150,7 @@ cd ..
 
 ![html2shtml](../../resources/images/software/norma/html2shtml.png)
 
-The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of a quickscrape of a list of fulltext-urls (this has to be provided by you).
+The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of quickscrape -> a list of fulltext-urls (this has to be provided by you).
 
 ```bash
 quickscrape \
@@ -250,12 +234,11 @@ dinosaurs-htmls/
 ...
 ```
 
-
-### PDF collections to TXT
+## 6. PDF COLLECTIONS 2 TXT
 
 This is still in an experimental stage. It works, but the output is not very clean and not ready for further preprocessing. But if you want to extract the *raw content* of a PDF, this is possible here.
 
-PDF is a notoriously bad format for automatic processing. While understandable for the human reader, PDF is a real obstacle for content mining. This lies in the nature of the document, which - from a machine's perspective - is essentially a 2-dimensional plane with symbols on it. The only information that a machine readily knows about any symbol is it's x- and y-location on the plane. Meaning, relations with other symbols, or logical concepts are not present in a PDF and have to be constructed by input from the outside.
+PDF is a notoriously bad format for automatic processing. While understandable for the human reader, PDF is a real obstacle for computers and so for content mining. This lies in the nature of the document, which - from a machine's perspective - is essentially a 2-dimensional plane with symbols on it. The only information that a machine readily knows about any symbol is it's x- and y-location on the plane. Meaning, relations with other symbols, or logical concepts are not present in a PDF and have to be constructed by input from the outside.
 
 
 **Overview**
@@ -276,7 +259,7 @@ tree
 0 directories, 4 files
 ```
 
-You can then use this small shell script to create folders based on the names of PDFs, move each PDF into the corresponding folder, and rename it to fulltext.pdf. This is now our project folder. We then move one level back in the hierarchy with `cd ..`, in order to run norma from outside the folder.
+You can then use the following small shell script to create folders based on the names of PDFs, move each PDF into the corresponding folder, and rename it to fulltext.pdf. Execute the script line by line in your terminal. 
 
 ```bash
 for fname in *.pdf; do
@@ -285,12 +268,14 @@ filename="${filename%.*}";
 mkdir "$filename";
 mv "$fname" "$filename"/fulltext.pdf;
 done
-cd ..
 ```
+
+This is now our project folder. We then move one level back in the hierarchy with `cd ..`, in order to run norma from outside the folder.
 
 The folder structure should then look like this:
 
 ```
+cd ..
 tree dinosaur-pdfs
 dinosaur-pdfs
 ├── Natarajan - Bone Cancer
@@ -305,7 +290,7 @@ dinosaur-pdfs
 4 directories, 4 files
 ```
 
-The following command creates simple *.txt files from each pdf
+To finally convert the pdf into text files, it is just necessary to use one command.
 
 ```bash
 norma -q dinosaurs-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
@@ -327,23 +312,19 @@ dinosaurs-pdfs/
 4 directories, 8 files
 ```
 
+## 7. OUTCOME
 
-### Summary and next steps
+## 8. SUMMARY
 
-* Follow the XML-chain (starting with `getpapers -x`) to `scholarly.html` for the best results.
+* use publications downloaded via getpapers and convert the XML to uniform sHTML
+* use publications downloaded via quickscrape and convert the HTML to uniform sHTML
+* convert PDF's to text files
 
-
-**Next steps**
+## 9. NEXT TUTORIAL
 * Continue to [sHTML](../sHTML/sHTML-overview.md) if you want to learn more about scholarly HTML.
 * Continue to [ami](../ami/ami-tutorial.md) for the next step of the ContentMine pipeline.
 
-
-
-
-
-### 6. Next Tutorial
-
-## FURTHER MATERIAL
+## 10. FURTHER MATERIAL
 **Slides**
 
 
