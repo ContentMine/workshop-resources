@@ -63,10 +63,10 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Used Software
 - [Future TDM Virtual Machine](LINK)
-- ami2-species HAVE NO VERSION ATTRIBUTE!
-- ami2-gene HAVE NO VERSION ATTRIBUTE!
-- ami2-sequence HAVE NO VERSION ATTRIBUTE!
-- ami2-regex HAVE NO VERSION ATTRIBUTE!
+- ami2-species
+- ami2-gene
+- ami2-sequence
+- ami2-regex
 
 ### Installation
 
