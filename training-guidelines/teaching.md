@@ -4,8 +4,6 @@ This contains a description of the methods used in the workshop as well as links
 
 1. [Presentation](#presentation)
 
-1. [Discussion](#discussion)
-
 1. [World Cafe](#world-cafe)
 
 1. [Hands on](#hands-on)
@@ -57,12 +55,17 @@ This contains a description of the methods used in the workshop as well as links
 ##### How to setup / frame it
 
 
+** Before workshop**
+
 1. Think of 3-4 questions that open up a discussion, e.g. 
   * What are opportunities created through content mining?
   * What are barrier for content mining?
   * How can content mining help you?
-1. write these questions down on flipchart, **ideally before the workshop starts**
+1. write these questions down on flipchart
 1. rearrange room / tables to allow for groups of 4-5 people to sit together
+
+** At workshop**
+
 1. Explain the next session (2min)
   * “How knows what a world cafe is? “
   * Art of Hosting Method
