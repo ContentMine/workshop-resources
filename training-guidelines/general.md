@@ -1,4 +1,9 @@
+1. [General guideline](#general-guidelines)
+
+1. [Lessons learned](#lessons-learned)
+
 # General guidelines
+
 
 ## Atmosphere
 * don't pressure yourself and the participants too much: trainings must be fun, interesting and social
@@ -75,3 +80,20 @@ Social interaction: offer some basic methods and concrete examples for social in
 * think through if way more or less people arrive: will the sessions still work? what could help, what do you have to change?
 * how to treat racism, sexism, etc. Think about this when inviting people in advance and put focus on this 
 * work out alternative strategies for 3 and for 50 persons
+
+
+# Lessons learned
+
+This list describes common problems that may occur and how they can be solved.
+
+| PROBLEMS | LESSONS LEARNED |
+| The central message (vertical integration, ease of access and scalability, sectioning of papers, use of supplementary information) does not come across. | Put focus on unique points of interaction (sHTML, ctree, results) and not the technical details. |
+| The use case demonstrated is not really appropriate for audience. | Start with powerful demo first, then go into technical details |
+| Too much content in too less time, not enough time for teaching/delivering key message | Start low but have more in-depth stuff available. |
+| Missing narrative, difficult transitions between sessions | Change preparation time allocation from 80% tech/ 20% storyline to 50/50. |
+| Early technological problems (keyboard locales, VM on windows) lose large parts of the group, and it is difficult to recover from there. | Have backup plans and material: reserve more time for error handling and if something does not work. Define alternative tasks while solving problems. |
+| Getting started with the VM could be problematic especially for newcomers. | People should not have to worry about CLI other than copying the relevant commands. Everything should have been within one folder which would be the starting folder of the command line. |
+| Missing central documentation to direct people to. | Prepare a github repo and an etherpad. |
+| Long URLs are difficult to type. | When uris are used, use bit.ly |
+| People start wandering off on their own e.g. when some are still stuck at installing, and others already completed the task. | Define clearer “group stages” (Now we’re installing for 5 min; then we’ll begin with notebook; play around with facts for X min; then talk about results) |
+| When a session loses focus, it is difficult to catch people's attention again and pull them back together. | Try to provide "a social solution for a technical problem" - clear statements what to do if something fails; have people group up in teams of two with different OS and experience level, so that they move more together. |
