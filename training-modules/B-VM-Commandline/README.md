@@ -10,12 +10,10 @@ How to set up the working environment of the Virtual Machine
 * how to get updates
 * basic steps of commandline
 
-
 ### Activities and Methods
 
 * installing software together
 * getting to know command line
-
 
 ### Duration
 
@@ -36,7 +34,6 @@ How to set up the working environment of the Virtual Machine
 * links to stable versions of software
 * slides [LINK]
 
-
 ### Watch for
 
-* 
+* installation problems on different OS 

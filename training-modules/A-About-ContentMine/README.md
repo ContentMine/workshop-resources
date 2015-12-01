@@ -8,20 +8,17 @@
 * Describe 2-3 examples of content mining.
 * Describe what we can offer
 
-
 ### Learning Goals
 
 * what is the vision and purpose of content mining
 * get an overview about the products of ContentMine
 * how to relate content mining to their own work
 
-
 ### Activities and Methods
 
 * presentation
 * demo of CM product: IUCN redlist, FotD
 * Q&A
-
 
 ### Duration
 

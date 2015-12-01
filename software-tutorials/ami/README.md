@@ -1,28 +1,18 @@
 # ami
 ==============================
 
-**Table of Content**
+## Table of Content
 
 1. [Description](#description) 
-
 1. [Preparations](#preparations)
-
 1. [Data Input](#data-input)
-
 1. [How to use ami-plugins](#how-to-use-ami-plugins)
-
   1. [ami2-species](#ami2-species)
-
   1. [ami2-gene](#ami2-gene)
-
   1. [ami2-sequence](#ami2-sequence)
-
   1. [ami2-regex](#ami2-regex)
-
 1. [Summary](#summary)
-
 1. [Next Steps](#next-steps)
-
 1. [Further Materials](#further-materials)
 
 ## Description

@@ -2,17 +2,12 @@
 
 ## Table of content
 
-1.[Description](#description)
-
-1.[Installation](#installation)
-
-2.[Scraper definitions](#scraper-definitions)
-
-3.[Scraping](#scraping)
-
-4.[Other sources](#other-sources)
-
-5.[Summary and next steps](#summary-and-next-steps)
+1. [Description](#description)
+1. [Installation](#installation)
+2. [Scraper definitions](#scraper-definitions)
+3. [Scraping](#scraping)
+4. [Other sources](#other-sources)
+5. [Summary and next steps](#summary-and-next-steps)
 
 ## Description
 **What is quickscrape?**

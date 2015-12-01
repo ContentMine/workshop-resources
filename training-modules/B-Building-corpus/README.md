@@ -2,14 +2,11 @@
 
 ### Contents
 
-* 
-
 ### Learning Goals
 
 * learn about the challenges posed by different publisher APIs
 * learn how to use getpapers
 * learn how to create your own collection of papers
-
 
 ### Activities and Methods
 
@@ -36,7 +33,6 @@
 * readymade executable examples [tutorial link]
 * Ross's getpapers screencast
 * slides [LINK]
-
 
 ### Watch for
 

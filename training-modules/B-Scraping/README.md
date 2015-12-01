@@ -2,7 +2,6 @@
 
 ### Contents
 
-
 ### Learning Goals
 
 * how does the general process of scraping work, including structure of a website
@@ -11,12 +10,10 @@
 * learn about the challenges posed by different publishing formats
 * learn how to use quickscrape with own urls
 
-
 ### Activities and Methods
 
 * compare website source with scraper definition and subsequent scraping result
 * write scraper
-
 
 ### Duration
 
@@ -36,7 +33,5 @@
 * two or three tested links with example output
 * slides [LINK]
 
-
 ### Watch for
 
-* 

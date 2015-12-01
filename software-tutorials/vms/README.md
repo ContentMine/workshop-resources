@@ -1,5 +1,13 @@
 # ContentMine Virtual Machines
 
+## Table of Content
+
+1. [Installation](#installation)
+2. [Scraper definitions](#scraper-definitions)
+3. [Scraping](#scraping)
+4. [Other sources](#other-sources)
+5. [Summary and next steps](#summary-and-next-steps)
+
 ## DESCRIPTION
 
 **What is a virtual machine?**
@@ -14,17 +22,6 @@ Virtual Machines makes it easy to use pre-configured software environments on di
 For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You will find more details in the install section.
 
 ## TUTORIAL
-**Table of Content**
-
-1.[Installation](#installation)
-
-2.[Scraper definitions](#scraper-definitions)
-
-3.[Scraping](#scraping)
-
-4.[Other sources](#other-sources)
-
-5.[Summary and next steps](#summary-and-next-steps)
 
 ### 1. Install VirtualBox
 VirtualBox runs on Windows, Linux, Macintosh, and Solaris and licensed under GNU General Public License (GPL) version 2.

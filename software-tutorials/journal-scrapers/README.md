@@ -7,25 +7,16 @@ Journal scrapers are used in [quickscrape](../quickscrape/quickscrape-tutorial.m
 
 In academic literature the types of content are the same, even between disciplines - journal layouts on the other hand vary widely. ContentMine aims to offer a comprehensive collection of scrapers (maintained in [this repo](https://github.com/ContentMine/journal-scrapers)), but we - and your scientific community - need your help for that. In this tutorial we're going to cover how to contribute a scraper to the collection. We're going to look at a how a website is structured and how a scraper is defined, and we'll also walk through the github workflow in order to make the scraper definition available to the community.
 
-[1. Types of content](#types-of-content)
-
-[1.1 Metadata](#metadata)
-
-[1.2 Content](#content)
-
-[2. Scraper Definitions](#scraper-definitions)
-
-[2.1 Selectors](#selectors)
-
-[2.2 Followables](#followables)
-
-[2.3 Downloads](#downloads)
-
-[2.4. Fulltext](#fulltext)
-
-[3. Contribution Workflow](#contribution-workflow)
-
-[4. Receive Kudos](#receive-kudos)
+1. [Types of content](#types-of-content)
+  1.1 [Metadata](#metadata)
+  1.2 [Content](#content)
+2. [Scraper Definitions](#scraper-definitions)
+  2.1 [Selectors](#selectors)
+  2.2 [Followables](#followables)
+  2.3 [Downloads](#downloads)
+  2.4 [Fulltext](#fulltext)
+3. [Contribution Workflow](#contribution-workflow)
+4. [Receive Kudos](#receive-kudos)
 
 
 ### Types of content

@@ -2,21 +2,16 @@
 
 ### Contents
 
-
-
 ### Learning Goals
-
 
 * get an overview of possible plugins and what outcome to expect
 * run ami-plugins on your data
 * learn how to interpret results.xml
 
-
 ### Activities and Methods
 
 * demonstration of ami-plugins
 * discussion of use-cases
-
 
 ### Prerequisites
 
@@ -39,7 +34,6 @@
 * tutorial
 * prepared, normalized dataset
 * slides [LINK]
-
 
 ### Watch for
 

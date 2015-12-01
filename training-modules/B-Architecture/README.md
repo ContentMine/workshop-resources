@@ -13,12 +13,9 @@
 * learn about intermediaries like scholarly.html and CProject/CTree
 * learn how this leads to the outcome of content mining: a fact in context
 
-
 ### Activities and Methods
 
 * opening, reading and interpreting the intermediaries of ContentMine
-* 
-
 
 ### Duration
 
@@ -44,4 +41,3 @@
 
 ### Watch for
 
-* 

@@ -13,25 +13,21 @@
 * how to add a new definition to quickscrape and run it
 * get an intuition for results
 
-
 ### Activities and Methods
 
 * working on examples
 * guided hacking
 * pair programming
 
-
 ### Duration
 
 * 60min - 120min
-
 
 ### Prerequisites
 
 * CM tools and workflow
 * basic programming skills helpful
 * version control helpful
-
 
 ### Duration
 
@@ -41,4 +37,4 @@
 
 ### Watch for
 
-* 
+ 

@@ -10,7 +10,6 @@
 * specify licensing /status of resulting facts
 * introduce concept of fact from a legal perspective
 
-
 ### Learning Goals
 
 * learn about the impact of copyright on the possibilities of CM
@@ -22,13 +21,11 @@
 * Understand the impact of crawlers on websites
 * Describe steps one can take to limit impact of crawling e.g. limit requests
 
-
 ### Activities and Methods
 
 * warm-up: legal quiz
 * presentation
 * Q&A
-
 
 ### Duration
 
@@ -39,7 +36,6 @@
   * 10min presentation about responsible mining
   * 5min discussion / questions
 
-
 ### Prerequisites
 
 * none
@@ -48,7 +44,6 @@
 
 * up-to-date legal quiz paper sheets [LINK]
 * slides [LINK]
-
 
 ### Watch for
 

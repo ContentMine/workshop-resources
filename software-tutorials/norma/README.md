@@ -1,24 +1,16 @@
 # norma
 ==============================
 
-**Table of Content**
+## Table of Content
 
 1. [Description](#description)
-
 1. [Preparations](#preparations)
-
 1. [Used Data](#used-data)
-
 1. [XML to sHTML](#xml-to-shtml)
-
 1. [HTML to sHTML](#html-to-shtml)
-
 1. [PDF collections to TXT](#pdf-collections-to-txt)
-
 1. [Summary](#summary)
-
 1. [Next Tutorial](#next-tutorial)
-
 1. [Further Materials](#further-materials)
 
 ## Description

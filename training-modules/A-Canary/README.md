@@ -2,8 +2,6 @@
 
 ### Contents
 
-
-
 ### Learning Goals
 
 * what is the purpose of canary?
@@ -14,13 +12,11 @@
 * how to extract facts
 * how to access facts
 
-
 ### Activities and Methods
 
 * present a selection of possible applications, including network analysis, indexing and search, re-using extracted facts
 * guided software development
 * pair programming
-
 
 ### Duration
 
@@ -32,13 +28,11 @@
   * 10min exploring facts: context, source, options
   * 10min own exploration: show documentation, then hands on, while answering questions
 
-
 ### Prerequisites
 
 * CM tools and workflow
 * basic programming skills helpful
 * version control helpful
-
 
 ### Resources
 
@@ -46,4 +40,4 @@
 
 ### Watch for
 
-* 
+ 

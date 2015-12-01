@@ -11,26 +11,21 @@
 * how to input a regex into ami and run it
 * work with results
 
-
-
 ### Activities and Methods
 
 * working on examples
 * guided hacking
 * pair programming
 
-
 ### Duration
 
 * 60min - 90min
-
 
 ### Prerequisites
 
 * CM tools and workflow
 * basic programming skills helpful
 * version control helpful
-
 
 ### Duration
 
@@ -41,4 +36,4 @@
 
 ### Watch for
 
-* 
+ 
