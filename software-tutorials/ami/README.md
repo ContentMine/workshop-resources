@@ -107,7 +107,7 @@ ami2-species -q CPROJECTFOLDER -i FILETYPE --sp.species --sp.type SPECIESTYPE
 You have to choose between three different types of species terms for ```SPECIESTYPE``` 
 - ```genus```, which will extract terms like *Brachiosaurus* [more details](https://en.wikipedia.org/wiki/Genus)
 - ```binomial```, which will extract terms like *B. altithorax* [more details](https://en.wikipedia.org/wiki/Binomial_nomenclature)
-- or ```genussp```, whick will extract terms like *BLABLABLA* [more details](LINK)
+- or ```genussp```, whick will extract terms like *Bacillus sp* or *Ursus spp.*
 
 ami will print out all matches while searching.
 
