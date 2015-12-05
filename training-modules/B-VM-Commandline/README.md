@@ -32,6 +32,8 @@ How to set up the working environment of the Virtual Machine
 
 * readymade executable examples
 * links to stable versions of software
+* [Tutorial on VirtualMachines](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/vms)
+* [Tutorial on shell](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/shell)
 * slides [LINK]
 
 ### Watch for
