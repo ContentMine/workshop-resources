@@ -67,7 +67,7 @@ If you have questions, ask us directly at MozFest or write us a mail (mail ett s
 When you are online, you can find us:
 - [contentmine.org](http://contentmine.org)
 - [@thecontentmine](http://twitter.com/thecontentmine)
-- office ett contentmine dot org
+- training ett contentmine dot org
 
 ## Licence
 
