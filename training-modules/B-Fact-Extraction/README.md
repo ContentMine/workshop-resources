@@ -30,10 +30,8 @@
 
 ### Resources
 
-* readymade executable examples
-* tutorial
+* [Tutorial on ami](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/ami)
 * prepared, normalized dataset
-* slides [LINK]
 
 ### Watch for
 
