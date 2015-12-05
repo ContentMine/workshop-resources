@@ -42,8 +42,9 @@
 
 ### Resources
 
-* up-to-date legal quiz paper sheets [LINK]
-* slides [LINK]
+* Up-to-date [legal quiz handouts]((https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/legal_true_false.pdf)), one per participant.
+* Legal quiz [answer sheet](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/true_false_answers.pdf) for trainer
+* Slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/legal-responsible.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/legal-responsible.pdf))
 
 ### Watch for
 
