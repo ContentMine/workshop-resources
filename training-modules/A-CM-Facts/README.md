@@ -31,8 +31,8 @@
 ### Resources
 
 * readymade executable examples
-* slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/contentmine-facts.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/contentmine-facts.pdf)
-* Manual markup worksheet (https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/manual_markup.pdf) (need at least one copy per two participants)
+* slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/contentmine-facts.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/contentmine-facts.pdf))
+* Manual markup [workshee](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-CM-Facts/manual_markup.pdf) (need at least one copy per two participants)
 * Manual markup papers (links to be added here)
 
 ### Watch for
