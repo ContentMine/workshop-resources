@@ -32,4 +32,4 @@
 
 ### Resources
 
-* slides [LINK]
+* slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.pdf))
