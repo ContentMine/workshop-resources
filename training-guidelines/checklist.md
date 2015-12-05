@@ -11,24 +11,24 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 ### For coordinators
 
 - [ ] Liase with local org on basic info, decide on:
-	- [ ] date
-	- [ ] venue
-	- [ ] team
-	- [ ] hashtag
-	- [ ] duration
+	- [ ] Date
+	- [ ] Venue
+	- [ ] Team
+	- [ ] Hashtag
+	- [ ] Duration
 	- [ ] Time-Schedule
 	- [ ] Define target audience
 		- [ ] Determine technological capabilities (internet speed, beamer,...)
-		- [ ] requirements: skills, material, preparation
-		- [ ] preparation: what people need to do in advance
-- [ ] find place for social event after workshop (bar, restaurant)
-- [ ] Setup Info-page on github:
-	- [ ] short description
+		- [ ] Think about requirements: skills, material, preparation
+		- [ ] Think about participant preparation: what people need to do in advance
+- [ ] Find place for social event after workshop (bar, restaurant)
+- [ ] Setup info-page on github:
+	- [ ] Short description
 	- [ ] Time-Schedule
 	- [ ] Trainers with links to personal pages or Twitter
-	- [ ] preparational material: links to learn in advance
-	- [ ] travelling information
-- [ ] ask for feedback and corrections about facts mentioned in event invitation
+	- [ ] Preparational material: links to learn in advance
+	- [ ] Travelling information and directions
+- [ ] Ask for feedback and corrections about facts mentioned in event invitation with all involved in the workshop preparation. 
 - [ ] PR (together with host?):
 	- [ ] How?
 	- [ ] When?
@@ -53,7 +53,7 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 		- [ ] short description of event
 
 
-### For facilitators
+### For Trainers
 
 - [ ] connect with participants:
 	- [ ] Send out [assessment form](https://github.com/ContentMine/workshop-resources/blob/master/training-guidelines/evaluation-assessment.md#assessment) and welcome email
@@ -90,10 +90,10 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 	- [ ] some refreshments (coffee, snacks)
 - [ ] Ask for permission -> Take photos
 - [ ] Tweet and encourage others to
-- [ ] Give out evaluation forms (preferably before people start to leave)
+- [ ] Give out evaluation forms (before people start to leave)
 
 
-### For facilitators
+### For Trainers
 
 - [ ] check beamer resolution, adjust screen for visibility
 - [ ] Let participants group up (2-3-4), target: 4-6 groups
@@ -121,10 +121,10 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 - [ ] document participants
 
 
-### For facilitators
+### For Trainers
 
 - [ ] send out "Thanks for coming"-email with:
-	- [ ] feedback forms
+	- [ ] feedback forms - read the [guidance](https://github.com/ContentMine/workshop-resources/blob/master/training-guidelines/evaluation-assessment.md#evaluation) on evaluation, copy and edit [template feedback form](https://docs.google.com/forms/d/1nCaM6_sA-clrWDoNzdua5Luxg8bV7dcBMj82pERIIpQ/edit).
 	- [ ] github-repo
 	- [ ] follow-ups
 - [ ] add material generated in the workshop to the github-repo
