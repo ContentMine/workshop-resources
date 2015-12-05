@@ -30,9 +30,8 @@
 
 ### Resources
 
-* readymade executable examples [tutorial link]
-* Ross's getpapers screencast
-* slides [LINK]
+* [Tutorial on getpapers](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/getpapers)
+* [Screencast on getpapers](https://youtu.be/H2ESPjihnDA)
 
 ### Watch for
 
