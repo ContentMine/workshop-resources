@@ -27,8 +27,7 @@
 
 ### Resources
 
-* readymade executable examples
-* slides [LINK]
+* [Tutorial on norma](https://github.com/ContentMine/workshop-resources/tree/master/software-tutorials/norma)
 
 ### Watch for
 
