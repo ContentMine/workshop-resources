@@ -30,8 +30,7 @@
 ### Resources
 
 * prepared ipython notebook
-* prepared dataset
-* slides [LINK]
+* [pyCProject](https://github.com/ContentMine/pyCProject/blob/master/source/readctree.py)
 
 ### Watch for
 
