@@ -25,7 +25,7 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 - [ ] Setup Info-page on github:
 	- [ ] short description
 	- [ ] Time-Schedule
-	- [ ] Trainers with links to personal pages
+	- [ ] Trainers with links to personal pages or Twitter
 	- [ ] preparational material: links to learn in advance
 	- [ ] travelling information
 - [ ] ask for feedback and corrections about facts mentioned in event invitation
@@ -34,7 +34,7 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 	- [ ] When?
 	- [ ] Where?
 	- [ ] Partners: Media, Organizers, Domain specific, institutions, 
-	- [ ] create event page on contentmine: what is to do?
+	- [ ] Send to @GrahamSteel to create event page on contentmine.org
 - [ ] Send details to trainers so they can generate materials
 - [ ] Become familiar with the materials
 - [ ] Keep touch:
@@ -56,7 +56,7 @@ This document is intended as a guideline for the workshops. It helps keeping tra
 ### For facilitators
 
 - [ ] connect with participants:
-	- [ ] Send out assessment form/email
+	- [ ] Send out [assessment form](https://github.com/ContentMine/workshop-resources/blob/master/training-guidelines/evaluation-assessment.md#assessment) and welcome email
 	- [ ] installation instructions
 	- [ ] offer single point of contact
 - [ ] prepare pad
