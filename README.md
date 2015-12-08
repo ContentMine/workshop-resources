@@ -24,7 +24,9 @@ This repository contains material helping you to learn Content Mining yourself a
 
 The material offered here is subject to continuous change and improvement, so please check again regularly. We're also very happy to include your feedback, suggestions and contributions, via github-issues, pull requests or comments.
 
-There are three main sections in this repository: modules, tutorials, and guidelines.
+There are FOUR main sections in this repository: installation, modules, tutorials, and guidelines.
+
+* [installation](installation): This folder contains instructions and screenshots of installation (useful if you are pre-installing the software or self-learning).
 
 * [training modules](training-modules): This folder contains learning modules which can be combined as needed by workshop facilitators.
 Each module contains a description of learning goals, links to additional resources like slides or software tutorials, and a description of course of action.
