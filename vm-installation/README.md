@@ -24,7 +24,7 @@ This is a series of screenshots to show what you should be seeing when you first
 
 
  * Virtual Box Download (e.g. from https://www.virtualbox.org/wiki/Downloads);
-<img alt="VirtualBox download" src="vm-virtualbox-download.png" style="width: 200px;"/>
+<img alt="VirtualBox download" src="vm-virtualbox-download.png" width="200px"/>
 <br/>
 
 
