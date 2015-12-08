@@ -1,12 +1,13 @@
-# Fact of the Day
+# Bubbles
 
-Every day the documents are searched for Facts - species, or genes. There are some false positives, but on the whole it's quite fun. Where possible we link to an image from Wikipedia
-
+A modern approach to showing document structure.
 ## online demo
 
-see http://fotd.contentmine.org eacg Fact points to the previous and the next. There are some places with a few blank days but generally you can find some nice pictures.
+see http://bubbles.contentmine.org . 
 
- * <img src="fotd.png"/>
- * <img src="fotd1.png"/>
+ * <img src="bubbles0.png"/>
+ * <img src="bubbles1.png"/>
+ * <img src="bubbles3.png"/>
+ * <img src="bubbles4.png"/>
  
  
