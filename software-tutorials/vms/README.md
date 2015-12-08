@@ -2,7 +2,7 @@
 
 ## Table of Content
 
-1. [Tutorial](#TUTORIAL)
+1. [Tutorial] (# tutorial)
 
 ## DESCRIPTION
 
