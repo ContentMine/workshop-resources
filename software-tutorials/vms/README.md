@@ -45,7 +45,7 @@ All the other things depend on the requirements of the virtual machine image, as
 	* 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
 	* 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
 
-The image should be fairly large (>1GB). Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
+The image should be fairly large (>1GB, now ca 3.3GB). Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
 2. Double-click on the downloaded file (´´´*.ova´´´ file-extension) to open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 3. Configure the import of the image
 
@@ -54,11 +54,11 @@ The image should be fairly large (>1GB). Depending on your connection that can t
 
 After installing VirtualBox and importing the virtual machine image you can start the machine from the VirtualBox interface. Start VirtualBox, select your image and click the "Start" button.
 
-![Start the vm](../../resources/images/software/vms/starting-vm.png)
+![Start the vm](../../assets/images/software/vms/starting-vm.png)
 
 After a few seconds you land on the desktop.
 
-![CM vm desktop](../../resources/images/software/vms/desktop.png)
+![CM vm desktop](../../assets/images/software/vms/desktop.png)
 
 You can shut down the vm by right click and then "Exit", and "Power off".
 
@@ -74,7 +74,7 @@ Basic entry to different applications starts with a right click on the desktop. 
 **Terminal**
 The execution of the updates can take a while (depending on your internet connection). After everything is checked, you should see a window like this:
 
-![Terminal](../../resources/images/software/vms/terminal.png)
+![Terminal](../../assets/images/software/vms/terminal.png)
 
 You can maximize it to fullscreen by double clicking on the title bar.
 

@@ -4,11 +4,11 @@ This contains a description of the methods used in the workshop as well as links
 
 1. [Presentation](#presentation)
 
-1. [World Cafe](#world-cafe)
+2. [World Cafe](#world-cafe)
 
-1. [Hands on](#hands-on)
+3. [Hands on](#hands-on)
 
-1. [Hacking session](#hacking-session)
+4. [Hacking session](#hacking-session)
 
 
 ### Presentation
