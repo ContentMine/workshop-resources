@@ -15,7 +15,7 @@ You will normally have been told by email or on the event page about:
  * installing Virtual Box (the generic (ORACLE) software to run virtual machines)
  * downloading a Virtual Machine (the actual collection of software required for the tutorial)
  
-By default the installation of the software is given in the [software-tutorials package] (software-tutorials/vms/README.md)
+By default the installation of the software is given in the [software-tutorials package] (../software-tutorials/vms/README.md)
 
 
 ## SCREENSHOTS
