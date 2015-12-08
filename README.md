@@ -26,7 +26,7 @@ The material offered here is subject to continuous change and improvement, so pl
 
 There are FOUR main sections in this repository: installation, modules, tutorials, and guidelines.
 
-* [installation](installation): This folder contains instructions and screenshots of installation (useful if you are pre-installing the software or self-learning).
+* [installation](vm-installation): This folder contains instructions and screenshots of installation (useful if you are pre-installing the software or self-learning).
 
 * [training modules](training-modules): This folder contains learning modules which can be combined as needed by workshop facilitators.
 Each module contains a description of learning goals, links to additional resources like slides or software tutorials, and a description of course of action.
