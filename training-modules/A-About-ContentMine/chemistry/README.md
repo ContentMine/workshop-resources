@@ -5,11 +5,13 @@ A tool that completely parses chemical text and interprets syntetic procedures.
 
 see http://chemicaltagger.ch.cam.ac.uk .
 
- * <img src="chemicaltagger0.png"/>
+ * before annotation:
+ <img src="chemicaltagger0.png"/>
  <br/>
- * <img src="chemicaltagger1.png"/>
+ * immediate effect of annotation after clicking "Process Text" 
+ <img src="chemicaltagger1.png"/>
  <br/>
- * <img src="chemicaltagger2.png"/>
+ * showing just one <img border="1" src="chemicaltagger2.png"/>
  <br/>
  * <img src="chemicaltagger3.png"/>
  <br/>
