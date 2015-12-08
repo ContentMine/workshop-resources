@@ -35,7 +35,7 @@
 
 * slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.pdf))
 * online demos for amusement
-  - [IUCN redlist](iucn.md)
+  - [IUCN redlist](iucn/README.md)
   - [Fact of the Day](demos#fact-of-the-day)
   - [Chemistry](demos.md#chemistry)
   - [bubbles](demos.md#bubbles)
