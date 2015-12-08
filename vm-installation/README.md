@@ -25,6 +25,7 @@ This is a series of screenshots to show what you should be seeing when you first
 
  * Virtual Box Download (e.g. from https://www.virtualbox.org/wiki/Downloads);<br/>
 <img alt="VirtualBox download" src="vm-virtualbox-download.png" width="50%"/>
+<br/>Pick your operating system
 <br/>
 
 
@@ -32,4 +33,27 @@ This is a series of screenshots to show what you should be seeing when you first
  (MAC-OSX) click on downloaded file (creates <br/>
 <img alt="MAC-OSX installer" src="vm-installer.png" width="50%"/>
 <br/>
+Then click on the large icon and it should install in `Applications | VirtualBox.app`
+
+* Possible error (ignore). You might see:<br/>
+<img alt="Ignore error" src="vm-error.png"/>
+<br/>
+If so, click the "Do not show this message again" and continue.
+<br/>
+
+* Starting the VM. (MAC-OSX) Click on the `Applications | VirtualBox.app` and you may see<br/>
+<img alt="Powered off" src="vm-poweredoff.png" width="75%"/>
+<br/>
+
+* When the VM is ready and you will see<br/>
+<img alt="Running" src="vm-running.png" width="75%"/>
+<br/>
+(and on MAC-OSX the icons:<br/>
+<img alt="icons" src="vm-icon.png"/>)
+
+There can be more than one VM - we release different ones for different tutorials, and you can switch between them on the LH side
+
+
+
+
 
