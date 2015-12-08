@@ -1,8 +1,6 @@
-![ContentMine logo](https://github.com/ContentMine/assets/blob/master/png/Content_mine(small).png)
+# Facilitator Materials
 
-## Organisation
-
-This directory contains resources for the organisation of a ContentMine workshop. The following files are available to use:
+This directory contain resources to **organize**, **communicate**, **evaluate** and/or **facilitate a ContentMine training**. The following files are available to use:
 
 * [General guidelines](general.md)
   What should the setting and atmosphere be like? What should your mindset as a facilitator be? The general guidelines offer ideas about giving a workshop. A 'lessons learned' section describes solutions to avoidable mistakes in planning or running a workshop.
