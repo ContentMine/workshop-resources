@@ -33,10 +33,10 @@ This is a series of screenshots to show what you should be seeing when you first
  (MAC-OSX) click on downloaded file (creates <br/>
 <img alt="MAC-OSX installer" src="vm-installer.png" width="50%"/>
 <br/>
-Then click on the large icon and it should install in `Applications | VirtualBox.app`
+Then click on the package/box icon (1) and it should install in `Applications | VirtualBox.app`
 
 * Possible error (ignore). You might see:<br/>
-<img alt="Ignore error" src="vm-error.png"/>
+<img alt="Ignore error" src="vm-error.png" width="33%"/>
 <br/>
 If so, click the "Do not show this message again" and continue.
 <br/>
@@ -51,7 +51,23 @@ If so, click the "Do not show this message again" and continue.
 (and on MAC-OSX the icons:<br/>
 <img alt="icons" src="vm-icon.png"/>)
 
-There can be more than one VM - we release different ones for different tutorials, and you can switch between them on the LH side
+There can be more than one VM - we release different ones for different tutorials, and you can switch between them on the LH side.
+
+* when the VM is running you should see a screen such as:
+<img alt="Startscreen" src="vm-startscreen.png" width="75%"/>
+<br/>
+
+* Right-click on the main window and get a popup:
+<img alt="popup" src="vm-popup.png" width="75%"/>
+<br/>
+
+
+ * Select `terminal` and you will get:
+<img alt="crunchbang" src="vm-crunchbang.png" width="75%"/>
+<br/>
+
+ 
+ 
 
 
 
