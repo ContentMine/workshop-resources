@@ -54,11 +54,11 @@ The image should be fairly large (>1GB, now ca 3.3GB). Depending on your connect
 
 After installing VirtualBox and importing the virtual machine image you can start the machine from the VirtualBox interface. Start VirtualBox, select your image and click the "Start" button.
 
-![Start the vm](../../resources/images/software/vms/starting-vm.png)
+![Start the vm](../../assets/images/software/vms/starting-vm.png)
 
 After a few seconds you land on the desktop.
 
-![CM vm desktop](../../resources/images/software/vms/desktop.png)
+![CM vm desktop](../../assets/images/software/vms/desktop.png)
 
 You can shut down the vm by right click and then "Exit", and "Power off".
 
