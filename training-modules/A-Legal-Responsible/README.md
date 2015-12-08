@@ -46,6 +46,7 @@
 * Legal quiz [answer sheet](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/true_false_answers.pdf) for trainer
 * Slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/legal-responsible.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-Legal-Responsible/legal-responsible.pdf))
 * [Article on Responsible Content Mining](http://contentmine.org/wp-content/uploads/2015/06/responsible-content-mining-1.pdf)
+* [Charles Oppenheim slides at JISC event] (jisctdm.pptx)
 
 
 ### Watch for
