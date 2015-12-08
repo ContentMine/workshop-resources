@@ -13,8 +13,6 @@ see http://chemicaltagger.ch.cam.ac.uk .
  <br/>
  * showing just one <img border="1" src="chemicaltagger2.png"/>
  <br/>
- * <img src="chemicaltagger3.png"/>
- <br/>
  * <img src="chemicaltagger4.png"/>
  
  
