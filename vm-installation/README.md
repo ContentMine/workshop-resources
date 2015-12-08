@@ -23,13 +23,13 @@ By default the installation of the software is given in the [software-tutorials 
 This is a series of screenshots to show what you should be seeing when you first install the Virtual Box and Virtual Machine. These are for a MAC-OSX and there will be minor differences for other OS.
 
 
- * Virtual Box Download (e.g. from https://www.virtualbox.org/wiki/Downloads);
-<img alt="VirtualBox download" src="vm-virtualbox-download.png" width="200px"/>
+ * Virtual Box Download (e.g. from https://www.virtualbox.org/wiki/Downloads);<br/>
+<img alt="VirtualBox download" src="vm-virtualbox-download.png" width="50%"/>
 <br/>
 
 
- * Virtual Box Installation: 
- (MAC-OSX) click on downloaded file (creates
-<img alt="MAC-OSX installer" src="vm-installer.png" style="width: 200px;"/>
+ * Virtual Box Installation: <br/>
+ (MAC-OSX) click on downloaded file (creates <br/>
+<img alt="MAC-OSX installer" src="vm-installer.png" width="50%"/>
 <br/>
 
