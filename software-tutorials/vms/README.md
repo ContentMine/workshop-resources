@@ -74,7 +74,7 @@ Basic entry to different applications starts with a right click on the desktop. 
 **Terminal**
 The execution of the updates can take a while (depending on your internet connection). After everything is checked, you should see a window like this:
 
-![Terminal](../../resources/images/software/vms/terminal.png)
+![Terminal](../../assets/images/software/vms/terminal.png)
 
 You can maximize it to fullscreen by double clicking on the title bar.
 
