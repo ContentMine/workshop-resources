@@ -123,6 +123,6 @@ Data analysis packages:
 - [anaconda](http://continuum.io/downloads#py34)
 - [jupyter](http://jupyter.readthedocs.org/en/latest/install.html)
 - [R 3.2]
-
+ 
 
 
