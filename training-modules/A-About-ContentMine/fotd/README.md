@@ -1,16 +1,12 @@
-# IUCN
+# Fact of the Day
 
-See http://iucn.org for general background
+Every day the documents are searched for Facts - species, or genes. There are some false positives, but on the whole it's quite fun. Where possible we link to an image from Wikipedia
 
 ## online demo
 
-Facts are harvested daily and filtered against IUCN species, results are displayed at http://iucn.contentmine.org .
+see http://fotd.contentmine.org eacg Fact points to the previous and the next. There are some places with a few blank days but generally you can find some nice pictures.
 
- * <img src="iucn1.png"/>
- * <img src="iucn2.png"/>
- * <img src="iucn3.png"/>
- * <img src="iucn4.png"/>
- * <img src="iucn5.png"/>
- * <img src="iucn6.png"/>
+ * <img src="fotd.png"/>
+ * <img src="fotd1.png"/>
  
  
