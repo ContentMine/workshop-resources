@@ -1,12 +1,11 @@
 # ContentMine Virtual Machines
 
-## Table of Content
+## Table of Contents
 
-1. [Installation](#installation)
-2. [Scraper definitions](#scraper-definitions)
-3. [Scraping](#scraping)
-4. [Other sources](#other-sources)
-5. [Summary and next steps](#summary-and-next-steps)
+1. [Description] (#description)
+2. [Installation] (#installation)
+3. [Problems] (#problems)
+4. [Components] (#components)
 
 ## DESCRIPTION
 
@@ -21,7 +20,7 @@ Virtual Machines makes it easy to use pre-configured software environments on di
 **How can I use the virtual machine?**
 For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You will find more details in the install section.
 
-## TUTORIAL
+## INSTALLATION
 
 ### 1. Install VirtualBox
 VirtualBox runs on Windows, Linux, Macintosh, and Solaris and licensed under GNU General Public License (GPL) version 2.
@@ -46,7 +45,7 @@ All the other things depend on the requirements of the virtual machine image, as
 	* 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
 	* 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
 
-The image should be fairly large (>1GB). Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
+The image should be fairly large (>1GB, now ca 3.3GB). Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
 2. Double-click on the downloaded file (´´´*.ova´´´ file-extension) to open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 3. Configure the import of the image
 
@@ -105,8 +104,7 @@ The most common error is an incomplete download of the large VM image file, plea
 
 If you have any problems getting VirtualBox, or downloading and starting the virtual image, don't worry. Please contact the workshop organizer for support, or ask us on our [website](http://contentmine.org/contact).
 
-## DOCUMENTATION
-#### Technical Information and Reproducibility
+## COMPONENTS
 
 The VM comes with following packages and environments installed:
 
@@ -125,6 +123,6 @@ Data analysis packages:
 - [anaconda](http://continuum.io/downloads#py34)
 - [jupyter](http://jupyter.readthedocs.org/en/latest/install.html)
 - [R 3.2]
-
+ 
 
 
