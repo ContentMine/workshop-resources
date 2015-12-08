@@ -3,9 +3,9 @@
 ## Table of Contents
 
 1. [Description] (#description)
-2. [Tutorial] (#tutorial)
-  2.1 [Install] (#1.-install-virtualbox)
-2. [Problems] (#problems)
+2. [Installation] (#installation)
+3. [Problems] (#problems)
+4. [Components] (#components)
 
 ## DESCRIPTION
 
@@ -20,7 +20,7 @@ Virtual Machines makes it easy to use pre-configured software environments on di
 **How can I use the virtual machine?**
 For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You will find more details in the install section.
 
-## TUTORIAL
+## INSTALLATION
 
 ### 1. Install VirtualBox
 VirtualBox runs on Windows, Linux, Macintosh, and Solaris and licensed under GNU General Public License (GPL) version 2.
@@ -104,8 +104,7 @@ The most common error is an incomplete download of the large VM image file, plea
 
 If you have any problems getting VirtualBox, or downloading and starting the virtual image, don't worry. Please contact the workshop organizer for support, or ask us on our [website](http://contentmine.org/contact).
 
-## DOCUMENTATION
-#### Technical Information and Reproducibility
+## COMPONENTS
 
 The VM comes with following packages and environments installed:
 
