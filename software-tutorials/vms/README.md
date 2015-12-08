@@ -1,9 +1,10 @@
 # ContentMine Virtual Machines
 
-## Table of Content
+## Table of Contents
 
 1. [Description] (#description)
 2. [Tutorial] (#tutorial)
+  2.1 [Install] (#1.-install-virtualbox)
 2. [Problems] (#problems)
 
 ## DESCRIPTION
