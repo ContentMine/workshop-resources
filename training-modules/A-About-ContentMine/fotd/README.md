@@ -6,7 +6,7 @@ Every day the documents are searched for Facts - species, or genes. There are so
 
 see http://fotd.contentmine.org eacg Fact points to the previous and the next. There are some places with a few blank days but generally you can find some nice pictures.
 
- * <img src="fotd.png"/>
- * <img src="fotd1.png"/>
+ * <img src="fotd.png" width="50%"/>
+ * <img src="fotd1.png" width="50%"/>
  
  
