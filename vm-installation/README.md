@@ -69,6 +69,9 @@ There can be more than one VM - we release different ones for different tutorial
 <img alt="crunchbang" src="vm-crunchbang.png" width="75%"/>
 <br/>
 
+ * try ```ls -lt``` at the command line. If it comes out with a German &ess; type:
+ ```setxkbmap gb``` to convert to GB or ```setxkbmap us``` for US.
+
  
  
 
