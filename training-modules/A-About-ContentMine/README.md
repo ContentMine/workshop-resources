@@ -17,7 +17,8 @@
 ### Activities and Methods
 
 * presentation
-* demo of CM product: IUCN redlist, FotD
+* demo of CM product
+* other demos
 * Q&A
 
 ### Duration
@@ -33,3 +34,8 @@
 ### Resources
 
 * slides ([.odp](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.odp) and [PDF](https://github.com/ContentMine/workshop-resources/blob/master/training-modules/A-About-ContentMine/about-contentmine.pdf))
+* online demos for amusement
+  - [IUCN redlist](iucn/README.md)
+  - [Fact of the Day](fotd/README.md)
+  - [Chemistry](chemistry/README.md)
+  - [bubbles](bubbles/README.md)
