@@ -1,6 +1,6 @@
 # getpapers
 
-## Table of content
+## Table of contents
 
 1. [Description](#description)
 1. [Installation](#installation)
