@@ -26,9 +26,9 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 
 **Glossary**
-- JSON ([more in Wikipedia](https://en.wikipedia.org/wiki/JSON))
-- XML ([more in Wikipedia](https://en.wikipedia.org/wiki/XML))
-- API ([more in Wikipedia](https://en.wikipedia.org/wiki/API))
+- JSON ([Wikipedia](https://en.wikipedia.org/wiki/JSON))
+- XML ([Wikipedia](https://en.wikipedia.org/wiki/XML))
+- API ([Wikipedia](https://en.wikipedia.org/wiki/API))
 - Query
 
 
