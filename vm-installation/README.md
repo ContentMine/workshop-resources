@@ -15,7 +15,10 @@ You will normally have been told by email or on the event page about:
  * installing Virtual Box (the generic (ORACLE) software to run virtual machines)
  * downloading a Virtual Machine (the actual collection of software required for the tutorial)
  
-By default the installation of the software is given in the [software-tutorials package] (../software-tutorials/vms/README.md)
+By default the installation of the software is given in the [software-tutorials package] (../software-tutorials/vms/README.md). Note that some VMs have a German locale and you may need to issue:
+```setxkbmap gb ``` or
+```setxkbmap us```
+
 
 
 ## SCREENSHOTS
@@ -65,6 +68,9 @@ There can be more than one VM - we release different ones for different tutorial
  * Select `terminal` and you will get:
 <img alt="crunchbang" src="vm-crunchbang.png" width="75%"/>
 <br/>
+
+ * try ```ls -lt``` at the command line. If it comes out with a German &ess; type:
+ ```setxkbmap gb``` to convert to GB or ```setxkbmap us``` for US.
 
  
  
