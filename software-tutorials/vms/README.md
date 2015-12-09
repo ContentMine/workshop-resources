@@ -92,8 +92,8 @@ If you want to paste something into the command line, this is possible with righ
 
 If you want to transfer files between the host system and the vm, you have to set up a shared folder. This has to be done in the VirtualBox before starting the vm. Go to "Settings-Shared Folders"
 
-**Set locale**
-If you run into issues with your keyboard layout, open a terminal window and set the layout to your locale, e.g. uk/us/de
+**Troubleshoot the locale**
+If you run into issues with your keyboard layout, open a terminal window and set the layout to your locale, e.g. gb/us/de. You can find more help on locale e.g. [here](http://askubuntu.com/questions/395/how-do-i-reset-my-keyboard-layout/396#396).
 ```
 setxkbmap us
 ```
