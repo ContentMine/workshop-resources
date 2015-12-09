@@ -39,8 +39,7 @@ All the other things depend on the requirements of the virtual machine image, as
 * 3 GB RAM
 * Adequate hard drive space for the VM (at least 5 GB)
 
-1. Download the required ContentMine virtual machine image 
-
+1. Download the required ContentMine virtual machine image
         * 'Contentmine-FTDM' VM for Cambridge workshop/s [2015-12-10/11] [link](http://contentmine.org/wp-content/uploads/static/contentmine-VM.ova) (3534356480 bytes on MAC-OSX) 
 	* 'Biology' VM for University of Bath workshop [28/07/15] [link](https://onedrive.live.com/redir?resid=1652077CF1AA4E9F!1280&authkey=!AGyzu9zuzzKeJok&ithint=file%2cova)
 	* 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
