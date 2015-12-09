@@ -73,18 +73,18 @@ You can find the technical documentation for `norma` in its [repository](https:/
 
 ## Data used
 
-![normasmall0](../../resources/images/software/norma/normasmall0.png)
+![normasmall0](../../assets/images/software/norma/normasmall0.png)
 
 Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. Most likely the data comes as output from getpapers or quickscrape, but you also can use your own PDF's or HTML.
 
 
 ## XML to sHTML
 
-![normaxml2shtml](../../resources/images/software/norma/normaxml2shtml0.png)
+![normaxml2shtml](../../assets/images/software/norma/normaxml2shtml0.png)
 
 **Overview**
 
-![xml2shtml](../../resources/images/software/norma/xml2shtml.png)
+![xml2shtml](../../assets/images/software/norma/xml2shtml.png)
 
 
 We start with a search results with getpapers
@@ -148,11 +148,11 @@ dinosaurs-xmls/
 
 ## HTML to sHTML
 
-![normahtml2shtml](../../resources/images/software/norma/normahtml2shtml0.png)
+![normahtml2shtml](../../assets/images/software/norma/normahtml2shtml0.png)
 
 **Overview**
 
-![html2shtml](../../resources/images/software/norma/html2shtml.png)
+![html2shtml](../../assets/images/software/norma/html2shtml.png)
 
 The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of quickscrape -> a list of fulltext-urls (this has to be provided by you).
 
@@ -247,7 +247,7 @@ PDF is a notoriously bad format for automatic processing. While understandable f
 
 **Overview**
 
-![pdf2txt](../../resources/images/software/norma/pdf2txt.png)
+![pdf2txt](../../assets/images/software/norma/pdf2txt.png)
 
 If you have an existing collection of PDFs, norma can apply some simple normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you change into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
 

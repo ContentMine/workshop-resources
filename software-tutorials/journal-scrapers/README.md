@@ -99,7 +99,7 @@ Here we will create a scraper for the [IJESM](http://ijs.sgmjournals.org/) based
 
 To find out where in the html a specific information is stored, you need a debug tool like [Firebug](https://addons.mozilla.org/de/firefox/addon/firebug) for Firefox or [Web Inspector](https://developer.apple.com/safari/tools/) for Safari. Open [the article](http://ijs.sgmjournals.org/content/journal/ijsem/10.1099/ijs.0.063172-0) with Firefox or Safari, and then view it with Firebug/Web Inspector - right click -> View Source. This shows the page how a machine would see it. The top 18 lines look like this:
 
-![sourceview001](../../resources/images/software/journal-scrapers/001.png)
+![sourceview001](../../assets/images/software/journal-scrapers/001.png)
 
 HTML may be conceptualized like a tree structure, where `head` and `meta` are tags signifying different branches, and `dc.publisher` being the `name` attribute of a branch.
 
@@ -130,7 +130,7 @@ The selectors we learn to construct are essentially [XPATH](https://en.wikipedia
 ```
 On the top level are two entries, `url` and `elements`. `url` specifies the domain where the scraper definition is valid. `elements` opens a second level of entries, such as `publisher`, `doi` or `figure_caption`. Each of these entries is a dictionary itself, containing `selector`, `attribute`, and optionally `download`. The two backslash `\\` are escape characters so that the scraper recognizes a dot `.` as a dot and not as placeholder.
 
-![sourceview001](../../resources/images/software/journal-scrapers/001.png)
+![sourceview001](../../assets/images/software/journal-scrapers/001.png)
 
 We find information about the publisher in line 16, in the `meta` tag, identified by `dc.publisher` in the `name` attribute (referring to the name of the tag, not the name of the publisher), with the value in the `content` attribute. The `publisher` element of the scraper definition then looks like this:
 
@@ -159,7 +159,7 @@ Our scraper now contains the first element, and looks like this:
 
 We add some bibliographic metadata, `journal_name`, `journal_issn`, `volume`, `issue`, and `firstpage`. They can be found in lines 45, 46, 64, 65 and 66, specified by `name` and with the data in `content`.
 
-![sourceview002](../../resources/images/software/journal-scrapers/002.png)
+![sourceview002](../../assets/images/software/journal-scrapers/002.png)
 
 The selectors are short, because the combinations of `meta`-tag and each `name` attribute are unique. Some parts of the document will require more complex queries involving multiple tags and conditions, in order to uniquely identify an element. Our scraper now looks like this:
 
@@ -255,7 +255,7 @@ We now proceed to the content, unfortunately with this journal this is not as st
 
 We therefore have to define `followables`, that quickscrape then can follow to the real content. We do this as an extra entry between `url` and `elements`. After switching to the `Fulltext`-tab, you can find the selectors and attributes by clicking on fulltext, right clicking on the text of the introduction and choosing `Inspect element (Q)`. This opens a firebug window, the fulltext can be found by quickscrape through following the `div` tag with the `id='itemfulltext'` to the `data-fulltexturl`. 
 
-![sourceview003](../../resources/images/software/journal-scrapers/003.png)
+![sourceview003](../../assets/images/software/journal-scrapers/003.png)
 
 ```
 "fulltext_expansion": {
@@ -265,7 +265,7 @@ We therefore have to define `followables`, that quickscrape then can follow to t
 ```
 If you mouseover a line in the inspector, it highlights the corresponding element in the browser. For the case of the `Figures`-tab, we aim to select the element which contains all figures, and not a single one.
 
-![sourceview004](../../resources/images/software/journal-scrapers/004.png)
+![sourceview004](../../assets/images/software/journal-scrapers/004.png)
 
 ```
 "figure_expansion": {
@@ -274,7 +274,7 @@ If you mouseover a line in the inspector, it highlights the corresponding elemen
     }
 ```
 
-![sourceview005](../../resources/images/software/journal-scrapers/005.png)
+![sourceview005](../../assets/images/software/journal-scrapers/005.png)
 
 
 ```
@@ -303,7 +303,7 @@ If you mouseover a line in the inspector, it highlights the corresponding elemen
 
 Please note that the followables only define where quickscrape should start looking, they do not specify a figure, image, or downloadable PDF. This we will do now. 
 
-![sourceview006](../../resources/images/software/journal-scrapers/006.png)
+![sourceview006](../../assets/images/software/journal-scrapers/006.png)
 
 The download link for the PDF can be found in an `a` tag with the `class=externallink pdf list-group-item list-group-item-info`, in the `href` attribute. We tell quickscrape to download the file behind the link and store it under the renamed `fulltext.pdf`. The naming convention of fulltext.pdf is important as it serves the [ctree](../ctree/ctree-overview.md)-structure.
 
@@ -318,7 +318,7 @@ The download link for the PDF can be found in an `a` tag with the `class=externa
 
 For the HTML the procedure is similar:
 
-![sourceview007](../../resources/images/software/journal-scrapers/007.png)
+![sourceview007](../../assets/images/software/journal-scrapers/007.png)
 
 The download link can be found in an `a` tag with the `class=html list-group-item list-group-item-info`, in the `href` attribute. We tell quickscrape to download the file behind the link and store it under the renamed `fulltext.html`. Here as well the naming convention of fulltext.html is important as it serves the [ctree](../ctree/ctree-overview)-structure and is an input for [norma](../norma/norma-tutorial.md)
 
@@ -333,7 +333,7 @@ The download link can be found in an `a` tag with the `class=html list-group-ite
 
 It get's a bit tricky with the supplementary material in this case, since it is stored in the same tag, class and attribute as the fulltext.pdf. But we know it is on the Supplementary Data-tab.
 
-![sourceview008](../../resources/images/software/journal-scrapers/008.png)
+![sourceview008](../../assets/images/software/journal-scrapers/008.png)
 
 We therefore tell quickscrape to first follow the `suppdata_expansion` we defined earlier, and then look for the tag and attributes. There is no naming convention for supplementary material, so we tell quickscrape to download it without renaming.
 
@@ -348,7 +348,7 @@ We therefore tell quickscrape to first follow the `suppdata_expansion` we define
 
 Downloadable figures are behind the `Click to view` button. We click on it and inspect the image, which reveals that we can reach it through the `div` tag with `class='modal-body'`, and then navigate two tags further to `div/img`, where we tell quickscrape to take the `src`-attribute and download it.
 
-![sourceview009](../../resources/images/software/journal-scrapers/009.png)
+![sourceview009](../../assets/images/software/journal-scrapers/009.png)
 
 
 ```
@@ -419,7 +419,7 @@ If you want to share your scraper definition with the world - that would be grea
 
 Go to the [ContentMine-scrapers repository](https://github.com/ContentMine/journal-scrapers) and make a fork.
 
-![sourceview009](../../resources/images/software/journal-scrapers/010.png)
+![sourceview009](../../assets/images/software/journal-scrapers/010.png)
 
 Then you switch to your fork of the repository which can be found under `https://github.com/**your_username**/journal-scrapers`. Copy the URL, open a commandline and clone the repository to a working directory with `git clone https://github.com/**your_username**/journal-scrapers`. 
 
@@ -465,11 +465,11 @@ Now push your commit from the local machine to the GitHub repository with `git p
 
 On the GitHub-page of your repository, create a pull request:
 
-![sourceview011](../../resources/images/software/journal-scrapers/011.png)
+![sourceview011](../../assets/images/software/journal-scrapers/011.png)
 
 The next page shows you a comparison between our repository and your repository. Depending on how many changes have been made since your fork, a few differences will show up. Unless other people have worked on the same scraper, there should not be any problems with the pull request. Don't be afraid to make changes! Other people will have a look and try to detect errors, and if something breaks changes can be reverted easily.
 
-![sourceview0127](../../resources/images/software/journal-scrapers/012.png)
+![sourceview0127](../../assets/images/software/journal-scrapers/012.png)
 
 Click on `Create pull request`, add a title and a short description of what you changed, and then `Create pull request`.
 

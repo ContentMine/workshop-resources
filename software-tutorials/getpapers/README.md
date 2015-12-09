@@ -3,19 +3,12 @@
 ## Table of content
 
 1. [Description](#description)
-
 1. [Installation](#installation)
-
 2. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
-
 3. [Getting pdfs and other files](#getting-pdfs-and-other-files)
-
 4. [Complex queries for EPMC](#complex-queries-for-epmc)
-
 5. [Complex queries for ArXiv](#complex-queries-for-arxiv)
-
 6. [Complex queries for IEEE](#complex-queries-for-ieee)
-
 7. [Summary and next steps](#summary-and-next-steps)
 
 ## Description
