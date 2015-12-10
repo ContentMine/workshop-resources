@@ -395,6 +395,7 @@ Also look at Follow Up in Section "How to work out a Training" above.
 This list describes common problems that may occur and how they can be solved.
 
 | PROBLEMS | LESSONS LEARNED |
+|----------|-----------------|
 | The central message (vertical integration, ease of access and scalability, sectioning of papers, use of supplementary information) does not come across. | Put focus on unique points of interaction (sHTML, ctree, results) and not the technical details. |
 | The use case demonstrated is not really appropriate for audience. | Start with powerful demo first, then go into technical details |
 | Too much content in too less time, not enough time for teaching/delivering key message | Start low but have more in-depth stuff available. |
