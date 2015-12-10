@@ -77,6 +77,8 @@ This query creates a ```eupmc_results.json``` file in the named directory, in wh
 
 Let us now compare the results of a query for ```dinosaurs``` on EuropePMC, IEEE and ArXiv. Getpapers queries each API for "dinosaurs" and stores the results in separate folders.
 
+<em>We'll collect YOUR screenshots of the results and paste them into the docs here!</em>
+
 ```bash
 getpapers -q 'dinosaurs' --api eupmc -o eupmc
 ```
