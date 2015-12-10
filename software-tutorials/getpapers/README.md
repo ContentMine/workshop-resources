@@ -83,19 +83,19 @@ Let us now compare the results of a query for ```dinosaurs``` on EuropePMC, IEEE
 getpapers -q 'dinosaurs' --api eupmc -o eupmc
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 ```bash
 getpapers -q 'dinosaurs' --api ieee -o ieee
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 ```bash
 getpapers -q 'dinosaurs' --api arxiv -o arxiv
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 We can look into the files of each folder with `ls`, e.g (Directory name is eupmc.
 
