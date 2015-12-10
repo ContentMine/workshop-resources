@@ -35,6 +35,16 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 ### Installation
 
+type:
+```getpapers```
+at the commandline. If it is installed, skip this section
+
+within VirtualBox 
+```
+npm install --global getpapers
+```
+
+elsewhere you may need to be a superuser and type:
 ```bash
 sudo npm install --global getpapers
 ```
