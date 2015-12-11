@@ -330,6 +330,62 @@ cat dinosaurs-xmls-regex/PMC4298445/results/regex/dinosaurfood/results.xml
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
 
+### e) ami2-words
+
+Word frequency is one of the most valuable tools for catagorising documents.
+
+The simplest approach is to count the words in document/s or chunks of document/s. 
+
+```bash
+ami2-word --w.words wordFrequencies --project eupmc 
+```. 
+
+for a file `/some/where/eupmc/AB123/scholarly.html` this will create the results in 
+```
+ /some/where/eupmc/AB123/results/word/frequency/results.xml
+ /some/where/eupmc/AB123/results/word/frequency/results.html
+```
+The first lists word frequencies as:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<results title="frequencies">
+ <result title="frequency" word="the" count="320"/>
+ <result title="frequency" word="and" count="256"/>
+ <result title="frequency" word="for" count="128"/>
+ <result title="frequency" word="multiple" count="80"/>
+ <result title="frequency" word="ENL" count="73"/>
+ <result title="frequency" word="with" count="69"/>
+ <result title="frequency" word="care" count="68"/>
+ <result title="frequency" word="threshold" count="56"/>
+ <result title="frequency" word="outcomes" count="54"/>
+```
+
+and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count.
+
+Clearly this mainly reflects the frequency in the English language, so we can remove the commonest words by creating <em>stopwords</em>. 
+
+```bash
+ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt
+```. 
+
+We  have a range of stopword files in different languages. It is also possible to create your own files and add them:
+
+```bash
+ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt mydir/myfile.txt
+```. 
+
+The format is a simple lists of words:
+```
+a
+about
+above
+across
+after
+afterwards
+again
+against
+```
 
 ## Summary
 
