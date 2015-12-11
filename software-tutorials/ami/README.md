@@ -11,6 +11,7 @@
   1. [ami2-gene](#ami2-gene)
   1. [ami2-sequence](#ami2-sequence)
   1. [ami2-regex](#ami2-regex)
+  1. [ami2-word](#ami2-word)
 1. [Summary](#summary)
 1. [Next Steps](#next-steps)
 1. [Further Materials](#further-materials)
