@@ -1,10 +1,12 @@
 # How to set up a Training
 
+This document should help you to work out the training materials, work out a proper training concept and deliver it on spot. 
+
+**Table of Contents**
+
 1. [General guideline](#general-guidelines)
 
 2. [Lessons learned](#lessons-learned)
-
-This document should help you to work out the training materials, work out a proper training concept and execute it on spot. 
 
 ## Goals and Strategy
 
@@ -24,66 +26,68 @@ Questions to answer:
 * What are the crucial transformation events from one session to the next? 
 * How do we manage them? How do we transfer the activity?
 
-prepare text snippets:
-* what is a fact?
-* what is content mining?
-* what is content mine?
-* what is content mine good for?
-* what is content mining good for?
-* what does it have to do with the TDM exception?
+prepare short, concise answer for these questions:
+* What is a fact?
+* What is content mining?
+* What is content mine?
+* What is content mining good for?
+* What is ContentMine good for?
+* What does it have to do with the TDM exception?
 
 ## Work out the Training
+
+### General 
 * Don't pressure yourself and the participants: trainings must be easy going
 * Have a good balance between hands on sessions, social interactive sessions and theoretical talks.
-* Ask if people are hold back by others things out of their control to implement things learned
-* Is there anywhere pressure in the timeline? Keep spaces free to relax for everyone. People should never think “I need a break!”.
+* Ask if people are held back to implement things they learned by problems out of their control 
+* Is there pressure in the timeline? Keep spaces free to relax for everyone. People should never think “I need a break!”.
 * Make everyone happy: Hosts, participants and you, the facilitator!
-* create an inclusive and diverse space: no racism, no sexism, etc. 
-* be clear about problems, limitations and advantages, but always offer a solution
-* identify transfers of different training blocks and formats and think about what is needed to change from one to another (e.g. to get from an World Cafe to a presentation).
-* prepare offline alternatives, WIFI always can fail.
+* Create an inclusive and diverse space: no racism, no sexism, etc. 
+* Be open about problems, limitations and advantages, and always offer a way out.
+* Identify transfers of different training blocks and formats and think about what is needed to change from one to another (e.g. to get from an World Cafe to a presentation).
+* Prepare offline alternatives, WIFI always can fail.
 * Let participants group up (2-3-4), target: 4-6 groups
-* are you allowed to share your data with others?
-* are people excluded from some acitivies? e.g. non-devs
-* Do we assume anywhere pre-knowledge? Is the content to difficult?
+* Are you allowed to share your data with others?
+* Are people excluded from some acitivies? e.g. non-devs
+* Do we assume existing knowledge? Is the content too difficult?
+* Plan with time to change the room setup
+* Think about participants arriving late: how to include them most easily, how often will this happen?
 
 ### Workflow
-* plan with time to change the room setup
-* think about participants coming later in: how to include them most easily, how often will this happen?
-* seperate questions and tasks in different time phases: 
-  * conceptualizing
-  * planning
-  * executing
-  * evaluating
-* create a checklist for things which needs to be done (and when)
-* check previous trainings: documents, PR work, lessons learned
-* check the cumulative lessons learned document
+* Seperate questions and tasks in different time phases: 
+  * Conceptualizing
+  * Planning
+  * Executing
+  * Evaluating
+* Create a checklist for things which needs to be done (and when)
+* Check previous trainings: documents, PR work, lessons learned
+* Check the cumulative lessons learned document
 
 ### Session Formats
 
 #### Presentation
 * Presentations: offer basic advice how to present well
-* ask questions to the audience: have they heard of it? etc.
-* tell a strong story
-* ask yourself: what is the purpose of the talk? 
+* Ask questions to the audience: have they heard of it? etc.
+* Tell a strong story
+* Ask yourself: what is the purpose of the talk? 
 
 #### Hack Session
-This means a open space hack session, where everyone does something different and the faciliators are among the participants
+This means a open space hack session, where everyone does something different and the faciliators work with the participants.
 
-* think about different system requirements: OS, CPU power, inet bandwitdh, storage, RAM, pre-installed packages conflicts, 
+* think about different system requirements: OS, CPU power, inet bandwidth, storage, RAM, pre-installed packages conflicts, 
 
 #### On Screen tutorials
 This means a teaching method, where everyone watches a facilitor doing something on the screen. Often the participants are then replicating the things done on their own machine. (e.g. explaining iPython notebook)
 
-* take it easy and make intentional breaks to let users follow up.
-* take yourself time to type and execute commands. be aware, that after executing the command, the command itself may disappear from the screen, so it is not visible anymore for the participants. When you want to use short-cuts like tab-completion, explain and show them.
+* Take it easy and make intentional breaks to let users follow up.
+* Take yourself time to type and execute commands. Be aware, that after executing the command, the command itself may disappear from the screen, so it is not visible anymore for the participants. When you want to use short-cuts like tab-completion, explain and show them.
 * Execute the tutorials in a sequential way and plan breaks when blocks are done
-* have in mind, that the beamer may has lower resolution
+* Have in mind, that the beamer may have lower resolution
 
 #### Discussion
 * Have a backup plan, if no one wants to start.
 * Try to distribute talk-time equally.
-* order people in a circle to get a sense of a common feeling
+* Order people in a circle to get a sense of a common feeling
 
 #### World Cafe
 TEXT FROM MOZFEST GOOGLE DOC
@@ -98,20 +102,20 @@ narrative: offer information how to create a strong and compelling narrative in 
 link to older training repos
 
 ## Training Materials
-* think about color-blindness 
+* Think about color-blindness 
 
 ### Slides
-offer some advice, how and when to create slides
+Offer some advice, how and when to use slides
 
-* try to not use lists, except it is obviously a list
-* use big enough font size
-* use colors which create high contrast to make it easier visible
-* have in mind, that the beamer may has lower resolution
-* use strong visual approach
+* Try to not use lists, except it is obviously a list
+* Use big enough font size
+* Use colors which create high contrast to make it easier visible
+* Have in mind, that the beamer may has lower resolution
+* Use strong visual approach
 
 ### Screencasts
 Create them on 
-* Ubuntu/Linus: RecordMyDesktop
+* Ubuntu/Linux: RecordMyDesktop
 * MacOS: 
 * Windows: 
 
@@ -119,17 +123,17 @@ Create them on
 * use qr link or bit.ly for it
 
 ### GitHub repository
-* offer participants ways to get to the necessary level in advance: install sw, learn stuff, read things
+* Offer participants ways to get to the necessary level in advance: install and practice software, read external resources
 
 ## Dealing with problems
 
-* offer advice for offline alternatives: AoH, prepare always something!
-* offer hints for testing the software, the data and the slides for readiness
-Social interaction: offer some basic methods and concrete examples for social interactions. Give hints for common problems (people not interested, people start to fight, people blame you for failing/weak training, etc.)
-* Which informations need to be available all the time, especially for new arriving people?
-* think through if way more or less people arrive: will the sessions still work? what could help, what do you have to change?
-* how to treat racism, sexism, etc. Think about this when inviting people in advance and put focus on this 
-* work out alternative strategies for 3 and for 50 persons
+* Offer advice for offline alternatives: Art of Hosting, always prepare something!
+* Offer hints for testing the software, the data and the slides for readiness
+* Social interaction: offer some basic methods and concrete examples for social interactions. Give hints for common problems (people not interested, people start to fight, people blame you for failing/weak training, etc.)
+* Which information need to be available all the time, especially for new arriving people?
+* Think through if way more or less people arrive: will the sessions still work? what could help, what do you have to change?
+* How to treat racism, sexism, etc. Think about this when inviting people in advance and put focus on this 
+* Work out alternative strategies for 3 and for 50 persons
 
 
 ## Lessons learned

@@ -166,7 +166,7 @@ This contains a description of the methods used in the workshop as well as links
 
 ##### resources needed
 
-* laptops, electricity
+* laptops
 * code examples
 * data examples
 

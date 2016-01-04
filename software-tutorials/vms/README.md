@@ -1,10 +1,10 @@
 # ContentMine Virtual Machines
-
+ 
 ## Table of Contents
 
 1. [Description](#description)
 2. [Installation](#installation)
-3. [Problems](#problems)
+3. [Troubleshooting](#troubleshooting)
 4. [Components](#components)
 
 ## DESCRIPTION
@@ -12,17 +12,17 @@
 **What is a virtual machine?**
 A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). It consists of two parts: 
 * [VirtualBox](https://www.virtualbox.org/): the software which runs the virtual machine
-* [ContentMine virtual machine image](): an image in which the whole operating system with its configuration and our ContentMine software packages are in
+* [ContentMine virtual machine image](): an image in which the whole operating system with its configuration and our ContentMine software packages are located
 
 **Why does ContentMine use a virtual machine?**
-Virtual Machines makes it easy to use pre-configured software environments on different operating systems. In our case, it allows us to run the ContentMine software easily on all kinds of operating systems (Linux, Windows and Mac). This is used mostly for hands-on workshops and allows all attendees to run the software without having to modify their own systems. This allows us to quickly and smoothly start content mining, with a mininum of fuss.
+Virtual Machines make it easy to use pre-configured software environments on different operating systems. In our case, it allows us to run the ContentMine software easily on all kinds of operating systems (Linux, Windows and Mac). This is used mostly for hands-on workshops and allows all attendees to run the software without having to modify their own systems. This allows us to quickly and smoothly start content mining, with a mininum of fuss.
 
 **How can I use the virtual machine?**
 For this, you have to install [VirtualBox](https://www.virtualbox.org/) and start from it the [ContentMine virtual machine image](). You will find more details in the install section.
 
 ## INSTALLATION
 
-### 1. Install VirtualBox
+### Install VirtualBox
 VirtualBox runs on Windows, Linux, Macintosh, and Solaris and licensed under GNU General Public License (GPL) version 2.
 
 **Requirements**
@@ -32,7 +32,7 @@ All the other things depend on the requirements of the virtual machine image, as
 1. Download the VirtualBox platform installer for your operating system from the [VirtualBox website](https://www.virtualbox.org/wiki/Downloads).
 2. Run the installer and follow the on-screen instructions.
 
-### 2. Installing the ContentMine Virtual Machine image
+### Installing the ContentMine Virtual Machine image
 
 **Requirements**
 * 64-bit architecture (unless otherwise stated)
@@ -51,7 +51,26 @@ The image should be fairly large (>1GB, now ca 3.3GB). Depending on your connect
 3. Configure the import of the image
 
 
-### 3. Starting the ContentMine Virtual Machine image
+This is a series of screenshots to show what you should be seeing when you first install the Virtual Box and Virtual Machine. These are for a MAC-OSX and there will be minor differences for other OS.
+
+ * Virtual Box Download (e.g. from https://www.virtualbox.org/wiki/Downloads);<br/>
+<img alt="VirtualBox download" src="vm-virtualbox-download.png" width="50%"/>
+<br/>Pick your operating system
+<br/>
+
+ * Virtual Box Installation: <br/>
+ (MAC-OSX) click on downloaded file (creates <br/>
+<img alt="MAC-OSX installer" src="vm-installer.png" width="50%"/>
+<br/>
+Then click on the package/box icon (1) and it should install in `Applications | VirtualBox.app`
+
+* Possible error (ignore). You might see:<br/>
+<img alt="Ignore error" src="vm-error.png" width="33%"/>
+<br/>
+If so, click the "Do not show this message again" and continue.
+<br/>
+
+### Starting the ContentMine Virtual Machine image
 
 After installing VirtualBox and importing the virtual machine image you can start the machine from the VirtualBox interface. Start VirtualBox, select your image and click the "Start" button.
 
@@ -65,7 +84,36 @@ You can shut down the vm by right click and then "Exit", and "Power off".
 
 **If you attend a workshop: Please try to get the virtual machine running _before_ the workshop. There will be little time on the day to help with VirtualBox issues!**
 
-### 4. Usage
+
+* Starting the VM. (MAC-OSX) Click on the `Applications | VirtualBox.app` and you may see<br/>
+<img alt="Powered off" src="../../assets/images/software/vms/vm-poweredoff.png" width="75%"/>
+<br/>
+
+* When the VM is ready you will see<br/>
+<img alt="Running" src="../../assets/images/software/vms/vm-running.png" width="75%"/>
+<br/>
+(and on MAC-OSX the icons:<br/>
+<img alt="icons" src="../../assets/images/software/vms/vm-icon.png"/>)
+
+There can be more than one VM - we release different ones for different tutorials, and you can switch between them on the LH side.
+
+* when the VM is running you should see a screen such as:
+<img alt="Startscreen" src="../../assets/images/software/vms/vm-startscreen.png" width="75%"/>
+<br/>
+
+* Right-click on the main window and get a popup:
+<img alt="popup" src="../../assets/images/software/vms/vm-popup.png" width="75%"/>
+<br/>
+
+
+ * Select `terminal` and you will get:
+<img alt="crunchbang" src="../../assets/images/software/vms/vm-crunchbang.png" width="75%"/>
+<br/>
+
+ * try ```ls -lt``` at the command line. If it comes out with a German &ess; type:
+ ```setxkbmap gb``` to convert to GB or ```setxkbmap us``` for US.
+
+### Usage
 
 Basic entry to different applications starts with a right click on the desktop. Following options are of interest to us:
 * Terminal: command line interface. This is the basic way how to operate the ContentMine software. It opens a text-based interface, from where we can navigate folders, look into files, and interact with the ContentMine software.
@@ -93,18 +141,13 @@ If you want to paste something into the command line, this is possible with righ
 
 If you want to transfer files between the host system and the vm, you have to set up a shared folder. This has to be done in the VirtualBox before starting the vm. Go to "Settings-Shared Folders"
 
-**Troubleshooting the locale**
-
-If you run into issues with your keyboard layout, open a terminal window and set the layout to your locale, e.g. gb/us/de. You can find more help on locale e.g. [here](http://askubuntu.com/questions/395/how-do-i-reset-my-keyboard-layout/396#396).
-```
-setxkbmap us
-```
-
-## PROBLEMS
+## TROUBLESHOOTING
 
 The most common error is an incomplete download of the large VM image file, please verify that the download has been succesfully and _fully_ completed.
 
 If you have any problems getting VirtualBox, or downloading and starting the virtual image, don't worry. Please contact the workshop organizer for support, or ask us on our [website](http://contentmine.org/contact).
+
+ Note that some VMs may have a German locale and you may need to issue ```setxkbmap gb ``` or ```setxkbmap us``` in the terminal to change the keyboard settings.
 
 ## COMPONENTS
 
@@ -125,6 +168,3 @@ Data analysis packages:
 - [anaconda](http://continuum.io/downloads#py34)
 - [jupyter](http://jupyter.readthedocs.org/en/latest/install.html)
 - [R 3.2]
- 
-
-
