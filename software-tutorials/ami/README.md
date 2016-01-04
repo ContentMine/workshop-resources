@@ -11,6 +11,7 @@
   1. [ami2-gene](#ami2-gene)
   1. [ami2-sequence](#ami2-sequence)
   1. [ami2-regex](#ami2-regex)
+  1. [ami2-word](#ami2-word)
 1. [Summary](#summary)
 1. [Next Steps](#next-steps)
 1. [Further Materials](#further-materials)
@@ -330,6 +331,99 @@ cat dinosaurs-xmls-regex/PMC4298445/results/regex/dinosaurfood/results.xml
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
 
+### e) ami2-word
+
+Word frequency is one of the most valuable tools for catagorising documents.
+
+(This uses an example where the search query was `microRNA` rather than dinosaurs)
+
+The simplest approach is to count the words in document/s or chunks of document/s. 
+
+```bash
+ami2-word --w.words wordFrequencies -q dinosaurs-xmls/ -i scholarly.html
+```
+creates
+```
+eupmc
+├── eupmc_results.json
+├── fulltext_html_urls.txt
+├── PMC2275095
+│   ├── fulltext.xml
+│   ├── results
+│   │   └── word
+│   │       └── frequencies
+│   │           ├── results.html
+│   │           └── results.xml
+│   └── scholarly.html
+├── PMC2586803
+│   ├── fulltext.xml
+│   ├── results
+│   │   └── word
+│   │       └── frequencies
+│   │           ├── results.html
+│   │           └── results.xml
+```
+
+The first lists word frequencies as:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<results title="frequencies">
+ <result title="frequency" word="the" count="233"/>
+ <result title="frequency" word="and" count="188"/>
+ <result title="frequency" word="miR-" count="99"/>
+ <result title="frequency" word="were" count="77"/>
+ <result title="frequency" word="with" count="68"/>
+ <result title="frequency" word="for" count="57"/>
+ <result title="frequency" word="The" count="50"/>
+ <result title="frequency" word="was" count="49"/>
+```
+
+and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count.
+
+Clearly this mainly reflects the frequency in the English language, so we can remove the commonest words by creating <em>stopwords</em>. 
+
+```bash
+ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt
+```
+
+gives `results.xml` as
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<results title="frequencies">
+ <result title="frequency" word="miR-" count="99"/>
+ <result title="frequency" word="LNA-antimiR" count="49"/>
+ <result title="frequency" word="mice" count="39"/>
+ <result title="frequency" word="liver" count="35"/>
+ <result title="frequency" word="using" count="32"/>
+ <result title="frequency" word="Figure" count="28"/>
+ <result title="frequency" word="levels" count="28"/>
+ <result title="frequency" word="control" count="28"/>
+ <result title="frequency" word="expression" count="25"/>
+ <result title="frequency" word="miRNA" count="24"/>
+```
+
+clearly there is a strong signal now
+
+We  have a range of stopword files in different languages. It is also possible to create your own files and add them:
+
+```bash
+ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt mydir/myfile.txt
+```
+
+The format is a simple list of words:
+```
+a
+about
+above
+across
+after
+afterwards
+again
+against
+```
+
+and the file can be referenced either through a URL format or relative/absolute filename.
 
 ## Summary
 

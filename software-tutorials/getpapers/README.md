@@ -35,7 +35,20 @@ This tutorial covers the installation of getpapers, explains possible options, d
 
 ### Installation
 
-```bash
+type:
+```
+getpapers
+```
+at the commandline. If it is installed, skip this section
+
+within VirtualBox 
+```
+npm install --global getpapers
+```
+
+elsewhere you may need to be a superuser and type:
+```
+bash
 sudo npm install --global getpapers
 ```
 
@@ -77,23 +90,25 @@ This query creates a ```eupmc_results.json``` file in the named directory, in wh
 
 Let us now compare the results of a query for ```dinosaurs``` on EuropePMC, IEEE and ArXiv. Getpapers queries each API for "dinosaurs" and stores the results in separate folders.
 
+<em>We'll collect YOUR screenshots of the results and paste them into the docs here!</em>
+
 ```bash
 getpapers -q 'dinosaurs' --api eupmc -o eupmc
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 ```bash
 getpapers -q 'dinosaurs' --api ieee -o ieee
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 ```bash
 getpapers -q 'dinosaurs' --api arxiv -o arxiv
 ```
 
-SCREENSHOT
+<em> insert your results here SCREENSHOT</em>
 
 We can look into the files of each folder with `ls`, e.g (Directory name is eupmc.
 
