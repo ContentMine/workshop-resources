@@ -9,18 +9,16 @@ The tutorials can be used in workshops as well as for self-guided learning.
 
 1. [Purpose and installation of the ContentMine-VirtualMachine](vms/README.md)
 
-2. [Introduction to the command line interface](shell/README.md)
+1. [Introduction to the command line interface](shell/README.md)
 
-3. [Getting started with getpapers](getpapers/README.md)
+1. [Getting started with getpapers](getpapers/README.md)
 
-4. [Getting started with quickscrape](quickscrape/README.md)
+1. [Getting started with quickscrape](quickscrape/README.md)
 
-5. [Create your own scraper definition](journal-scrapers/README.md)
+1. [Create your own scraper definition](journal-scrapers/README.md)
 
-6. [Normalizing scholarly literature](norma/README.md)
+1. [Normalizing scholarly literature](norma/README.md)
 
-7. [ContentMine data structure: ctree](ctree/README.md)
+1. [ContentMine data structure: ctree](ctree/README.md)
 
-8. [Extracting facts with AMI-plugins](ami/README.md)
-
-9. What can I do with facts?
+1. [Extracting facts with AMI-plugins](ami/README.md)
