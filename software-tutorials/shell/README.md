@@ -93,5 +93,5 @@ wc -w shell-example/lines.txt
 ![wc](../../assets/images/software/shell/wc.png)
 
 
-*[Return to table of contents](..)
-*[Proceed to getpapers-tutorial](../getpapers)
+* [Return to tutorial overview](..)
+* [Proceed to getpapers-tutorial](../getpapers)
