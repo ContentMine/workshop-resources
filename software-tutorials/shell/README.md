@@ -8,10 +8,11 @@ If you want to interrupt and cancel the execution of a command, press ```CTRL```
 
 **ls**: **l**i**s**ts files and directories, takes the current working directory as root. You can also look into the content of nested directories by extending the path ```ls dir/nested_dir/nested_dir2``` ([wikipedia](https://en.wikipedia.org/wiki/Ls).
 
-We inspect which files and folders are present in our current working directory:
+We inspect which files and folders are present in our current working directory and in the `shell-example` folder:
 
 ```
 ls
+ls shell-example
 ```
 
 ![ls](../../assets/images/software/shell/ls.png)
@@ -21,6 +22,8 @@ ls
 ```
 tree shell-example
 ```
+
+![tree](../../assets/images/software/shell/tree.png)
 
 **cd**: **c**hange **d**irectory, moves the working directory location to the target location. You can move back up in the directory hierarchy with `cd ..`. If you want to navigate to an absolute path, you have to start with a "/", `cd /home/workshop/workshop/`.
 
@@ -36,6 +39,7 @@ cd![cd](../../assets/images/software/shell/cd.png)
 
 ```
 mkdir new-folder
+ls
 ```
 
 ![mkdir](../../assets/images/software/shell/mkdir.png)
@@ -45,6 +49,8 @@ mkdir new-folder
 ```
 mv new-folder shell-example
 ls shell-example
+mv shell-example/new-folder ./
+ls
 ```
 
 ![mv](../../assets/images/software/shell/mv.png)
@@ -53,6 +59,9 @@ ls shell-example
 
 ```
 cp -r shell-example shell-example-2
+ls
+tree shell-example
+tree shell-example-2
 ```
 
 ![cp](../../assets/images/software/shell/cp.png)
@@ -61,6 +70,7 @@ cp -r shell-example shell-example-2
 
 ```
 rm -r shell-example-2
+ls
 ```
 
 ![rm](../../assets/images/software/shell/rm.png)
@@ -93,6 +103,7 @@ tail -5 shell-example/lines.txt
 
 ```
 wc -l shell-example/lines.txt
+wc -w shell-example/lines.txt
 ```
 
 ![wc](../../assets/images/software/shell/wc.png)
