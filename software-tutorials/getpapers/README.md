@@ -1,23 +1,24 @@
 # getpapers
 
+This tutorial covers the installation of getpapers, demonstrates how to construct simple and more complex queries, and shows what output can be expected from getpapers.
+
 ## Table of contents
 
 1. [Description](#description)
-1. [Installation](#installation)
-2. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
-3. [Getting pdfs and other files](#getting-pdfs-and-other-files)
-4. [Complex queries for EPMC](#complex-queries-for-epmc)
-5. [Complex queries for ArXiv](#complex-queries-for-arxiv)
-6. [Complex queries for IEEE](#complex-queries-for-ieee)
-7. [Summary and next steps](#summary-and-next-steps)
+1. [Preparations](#preparations)
+  1. [Installation](#installation)
+  1. [Input data](#input-data)
+1. [Tutorial](#tutorial)
+  1. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
+  1. [Getting pdfs and other files](#getting-pdfs-and-other-files)
+  1. [Complex queries for EPMC](#complex-queries-for-epmc)
+1. [Summary and next steps](#summary-and-next-steps)
 
 ## Description
 
-**What does getpapers?**
+**What is getpapers?**
 
-`getpapers` is together with [quickscrape](../quickscrape/README.md) one of the entry points of the ContentMine pipeline. getpapers can fetch article metadata, fulltexts (PDF or XML), and supplementary materials. It's designed for use in content mining, but you may find it useful for quickly acquiring large numbers of papers for reading, or for bibliometrics. getpapers accesses APIs (EUPMC, IEEE, Arxiv), queries them for search terms and returns specific datastructures (metadata, PDFs, XMLs). In contrast, quickscrape takes URLs as input and scrapes the whole page.
-
-This tutorial covers the installation of getpapers, explains possible options, demonstrates how to construct simple and complex queries, and shows what output can be expected from getpapers.
+`getpapers` is together with [quickscrape](../quickscrape/README.md) one of the entry points of the ContentMine pipeline. getpapers fetches article metadata, fulltexts (PDF or XML), and supplementary materials. It is designed for use in content mining, but you may also find it useful for quickly acquiring large numbers of papers for reading or for bibliometrics. getpapers accesses different publisher APIs (currently EUPMC, IEEE, Arxiv), queries them for search terms and returns metadata, PDFs or XMLs. In contrast, quickscrape takes URLs as input and scrapes the whole page.
 
 **Why do we need getpapers?**
 
@@ -32,300 +33,171 @@ This tutorial covers the installation of getpapers, explains possible options, d
 - Query
 
 
+## Preparations
+
+### Prerequisites
 
 ### Installation
 
-type:
-```
-getpapers
-```
-at the commandline. If it is installed, skip this section
+Open a terminal and type: `getpapers --version` at the commandline. If `0.4.1` appears, getpapers is installed, you can skip this section.
 
-within VirtualBox 
+To install it within the ContentMine virtual machine:
 ```
 npm install --global getpapers
 ```
 
-elsewhere you may need to be a superuser and type:
+Elsewhere you need to have node and node package manger installed. You may need to be a superuser and type:
 ```
-bash
 sudo npm install --global getpapers
 ```
 
-You can find the technical documentation for `getpapers` in its [repository](https://github.com/ContentMine/getpapers).
+If you are a developer you can find the technical documentation for `getpapers` in its [repository](https://github.com/ContentMine/getpapers).
 
-**Help**
+### Input data
 
+In this tutorial we will mainly use open access literature from [Europe PMC](http://europepmc.org/). We can search within their database of 3.5 million fulltext papers from life-sciences. About one million of these are Open Access. Please refer to [Europe PMC-Data](http://europepmc.org/FtpSite) for details. 
 
-The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/README.md), please have a look if you are new to using the command line.
+![eupmcdata](http://europepmc.org/docs/images/help/proportion%20of%20articles.png) 
 
-Use `getpapers --help` to see the command-line help:
+## Tutorial
+
+After starting the VM, we open a terminal and navigate to the getpapers folder:
 
 ```
-Usage: getpapers [options]
-
-Options:
-
-  -h, --help              output usage information
-  -V, --version           output the version number
-  -q, --query <query>     Search query (required)
-  -o, --outdir <path>     Output directory (required - will be created if not found)
-  --api <name>            API to search [arxiv, eupmc, ieee] (default: eupmc)
-  -x, --xml               Download fulltext XMLs if available
-  -p, --pdf               Download fulltext PDFs if available
-  -s, --supp              Download supplementary files if available
-  -l, --loglevel <level>  amount of information to log (silent, verbose, info*, data, warn, error, or debug)
-  -a, --all               search all papers, not just open access
+cd getpapers
 ```
+
+![gpfolder](../../assets/images/software/getpapers/getpapers-folder.png)
 
 ### Construct a simple query and compare results
 
-The most basic query **returns only metadata**. Without a specification of the API, getpapers will chose EuropePMC as default data source.
+We now will check how many results we can expect for a search for `ursus maritimus` on Europe PMC. With the `-n` flag getpapers will report how many results match the query, but it will not actually download anything. Without a specification of the API, getpapers will chose Europe PMC as default data source.
 
-A query must consist of `-q 'QUERY' -o OUTPUTDIRECTORY`.
-* QUERY: the term(s) you want to look for.
-* OUTPUTDIRECTORY: Folder in which you want the output files and directory. The folder will be created if it does not already exist.
-
-This query creates a ```eupmc_results.json``` file in the named directory, in which a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {key:value}-format is stored.
-
-Let us now compare the results of a query for ```dinosaurs``` on EuropePMC, IEEE and ArXiv. Getpapers queries each API for "dinosaurs" and stores the results in separate folders.
-
-<em>We'll collect YOUR screenshots of the results and paste them into the docs here!</em>
-
-```bash
-getpapers -q 'dinosaurs' --api eupmc -o eupmc
 ```
-
-<em> insert your results here SCREENSHOT</em>
-
-```bash
-getpapers -q 'dinosaurs' --api ieee -o ieee
+getpapers -q 'ursus maritimus' -n -o ursus
+getpapers -q ursus maritimus -n -o ursus
 ```
+![gpnoexecute](../../assets/images/software/getpapers/getpapers-noexecute.png)
 
-<em> insert your results here SCREENSHOT</em>
+Please note the different result numbers. With quotation marks `-q 'ursus maritimus'` searches for the exact match, while `-q ursus maritimus` is not as constrained and returns also matches for only `ursus` or `maritimus`.
 
-```bash
-getpapers -q 'dinosaurs' --api arxiv -o arxiv
+In the next step we will download the metadata of our results. To keep waiting times low we use the more narrow search. If you chose a too large result set and don't want to wait, you can abort the query with `Ctrl + C`.
 ```
-
-<em> insert your results here SCREENSHOT</em>
-
-We can look into the files of each folder with `ls`, e.g (Directory name is eupmc.
-
-```bash
-cd eupmc
-ls
-eupmc_results.json  fulltext_html_urls.txt
+getpapers -q 'ursus maritimus' -o ursus
 ```
+![gpmetadataonly](../../assets/images/software/getpapers/getpapers-metadataonly.png)
 
-```fulltext_html_urls.txt``` contains the urls of all found publications which include the query term. With [cat](https://en.wikipedia.org/wiki/Cat_%28Unix%29), [head](https://en.wikipedia.org/wiki/Head_%28Unix%29) or [tail](https://en.wikipedia.org/wiki/Tail_%28Unix%29) we can have a short view into the files.
-
-```bash
-# prints the whole file to the terminal
-cat eupmc/fulltext_html_urls.txt
-
-# prints the top 10 lines
-head eupmc/fulltext_html_urls.txt
-
-# prints the last 5 lines
-tail -5 eupmc/fulltext_html_urls.txt
+This query creates two files, `eupmc_fulltext_html_urls.txt` and `eupmc_results.json` and stores them in the `ursus` folder. It can happen that no fulltexts are available for the query, in which case the file `fulltext_html_urls.txt` will not be created. We now have a look at the contents of the `eupmc_fulltext_html_urls.txt` file, which contains a list of HTML-sources for results. Depending on Europe PMC, not all search results necessarily have a downloadable HTML-version of the paper.
 ```
-
-If you want to know how many lines (publications) the query found, use the command `wc` ([doc](https://en.wikipedia.org/wiki/Wc_%28Unix%29)). 
-
-```bash
-wc -l eupmc/fulltext_html_urls.txt
+ls ursus
+wc -l ursus/eupmc_fulltext_html_urls.txt
+head ursus/eupmc_fulltext_html_urls.txt
 ```
+![inspecturlstxt](../../assets/images/software/getpapers/getpapers-inspecturlstxt.png)
 
-It can happen, that for the query were found no fulltexts, in which case it the file `fulltext_html_urls.txt` will not be created.
-
-At this point you could use the `fulltext_html_urls.txt` as input for [quickscrape](../quickscrape/README.md#scraping), but for the moment we'll continue exploring getpapers.
-
-The other file a simple query returns is called ```APINAME_results.json``` and consists as described above the metadata of each found publication. 
-
-Using ```cat``` produces many lines of not very readable output. We can filter for words we are interested in with [grep](https://en.wikipedia.org/wiki/Grep). This returns only lines containing the search word.
-
-```bash
-grep dinosaur eupmc/eupmc_results.json
-```
-
-If we want to read the abstracts, which are stored under the "abstractText" attribute, we tell grep to return one line after "abstractText" with `-A1`.
-
-```bash
-grep -A1 abstractText eupmc/eupmc_results.json
-```
-
-These tools are useful in getting some first idea of the content of files, but ContentMine provides some more advanced tools in later stages of the pipeline, like ([ami](../ami/README.md)). For now we continue with more sophisticated queries with getpapers.
+The `eupmc_results.json` file contains metadata about each search results in the [JSON](https://en.wikipedia.org/wiki/JSON)-format. Metadata are e.g. a DOI, the title, authors, and additional bibliographic data.
 
 ### 3. Getting pdfs and other files
 
-Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a `-p` flag to the query. Please note, that a very **generic query** will result in a **huge number of results**. Unless intended, you can cancel a search with `Ctrl+C` in the command line.
+Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a `-p` flag to the query. Please note, that a **generic query** will result in a **large number of results** and long processing times. Unless intended, you can cancel a search with `Ctrl+C` in the command line.
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o eupmc -p
-getpapers -q 'dinosaurs' --api ieee -o ieee -p
-getpapers -q 'dinosaurs' --api arxiv -o arxiv -p
+getpapers -q 'ursus maritimus' -o ursus -p
 ```
 
-For every PDF found, getpapers creates a [CTree](../ctree/README.md), which means in this case a new folder containing a fulltext.pdf within the eupmc folder. To understand the folder and file structure better, use the ```tree``` command. If you work on your local machine you may have to [install tree first](https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal).
+For every PDF found, getpapers creates a subfolder named after the Europe PMC paper ID which holds the fulltext.pdf and any future additional files. To have a look at folder file structure, use the ```tree``` command.
 
 ```
-tree eupmc
-eupmc
-├─ eupmc_results.json
-├─ fulltext_html_urls.txt
-├─ PMC1234567
-│  └─ fulltext.pdf
-├─ PMC1234568
-│  └─ fulltext.pdf
-├─ ...
+tree ursus
 ```
 
 Not all queries returned PDFs, we now try another query with `-x` for xml-results. In contrast to PDF, XML is a format that machines can understand well, and XML enables better mining results further down the pipeline.
 
+```bash
+getpapers -q 'ursus maritimus' -o ursus -x
+```
+
+The existing resultfolders get updated, no results are lost or overwritten.
+
+```
+tree ursus
+```
+
+As a last step, we will download supplementary information. Europe PMC provides supplementary information in compressed ZIP-files.
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o eupmc -x
-getpapers -q 'dinosaurs' --api ieee -o ieee -x
-getpapers -q 'dinosaurs' --api arxiv -o arxiv -x
+getpapers -q 'ursus maritimus' -o ursus -s
 ```
 
-The existing results only get update, no results (the pdf's) from before get lost as you can see:
-
 ```
-tree eupmc
-eupmc
-├─ eupmc_results.json
-├─ fulltext_html_urls.txt
-├─ PMC1234567
-│  ├─ fulltext.pdf
-│  └─ fulltext.xml
-├─ PMC1234568
-│  └─ fulltext.pdf
-├─ PMC1234569
-│  └─ fulltext.xml
-├─ ...
+tree ursus
 ```
+![inspectctree](../../assets/images/software/getpapers/getpapers-inspectctree.png)
 
-This is the beginning of the [ctree](../ctree/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
+This is the [ctree](../ctree/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
 
 ### Complex queries for EuropePMC
 
-[Europe PubMedCentral](https://europepmc.org/) (EUPMC)
+Queries are directed to the [Europe PMC API](http://europepmc.org/RestfulWebService). In their simplest form, they can be free text, like this one we executed before (`getpapers -q 'ursus maritimus' -o ursus -x`).
 
-**Data**
+Using the EuropePMC webservice's query language we can construct much more detailed queries. A selection of the most commonly useful search fields is explained [here](getpapers-eupmc-queries.md), and a complete documentation of possible queries is in Appendix I of the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
 
-
-"The content scope of Europe PMC covers both abstracts and full text articles, with some full text
-articles being available as Open Access. All the full text articles in Europe PMC have a corresponding PubMed abstract record, but only about 10-12% of PubMed abstracts have a corresponding Europe PMC full text article available (see figure above). In terms of the web service, all the content in Europe PMC can be searched. However, in the case of a full text search, in which the complete text of the article is searched, only the metadata and abstract will be sent in the response for most content. Each full text article therefore has a unique PMCID and a corresponding PubMed ID (PMID)."
-
-DIAGRAMM
-
-
-**Queries**
-
-
-Queries are processed by EuropePMC. In their simplest form, they can be free text, like this one we executed before:
+For example we can restrict our search to only papers that mention 'ursus maritimus' in the abstract. The query is the same that would be entered in the search field on the Europe PMC website.
 
 ```bash
-getpapers -q 'dinosaurs' --api eupmc -o eupmc
+getpapers -q ABSTRACT:ursus maritimus -o ursus -n
+getpapers -q ABSTRACT:'ursus maritimus' -o ursus -n
 ```
+![complex1](../../assets/images/software/getpapers/getpapers-complex1.png)
+Please compare again the different result numbers without and with `''`.
 
-But they can also be much more detailed, using the EuropePMC webservice's query language. A selection of the most commonly useful search fields is explained [here](getpapers-eupmc-queries.md), and a complete documentation of possible queries is in Appendix I of the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
-
-For example we can restrict our search to only papers that mention 'dinosaurs' in the abstract. Note that the query has to be encapsuled by single quotations marks ```'```, and further specifications by double quotation marks ```"```.
+We can use the logical operations `AND` and `OR`, and can group operations using brackets. Please note that in the shell we have to encapsulate the query with `'` when we use brackets and use double quotations for inner groupings.
 
 ```bash
-getpapers -q 'ABSTRACT:"dinosaurs"' --api eupmc -o eupmc_abstract
+getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"ursus maritimus"' -o ursus -n
 ```
 
-We can use the logical operations `ÀND` and `OR`, and can group operations using brackets:
-
+Search for papers which contain the phrase "ursus maritimus" in the introduction section and the phrase "survey" in the methods section.
 ```bash
-getpapers -q '(LICENSE:"cc by" OR LICENSE:"cc-by") AND ABSTRACT:"dinosaurs"' --api eupmc -o eupmc_licence_abstract
+getpapers -q 'INTRO:"ursus maritimus" AND METHODS:survey' -o ursus -n
 ```
 
-So, we got now all Open Access publications about dinosaurs from EUPMC.
-
-Here some more examples which show how powerful the EUPMC API is.
-
-Search for papers which contain the phrase "dinosaurs" in the introduction section and the phrase "survey" in the methods section.
+Search for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell". You can look up journals on the [Europe PMC journal list](http://europepmc.org/journalList?journals) by clicking on the magnifying glass in the column "Search this Journal".
 ```bash
-getpapers -q 'INTRO:"dinosaurs" AND METHODS:"survey"' --api eupmc -o eupmc_intro_methods
+getpapers -q 'AUTH:Smith AND (JOURNAL:biology OR JOURNAL:cell)' -o ursus -n
 ```
 
-Search for papers where the authors contain "Smith" and which were published in either "Biology" or "Cell".
+Downloads XML and PDF's for papers that contain "ursus maritimus" in the abstract and were published between 2010 and 2013.
 ```bash
-getpapers -q 'AUTH:"Smith" AND (JOURNAL:"biology" OR JOURNAL:"cell")' --api eupmc -o eupmc_author_journal
+getpapers -q 'ABSTRACT:"ursus maritimus" AND PUB_YEAR:[2010 TO 2013]' -o ursus -p -x
 ```
 
-Downloads XML and PDF's for papers that contain "dinosaurs" in the abstract and were published between 2010 and 2012.
+Search for papers that contain "ursus maritimus" in the title and were first published between July 2009 and June 2013.
 ```bash
-getpapers -q 'ABSTRACT:dinosaurs AND PUB_YEAR:[2010 TO 2012]' --api eupmc -o eupmc_abstract_year -px
+getpapers -q 'TITLE:"ursus maritimus" AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' -o ursus -n
 ```
 
-Search for papers that contain "dinosaur" in the title and were first published between July 2009 and June 2013.
+Search for papers about "ursus maritimus" where the European Research Council ("ERC") is mentioned in the acknowledgements section.
 ```bash
-getpapers -q 'TITLE:dinosaurs AND FIRST_PDATE:[2009-07-01 TO 2013-06-30]' --api eupmc -o eupmc_title_pubdate
+getpapers -q '"ursus maritimus" AND (ACK_FUND:ERC OR ACK_FUND:"European Research Council")' -o ursus -n
 ```
 
-Search for papers where the European Research Council (ERC" is mentioned in the acknowledgements section.
-```bash
-getpapers -q 'ACK_FUND:ERC' --api eupmc -o eupmc_acknowledgement
-```
-
-You can find some more queries from the [documentation](getpapers-eupmc-queries.md)
-
-### Complex queries for ArXiv
-
-The ArXiv API has a nice, clearly defined format and offers full access to all publications on [arxiv.org](http://arxiv.org). Queries can target individual fields of the articles records. A selection of possible search fields is explained [here](getpapers-arxiv-queries.md), and a complete documentation is provided by [ArXiv](http://arxiv.org/help/api/user-manual). 
-
-Search for papers that contain "dinosaurs" in the abstract.
-```bash
-getpapers -q 'abs:dinosaurs' --api arxiv -o arxiv_abstract -p
-```
-
-Queries may be combined with boolean operators `AND, OR, ANDNOT`. ANDNOT is a particularly helpful operator, it excludes results that contain a phrase, and therefore works as a filter.
-
-Search for papers that contain dinosaurs in the abstract, but not physics in any search field.
-```bash
-getpapers -q 'abs:ABM ANDNOT all:physics' --api arxiv -o arxiv_abstract_not-physics -p
-```
-
-Search for papers that contain dinosaurs in the abstract, but neither "quantum physics" or "biology" in any search field (yes, those combinations exist!). Note that "quantum physics" has been grouped into a single phrase by double quotes ```"```. 
-```bash
-getpapers -q 'abs:dinosaurs ANDNOT (all:"quantum physics" OR all:biology)' --api arxiv -o arxiv_abstract_not-quantum-physics_not-biology -p
-```
-
-### Complex queries for IEEE
-
-IEEE does not provide fulltext XML, and their fulltext PDFs are not easily downloadable (though we're working on it). `getpapers` will output metadata for the search results, and will attempt to reconstruct the fulltext HTML URLs for any papers that have fulltext HTML.
-
-A selection of options is described [here](getpapers-ieee-queries.md) and the complete IEEE query format is loosely documented at [IEEE Xplore Gateway](http://ieeexplore.ieee.org/gateway/). In general, anything that works in the website search will also work in `getpapers` with the `--api ieee` option enabled. As with the other APIs, any search is automatically restricted to Open Access papers. 
-
-```bash
-getpapers -q 'dinosaurs' --api ieee -o ieee
-```
-
-Search for papers containing the phrase "mining" in the abstract, and which appear between 2010 and 2014:
-```bash
-getpapers -q 'ab=water pys=2010 pye=2014' --api ieee -o ieee_abstract_pubdate
-```
-
-Search for papers containing the phrase "mining" in the title and filtered for the content type "Conferences":
-```bash
-getpapers -q 'ti=mining ctype=Conferences' --api ieee -o ieee_title_content-type
-```
+You can find some common query options [here](getpapers-eupmc-queries.md).
 
 ## Summary and next steps
 
-* A minimum query consists of `getpapers -q "query terms" -o outdir` and returns only metadata.
+A query must consist of `-q 'QUERY' -o OUTPUTDIRECTORY`.
+* QUERY: the term(s) you want to look for.
+* OUTPUTDIRECTORY: Folder in which you want the output files and directory. The folder will be created if it does not already exist.
+This query creates a ```eupmc_results.json``` file in the named directory, in which a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {key:value}-format is stored.
+
 * Use `-x` for machine-readable fulltext results, because XML-files provide better mining results in later stages of the tool chain.
 * Use `-p` if you want to retrieve human-readable fulltexts in PDF-format.
-* Unless you use `-a`, only Open Access papers will be returned.
+* By default, only Open Access papers will be returned.
 * Each API has a different native query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
 **Next steps**
+* Go back to the [tutorial overview](..)
 * Continue to [quickscrape](../quickscrape/README.md) for an introduction to scraping.
 * Continue to [norma](../norma/README.md) for the next step of the ContentMine pipeline.
 * Continue to [ctree](../ctree/README.md) for an introduction of the main datastructure.
