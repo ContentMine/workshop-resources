@@ -9,6 +9,7 @@
 1. [XML to sHTML](#xml-to-shtml)
 1. [HTML to sHTML](#html-to-shtml)
 1. [PDF collections to TXT](#pdf-collections-to-txt)
+1. [Troubleshooting](#troubleshooting)
 1. [Summary](#summary)
 1. [Next Tutorial](#next-tutorial)
 1. [Further Materials](#further-materials)
@@ -17,22 +18,24 @@
 
 **What norma does**
 
-Norma helps to normalize the data coming from different sources into the unified, consistend data structure. For publicaions coming from [quickscrape](../qucikscrape/) and for publications coming from [getpapers](../getpapers/) as XML it transform the content into [scholarly HTML](../sHTML/) (sHTML). Norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
+Norma transforms different file formats such as PDF, XML or HTML provided by publishing websites and API's into our internal standard for scientific literature called [scholarly HTML](../sHTML/). Norma furthermore possesses the ability to reverse engineer graphs, and e.g. extract data points from a timeline.
 
 **Why do we need norma?**
 
-Norma does all the unfunny stuff of taking all kinds of different file formats as PDF, XML and HTML from different publishing websites and API's with different layouts and taggings and combines it to our internal standard for scientific literature sHTML. So it takes all the hard work of parsing and merging together all the pieces, and offers an output, which can then be easily used for further processing.
+ Norma parses and merges different formats and file standards of scientific literature, and offers a unified output which can be used for further processing. 
 
 **How can I use norma?**
 
-Norma offers a web of paths between three different input streams (an API-query from [getpapers](../getpapers/getpapers-tutorial.md), a URL-scrape from [quickscrape](../quickscrape-tutorial.md), and an existing collection of PDFs)
+Norma offers paths from three different input streams to sHTML:
+* from XML-files collected by an API-query of [getpapers](../getpapers/getpapers-tutorial.md)
+* from HTML-files collected by a URL-scrape of [quickscrape](../quickscrape-tutorial.md)
+* from an existing collection of PDFs
 
 **What you will learn here**
 
 This tutorial shows you how to
-* normalize results from getpapers towards sHTML
-* normalize results from quickscrape towards sHTML
-* and normalize a collection of PDFs towards simple text files
+* normalize XML-files or HTML-files into sHTML
+* normalize a collection of PDFs into simple text files
 
 **How to use the tutorial**
 
@@ -59,15 +62,13 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-Norma can be installed from the latest `.deb`-file, [Download here](https://jenkins.ch.cam.ac.uk/view/AMI2/job/norma/org.xml-cml$norma/lastSuccessfulBuild/artifact/org.xml-cml/norma/0.1-SNAPSHOT/norma-0.1-SNAPSHOT.deb)
+On the ContentMine-VM norma is already provided. If you want to install it locally, you have to build it from source. For this you need `git`, `maven` and `maven3`.
 
-Get the file via terminal:
 ```bash
-wget https://jenkins.ch.cam.ac.uk/view/AMI2/job/norma/org.xml-cml$norma/lastSuccessfulBuild/artifact/org.xml-cml/norma/0.1-SNAPSHOT/norma-0.1-SNAPSHOT.deb
-sudo dpkg -i norma-0.1-SNAPSHOT.deb
+git clone https://github.com/ContentMine/norma.git
+cd norma
+mvn clean install
 ```
-
-The password is password.
 
 You can find the technical documentation for `norma` in its [repository](https://github.com/ContentMine/norma).
 
@@ -75,84 +76,33 @@ You can find the technical documentation for `norma` in its [repository](https:/
 
 ![normasmall0](../../assets/images/software/norma/normasmall0.png)
 
-Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. Most likely the data comes as output from getpapers or quickscrape, but you also can use your own PDF's or HTML.
-
+Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. getpapers or quickscrape can be used to create a corpus of papers, but you also can use your own PDFs or HTML.
 
 ## XML to sHTML
 
 ![normaxml2shtml](../../assets/images/software/norma/normaxml2shtml0.png)
 
-**Overview**
+We continue after retrieving a number of papers with `getpapers -q 'ursus maritimus' -o ursus -x`.
 
-![xml2shtml](../../assets/images/software/norma/xml2shtml.png)
+getpapers returns a [CProject](../cproject)-folder. It contains subfolders holding one paper and associated files, fulltexts in PDF or XML format, and if requested, supplementary files. Just a quick reminder of how it may look like:
 
+![inspectctree](../../assets/images/software/getpapers/getpapers-inspectctree.png)
 
-We start with a search results with getpapers
-
-```bash
-getpapers -q dinosaurs -o dinosaurs-xmls -x
-```
-
-
-getpapers returns a **project folder** containing search metadata and [ctrees](../ctree). Each ctree holds all data regarding one paper, in this case a `fulltext.xml`.
-
-```
-tree dinosaurs-xmls
-dinosaurs-xmls/
-├── eupmc_results.json
-├── fulltext_html_urls.txt
-├── PMC3893193
-│   └── fulltext.xml
-├── PMC3893247
-│   └── fulltext.xml
-...
-```
-
-We transform the fulltext.xml-files into sHTML. This can be done in bulk by passing the project folder with `-q`. The input/output-parameters `-i` and `-o` are verbose at the moment, we are working on simplifying to command, so that only the transformation parameter `--transform nlm2html` is needed. It is possible that norma prints a lot of debugging information, this does not automatically mean that something is wrong.
+We now transform the fulltext.xml-files into sHTML. This can be done in bulk by passing the project folder with `-q`. The input/output-parameters `-i` and `-o` are the files to read in and write to. The parameter `--transform nlm2html` corresponds to a specific transformation from one format to another. Norma will print a lot of process information, this does not mean that something is wrong.
 
 ```bash
 norma \
-     -q dinosaurs-xmls \
+     -q ursus \
      -i fulltext.xml \
      -o scholarly.html \
      --transform nlm2html
 ```
 
-If you get an error that reads like this
-```
-270  [main] WARN  org.xmlcml.cmine.args.DefaultArgProcessor  - Recursing CMDIRs is probably  a BUG
-270  [main] DEBUG org.xmlcml.cmine.args.DefaultArgProcessor  - ... No reserved files or directories: dir: dinosaurs-xmls/PMC3390907
-```
-it relates to an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)). To solve it temporarily, perform the following steps, which will delete the empty folders and keeps the ones with files:
-
-```bash
-cd dinosaurs-xmls
-find -empty -delete
-cd ..
-```
-After that, re-run the norma-commands. If a `scholarly.html`-file has been added to each ctree, norma was succesful.
-
-```bash
-tree dinosaurs-xmls
-dinosaurs-xmls/
-├── eupmc_results.json
-├── fulltext_html_urls.txt
-├── PMC3893193
-│   ├── fulltext.xml
-│   └── scholarly.html
-├── PMC3893247
-│   ├── fulltext.xml
-│   └── scholarly.html
-...
-```
+If you inspect the folder with `tree ursus`, norma will have added a `scholarly.html`-file to those papers, where a format conversion was possible.
 
 ## HTML to sHTML
 
 ![normahtml2shtml](../../assets/images/software/norma/normahtml2shtml0.png)
-
-**Overview**
-
-![html2shtml](../../assets/images/software/norma/html2shtml.png)
 
 The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of quickscrape -> a list of fulltext-urls (this has to be provided by you).
 
@@ -316,6 +266,25 @@ dinosaurs-pdfs/
 4 directories, 8 files
 ```
 
+## Troubleshooting
+
+
+If you get an error that reads like this
+```
+270  [main] WARN  org.xmlcml.cmine.args.DefaultArgProcessor  - Recursing CMDIRs is probably  a BUG
+270  [main] DEBUG org.xmlcml.cmine.args.DefaultArgProcessor  - ... No reserved files or directories: dir: dinosaurs-xmls/PMC3390907
+```
+it relates to an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)). To solve it temporarily, perform the following steps, which will delete the empty folders and keeps the ones with files:
+
+```bash
+cd dinosaurs-xmls
+find -empty -delete
+cd ..
+```
+
+After that, re-run the norma-commands.
+
+
 ## Summary
 
 * use publications downloaded via getpapers and convert the XML to uniform sHTML
@@ -323,8 +292,8 @@ dinosaurs-pdfs/
 * convert PDF's to text files
 
 ## next tutorial
-* Continue to [sHTML](../sHTML/sHTML-overview.md) if you want to learn more about scholarly HTML.
-* Continue to [ami](../ami/ami-tutorial.md) for the next step of the ContentMine pipeline.
+* Continue to [sHTML](../sHTML) if you want to learn more about scholarly HTML.
+* Continue to [ami](../ami) for the next step of the ContentMine pipeline.
 
 ## Further material
 

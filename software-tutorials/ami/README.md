@@ -61,29 +61,27 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-ami can be installed from the latest `.deb`-file, [Download here](https://jenkins.ch.cam.ac.uk/view/AMI2/job/ami-plugin/org.xml-cml$ami2/lastSuccessfulBuild/artifact/org.xml-cml/ami2/0.1-SNAPSHOT/ami2-0.1-SNAPSHOT.deb)
+On the ContentMine-VM ami is already provided. If you want to install it locally, you have to build it from source. For this you need `git`, `maven` and `maven3`.
 
-Get the file via terminal:
 ```bash
-wget 'https://jenkins.ch.cam.ac.uk/view/AMI2/job/ami-plugin/org.xml-cml$ami2/lastSuccessfulBuild/artifact/org.xml-cml/ami2/0.1-SNAPSHOT/ami2-0.1-SNAPSHOT.deb'
-sudo dpkg -i norma-0.1-SNAPSHOT.deb
+git clone https://github.com/ContentMine/ami-plugin.git
+cd ami-plugin
+mvn clean install
 ```
-
-The password is 'password'.
 
 You can find the technical documentation for `ami` in its [repository](https://github.com/ContentMine/ami-plugin).
 
 ## Input data
 
-The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores results in a folder in the ctree.
+The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and attaches the results to the paper.
 
 ## How to use ami-plugins
 
-It all starts with a `scholarly.html`-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
+ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
 
 ```bash
-tree dinosaurs-xmls/
-dinosaurs-xmls/
+tree ursus
+ursus/
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
 ├── PMC3893193
