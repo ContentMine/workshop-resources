@@ -62,7 +62,7 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-On the ContentMine-VM norma is already provided. If you want to install it locally, you have to build it from source. For this you need `git`, `maven` and `maven3`.
+On the ContentMine-VM norma is already provided. If you want to install it locally or upgrade it in the VM, you can build it from source. For this you need `git`, `maven` and `maven3`.
 
 ```bash
 git clone https://github.com/ContentMine/norma.git
@@ -100,120 +100,14 @@ norma \
 
 If you inspect the folder with `tree ursus`, norma will have added a `scholarly.html`-file to those papers, where a format conversion was possible.
 
-## HTML to sHTML
-
-![normahtml2shtml](../../assets/images/software/norma/normahtml2shtml0.png)
-
-The path from a fulltext.html to a scholarly.html is a few steps longer. We begin with the results of quickscrape -> a list of fulltext-urls (this has to be provided by you).
-
-```bash
-quickscrape \
-    -r urllist.txt \
-    -o dinosaurs-htmls \
-    -d journal-scrapers/scrapers
-```
-
-getpapers creates a project folder again containing ctrees. The metadata files are now within each ctree.
-```bash
-tree dinosaurs-htmls
-dinosaurs-htmls/
-├── http_europepmc.org_articles_PMC2214819
-│   ├── fulltext.html
-│   └── results.json
-├── http_europepmc.org_articles_PMC2635535
-│   ├── fulltext.html
-│   └── results.json
-├── http_europepmc.org_articles_PMC2997427
-│   ├── fulltext.html
-│   └── results.json
-...
-```
-
-We first need to tidy up the `fulltext.html`-files, since not all html-files may be *well-formed* in the sense of conforming to the [W3C-standard](http://www.w3.org/TR/html5/). This is necessary for documents to be parseable. There are some tools that try to ensure well-formedness of a document. For this we pass the project folder with `-q`, specify input and output files with `-i` and `-o` and use `--html jsoup` for cleaning up the html.
-```bash
-norma \
-    -q dinosaurs-htmls \
-    -i fulltext.html \
-    -o fulltext.xhtml \
-    --html jsoup
-```
-
-This procedure creates an intermediary document `fulltext.xhtml`. 
-```bash
-tree dinosaurs-htmls/
-dinosaurs-htmls/
-├── http_europepmc.org_articles_PMC2214819
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   └── results.json
-├── http_europepmc.org_articles_PMC2635535
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   └── results.json
-├── http_europepmc.org_articles_PMC2997427
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   └── results.json
-...
-```
-
-The final step removes content we do not want or need, such as publisher's related material, or social media feeds. This requires specific html-styles for each publisher, at the moment only one is available for testing purposes.
-```bash
-norma \
-    -q dinosaurs-htmls/ \
-    -i fulltext.xhtml \
-    -o scholarly.html \
-    --transform nature2html
-```
-
-We then have a project folder with ctrees, that trace the path from `fulltext.html` to `scholarly.html`
-```bash
-tree dinosaurs-htmls/
-dinosaurs-htmls/
-├── http_europepmc.org_articles_PMC2214819
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   ├── results.json
-│   └── scholarly.html
-├── http_europepmc.org_articles_PMC2635535
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   ├── results.json
-│   └── scholarly.html
-├── http_europepmc.org_articles_PMC2997427
-│   ├── fulltext.html
-│   ├── fulltext.xhtml
-│   ├── results.json
-│   └── scholarly.html
-...
-```
 
 ## PDF collections to text
 
-This is still in an experimental stage. It works, but the output is not very clean and not ready for further preprocessing. But if you want to extract the *raw content* of a PDF, this is possible here.
-
 PDF is a notoriously bad format for automatic processing. While understandable for the human reader, PDF is a real obstacle for computers and so for content mining. This lies in the nature of the document, which - from a machine's perspective - is essentially a 2-dimensional plane with symbols on it. The only information that a machine readily knows about any symbol is it's x- and y-location on the plane. Meaning, relations with other symbols, or logical concepts are not present in a PDF and have to be constructed by input from the outside.
 
+This process is still in an experimental stage, and most suited if you have an application for plain text analysis and want to extract the *raw content* of a PDF.
 
-**Overview**
-
-![pdf2txt](../../assets/images/software/norma/pdf2txt.png)
-
-If you have an existing collection of PDFs, norma can apply some simple normalizations to them as well. Before that, we have to move them into a ctree-similar structure. If you change into your folder with PDFs (e.g. `cd dinosaur-pdfs`), you may find something like this:
-
-```
-cd dinosaur-pdfs
-tree
-.
-├── Natarajan - Bone Cancer.pdf
-├── Taylor - Aspects of sauropod dinosaurs.pdf
-├── Taylor - Sauropods Giraffes.pdf
-└── Wedel - Posteranial Pneumacity in Dinosaurs.pdf
-
-0 directories, 4 files
-```
-
-You can then use the following small shell script to create folders based on the names of PDFs, move each PDF into the corresponding folder, and rename it to fulltext.pdf. Execute the script line by line in your terminal. 
+Before we can apply norma on a collection of PDFs, we have to move them into a CProject structure. First place all target PDFs into a folder, and [cd](../shell) into it. You can then use the following code to create folders based on the names of PDFs, move each PDF into the corresponding folder, and rename it to fulltext.pdf.
 
 ```bash
 for fname in *.pdf; do
@@ -224,50 +118,32 @@ mv "$fname" "$filename"/fulltext.pdf;
 done
 ```
 
-This is now our project folder. We then move one level back in the hierarchy with `cd ..`, in order to run norma from outside the folder.
+This is now our CProject folder. We then move one level back in the hierarchy with `cd ..`, in order to run norma from outside the folder.
 
 The folder structure should then look like this:
 
 ```
-cd ..
-tree dinosaur-pdfs
-dinosaur-pdfs
-├── Natarajan - Bone Cancer
+tree my-pdfs
+my-pdfs
+├── foldername1
 │   └── fulltext.pdf
-├── Taylor - Aspects of sauropod dinosaurs
+├── foldername2
 │   └── fulltext.pdf
-├── Taylor - Sauropods Giraffes
+├── foldername3
 │   └── fulltext.pdf
-└── Wedel - Posteranial Pneumacity in Dinosaurs
+└── foldername4
     └── fulltext.pdf
 
 4 directories, 4 files
 ```
 
-To finally convert the pdf into text files, it is just necessary to use one command.
+To finally convert the pdf into text files, run the following norma-commands:
 
 ```bash
-norma -q dinosaurs-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
-tree dinosaurs-pdfs/
-dinosaurs-pdfs/
-├── Natarajan - Bone Cancer
-│   ├── fulltext.pdf
-│   └── fulltext.pdf.txt
-├── Taylor - Aspects of sauropod dinosaurs
-│   ├── fulltext.pdf
-│   └── fulltext.pdf.txt
-├── Taylor - Sauropods Giraffes
-│   ├── fulltext.pdf
-│   └── fulltext.pdf.txt
-└── Wedel - Posteranial Pneumacity in Dinosaurs
-    ├── fulltext.pdf
-    └── fulltext.pdf.txt
-
-4 directories, 8 files
+norma -q my-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
 ```
 
 ## Troubleshooting
-
 
 If you get an error that reads like this
 ```
@@ -282,8 +158,7 @@ find -empty -delete
 cd ..
 ```
 
-After that, re-run the norma-commands.
-
+After that, re-run the norma-commands. This error has been resolved with norma v0.2.5.
 
 ## Summary
 
@@ -294,24 +169,4 @@ After that, re-run the norma-commands.
 ## next tutorial
 * Continue to [sHTML](../sHTML) if you want to learn more about scholarly HTML.
 * Continue to [ami](../ami) for the next step of the ContentMine pipeline.
-
-## Further material
-
-**Slides**
-
-
-**Assets**
-
-**Videos**
-
-
-**Learning Materials**
-
-**www**
-
-
-**Papers**
-
-
-
 
