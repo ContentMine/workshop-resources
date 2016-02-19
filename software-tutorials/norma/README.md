@@ -76,7 +76,7 @@ You can find the technical documentation for `norma` in its [repository](https:/
 
 ![normasmall0](../../assets/images/software/norma/normasmall0.png)
 
-Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. getpapers or quickscrape can be used to create a corpus of papers, but you also can use your own PDFs or HTML.
+Norma can take 4 different file formats for the publications (XML, PDF, HTML, XHTML) and additional files for supplementary materials and PNG's. getpapers or quickscrape can be used to create a corpus of papers, but you also can use your own PDFs or HTML. The task is to unify the different input streams into a single data format.
 
 ## XML to sHTML
 
@@ -86,7 +86,9 @@ We continue after retrieving a number of papers with `getpapers -q 'ursus mariti
 
 getpapers returns a [CProject](../cproject)-folder. It contains subfolders holding one paper and associated files, fulltexts in PDF or XML format, and if requested, supplementary files. Just a quick reminder of how it may look like:
 
-![inspectctree](../../assets/images/software/getpapers/getpapers-inspectctree.png)
+![inspectctree1](../../assets/images/software/getpapers/getpapers-inspectctree2.png)
+
+![inspectctree2](../../assets/images/software/getpapers/getpapers-inspectctree1.png)
 
 We now transform the fulltext.xml-files into sHTML. This can be done in bulk by passing the project folder with `-q`. The input/output-parameters `-i` and `-o` are the files to read in and write to. The parameter `--transform nlm2html` corresponds to a specific transformation from one format to another. Norma will print a lot of process information, this does not mean that something is wrong.
 

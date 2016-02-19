@@ -113,8 +113,13 @@ ami will print out all matches while searching.
 
 ```bash
 ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type genus
-ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type binomial
-ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type genussp
+```
+
+A for loop performs all extractions in sequence:
+```
+for type in genus binomial genussp; do
+ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type $type;
+done
 ```
 
 The results will all be saved as XML in the corresponding CTree inside results/species with an own folder named after the SPECIESTYPE.
@@ -239,7 +244,7 @@ ami2-sequence -q ursus/ -i scholarly.html --sq.sequence --sq.type rna
 You can also run all types in sequence with this loop:
 ```bash
 for type in dna rna prot prot3 carb3; do
-ami2-sequence -q ursus -i scholarly.html -sq.sequence --sq.type $type;
+ami2-sequence -q ursus -i scholarly.html --sq.sequence --sq.type $type;
 done
 ```
 

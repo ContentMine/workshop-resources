@@ -126,7 +126,9 @@ getpapers -q 'ursus maritimus' -o ursus -s
 ```
 tree ursus
 ```
-![inspectctree](../../assets/images/software/getpapers/getpapers-inspectctree.png)
+![inspectctree1](../../assets/images/software/getpapers/getpapers-inspectctree1.png)
+
+![inspectctree2](../../assets/images/software/getpapers/getpapers-inspectctree2.png)
 
 This is the [CProject](../cproject/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the CProject.
 

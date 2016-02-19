@@ -13,13 +13,17 @@ A VirtualBox-Image contains all necessary software as well as sample datasets fo
 This tutorial introduces the basic UNIX-commands and shows how to navigate folders and handle files.
 
 1. [Getting started with getpapers](getpapers/README.md)
+This tutorial demonstrates how to create an initial corpus for fact extraction.
 
 1. [Getting started with quickscrape](quickscrape/README.md)
 
 1. [Create your own scraper definition](journal-scrapers/README.md)
 
 1. [Normalizing scholarly literature](norma/README.md)
+This tutorial shows how to normalize scientific literature into a unified format which can be processed by machines.
 
-1. [ContentMine data structure: ctree](ctree/README.md)
+1. [ContentMine data structure: CProject](cproject/README.md)
+This tutorial gives an overview of the data structure used, and how it can be integrated in your analysis.
 
 1. [Extracting facts with AMI-plugins](ami/README.md)
+This tutorial demonstrates how to extract, aggregate, and filter facts from scholarly.html.
