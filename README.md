@@ -39,7 +39,7 @@ Each module contains a description of learning goals, links to additional resour
 
 ## Contribute
 
-There are many ways to contribute, please have a closer look [here](CONTRIBUTING.md)
+There are many ways to contribute, please have a closer look [here](CONTRIBUTING.md).
 
 You can find us online at:
 - [contentmine.org](http://contentmine.org)
