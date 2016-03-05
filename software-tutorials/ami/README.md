@@ -5,7 +5,7 @@
 
 1. [Description](#description) 
 1. [Preparations](#preparations)
-1. [Data Input](#data-input)
+1. [Input data](#input-data)
 1. [How to use ami-plugins](#how-to-use-ami-plugins)
   1. [ami2-species](#ami2-species)
   1. [ami2-gene](#ami2-gene)
@@ -49,7 +49,6 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 
 **Glossary**
-
 
 
 ## Preparations
@@ -97,7 +96,7 @@ ursus/
 
 ## How to use ami-plugins
 
-### a) ami2-species
+### ami2-species
 
 You can then search for all occurences of a species name with 
 ```bash
@@ -109,11 +108,15 @@ You have to choose between three different types of species terms for ```SPECIES
 - ```binomial```, which will extract terms like *B. altithorax* [more details](https://en.wikipedia.org/wiki/Binomial_nomenclature)
 - or ```genussp```, whick will extract terms like *Bacillus sp* or *Ursus spp.*
 
-ami will print out all matches while searching.
-
 ```bash
 ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type genus
 ```
+
+![ami2-species-genus](../../assets/images/software/norma/ami2-species-genus.png)
+
+Inspecting the folders with `tree ursus` now should look like the following. If no matches could be found, an **empty.xml** will be created, to indicate that the plugin has been run on this particular paper, but with no results. If matches have been found, a **results.xml** will be created.
+
+![ami2-species-genus-results](../../assets/images/software/norma/ami2-species-genus-results.png)
 
 A for-loop performs all extractions in sequence:
 ```
@@ -176,7 +179,7 @@ The results.xml consists of different amounts of lines, where every line represe
 Down to earth, this is what the fact extraction looks like in the end: a list of terms extracted from the literature with XX characters before and afterwards as context around the fact.
 
 
-### b) ami2-gene
+### ami2-gene
 
 The search for genes works in the same way, just with another command: 
 ```bash
@@ -227,7 +230,7 @@ cat ursus/PMC4454486/results/gene/human/results.xml
 </results>
 ```
 
-### c) ami2-sequence
+### ami2-sequence
 
 The search for sequences follows the same structure: 
 ```bash
@@ -263,7 +266,7 @@ cat ursus/PMC4447998/results/sequence/rna/results.xml
 </results>
 ```
 
-### d) ami2-regex
+### ami2-regex
 
 Regex is the shortcut for ([regular expression](https://en.wikipedia.org/wiki/Regular_expression)) and is used to match search patterns inside text. This means to search for such basic strings like "ursus" inside a sentence, but also allows way more complex patterns to look for, `[Uu]rsus` matches for example upper and lower case letters, so you look at the same time for Ursus and ursus.
 
@@ -323,7 +326,7 @@ ami2-regex --project ursus/ -i scholarly.html --r.regex ursus/ursusfood.xml --co
 
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
-### e) ami2-word
+### ami2-word
 
 Word frequency can be used to categorize documents. The simplest approach is to count the words in documents, or within chunks of documents. 
 
