@@ -16,8 +16,10 @@ This tutorial introduces the basic UNIX-commands and shows how to navigate folde
 This tutorial demonstrates how to create an initial corpus for fact extraction.
 
 1. [Getting started with quickscrape](quickscrape/README.md)
+This tutorial introduces quickscrape, and how to use it to extract semi-structured information from web pages.
 
 1. [Create your own scraper definition](journal-scrapers/README.md)
+This tutorial shows how to contribute to, and extend the ContentMine scraper collection. If you need a specific definition for your use with quickscrape, here you can learn how to create it.
 
 1. [Normalizing scholarly literature](norma/README.md)
 This tutorial shows how to normalize scientific literature into a unified format which can be processed by machines.
