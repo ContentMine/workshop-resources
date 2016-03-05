@@ -169,6 +169,7 @@ After that, re-run the norma-commands. This error has been resolved with norma v
 * convert PDF's to text files
 
 ## next tutorial
+* Back to the [tutorial overview](..)
 * Continue to [sHTML](../sHTML) if you want to learn more about scholarly HTML.
 * Continue to [ami](../ami) for the next step of the ContentMine pipeline.
 

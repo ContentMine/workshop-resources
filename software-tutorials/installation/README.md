@@ -6,7 +6,7 @@ This README explains how to install the ContentMine tools on your local machine.
 
 1. [Description](#description)
 1. [Preparations](#preparations)
-1. [Installing the software](#Installing-the-software)
+1. [Installing the software](#installing-the-software)
 1. [Testing](#testing)
 1. [Summary and next steps](#summary-and-next-steps)
 
@@ -25,7 +25,7 @@ We provide [VirtualBox images](../vms) where the tools are already installed and
 
 ### Requirements
 
-getpapers and quickscrape are based on [Node.js](https://en.wikipedia.org/wiki/Node.js), norma and ami-plugin are based on [Java](https://en.wikipedia.org/wiki/Java_(programming_language)).
+getpapers and quickscrape are based on [Node.js](https://en.wikipedia.org/wiki/Node.js). norma and ami-plugin are based on [Java](https://en.wikipedia.org/wiki/Java_(programming_language)). 
 
 #### Installing Node.js
 
@@ -83,11 +83,15 @@ openjdk-7-jre and openjdk-7-jdk or openjdk-8-jre and openjdk-8-jdk, or java 8 JR
 
 #### getpapers
 
+Open a command line (Windows) or terminal (Linux/OSX) and type:
+
 ```
 npm install --global getpapers
 ```
 
 #### quickscrape
+
+Open a command line (Windows) or terminal (Linux/OSX) and type:
 
 ```
 npm install --global quickscrape

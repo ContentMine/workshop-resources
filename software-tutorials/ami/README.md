@@ -12,6 +12,7 @@
   1. [ami2-sequence](#ami2-sequence)
   1. [ami2-regex](#ami2-regex)
   1. [ami2-word](#ami2-word)
+  1. [Summarization of results](#summarization-of-results)
 1. [Summary](#summary)
 1. [Next Steps](#next-steps)
 1. [Further Materials](#further-materials)
@@ -20,8 +21,9 @@
 
 **What does ami?**
 
-Ami is a collection of plugins that extract pieces of information (a 'fact') from structured documents. At this stage individual facts which are spread over the corpus of papers are extracted and collected into machine readable XML files, which can then be used for visualization or statistics.
-Ami offers a plugin-style architecture with modules to extract genes, species and sequences, and to employ regular expressions. We are developing new plugins to cover different types of encoded knowledge, please drop us a message if you have an idea for a new fact extractor!
+Ami is a collection of plugins that extract pieces of information (a 'fact') from structured documents. It uses dictionaries or regexes to look up various fact sets, such as species names, gene or protein sequences.
+At this stage individual facts which are spread over the corpus of papers are extracted and collected into machine readable XML files, which can then be used for visualization or statistics.
+We are integrating new dictionaries to cover different types of encoded knowledge, please drop us a message if you have an idea or resource for a new fact extractor!
 
 **Why do we need ami?**
 
@@ -62,7 +64,7 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-On the ContentMine-VM ami is already provided. If you want to install it locally or update it on the VM, you can to build it from source. For this you need `git`, `maven` and `maven3`.
+On the ContentMine-VM ami is already provided. If you want to install it locally or update it on the VM, you can to build it from source. For this you need `git` and `maven3`.
 
 ```bash
 git clone https://github.com/ContentMine/ami-plugin.git
@@ -74,11 +76,7 @@ You can find the technical documentation for `ami` in its [repository](https://g
 
 ## Input data
 
-The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and attaches the results to the paper.
-
-## How to use ami-plugins
-
-ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
+The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores the results in the respective paper folder. ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
 
 ```bash
 tree ursus
@@ -97,11 +95,13 @@ ursus/
 ...
 ```
 
+## How to use ami-plugins
+
 ### a) ami2-species
 
 You can then search for all occurences of a species name with 
 ```bash
-ami2-species -q CPROJECTFOLDER -i FILETYPE --sp.species --sp.type SPECIESTYPE
+ami2-species --project CPROJECTFOLDER -i INPUTFILE --sp.species --sp.type SPECIESTYPE
 ```
 
 You have to choose between three different types of species terms for ```SPECIESTYPE``` 
@@ -112,17 +112,17 @@ You have to choose between three different types of species terms for ```SPECIES
 ami will print out all matches while searching.
 
 ```bash
-ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type genus
+ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type genus
 ```
 
-A for loop performs all extractions in sequence:
+A for-loop performs all extractions in sequence:
 ```
 for type in genus binomial genussp; do
-ami2-species -q ursus/ -i scholarly.html --sp.species --sp.type $type;
+ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type $type;
 done
 ```
 
-The results will all be saved as XML in the corresponding CTree inside results/species with an own folder named after the SPECIESTYPE.
+The results will all be saved as XML in the corresponding CTree inside results/species with per-type folder named after the SPECIESTYPE.
 
 ```
 tree ursus
@@ -180,13 +180,13 @@ Down to earth, this is what the fact extraction looks like in the end: a list of
 
 The search for genes works in the same way, just with another command: 
 ```bash
-ami2-gene -q ursus/ -i scholarly.html --g.gene --g.type GENETYPE
+ami2-gene --project CPROJECTFOLDER -i INPUTFILE --g.gene --g.type GENETYPE
 ```
 
 At the moment there is only one GENETYPE available (`human`). Results are again stored within the CTree.
 
 ```bash
-ami2-gene -q ursus/ -i scholarly.html --g.gene --g.type human
+ami2-gene --project ursus/ -i scholarly.html --g.gene --g.type human
 ```
 
 This then creates a folder gene/human inside results next to the results of the species module.
@@ -213,7 +213,7 @@ ursus
 ...
 ```
 
-The `results.xml` is, as always, the same structure: a results-tag with pre, post, and exact attributes.
+The `results.xml` has a similar structure: a results-tag with pre, post, and exact attributes.
 
 ```
 cat ursus/PMC4454486/results/gene/human/results.xml
@@ -231,20 +231,20 @@ cat ursus/PMC4454486/results/gene/human/results.xml
 
 The search for sequences follows the same structure: 
 ```bash
-ami2-sequence -q ursus/ -i scholarly.html --sq.sequence --sq.type SEQUENCETYPE
+ami2-sequence --project CPROJECTFOLDER -i INPUTFILE --sq.sequence --sq.type SEQUENCETYPE
 ```
 
 - SEQUENCETYPE is one of `dna rna prot prot3 carb3`. 
 
 You can run one type with this query:
 ```bash
-ami2-sequence -q ursus/ -i scholarly.html --sq.sequence --sq.type rna
+ami2-sequence --project ursus/ -i scholarly.html --sq.sequence --sq.type rna
 ```
 
 You can also run all types in sequence with this loop:
 ```bash
 for type in dna rna prot prot3 carb3; do
-ami2-sequence -q ursus -i scholarly.html --sq.sequence --sq.type $type;
+ami2-sequence --project ursus -i scholarly.html --sq.sequence --sq.type $type;
 done
 ```
 
@@ -275,16 +275,16 @@ We will now see a variety of regex-s and how they are used in a XML file.
 
 
 ```bash
-ami2-regex -q ursus -i scholarly.html --context PRE POST --r.regex REGEXFILE.xml
+ami2-regex --project CPROJECTFOLDER -i INPUTFILE --context PRE POST --r.regex REGEXFILE.xml
 ```. 
 
-- ```PRE```: tells ami how many characters before a match should be captured
-- ```POST```: tells ami how many characters after a match should be captured
-- ```REGEXFILE```: target location of your regex XML file. It contains all regex-queries.
+- `PRE`: tells ami how many characters before a match should be captured
+- `POST`: tells ami how many characters after a match should be captured
+- `REGEXFILE`: target location of your regex XML file. It contains all regex--projectueries.
 
-**Create regex XML file**
+**How to create a custom regex XML file**
 
-It always needs to be wrapped by opening tags ```<compoundRegex title="TITLE">``` and closing tags ```</compoundRegex>```, which are the opening and closing tags. The ```TITLE``` sets the name of the folder, where the output gets stored and can be of any type.
+The REGEXFILE.xml needs to be wrapped by `<compoundRegex title="TITLE">` and closing tags `</compoundRegex>`, which are the opening and closing tags. The `TITLE` sets the name of the folder, where the output gets stored.
 
 ```xml
 <compoundRegex title="ursusfood">
@@ -292,8 +292,8 @@ It always needs to be wrapped by opening tags ```<compoundRegex title="TITLE">``
 ```
 
 In the regex XML each regex-query is written to a new line, and consists of the opening and closing tags `<regex></regex>`. Within the opening tag there must be two attributes declared, 
-- ```weight```: the relative importance given to each match (influences indexing engines). Normally this is set to the default value `1.0` 
-- ```fields```: corresponds to the regex-query, and specifies the name of the query
+- `weight`: the relative importance given to each match (influences indexing engines). The default value `1.0` 
+- `fields`: corresponds to the regex-query, and specifies the name of the query
 
 ```xml
 <compoundRegex title="ursusfood">
@@ -318,17 +318,17 @@ For the second query, we want to find all mentions of "predator regime" or "pred
 We now construct a ```regex.xml``` like that (use any texteditor for that) and place this XML in our project folder as `ursusfood.xml`. We run ami with it, and because we want to get some context around our matches, add the ```PRE``` and ```POST``` option, which capture characters before and after the match.
 
 ```bash
-ami2-regex -q ursus/ -i scholarly.html --r.regex ursus/ursusfood.xml --context 50 50
+ami2-regex --project ursus/ -i scholarly.html --r.regex ursus/ursusfood.xml --context 50 50
 ```
 
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
 ### e) ami2-word
 
-Word frequency is one of the most valuable tools for catagorising documents.  The simplest approach is to count the words in document/s or chunks of document/s. 
+Word frequency can be used to categorize documents. The simplest approach is to count the words in documents, or within chunks of documents. 
 
 ```bash
-ami2-word -q ursus/ -i scholarly.html --w.words wordFrequencies
+ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies
 ```
 creates
 ```
@@ -372,7 +372,7 @@ and the second creates a "Word Cloud"-like HTML display with the most frequent w
 Clearly this mainly reflects the frequency in the English language, so we can remove the commonest words by using <em>stopwords</em>. 
 
 ```bash
-ami2-word -q ursus/ -i scholarly.html --w.words wordFrequencies --w.stopwords stopwords.txt
+ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies --w.stopwords stopwords.txt
 ```
 
 gives `results.xml` as
@@ -391,9 +391,7 @@ gives `results.xml` as
  <result title="frequency" word="miRNA" count="24"/>
 ```
 
-clearly there is a strong signal now
-
-We  have a range of stopword files in different languages. It is also possible to create your own files and add them:
+We have a range of stopword files in different languages. It is also possible to create your own files and add them:
 
 ```bash
 ami2-word --w.words wordFrequencies --project ursus --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt mydir/myfile.txt
@@ -413,6 +411,22 @@ against
 
 and the file can be referenced either through a URL format or relative/absolute filename.
 
+
+### Summarization of results
+
+ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results per 
+
+```
+ami2-sequence --analyze file\(\*\*/results.xml\) -o sequencesfiles.xml --project zika
+```
+
+
+```
+ami2-sequence --project zika --analyze file\(\*\*/dna/results.xml\)xpath\(//result\) -o dnasnippets.xml
+```
+
+They are presented in an html-table.
+
 ## Summary
 
 * A project folder containing ctrees is always the input.
@@ -422,12 +436,7 @@ and the file can be referenced either through a URL format or relative/absolute 
 
 **Next steps**
 
-* Continue to  for the next step of the ContentMine pipeline.
-
-
-## Next tutorial
-
-To find out more of how we index the facts and make them usable for others, look at the [cat tutorial](../cat/cat-tutorial.md).
+* Back to the [tutorial overview](..)
 
 ## Further material
 
