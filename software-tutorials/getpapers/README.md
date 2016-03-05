@@ -11,7 +11,7 @@ This tutorial covers the installation of getpapers, demonstrates how to construc
 1. [Tutorial](#tutorial)
   1. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
   1. [Getting pdfs and other files](#getting-pdfs-and-other-files)
-  1. [Complex queries for EPMC](#complex-queries-for-epmc)
+  1. [Complex queries for EPMC](#complex-queries-for-europepmc)
 1. [Summary and next steps](#summary-and-next-steps)
 
 ## Description
@@ -35,7 +35,7 @@ getpapers automates the search and download process and helps in building an ini
 
 ### Installation
 
-Open a terminal and type: `getpapers --version` at the commandline. If `0.4.1` appears, getpapers is installed, you can skip this section.
+Open a terminal and type: `getpapers --version` at the commandline. If a version number gets printed, getpapers is installed, you can skip this section.
 
 To install it within the ContentMine virtual machine:
 ```
@@ -55,11 +55,7 @@ In this tutorial we will mainly use open access literature from [Europe PMC](htt
 
 ## Tutorial
 
-After starting the VM, we open a terminal and navigate to the getpapers folder:
-
-```
-cd getpapers
-```
+After starting the VM, we open a terminal and start in the workshop folder.
 
 ![gpfolder](../../assets/images/software/getpapers/getpapers-folder.png)
 
@@ -91,7 +87,7 @@ head ursus/eupmc_fulltext_html_urls.txt
 
 The `eupmc_results.json` file contains metadata about each search results in the [JSON](https://en.wikipedia.org/wiki/JSON)-format. Metadata are e.g. a DOI, the title, authors, and additional bibliographic data.
 
-### 3. Getting pdfs and other files
+### Getting pdfs and other files
 
 Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a `-p` flag to the query. Please note, that a **generic query** will result in a **large number of results** and long processing times. Unless intended, you can cancel a search with `Ctrl+C` in the command line.
 
