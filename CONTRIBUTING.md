@@ -16,6 +16,7 @@ The ContentMine software is based on two languages, Node.js for getpapers and qu
 ### How to report a bug
 
 If you encounter a bug, please let us know. You can raise a new issue for each part of the software in the respective repositories:
+
 * [getpapers](https://github.com/ContentMine/getpapers/issues)
 * [quickscrape](https://github.com/ContentMine/quickscrape/issues)
 * [norma](https://github.com/ContentMine/norma/issues)
