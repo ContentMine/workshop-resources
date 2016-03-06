@@ -21,7 +21,7 @@ In academic literature the types of content are the same, even between disciplin
 
 ### Types of content
 
-Two different types of data are interesting for content mining, metadata (data about data) and the content itself. A scraper definition should cover both. A definition of scraperJSON is maintained [here](link).
+Two different types of data are interesting for content mining, metadata (data about data) and the content itself. A scraper definition should cover both. A definition of scraperJSON is maintained [here](https://github.com/ContentMine/scraperJSON).
 
 Every journal scraper in the collection targets the same data. An ideal scraper should collect as many as possible of the elements in the list below. Words that are styled like `this` are the keywords that should be used as element names in the scraper definition.
 

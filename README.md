@@ -39,14 +39,7 @@ Each module contains a description of learning goals, links to additional resour
 
 ## Contribute
 
-We're happy you're thinking about contributing to ContentMine! The material offered here is subject to continuous change and improvement, so please check again regularly. We're also very happy to include your feedback, suggestions and contributions.
-
-There are many ways to contribute:
-- by reporting an issue regarding the training material
-- by suggesting new content
-- by submitting pull requests and closing issues
-- by writing, blogging or tweeting about the project
-- by translating the materials
+There are many ways to contribute, please have a closer look [here](CONTRIBUTING.md).
 
 You can find us online at:
 - [contentmine.org](http://contentmine.org)

@@ -11,27 +11,23 @@ This tutorial covers the installation of getpapers, demonstrates how to construc
 1. [Tutorial](#tutorial)
   1. [Construct a simple query and compare results](#construct-a-simple-query-and-compare-results)
   1. [Getting pdfs and other files](#getting-pdfs-and-other-files)
-  1. [Complex queries for EPMC](#complex-queries-for-epmc)
+  1. [Complex queries for EPMC](#complex-queries-for-europepmc)
 1. [Summary and next steps](#summary-and-next-steps)
 
 ## Description
 
 **What is getpapers?**
 
-`getpapers` is together with [quickscrape](../quickscrape/README.md) one of the entry points of the ContentMine pipeline. getpapers fetches article metadata, fulltexts (PDF or XML), and supplementary materials. It is designed for use in content mining, but you may also find it useful for quickly acquiring large numbers of papers for reading or for bibliometrics. getpapers accesses different publisher APIs (currently EUPMC, IEEE, Arxiv), queries them for search terms and returns metadata, PDFs or XMLs. In contrast, quickscrape takes URLs as input and scrapes the whole page.
+**getpapers** is one of the entry points of the ContentMine pipeline. It is designed for use in content mining, but you may also find it useful for quickly acquiring large numbers of papers for reading, or metadata for bibliometrics. getpapers accesses publisher APIs, queries them for search terms and returns metadata, PDFs or XMLs, and if available supplementary information. In contrast, the other entry point [quickscrape](../quickscrape/README.md) takes URLs as input and scrapes the whole page.
 
-**Why do we need getpapers?**
+**How does getpapers help me?**
 
-
-**How can I use getpapers?**
-
+getpapers automates the search and download process and helps in building an initial corpus of documents for content mining. 
 
 **Glossary**
 - JSON ([Wikipedia](https://en.wikipedia.org/wiki/JSON))
 - XML ([Wikipedia](https://en.wikipedia.org/wiki/XML))
 - API ([Wikipedia](https://en.wikipedia.org/wiki/API))
-- Query
-
 
 ## Preparations
 
@@ -39,14 +35,14 @@ This tutorial covers the installation of getpapers, demonstrates how to construc
 
 ### Installation
 
-Open a terminal and type: `getpapers --version` at the commandline. If `0.4.1` appears, getpapers is installed, you can skip this section.
+Open a terminal and type: `getpapers --version` at the commandline. If a version number gets printed, getpapers is installed, you can skip this section.
 
 To install it within the ContentMine virtual machine:
 ```
 npm install --global getpapers
 ```
 
-Elsewhere you need to have node and node package manger installed. You may need to be a superuser and type:
+Elsewhere you need to have node and node package manager installed. You may need to be a superuser and type:
 ```
 sudo npm install --global getpapers
 ```
@@ -57,21 +53,15 @@ If you are a developer you can find the technical documentation for `getpapers` 
 
 In this tutorial we will mainly use open access literature from [Europe PMC](http://europepmc.org/). We can search within their database of 3.5 million fulltext papers from life-sciences. About one million of these are Open Access. Please refer to [Europe PMC-Data](http://europepmc.org/FtpSite) for details. 
 
-![eupmcdata](http://europepmc.org/docs/images/help/proportion%20of%20articles.png) 
-
 ## Tutorial
 
-After starting the VM, we open a terminal and navigate to the getpapers folder:
-
-```
-cd getpapers
-```
+After starting the VM, we open a terminal and start in the workshop folder.
 
 ![gpfolder](../../assets/images/software/getpapers/getpapers-folder.png)
 
 ### Construct a simple query and compare results
 
-We now will check how many results we can expect for a search for `ursus maritimus` on Europe PMC. With the `-n` flag getpapers will report how many results match the query, but it will not actually download anything. Without a specification of the API, getpapers will chose Europe PMC as default data source.
+We now will check how many results we can expect for a search for `ursus maritimus` on Europe PMC. Without a specification of the API, getpapers will chose Europe PMC as default data source. The query structure is the same that would be entered in the search field on the Europe PMC website. With the `-n` flag getpapers will report how many results match the query, but it will not actually download anything. `-o OUTPUTFOLDER` tells getpapers where to store results.
 
 ```
 getpapers -q 'ursus maritimus' -n -o ursus
@@ -87,7 +77,7 @@ getpapers -q 'ursus maritimus' -o ursus
 ```
 ![gpmetadataonly](../../assets/images/software/getpapers/getpapers-metadataonly.png)
 
-This query creates two files, `eupmc_fulltext_html_urls.txt` and `eupmc_results.json` and stores them in the `ursus` folder. It can happen that no fulltexts are available for the query, in which case the file `fulltext_html_urls.txt` will not be created. We now have a look at the contents of the `eupmc_fulltext_html_urls.txt` file, which contains a list of HTML-sources for results. Depending on Europe PMC, not all search results necessarily have a downloadable HTML-version of the paper.
+This query creates two files, `eupmc_fulltext_html_urls.txt` and `eupmc_results.json` and stores them in the `ursus` folder. Depending on Europe PMC, not all search results necessarily have a downloadable HTML-version of the paper. In rare cases it can happen that no HTML-fulltexts at all are available for the query, in which case the file `fulltext_html_urls.txt` will not be created. We now have a look at the contents of the `eupmc_fulltext_html_urls.txt` file, which contains a list of HTML-sources for results. 
 ```
 ls ursus
 wc -l ursus/eupmc_fulltext_html_urls.txt
@@ -97,7 +87,7 @@ head ursus/eupmc_fulltext_html_urls.txt
 
 The `eupmc_results.json` file contains metadata about each search results in the [JSON](https://en.wikipedia.org/wiki/JSON)-format. Metadata are e.g. a DOI, the title, authors, and additional bibliographic data.
 
-### 3. Getting pdfs and other files
+### Getting pdfs and other files
 
 Until now, our queries only resulted in metadata and a list of urls. PDF files can be retrieved by adding a `-p` flag to the query. Please note, that a **generic query** will result in a **large number of results** and long processing times. Unless intended, you can cancel a search with `Ctrl+C` in the command line.
 
@@ -111,7 +101,7 @@ For every PDF found, getpapers creates a subfolder named after the Europe PMC pa
 tree ursus
 ```
 
-Not all queries returned PDFs, we now try another query with `-x` for xml-results. In contrast to PDF, XML is a format that machines can understand well, and XML enables better mining results further down the pipeline.
+Not all queries returned PDFs, we now run another query with `-x` flag for XML-results. In contrast to PDF, XML is a format that machines can understand well, and XML enables better mining results further down the pipeline.
 
 ```bash
 getpapers -q 'ursus maritimus' -o ursus -x
@@ -123,7 +113,7 @@ The existing resultfolders get updated, no results are lost or overwritten.
 tree ursus
 ```
 
-As a last step, we will download supplementary information. Europe PMC provides supplementary information in compressed ZIP-files.
+As a last step, we will download supplementary information with the `-s` flag. Europe PMC provides supplementary information in compressed ZIP-files.
 
 ```bash
 getpapers -q 'ursus maritimus' -o ursus -s
@@ -132,23 +122,26 @@ getpapers -q 'ursus maritimus' -o ursus -s
 ```
 tree ursus
 ```
-![inspectctree](../../assets/images/software/getpapers/getpapers-inspectctree.png)
+![inspectctree1](../../assets/images/software/getpapers/getpapers-inspectctree1.png)
 
-This is the [ctree](../ctree/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the ctree.
+![inspectctree2](../../assets/images/software/getpapers/getpapers-inspectctree2.png)
+
+This is the [CProject](../cproject/README.md)-structure, which is the main data structure of the ContentMine pipeline, and any further operations are going to be centered around the CProject.
 
 ### Complex queries for EuropePMC
 
-Queries are directed to the [Europe PMC API](http://europepmc.org/RestfulWebService). In their simplest form, they can be free text, like this one we executed before (`getpapers -q 'ursus maritimus' -o ursus -x`).
+Queries are directed to the [Europe PMC API](http://europepmc.org/RestfulWebService). In their simplest form, they can be free text, like the one we executed before (`getpapers -q 'ursus maritimus' -o ursus -x`).
 
 Using the EuropePMC webservice's query language we can construct much more detailed queries. A selection of the most commonly useful search fields is explained [here](getpapers-eupmc-queries.md), and a complete documentation of possible queries is in Appendix I of the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
 
-For example we can restrict our search to only papers that mention 'ursus maritimus' in the abstract. The query is the same that would be entered in the search field on the Europe PMC website.
+For example we can restrict our search to only papers that mention 'ursus maritimus' in the abstract. 
 
 ```bash
 getpapers -q ABSTRACT:ursus maritimus -o ursus -n
 getpapers -q ABSTRACT:'ursus maritimus' -o ursus -n
 ```
 ![complex1](../../assets/images/software/getpapers/getpapers-complex1.png)
+
 Please compare again the different result numbers without and with `''`.
 
 We can use the logical operations `AND` and `OR`, and can group operations using brackets. Please note that in the shell we have to encapsulate the query with `'` when we use brackets and use double quotations for inner groupings.
@@ -186,18 +179,18 @@ You can find some common query options [here](getpapers-eupmc-queries.md).
 
 ## Summary and next steps
 
-A query must consist of `-q 'QUERY' -o OUTPUTDIRECTORY`.
+A getpapers query must consist of `-q QUERY -o OUTPUTDIRECTORY`.
 * QUERY: the term(s) you want to look for.
 * OUTPUTDIRECTORY: Folder in which you want the output files and directory. The folder will be created if it does not already exist.
-This query creates a ```eupmc_results.json``` file in the named directory, in which a detailed, lengthy file containing metadata (e.g. doi, publication id, authors, ...) in an {key:value}-format is stored.
-
-* Use `-x` for machine-readable fulltext results, because XML-files provide better mining results in later stages of the tool chain.
+* Use `-x` for machine-readable fulltext results (preferred, because XML-files provide better mining results in later stages of the tool chain).
 * Use `-p` if you want to retrieve human-readable fulltexts in PDF-format.
+* Use `-s` to download supplementary information.
+* Use `-n` to only check how many results can be expected without downloading anything.
 * By default, only Open Access papers will be returned.
 * Each API has a different native query language, please refer to the documentation ([EUPMC](getpapers-eupmc-queries.md), [ArXiv](getpapers-arxiv-queries.md), [IEEE](getpapers-ieee-queries.md))
 
 **Next steps**
-* Go back to the [tutorial overview](..)
+* Back to the [tutorial overview](..)
 * Continue to [quickscrape](../quickscrape/README.md) for an introduction to scraping.
 * Continue to [norma](../norma/README.md) for the next step of the ContentMine pipeline.
-* Continue to [ctree](../ctree/README.md) for an introduction of the main datastructure.
+* Continue to [cproject](../cproject/README.md) for an introduction to the main datastructure.

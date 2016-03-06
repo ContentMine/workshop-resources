@@ -1,0 +1,12 @@
+* CProject erwähnen
+* überall erwähnen entlang der pipeline
+* abfangen: redirect to getpapers - führe schritte blabla aus
+* abfangen: redirect to quickscrape
+* check norma-logs for success/errors
+* test norma-logging levels
+* norma-paths löschen
+* erklärungen die peripher sind, löschen
+* sHTML tutorial
+* PDF klarer abgrenzen: viel schlechtere quali, keine sHTML
+* PDF2text experimentellen status anführen
+* PDF2text results erklären

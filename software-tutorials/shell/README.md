@@ -12,7 +12,7 @@ ls shell-example
 ![ls](../../assets/images/software/shell/ls.png)
 
 
-**tree**: The tree-command provides a hierarchical overview of a folders content, including subfolders.
+**tree**: The tree-command provides a hierarchical overview of a folders content, including subfolders. Please note that if you work on your local machine and not within our virtual machine, you may have to [install tree first](https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal).
 ```
 tree shell-example
 ```

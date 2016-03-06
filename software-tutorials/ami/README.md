@@ -5,13 +5,14 @@
 
 1. [Description](#description) 
 1. [Preparations](#preparations)
-1. [Data Input](#data-input)
-1. [How to use ami-plugins](#how-to-use-ami-plugins)
+1. [Input data](#input-data)
+1. [Tutorial](#Tutorial)
   1. [ami2-species](#ami2-species)
   1. [ami2-gene](#ami2-gene)
   1. [ami2-sequence](#ami2-sequence)
   1. [ami2-regex](#ami2-regex)
   1. [ami2-word](#ami2-word)
+  1. [Summarization of results](#summarization-of-results)
 1. [Summary](#summary)
 1. [Next Steps](#next-steps)
 1. [Further Materials](#further-materials)
@@ -20,15 +21,17 @@
 
 **What does ami?**
 
-Ami is a collection of plugins that search, index and extract pieces of information from structured documents. So this is where the facts get extracted into XML files, so they can be used for further usage.
+Ami is a collection of plugins that extract pieces of information (a 'fact') from structured documents. It uses dictionaries or regexes to look up various fact sets, such as species names, gene or protein sequences.
+At this stage individual facts which are spread over the corpus of papers are extracted and collected into machine readable XML files, which can then be used for visualization or statistics.
+We are integrating new dictionaries to cover different types of encoded knowledge, please drop us a message if you have an idea or resource for a new fact extractor!
 
 **Why do we need ami?**
 
-Ami offers a plugin-style architecture with some powerful modules to extract facts like genes, species and sequences and to use regular expressions. We are continously developing new plugins to cover different types of encoded knowledge.
+ami helps researchers with repetitive cognitive tasks like pattern matching, which e.g. has to be done when trying to keep up-to-date with new species occurrences or tracking one specific gene. ami also helps coping with large amounts of literature that has to be filtered, e.g. for meta-studies, by highlighting the papers which are really necessary to read.
 
 **How can I use ami?**
 
-Ami is to be used after the normalization of papers happened. You take the output of [norma](../norma/README.md) and run individual plugins.
+Ami is to be used after the normalization of papers happened. You take the output of [norma](../norma/README.md) and apply a plugin.
 
 **What you will learn here**
 
@@ -48,7 +51,6 @@ We have some conventions at work, which will be used through-out the tutorial.
 **Glossary**
 
 
-
 ## Preparations
 ### Pre-Requisites
 
@@ -61,29 +63,23 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-ami can be installed from the latest `.deb`-file, [Download here](https://jenkins.ch.cam.ac.uk/view/AMI2/job/ami-plugin/org.xml-cml$ami2/lastSuccessfulBuild/artifact/org.xml-cml/ami2/0.1-SNAPSHOT/ami2-0.1-SNAPSHOT.deb)
+On the ContentMine-VM ami is already provided. If you want to install it locally or update it on the VM, you can to build it from source. For this you need `git` and `maven3`.
 
-Get the file via terminal:
 ```bash
-wget 'https://jenkins.ch.cam.ac.uk/view/AMI2/job/ami-plugin/org.xml-cml$ami2/lastSuccessfulBuild/artifact/org.xml-cml/ami2/0.1-SNAPSHOT/ami2-0.1-SNAPSHOT.deb'
-sudo dpkg -i norma-0.1-SNAPSHOT.deb
+git clone https://github.com/ContentMine/ami-plugin.git
+cd ami-plugin
+mvn clean install
 ```
-
-The password is 'password'.
 
 You can find the technical documentation for `ami` in its [repository](https://github.com/ContentMine/ami-plugin).
 
 ## Input data
 
-The input for ami is always a ctree containing documents in [scholarly HTML](../sHTML/sHTML-overview.md). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores results in a folder in the ctree.
-
-## How to use ami-plugins
-
-It all starts with a `scholarly.html`-file. For ami to be able to run smoothly, please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
+The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores the results in the respective paper folder. ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
 
 ```bash
-tree dinosaurs-xmls/
-dinosaurs-xmls/
+tree ursus
+ursus/
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
 ├── PMC3893193
@@ -98,11 +94,13 @@ dinosaurs-xmls/
 ...
 ```
 
-### a) ami2-species
+## Tutorial
+
+### ami2-species
 
 You can then search for all occurences of a species name with 
 ```bash
-ami2-species -q CPROJECTFOLDER -i FILETYPE --sp.species --sp.type SPECIESTYPE
+ami2-species --project CPROJECTFOLDER -i INPUTFILE --sp.species --sp.type SPECIESTYPE
 ```
 
 You have to choose between three different types of species terms for ```SPECIESTYPE``` 
@@ -110,19 +108,28 @@ You have to choose between three different types of species terms for ```SPECIES
 - ```binomial```, which will extract terms like *B. altithorax* [more details](https://en.wikipedia.org/wiki/Binomial_nomenclature)
 - or ```genussp```, whick will extract terms like *Bacillus sp* or *Ursus spp.*
 
-ami will print out all matches while searching.
-
 ```bash
-ami2-species -q dinosaurs-xmls/ -i scholarly.html --sp.species --sp.type genus
-ami2-species -q dinosaurs-xmls/ -i scholarly.html --sp.species --sp.type binomial
-ami2-species -q dinosaurs-xmls/ -i scholarly.html --sp.species --sp.type genussp
+ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type genus
 ```
 
-The results will all be saved as XML in the corresponding CTree inside results/species with an own folder named after the SPECIESTYPE.
+![ami2-species-genus](../../assets/images/software/norma/ami2-species-genus.png)
+
+Inspecting the folders with `tree ursus` now should look like the following. If no matches could be found, an **empty.xml** will be created, to indicate that the plugin has been run on this particular paper, but with no results. If matches have been found, a **results.xml** will be created.
+
+![ami2-species-genus-results](../../assets/images/software/norma/ami2-species-genus-results.png)
+
+A for-loop performs all extractions in sequence:
+```
+for type in genus binomial genussp; do
+ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type $type;
+done
+```
+
+The results will all be saved as XML in the corresponding CTree inside results/species with per-type folder named after the SPECIESTYPE.
 
 ```
-tree dinosaurs-xmls
-dinosaurs-xmls
+tree ursus
+ursus
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
 ├── PMC3893193
@@ -151,7 +158,7 @@ dinosaurs-xmls
 ```
 
 ```bash
-cat dinosaurs-xmls/PMC4349051/results/species/genussp/results.xml
+cat ursus/PMC4349051/results/species/genussp/results.xml
 ```
 
 ```xml
@@ -172,24 +179,24 @@ The results.xml consists of different amounts of lines, where every line represe
 Down to earth, this is what the fact extraction looks like in the end: a list of terms extracted from the literature with XX characters before and afterwards as context around the fact.
 
 
-### b) ami2-gene
+### ami2-gene
 
 The search for genes works in the same way, just with another command: 
 ```bash
-ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type GENETYPE
+ami2-gene --project CPROJECTFOLDER -i INPUTFILE --g.gene --g.type GENETYPE
 ```
 
 At the moment there is only one GENETYPE available (`human`). Results are again stored within the CTree.
 
 ```bash
-ami2-gene -q dinosaurs-xmls/ -i scholarly.html --g.gene --g.type human
+ami2-gene --project ursus/ -i scholarly.html --g.gene --g.type human
 ```
 
 This then creates a folder gene/human inside results next to the results of the species module.
 
 ```
-tree dinosaurs-xmls
-dinosaurs-xmls
+tree ursus
+ursus
 ├── eupmc_results.json
 ├── fulltext_html_urls.txt
 ├── PMC3893193
@@ -209,10 +216,10 @@ dinosaurs-xmls
 ...
 ```
 
-The `results.xml` is, as always, the same structure: a results-tag with pre, post, and exact attributes.
+The `results.xml` has a similar structure: a results-tag with pre, post, and exact attributes.
 
 ```
-cat dinosaurs-xmls/PMC4454486/results/gene/human/results.xml
+cat ursus/PMC4454486/results/gene/human/results.xml
 ```
 
 ```xml
@@ -223,23 +230,31 @@ cat dinosaurs-xmls/PMC4454486/results/gene/human/results.xml
 </results>
 ```
 
-### c) ami2-sequence
+### ami2-sequence
 
 The search for sequences follows the same structure: 
 ```bash
-ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type SEQUENCETYPE
+ami2-sequence --project CPROJECTFOLDER -i INPUTFILE --sq.sequence --sq.type SEQUENCETYPE
 ```
 
 - SEQUENCETYPE is one of `dna rna prot prot3 carb3`. 
 
+You can run one type with this query:
 ```bash
-ami2-sequence -q dinosaurs-xmls/ -i scholarly.html --sq.sequence --sq.type rna
+ami2-sequence --project ursus/ -i scholarly.html --sq.sequence --sq.type rna
 ```
 
-Again, this creates an own folder called sequence/rna inside results. The results are in general of the same structure as before, with an additional attribute `xpath` that shows the location of the match within the html-structure of the `scholarly.html`.
+You can also run all types in sequence with this loop:
+```bash
+for type in dna rna prot prot3 carb3; do
+ami2-sequence --project ursus -i scholarly.html --sq.sequence --sq.type $type;
+done
+```
+
+This creates an own folder called `sequence/sequencetype` inside results. The results are in general of the same structure as before, with an additional attribute `xpath` that shows the location of the match within the html-structure of the `scholarly.html`.
 
 ```bash
-cat dinosaurs-xmls/PMC4447998/results/sequence/rna/results.xml
+cat ursus/PMC4447998/results/sequence/rna/results.xml
 ```
 
 ```xml
@@ -251,13 +266,11 @@ cat dinosaurs-xmls/PMC4447998/results/sequence/rna/results.xml
 </results>
 ```
 
-### d) ami2-regex
+### ami2-regex
 
-**Now, what is a regex?** 
+Regex is the shortcut for ([regular expression](https://en.wikipedia.org/wiki/Regular_expression)) and is used to match search patterns inside text. This means to search for such basic strings like "ursus" inside a sentence, but also allows way more complex patterns to look for, `[Uu]rsus` matches for example upper and lower case letters, so you look at the same time for Ursus and ursus.
 
-Regex is the shortcut for ([regular expression](https://en.wikipedia.org/wiki/Regular_expression)) and is used to match search patterns inside text. This means to search for such basic strings like "Dinosaur" inside a sentence, but also allows way more complex patterns to look for, like a string where the first two characters are numbers, followed by 3 big letters and finished by a dot. `[Dd]inosaur[s]?` matches for example upper and lower case words in singular and plural form, so you look at the same time for Dinosaur, dinosaur, Dinosaurs, and dinosaurs. Do you see the potential for formalizing searches?
-
-Digits can be added by e.g. `[0-9]`, which matches any digit, or by fixed sequences `(00111001)`. Non-alphanumeric characters have to be escaped by `\`, so if you want to search for the number 3.14 explicitly, the regex looks like `(3\.14)`. ADD LINK TO A TUTORIAL AND IN DETAIL DESCRIPTION.
+Digits can be added by e.g. `[0-9]`, which matches any digit, or by fixed sequences `(00111001)`. Non-alphanumeric characters have to be escaped by `\`, so if you want to search for the number 3.14 explicitly, the regex looks like `(3\.14)`.
 
 We will now see a variety of regex-s and how they are used in a XML file.
 
@@ -265,82 +278,60 @@ We will now see a variety of regex-s and how they are used in a XML file.
 
 
 ```bash
-ami2-regex -q dinosaurs-xml -i scholarly.html --context PRE POST --r.regex REGEXFILE.xml
+ami2-regex --project CPROJECTFOLDER -i INPUTFILE --context PRE POST --r.regex REGEXFILE.xml
 ```. 
 
-- ```PRE```: tells ami how many characters before a match should be captured
-- ```POST```: tells ami how many characters after a match should be captured
-- ```REGEXFILE```: target location of your regex XML file. It contains all regex-queries.
+- `PRE`: tells ami how many characters before a match should be captured
+- `POST`: tells ami how many characters after a match should be captured
+- `REGEXFILE`: target location of your regex XML file. It contains all regex--projectueries.
 
-**Create regex XML file**
+**How to create a custom regex XML file**
 
-
-To create a regex XML file, you have to use the following guidelines:
-
-
-It always needs to be wrapped by opening tags ```<compoundRegex title="TITLE">``` and closing tags ```</compoundRegex>```, which are the opening and closing tags. The ```TITLE``` sets the name of the folder, where the output gets stored and can be of any type.
+The REGEXFILE.xml needs to be wrapped by `<compoundRegex title="TITLE">` and closing tags `</compoundRegex>`, which are the opening and closing tags. The `TITLE` sets the name of the folder, where the output gets stored.
 
 ```xml
-<compoundRegex title="dinosaurfood">
+<compoundRegex title="ursusfood">
 </compoundRegex>
 ```
 
 In the regex XML each regex-query is written to a new line, and consists of the opening and closing tags `<regex></regex>`. Within the opening tag there must be two attributes declared, 
-- ```weight```: the relative importance given to each match (influences indexing engines). Normally this is set to the default value `1.0` 
-- ```fields```: corresponds to the regex-query, and specifies the name of the query
+- `weight`: the relative importance given to each match (influences indexing engines). The default value `1.0` 
+- `fields`: corresponds to the regex-query, and specifies the name of the query
 
-If you take "food" from line two of the following regex XML, one variable named "food" is expected within a match. If you take "predator" from line three, you specify the name, but your query should also be returning two variables within a match.
 ```xml
-<compoundRegex title="dinosaurfood">
+<compoundRegex title="ursusfood">
 <regex weight="1.0" fields="food"></regex>
 <regex weight="1.0" fields="predator"></regex>
 </compoundRegex>
 ```
 
-What is missing now is the regex-query itself. A query itself is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. 
+What is missing now is the regex-query itself. It is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. 
 
 In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`: `([Ff]ood)`. The following characters `ood` are fixed for this query, they have to be matched. 
 
-For the second query, we want to find all mentions of "predator regime/s". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. The questions mark `[s]?` makes the "s" optional: `([Pp]redator\sregime[s]?)`
+For the second query, we want to find all mentions of "predator regime" or "predator regimes". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. The questions mark `[s]?` makes the "s" optional: `([Pp]redator\sregime[s]?)`
 
 ```xml
-<compoundRegex title="dinosaurfood">
+<compoundRegex title="ursusfood">
 <regex weight="1.0" fields="food">([Ff]ood)</regex>
 <regex weight="1.0" fields="predator">([Pp]redator\sregime[s]?)</regex>
 </compoundRegex>
 ```
 
-We now construct a ```regex.xml``` like that (use any texteditor for that) and place this XML in our project folder as `dinosaurfood.xml`. We run ami with it, and because we want to get some context around our matches, add the ```PRE``` and ```POST``` option, which capture characters before and after the match.
+We now construct a ```regex.xml``` like that (use any texteditor for that) and place this XML in our project folder as `ursusfood.xml`. We run ami with it, and because we want to get some context around our matches, add the ```PRE``` and ```POST``` option, which capture characters before and after the match.
 
 ```bash
-ami2-regex -q dinosaurs-xmls/ -i scholarly.html --r.regex dinosaurs-xmls/dinosaurfood.xml --context 50 50
-```
-
-```bash
-cat dinosaurs-xmls-regex/PMC4298445/results/regex/dinosaurfood/results.xml
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<results title="dinosaurfood">
- <result pre="rs of Darwin's finches entered a lard of abundant " name0="food" value0="food" post="and varied living quarters, unmarred by the presen" xpath="/html[1]/body[1]/div[1]/div[4]/p[2]"/>
- <result pre="amas mosquitofish populations occupying different " name0="predator" value0="predator regimes" post="causes premating reproductive isolation due to sex" xpath="/html[1]/body[1]/div[1]/div[10]/div[1]/div[1]/p[4]"/>
-</results>
+ami2-regex --project ursus/ -i scholarly.html --r.regex ursus/ursusfood.xml --context 50 50
 ```
 
 The output contains 50 characters `pre` and 50 characters `post` the `value0`, as well as the `xpath` of the match in the scholarly.html.
 
+### ami2-word
 
-### e) ami2-word
-
-Word frequency is one of the most valuable tools for catagorising documents.
-
-(This uses an example where the search query was `microRNA` rather than dinosaurs)
-
-The simplest approach is to count the words in document/s or chunks of document/s. 
+Word frequency can be used to categorize documents. The simplest approach is to count the words in documents, or within chunks of documents. 
 
 ```bash
-ami2-word --w.words wordFrequencies -q dinosaurs-xmls/ -i scholarly.html
+ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies
 ```
 creates
 ```
@@ -379,12 +370,28 @@ The first lists word frequencies as:
  <result title="frequency" word="was" count="49"/>
 ```
 
-and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count.
-
-Clearly this mainly reflects the frequency in the English language, so we can remove the commonest words by creating <em>stopwords</em>. 
+and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count. This mainly reflects the frequency in the English language, so we can remove the commonest words by using *stopwords*. We have a range of stopword files in different languages. It is also possible to create your own files and add them.
 
 ```bash
-ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt
+ami2-word --project ursus --w.words wordFrequencies --w.stopwords STOPWORDS.txt
+```
+
+The format is a simple list of words:
+```
+a
+about
+above
+across
+after
+afterwards
+again
+against
+```
+
+and the file can be referenced either through a URL format or relative/absolute filename.
+
+```bash
+ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies --w.stopwords stopwords.txt
 ```
 
 gives `results.xml` as
@@ -403,27 +410,20 @@ gives `results.xml` as
  <result title="frequency" word="miRNA" count="24"/>
 ```
 
-clearly there is a strong signal now
+### Summarization of results
 
-We  have a range of stopword files in different languages. It is also possible to create your own files and add them:
+ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results per 
 
-```bash
-ami2-word --w.words wordFrequencies --project eupmc --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt mydir/myfile.txt
+```
+ami2-sequence --analyze file\(\*\*/results.xml\) -o sequencesfiles.xml --project zika
 ```
 
-The format is a simple list of words:
+
 ```
-a
-about
-above
-across
-after
-afterwards
-again
-against
+ami2-sequence --project zika --analyze file\(\*\*/dna/results.xml\)xpath\(//result\) -o dnasnippets.xml
 ```
 
-and the file can be referenced either through a URL format or relative/absolute filename.
+They are presented in an html-table.
 
 ## Summary
 
@@ -434,12 +434,7 @@ and the file can be referenced either through a URL format or relative/absolute 
 
 **Next steps**
 
-* Continue to  for the next step of the ContentMine pipeline.
-
-
-## Next tutorial
-
-To find out more of how we index the facts and make them usable for others, look at the [cat tutorial](../cat/cat-tutorial.md).
+* Back to the [tutorial overview](..)
 
 ## Further material
 
