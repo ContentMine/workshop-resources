@@ -11,7 +11,7 @@ There are many ways to contribute:
 
 ### How to set up your development environment
 
-The ContentMine software is based on two languages, Node.js for getpapers and quickscrape, and Java for norma/ami-plugins. An installation and environment guide is [here](installation).
+The ContentMine software is based on two languages, Node.js for getpapers and quickscrape, and Java for norma/ami-plugins. An installation and environment guide is [here](software-tutorisl/installation).
 
 ### How to report a bug
 
