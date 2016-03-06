@@ -144,30 +144,13 @@ my-pdfs
 To finally convert the pdf into text files, run the following norma-commands:
 
 ```bash
-norma --project my-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
+norma --project ursus/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
 ```
-
-## Troubleshooting
-
-If you get an error that reads like this
-```
-270  [main] WARN  org.xmlcml.cmine.args.DefaultArgProcessor  - Recursing CMDIRs is probably  a BUG
-270  [main] DEBUG org.xmlcml.cmine.args.DefaultArgProcessor  - ... No reserved files or directories: dir: dinosaurs-xmls/PMC3390907
-```
-it relates to an error that arises with empty folders created by quickscrape (see [issue 8](https://github.com/ContentMine/workshop-resources/issues/8)). To solve it temporarily, perform the following steps, which will delete the empty folders and keeps the ones with files:
-
-```bash
-cd dinosaurs-xmls
-find -empty -delete
-cd ..
-```
-
-After that, re-run the norma-commands. This error has been resolved with norma v0.2.5.
 
 ## Summary
 
-* use publications downloaded via getpapers and convert the XML to uniform sHTML with `norma --project ursus -i fulltext.xml -o scholarly.html --transform nlm2html`
-* convert PDF's to text files with `norma --project my-pdfs/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt`
+* use publications downloaded via getpapers and convert the XML to uniform sHTML with `norma --project PROJECTFOLDER -i fulltext.xml -o scholarly.html --transform nlm2html`
+* convert PDF's to text files with `norma --project PROJECTFOLDER -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt`
 
 ## next tutorial
 * Back to the [tutorial overview](..)

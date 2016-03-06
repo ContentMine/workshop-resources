@@ -6,7 +6,7 @@
 1. [Description](#description) 
 1. [Preparations](#preparations)
 1. [Input data](#input-data)
-1. [How to use ami-plugins](#how-to-use-ami-plugins)
+1. [Tutorial](#Tutorial)
   1. [ami2-species](#ami2-species)
   1. [ami2-gene](#ami2-gene)
   1. [ami2-sequence](#ami2-sequence)
@@ -94,7 +94,7 @@ ursus/
 ...
 ```
 
-## How to use ami-plugins
+## Tutorial
 
 ### ami2-species
 
@@ -370,9 +370,25 @@ The first lists word frequencies as:
  <result title="frequency" word="was" count="49"/>
 ```
 
-and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count.
+and the second creates a "Word Cloud"-like HTML display with the most frequent words in order and with fonts proportional to the count. This mainly reflects the frequency in the English language, so we can remove the commonest words by using *stopwords*. We have a range of stopword files in different languages. It is also possible to create your own files and add them.
 
-Clearly this mainly reflects the frequency in the English language, so we can remove the commonest words by using <em>stopwords</em>. 
+```bash
+ami2-word --project ursus --w.words wordFrequencies --w.stopwords STOPWORDS.txt
+```
+
+The format is a simple list of words:
+```
+a
+about
+above
+across
+after
+afterwards
+again
+against
+```
+
+and the file can be referenced either through a URL format or relative/absolute filename.
 
 ```bash
 ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies --w.stopwords stopwords.txt
@@ -393,27 +409,6 @@ gives `results.xml` as
  <result title="frequency" word="expression" count="25"/>
  <result title="frequency" word="miRNA" count="24"/>
 ```
-
-We have a range of stopword files in different languages. It is also possible to create your own files and add them:
-
-```bash
-ami2-word --w.words wordFrequencies --project ursus --w.stopwords /org/xmlcml/ami2/plugins/word/stopwords.txt mydir/myfile.txt
-```
-
-The format is a simple list of words:
-```
-a
-about
-above
-across
-after
-afterwards
-again
-against
-```
-
-and the file can be referenced either through a URL format or relative/absolute filename.
-
 
 ### Summarization of results
 
