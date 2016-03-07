@@ -31,7 +31,7 @@ getpapers and quickscrape are based on [Node.js](https://en.wikipedia.org/wiki/N
 
 ##### Unix/Linux
 
-You'll need Node.js (node), a platform which enables standalone JavaScript apps. You'll also need the Node package manager (npm), which usually comes with Node.js. Installing Node.js via the operating system's package manager leads to issues. If you already have Node.js installed, and it requires sudo to install node packages, that's the wrong way. The easiest way to do it right on Unix systems (e.g. Linux, OSX) is to use NVM, the Node version manager. Additional installing documentation can be found on the [Nodejs-github repo](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager).
+You'll need Node.js (node), a platform which enables standalone JavaScript apps. You'll also need the Node package manager (npm), which usually comes with Node.js. Installing Node.js via the operating system's package manager leads to issues. If you already have Node.js installed, and it requires sudo to install node packages, that's the wrong way. The easiest way to do it right on Unix systems (e.g. Linux, OSX) is to use [NVM](https://github.com/creationix/nvm), the Node version manager. Additional installing documentation for using package managers can be found on the [Nodejs-github repo](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager).
 
 First, install NVM:
 ```
