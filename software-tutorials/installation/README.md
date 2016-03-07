@@ -35,22 +35,22 @@ You'll need Node.js (node), a platform which enables standalone JavaScript apps.
 
 First, install NVM:
 ```
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 or, if you don't have curl:
 ```
-wget -qO- https://deb.nodesource.com/setup_5.x | bash
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 Then, install the latest Node.js, which will automatically install the latest npm as well.
 
 ```
-sudo apt-get install --yes nodejs
+nvm install 5.7.0
 ```
 Now you should have node and npm available. Check by running:
 
 ```
-nodejs -v
+node -v
 npm --version
 ```
 
