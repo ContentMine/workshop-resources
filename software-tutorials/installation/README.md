@@ -31,30 +31,28 @@ getpapers and quickscrape are based on [Node.js](https://en.wikipedia.org/wiki/N
 
 ##### Unix/Linux
 
-You'll need Node.js (node), a platform which enables standalone JavaScript apps. You'll also need the Node package manager (npm), which usually comes with Node.js. Installing Node.js via the operating system's package manager leads to issues. If you already have Node.js installed, and it requires sudo to install node packages, that's the wrong way. The easiest way to do it right on Unix systems (e.g. Linux, OSX) is to use NVM, the Node version manager.
+You'll need Node.js (node), a platform which enables standalone JavaScript apps. You'll also need the Node package manager (npm), which usually comes with Node.js. Installing Node.js via the operating system's package manager leads to issues. If you already have Node.js installed, and it requires sudo to install node packages, that's the wrong way. The easiest way to do it right on Unix systems (e.g. Linux, OSX) is to use NVM, the Node version manager. Additional installing documentation can be found on the [Nodejs-github repo](https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager).
 
 First, install NVM:
 ```
-curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 ```
 or, if you don't have curl:
 ```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.5.7/install.sh | bash
+wget -qO- https://deb.nodesource.com/setup_5.x | bash
 ```
 
-Then, install the latest Node.js, which will automatically install the latest npm as well, and set that version as the default:
+Then, install the latest Node.js, which will automatically install the latest npm as well.
 
 ```
-source ~/.nvm/nvm.sh
-nvm install 0.5.7
-nvm alias default 0.5.7
-nvm use default
+sudo apt-get install --yes nodejs
 ```
 Now you should have node and npm available. Check by running:
 
 ```
-node -v
-npm -v
+node --version
+npm --version
+nodejs -v
 ```
 
 ##### OSX
