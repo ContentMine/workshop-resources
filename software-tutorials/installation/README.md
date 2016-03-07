@@ -50,9 +50,8 @@ sudo apt-get install --yes nodejs
 Now you should have node and npm available. Check by running:
 
 ```
-node --version
-npm --version
 nodejs -v
+npm --version
 ```
 
 ##### OSX
