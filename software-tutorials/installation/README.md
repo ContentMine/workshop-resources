@@ -39,15 +39,15 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
 ```
 or, if you don't have curl:
 ```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.5.7/install.sh | bash
 ```
 
 Then, install the latest Node.js, which will automatically install the latest npm as well, and set that version as the default:
 
 ```
 source ~/.nvm/nvm.sh
-nvm install 0.10
-nvm alias default 0.10
+nvm install 0.5.7
+nvm alias default 0.5.7
 nvm use default
 ```
 Now you should have node and npm available. Check by running:
