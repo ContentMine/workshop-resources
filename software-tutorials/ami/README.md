@@ -3,7 +3,7 @@
 
 ## Table of Content
 
-1. [Description](#description) 
+1. [Description](#description)
 1. [Preparations](#preparations)
 1. [Input data](#input-data)
 1. [Tutorial](#Tutorial)
@@ -44,7 +44,7 @@ This tutorial shows you:
 
 **How to use the tutorial**
 
-We have some conventions at work, which will be used through-out the tutorial. 
+We have some conventions which will be used through-out the tutorial.
 - Variables as placeholders are always caps, like NAME, YOURDIRECTORY etc.
 
 
@@ -63,13 +63,7 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-On the ContentMine-VM ami is already provided. If you want to install it locally or update it on the VM, you can to build it from source. For this you need `git` and `maven3`.
-
-```bash
-git clone https://github.com/ContentMine/ami-plugin.git
-cd ami-plugin
-mvn clean install
-```
+On the ContentMine-VM ami is already provided. If you want to install it locally or update it on the VM, please refer to the [installation instructions](http://contentmine.github.io/) for your platform.
 
 You can find the technical documentation for `ami` in its [repository](https://github.com/ContentMine/ami-plugin).
 
@@ -98,12 +92,12 @@ ursus/
 
 ### ami2-species
 
-You can then search for all occurences of a species name with 
+You can then search for all occurences of a species name with
 ```bash
 ami2-species --project CPROJECTFOLDER -i INPUTFILE --sp.species --sp.type SPECIESTYPE
 ```
 
-You have to choose between three different types of species terms for ```SPECIESTYPE``` 
+You have to choose between three different types of species terms for ```SPECIESTYPE```
 - ```genus```, which will extract terms like *Brachiosaurus* [more details](https://en.wikipedia.org/wiki/Genus)
 - ```binomial```, which will extract terms like *B. altithorax* [more details](https://en.wikipedia.org/wiki/Binomial_nomenclature)
 - or ```genussp```, whick will extract terms like *Bacillus sp* or *Ursus spp.*
@@ -181,7 +175,7 @@ Down to earth, this is what the fact extraction looks like in the end: a list of
 
 ### ami2-gene
 
-The search for genes works in the same way, just with another command: 
+The search for genes works in the same way, just with another command:
 ```bash
 ami2-gene --project CPROJECTFOLDER -i INPUTFILE --g.gene --g.type GENETYPE
 ```
@@ -232,12 +226,12 @@ cat ursus/PMC4454486/results/gene/human/results.xml
 
 ### ami2-sequence
 
-The search for sequences follows the same structure: 
+The search for sequences follows the same structure:
 ```bash
 ami2-sequence --project CPROJECTFOLDER -i INPUTFILE --sq.sequence --sq.type SEQUENCETYPE
 ```
 
-- SEQUENCETYPE is one of `dna rna prot prot3 carb3`. 
+- SEQUENCETYPE is one of `dna rna prot prot3 carb3`.
 
 You can run one type with this query:
 ```bash
@@ -279,7 +273,7 @@ We will now see a variety of regex-s and how they are used in a XML file.
 
 ```bash
 ami2-regex --project CPROJECTFOLDER -i INPUTFILE --context PRE POST --r.regex REGEXFILE.xml
-```. 
+```.
 
 - `PRE`: tells ami how many characters before a match should be captured
 - `POST`: tells ami how many characters after a match should be captured
@@ -294,8 +288,8 @@ The REGEXFILE.xml needs to be wrapped by `<compoundRegex title="TITLE">` and clo
 </compoundRegex>
 ```
 
-In the regex XML each regex-query is written to a new line, and consists of the opening and closing tags `<regex></regex>`. Within the opening tag there must be two attributes declared, 
-- `weight`: the relative importance given to each match (influences indexing engines). The default value `1.0` 
+In the regex XML each regex-query is written to a new line, and consists of the opening and closing tags `<regex></regex>`. Within the opening tag there must be two attributes declared,
+- `weight`: the relative importance given to each match (influences indexing engines). The default value `1.0`
 - `fields`: corresponds to the regex-query, and specifies the name of the query
 
 ```xml
@@ -305,9 +299,9 @@ In the regex XML each regex-query is written to a new line, and consists of the 
 </compoundRegex>
 ```
 
-What is missing now is the regex-query itself. It is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`. 
+What is missing now is the regex-query itself. It is placed between the regex-tags `<regex>query</regex>`and is framed by round brackets `()`.
 
-In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`: `([Ff]ood)`. The following characters `ood` are fixed for this query, they have to be matched. 
+In line two one field ("food") is defined. We want to get both upper and lower cases, and `[Ff]` matches either `F` or `f`: `([Ff]ood)`. The following characters `ood` are fixed for this query, they have to be matched.
 
 For the second query, we want to find all mentions of "predator regime" or "predator regimes". For this we need `\s`, a special character standing for ` ` - the whitespace, blank character. The questions mark `[s]?` makes the "s" optional: `([Pp]redator\sregime[s]?)`
 
@@ -328,7 +322,7 @@ The output contains 50 characters `pre` and 50 characters `post` the `value0`, a
 
 ### ami2-word
 
-Word frequency can be used to categorize documents. The simplest approach is to count the words in documents, or within chunks of documents. 
+Word frequency can be used to categorize documents. The simplest approach is to count the words in documents, or within chunks of documents.
 
 ```bash
 ami2-word --project ursus/ -i scholarly.html --w.words wordFrequencies
@@ -412,7 +406,7 @@ gives `results.xml` as
 
 ### Summarization of results
 
-ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results per 
+ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results per
 
 ```
 ami2-sequence --analyze file\(\*\*/results.xml\) -o sequencesfiles.xml --project zika
@@ -457,7 +451,3 @@ They are presented in an html-table.
 
 
 **Papers**
-
-
-
-

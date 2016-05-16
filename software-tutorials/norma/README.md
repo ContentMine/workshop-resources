@@ -22,7 +22,7 @@ Norma transforms different file formats such as PDF, XML or HTML provided by pub
 
 **Why do we need norma?**
 
- Norma parses and merges different formats and file standards of scientific literature, and offers a unified output which can be used for further processing. 
+ Norma parses and merges different formats and file standards of scientific literature, and offers a unified output which can be used for further processing.
 
 **How can I use norma?**
 
@@ -39,7 +39,7 @@ This tutorial shows you how to
 
 **How to use the tutorial**
 
-We have some conventions at work, which will be used through-out the tutorial. 
+We have some conventions at work, which will be used through-out the tutorial.
 - Variables as placeholders are always caps, like NAME, YOURDIRECTORY etc.
 
 **Glossary**
@@ -61,13 +61,7 @@ We have some conventions at work, which will be used through-out the tutorial.
 
 ### Installation
 
-On the ContentMine-VM norma is already provided. If you want to install it locally or upgrade it in the VM, you can build it from source. For this you need `git`, `maven` and `maven3`.
-
-```bash
-git clone https://github.com/ContentMine/norma.git
-cd norma
-mvn clean install
-```
+On the ContentMine-VM norma is already provided. If you want to install it locally or update it on the VM, please refer to the [installation instructions](http://contentmine.github.io/) for your platform.
 
 You can find the technical documentation for `norma` in its [repository](https://github.com/ContentMine/norma).
 
@@ -156,4 +150,3 @@ norma --project ursus/ -i fulltext.pdf -o fulltext.pdf.txt --transform pdf2txt
 * Back to the [tutorial overview](..)
 * Continue to [sHTML](../sHTML) if you want to learn more about scholarly HTML.
 * Continue to [ami](../ami) for the next step of the ContentMine pipeline.
-

@@ -38,4 +38,3 @@ Before submitting a bug, please check the list of existing bugs whether there is
 There is always room for improvement and we'd like to hear your perspective on it. Before creating a pull request, please raise an issue to discuss the proposed changes first. We can then make sure to make best use of your efforts.
 
 If you want to discuss an idea in general, you can also start a new topic on [discuss](http://discuss.contentmine.org/).
-
