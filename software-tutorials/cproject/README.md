@@ -10,8 +10,6 @@ The structure of a CProject is being [discussed here](https://github.com/Content
 
 # How does a CProject look like?
 
-A CProject is created when creating a paper collection via quickscrape or getpapers.
-
 #### Quickscrape
 
 An example output folder after scraping two random papers one open access one not.
