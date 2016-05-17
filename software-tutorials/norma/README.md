@@ -73,6 +73,8 @@ Norma can take 4 different file formats for the publications (XML, PDF, HTML, XH
 
 ## Tutorial
 
+This tutorial is based on release [0.2.26](https://github.com/ContentMine/norma/releases).
+
 ### XML to sHTML
 
 ![normaxml2shtml](../../assets/images/software/norma/normaxml2shtml0.png)

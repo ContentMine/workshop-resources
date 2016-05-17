@@ -90,6 +90,8 @@ ursus/
 
 ## Tutorial
 
+This tutorial is based on release [0.2.24](https://github.com/ContentMine/ami/releases).
+
 ### ami2-species
 
 You can then search for all occurences of a species name with
@@ -106,11 +108,11 @@ You have to choose between three different types of species terms for ```SPECIES
 ami2-species --project ursus/ -i scholarly.html --sp.species --sp.type genus
 ```
 
-![ami2-species-genus](../../assets/images/software/norma/ami2-species-genus.png)
+![ami2-species-genus](../../assets/images/software/ami/ami2-species-genus.png)
 
 Inspecting the folders with `tree ursus` now should look like the following. If no matches could be found, an **empty.xml** will be created, to indicate that the plugin has been run on this particular paper, but with no results. If matches have been found, a **results.xml** will be created.
 
-![ami2-species-genus-results](../../assets/images/software/norma/ami2-species-genus-results.png)
+![ami2-species-genus-results](../../assets/images/software/ami/ami2-species-genus-results.png)
 
 A for-loop performs all extractions in sequence:
 ```
@@ -406,25 +408,24 @@ gives `results.xml` as
 
 ### Summarization of results
 
-ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results per
+ami-plugin possesses the ability to automatically create an aggregation of results. It is possible to aggregate the results over all plugins with:
 
 ```
-ami2-sequence --analyze file\(\*\*/results.xml\) -o sequencesfiles.xml --project zika
+ami2-sequence --project ursus --filter file\(\*\*/results.xml\) -o sequencesfiles.xml
 ```
 
-
+It is possible to only aggregate results for a specific plugin and option, e.g. for `dna`:
 ```
-ami2-sequence --project zika --analyze file\(\*\*/dna/results.xml\)xpath\(//result\) -o dnasnippets.xml
+ami2-sequence --project ursus --filter file\(\*\*/dna/results.xml\)xpath\(//result\) -o dnasnippets.xml
 ```
 
-They are presented in an html-table.
 
 ## Summary
 
 * A project folder containing ctrees is always the input.
 * Plugins are own software parts with own commands.
 * Rsults/Facts are stored within the ctree in a plugin-specific folder.
-* Facts also store the context of 99 characters before and after the fact.
+* Results also store the context of 99 characters before and after the fact.
 
 **Next steps**
 
