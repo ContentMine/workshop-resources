@@ -69,7 +69,7 @@ You can find the technical documentation for `ami` in its [repository](https://g
 
 ## Input data
 
-The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores the results in the respective paper folder. ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/norma-tutorial.md). Your project directory should look like this:
+The input for ami is always a [CProject](../cproject) containing documents in [scholarly HTML](../sHTML). ami then applies one of the available plugins, extracts the relevant content from the sHTML, and stores the results in the respective paper folder. ami-plugins require `scholarly.html`-files as input. Please follow the instructions for [norma](../norma/README.md). Your project directory should look like this:
 
 ```bash
 tree ursus

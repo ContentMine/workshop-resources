@@ -27,8 +27,8 @@ Norma transforms different file formats such as PDF, XML or HTML provided by pub
 **How can I use norma?**
 
 Norma offers paths from three different input streams to sHTML:
-* from XML-files collected by an API-query of [getpapers](../getpapers/getpapers-tutorial.md)
-* from HTML-files collected by a URL-scrape of [quickscrape](../quickscrape-tutorial.md)
+* from XML-files collected by an API-query of [getpapers](../getpapers/README.md)
+* from HTML-files collected by a URL-scrape of [quickscrape](../quickscrape/README.md)
 * from an existing collection of PDFs
 
 **What you will learn here**

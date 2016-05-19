@@ -3,7 +3,7 @@
 ## What are journal scrapers?
 
 
-Journal scrapers are used in [quickscrape](../quickscrape/quickscrape-tutorial.md) to find and extract specific pieces of content from a website. What you see when you open a website is your browsers visual interpretation of HTML (content) and CSS (layout). A scraper takes the HTML, takes a certain piece of content (author names, doi, a heading, a paragraph) and restructures it into a format that is re-usable by machines. 
+Journal scrapers are used in [quickscrape](../quickscrape/README.md) to find and extract specific pieces of content from a website. What you see when you open a website is your browsers visual interpretation of HTML (content) and CSS (layout). A scraper takes the HTML, takes a certain piece of content (author names, doi, a heading, a paragraph) and restructures it into a format that is re-usable by machines.
 
 In academic literature the types of content are the same, even between disciplines - journal layouts on the other hand vary widely. ContentMine aims to offer a comprehensive collection of scrapers (maintained in [this repo](https://github.com/ContentMine/journal-scrapers)), but we - and your scientific community - need your help for that. In this tutorial we're going to cover how to contribute a scraper to the collection. We're going to look at a how a website is structured and how a scraper is defined, and we'll also walk through the github workflow in order to make the scraper definition available to the community.
 
@@ -253,7 +253,7 @@ We add any further metadata we can find in the `meta`-section, please have a tho
 
 We now proceed to the content, unfortunately with this journal this is not as straightforward as the metadata. Downloads for PDF are behind links, and fulltext, figures, and supplementary data are on different tabs. It is not possible to find the content within the source view of the page, since it is hidden behind scripts.
 
-We therefore have to define `followables`, that quickscrape then can follow to the real content. We do this as an extra entry between `url` and `elements`. After switching to the `Fulltext`-tab, you can find the selectors and attributes by clicking on fulltext, right clicking on the text of the introduction and choosing `Inspect element (Q)`. This opens a firebug window, the fulltext can be found by quickscrape through following the `div` tag with the `id='itemfulltext'` to the `data-fulltexturl`. 
+We therefore have to define `followables`, that quickscrape then can follow to the real content. We do this as an extra entry between `url` and `elements`. After switching to the `Fulltext`-tab, you can find the selectors and attributes by clicking on fulltext, right clicking on the text of the introduction and choosing `Inspect element (Q)`. This opens a firebug window, the fulltext can be found by quickscrape through following the `div` tag with the `id='itemfulltext'` to the `data-fulltexturl`.
 
 ![sourceview003](../../assets/images/software/journal-scrapers/003.png)
 
@@ -301,7 +301,7 @@ If you mouseover a line in the inspector, it highlights the corresponding elemen
 
 #### Downloads
 
-Please note that the followables only define where quickscrape should start looking, they do not specify a figure, image, or downloadable PDF. This we will do now. 
+Please note that the followables only define where quickscrape should start looking, they do not specify a figure, image, or downloadable PDF. This we will do now.
 
 ![sourceview006](../../assets/images/software/journal-scrapers/006.png)
 
@@ -320,7 +320,7 @@ For the HTML the procedure is similar:
 
 ![sourceview007](../../assets/images/software/journal-scrapers/007.png)
 
-The download link can be found in an `a` tag with the `class=html list-group-item list-group-item-info`, in the `href` attribute. We tell quickscrape to download the file behind the link and store it under the renamed `fulltext.html`. Here as well the naming convention of fulltext.html is important as it serves the [ctree](../ctree/ctree-overview)-structure and is an input for [norma](../norma/norma-tutorial.md)
+The download link can be found in an `a` tag with the `class=html list-group-item list-group-item-info`, in the `href` attribute. We tell quickscrape to download the file behind the link and store it under the renamed `fulltext.html`. Here as well the naming convention of fulltext.html is important as it serves the [ctree](../ctree/ctree-overview)-structure and is an input for [norma](../norma/README.md)
 
 ```
     "fulltext_html": {
@@ -367,7 +367,7 @@ Downloadable figures are behind the `Click to view` button. We click on it and i
 
 #### Fulltext
 
-Now that we have the downloadable material, we want to scrape the fulltext, and ideally grab the structure of it as well, so we try to separate abstract, introduction, methods, results, discussion and conclusion. Author contributions and competing interests are of interest as well. 
+Now that we have the downloadable material, we want to scrape the fulltext, and ideally grab the structure of it as well, so we try to separate abstract, introduction, methods, results, discussion and conclusion. Author contributions and competing interests are of interest as well.
 
 
 ```
@@ -421,7 +421,7 @@ Go to the [ContentMine-scrapers repository](https://github.com/ContentMine/journ
 
 ![sourceview009](../../assets/images/software/journal-scrapers/010.png)
 
-Then you switch to your fork of the repository which can be found under `https://github.com/**your_username**/journal-scrapers`. Copy the URL, open a commandline and clone the repository to a working directory with `git clone https://github.com/**your_username**/journal-scrapers`. 
+Then you switch to your fork of the repository which can be found under `https://github.com/**your_username**/journal-scrapers`. Copy the URL, open a commandline and clone the repository to a working directory with `git clone https://github.com/**your_username**/journal-scrapers`.
 
 You can now edit existing scraper definitions or add you own. The repository has the following structure: Scraper definitions go into the `scrapers`-folder, and testing material (a list of 5-10 urls where the scraper works, 1 per line) go into `test`.
 
