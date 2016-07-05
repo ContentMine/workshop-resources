@@ -5,7 +5,7 @@ This should give facilitators and organizers some orientation on which steps to 
 The major points can be raised as personal issues for the facilitators/organizers, with the subpoints as issue notes. This helps keeping track of progress. Also, each major point should be discussed directly between facilitators/organizers at least once.
 
 
-1. (**4-8 weeks ahead**):
+1. (**4-8 weeks ahead**): Logistics
 	- [ ] Liase with local org on basic info, decide on:
 		- [ ] Date, Venue
 		- [ ] Team
@@ -18,36 +18,38 @@ The major points can be raised as personal issues for the facilitators/organizer
 		- [ ] How?
 		- [ ] When?
 		- [ ] Where?
-		- [ ] Partners: Media, Organizers, Domain specific, institutions, 
+		- [ ] Partners: Media, Organizers, Domain specific, institutions,
 		- [ ] Send to @GrahamSteel to create event page on contentmine.org
-1. (**4-6 weeks ahead**) Think/talk about what people want to learn, check if any of our major use cases applies
+1. (**4-6 weeks ahead**): Framing
+		- [ ] Think/talk about what people want to learn, check if any of our major use cases applies
 		- [ ] Think about requirements: skills, material, preparation
 		- [ ] Think about participant preparation: what people need to do in advance
-1. (**4-6 weeks ahead, optional**) Guest speaker
+1. (**4-6 weeks ahead, optional**): Guest speaker
 	- [ ] ask for attendance
 	- [ ] aks for compliance with date
 	- [ ] send out email:
 		- [ ] event link
-		- [ ] hard facts: date, location, meeting time, participants, 
+		- [ ] hard facts: date, location, meeting time, participants,
 		- [ ] ask for support in advertisement: personally and institutionally
 		- [ ] questions?
 		- [ ] agenda
 		- [ ] short description of event
-1. (**3-5 weeks ahead**) Identify knowledge gaps and uncertainties and create pre-training assessment. Creating and sending out a pre-training assessment is optional.
-	- [ ] **optional, 4 weeks ahead:** Send out pre-training assessment
+1. (**3-5 weeks ahead**):
+		- [ ] Identify knowledge gaps and uncertainties and create pre-training assessment.
+		- [ ] **optional, 4 weeks ahead:** Send out pre-training assessment
 1. (**28d ahead**) Set up repo via template [LINK]()
 	- [ ] Short description
 	- [ ] Time-Schedule
 	- [ ] Trainers with links to personal pages or Twitter
 	- [ ] Preparational material: links to learn in advance
 	- [ ] Travelling information and directions
-1. (**18d ahead**) Remind participants of pre-training assessment
+1. (**18d ahead**, optional) Remind participants of pre-training assessment
 1. (**14d ahead**) Draft session schedule
 	- [ ] Choose modules according to target audience after closing pre-training assessment. We have three module categories
 		- A: Introduction sessions
 		- B: application of CMtools to do content mining
 		- C: more hacky sessions, working together on user problems, downstream analysis
-  	- [ ] The session schedule should include short breaks after each session, and possibly time and space for a social event in the evening.
+  	- The session schedule should include short breaks after each session, and possibly time and space for a social event in the evening.
 		- think about: framing, target audience, purpose for project and participants
 		- discuss what should not / can not be done and why
 		- potential technical issues -> prepare solution (additional documentation)
@@ -58,7 +60,7 @@ The major points can be raised as personal issues for the facilitators/organizer
 	- [ ] schedule
 	- [ ] pre-requisites
 	- [ ] downloads / installations / datasets / tech requirements
-	- [ ] Ask for feedback and corrections about facts mentioned in event invitation with all involved in the workshop preparation. 
+	- [ ] Ask for feedback and corrections about facts mentioned in event invitation with all involved in the workshop preparation.
 1. (**10-14d ahead**) Prepare materials:
 	- [ ] prepare pad
 		- [ ] workflow
@@ -77,11 +79,11 @@ The major points can be raised as personal issues for the facilitators/organizer
 		- [ ] adapted to local audience
 		- [ ] dataset compiled
 		- [ ] personal notes
-		- [ ] handouts / posters / flipchart workshop sheets	
+		- [ ] handouts / posters / flipchart workshop sheets
 	- [ ] if more than one facilitator: assign roles
 		- [ ] who does facilitating?
 		- [ ] who does tech support?
-1. (**5d ahead**) Prepare follow up's
+1. (**5d ahead**) Prepare follow ups
 	- Set up post-training evaluation form
 	- Set up email for participants: post-training survey, follow ups
 1. (**3d ahead**) Connect with participants:
@@ -102,7 +104,7 @@ The major points can be raised as personal issues for the facilitators/organizer
 	- [ ] Introduce the pad
 	- [ ] ask about skill level, test crucial skills (shell, python, statistics, etc) with easy improving steps and find out more and more about who your audience is
 	- [ ] go through scheduled sessions
-1. (**0d later**) Send out email to participants with: 
+1. (**1d later**) Send out email to participants with:
 	- [ ] feedback forms - read the [guidance](https://github.com/ContentMine/workshop-resources/blob/master/training-guidelines/evaluation-assessment.md#evaluation) on evaluation, copy and edit [template feedback form](https://docs.google.com/forms/d/1nCaM6_sA-clrWDoNzdua5Luxg8bV7dcBMj82pERIIpQ/edit).
 	- [ ] github-repo
 	- [ ] follow-ups
@@ -116,4 +118,3 @@ The major points can be raised as personal issues for the facilitators/organizer
 1. (**asap**) update materials:
 	- [ ] repo with content generated during workshop
 	- [ ] Add latest VM to [VM repo](https://github.com/ContentMine/workshops)
-	
