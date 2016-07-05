@@ -21,9 +21,7 @@
 
 ## Installation
 
-```bash
-sudo npm install --global quickscrape
-```
+On the ContentMine-VM norma is already provided. If you want to install it locally or update it on the VM, please refer to the [installation instructions](http://contentmine.github.io/) for your platform.
 
 You can find the technical documentation for `quickscrape` in its [repository](https://github.com/ContentMine/quickscrape).
 
@@ -42,11 +40,11 @@ You can download the newest scraper definitions with this command:
 ```bash
 git clone https://github.com/ContentMine/journal-scrapers.git
 ```
-The scraper definitions will then be found in `your_path/journal-scraper/scrapers/`. Remember your path, cause it will be needed later on. 
+The scraper definitions will then be found in `your_path/journal-scraper/scrapers/`. Remember your path, cause it will be needed later on.
 
 ## Scraping
 
-There are two possible inputs for quickscrape, a single url, or list of urls. The single url can be passed directly as a parameter from the command line, the list of urls should be collected either manually by you, or may be taken from a basic getpapers query. Quickscrape will then visit every URL in this list and grab everything it can. This includes sections according to tags, images or tables. This process depends heavily on the format that is provided by the publisher. 
+There are two possible inputs for quickscrape, a single url, or list of urls. The single url can be passed directly as a parameter from the command line, the list of urls should be collected either manually by you, or may be taken from a basic getpapers query. Quickscrape will then visit every URL in this list and grab everything it can. This includes sections according to tags, images or tables. This process depends heavily on the format that is provided by the publisher.
 
 ### Single URLs
 
@@ -84,7 +82,7 @@ peerj-384/
 
 ### getpapers URL-lists
 
-In the next example we take the output we get from a [basic getpapers query](../getpapers/README.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384). 
+In the next example we take the output we get from a [basic getpapers query](../getpapers/README.md#construct-a-simple-query_and-compare-results), e.g. `getpapers -q 'dinosaurs' --api eupmc -o test_eupmc`. This returns two files in a search results folder. An *apiname*_results.json, which contains metadata about the search results, and a fulltext_html_urls.txt, which contains a list of URLs of fulltext papers. A *valid list of URLs* is a textfile with exactly one valid URL per line. A *valid URL* is a URL that leads to a fulltext page, e.g. [https://peerj.com/articles/384](https://peerj.com/articles/384).
 
 ```bash
 tree test_eupmc
@@ -92,7 +90,7 @@ test_eupmc
 ├── eupmc_results.json
 └── fulltext_html_urls.txt
 
-cat test_eupmc/fulltext_html_urls.txt 
+cat test_eupmc/fulltext_html_urls.txt
 http://europepmc.org/articles/PMC4040045
 http://europepmc.org/articles/PMC4055607
 http://europepmc.org/articles/PMC4022087

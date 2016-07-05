@@ -1,5 +1,5 @@
 # ContentMine Virtual Machines
- 
+
 ## Table of Contents
 
 1. [Description](#description)
@@ -10,7 +10,7 @@
 ## DESCRIPTION
 
 **What is a virtual machine?**
-A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). It consists of two parts: 
+A virtual machine is a simulated operating system 'within' your operating system (think Inception for operating systems). It consists of two parts:
 * [VirtualBox](https://www.virtualbox.org/): the software which runs the virtual machine
 * [ContentMine virtual machine image](): an image in which the whole operating system with its configuration and our ContentMine software packages are located
 
@@ -40,7 +40,12 @@ All the other things depend on the requirements of the virtual machine image, as
 * Adequate hard drive space for the VM (at least 5 GB)
 
 1. Download the required ContentMine virtual machine image
-	* 'Contentmine-FTDM' VM for Cambridge workshop/s [2015-12-10/11](http://contentmine.org/wp-content/uploads/static/contentmine-VM.ova) (3534356480 bytes on MAC-OSX) 
+	* 'Current VM' as at [May 2016](https://drive.google.com/open?id=0B7pJKedx9b97LTBVRmEzbzJOVlU)
+		* getpapers v0.4.5
+		* quickscrape v0.4.7
+		* norma v0.2.26
+		* ami v0.2.24
+	* 'Contentmine-FTDM' VM for Cambridge workshop/s [2015-12-10/11](http://contentmine.org/wp-content/uploads/static/contentmine-VM.ova) (3534356480 bytes on MAC-OSX)
 	* 'Biology' VM for University of Bath workshop [28/07/15](https://onedrive.live.com/redir?resid=1652077CF1AA4E9F!1280&authkey=!AGyzu9zuzzKeJok&ithint=file%2cova)
 	* 'Neuro' VM for Edinburgh Neuroscience hack [26/05/15] - [direct link](https://www.dropbox.com/s/yes9af47fn8vnz7/ContentMine-VM.ova?dl=0)
 	* 'Cochrane' VM for Oxford Cochrane centre workshop [2015/03/15] - [direct link](https://drive.google.com/file/d/0B6ChGXuXmOEDemRtb1JBakREYWc/view?usp=sharing)
@@ -118,7 +123,7 @@ There can be more than one VM - we release different ones for different tutorial
 Basic entry to different applications starts with a right click on the desktop. Following options are of interest to us:
 * Terminal: command line interface. This is the basic way how to operate the ContentMine software. It opens a text-based interface, from where we can navigate folders, look into files, and interact with the ContentMine software.
 * File Manager: visually navigate through the folders
-* Web Browser: go onto the web. 
+* Web Browser: go onto the web.
 
 **Terminal**
 The execution of the updates can take a while (depending on your internet connection). After everything is checked, you should see a window like this:
@@ -129,7 +134,7 @@ You can maximize it to fullscreen by double clicking on the title bar.
 
 **Command Line / Shell**
 
-The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/shell-tutorial.md), please have a look if you are new to using the command line.
+The command line is going to be the main interface with ContentMine. Some basic commands for using and navigating the command line are documented [here](../shell/README.md), please have a look if you are new to using the command line.
 
 **Copy & Paste**
 

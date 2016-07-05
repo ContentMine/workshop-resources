@@ -22,7 +22,7 @@ This tutorial covers the installation of getpapers, demonstrates how to construc
 
 **How does getpapers help me?**
 
-getpapers automates the search and download process and helps in building an initial corpus of documents for content mining. 
+getpapers automates the search and download process and helps in building an initial corpus of documents for content mining.
 
 **Glossary**
 - JSON ([Wikipedia](https://en.wikipedia.org/wiki/JSON))
@@ -35,23 +35,13 @@ getpapers automates the search and download process and helps in building an ini
 
 ### Installation
 
-Open a terminal and type: `getpapers --version` at the commandline. If a version number gets printed, getpapers is installed, you can skip this section.
-
-To install it within the ContentMine virtual machine:
-```
-npm install --global getpapers
-```
-
-Elsewhere you need to have node and node package manager installed. You may need to be a superuser and type:
-```
-sudo npm install --global getpapers
-```
+On the ContentMine-VM norma is already provided. If you want to install it locally or update it on the VM, please refer to the [installation instructions](http://contentmine.github.io/) for your platform.
 
 If you are a developer you can find the technical documentation for `getpapers` in its [repository](https://github.com/ContentMine/getpapers).
 
 ### Input data
 
-In this tutorial we will mainly use open access literature from [Europe PMC](http://europepmc.org/). We can search within their database of 3.5 million fulltext papers from life-sciences. About one million of these are Open Access. Please refer to [Europe PMC-Data](http://europepmc.org/FtpSite) for details. 
+In this tutorial we will mainly use open access literature from [Europe PMC](http://europepmc.org/). We can search within their database of 3.5 million fulltext papers from life-sciences. About one million of these are Open Access. Please refer to [Europe PMC-Data](http://europepmc.org/FtpSite) for details.
 
 ## Tutorial
 
@@ -77,7 +67,7 @@ getpapers -q 'ursus maritimus' -o ursus
 ```
 ![gpmetadataonly](../../assets/images/software/getpapers/getpapers-metadataonly.png)
 
-This query creates two files, `eupmc_fulltext_html_urls.txt` and `eupmc_results.json` and stores them in the `ursus` folder. Depending on Europe PMC, not all search results necessarily have a downloadable HTML-version of the paper. In rare cases it can happen that no HTML-fulltexts at all are available for the query, in which case the file `fulltext_html_urls.txt` will not be created. We now have a look at the contents of the `eupmc_fulltext_html_urls.txt` file, which contains a list of HTML-sources for results. 
+This query creates two files, `eupmc_fulltext_html_urls.txt` and `eupmc_results.json` and stores them in the `ursus` folder. Depending on Europe PMC, not all search results necessarily have a downloadable HTML-version of the paper. In rare cases it can happen that no HTML-fulltexts at all are available for the query, in which case the file `fulltext_html_urls.txt` will not be created. We now have a look at the contents of the `eupmc_fulltext_html_urls.txt` file, which contains a list of HTML-sources for results.
 ```
 ls ursus
 wc -l ursus/eupmc_fulltext_html_urls.txt
@@ -134,7 +124,7 @@ Queries are directed to the [Europe PMC API](http://europepmc.org/RestfulWebServ
 
 Using the EuropePMC webservice's query language we can construct much more detailed queries. A selection of the most commonly useful search fields is explained [here](getpapers-eupmc-queries.md), and a complete documentation of possible queries is in Appendix I of the [EuropePMC reference PDF](http://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf).
 
-For example we can restrict our search to only papers that mention 'ursus maritimus' in the abstract. 
+For example we can restrict our search to only papers that mention 'ursus maritimus' in the abstract.
 
 ```bash
 getpapers -q ABSTRACT:ursus maritimus -o ursus -n

@@ -6,26 +6,25 @@ The tutorials can be used in workshops as well as for self-guided learning.
 
 # Table of contents
 
-1. [Purpose and installation of the ContentMine-VirtualMachine](vms/README.md)
-A VirtualBox-Image contains all necessary software as well as sample datasets for getting started with content mining. This tutorial explains how to install the ContentMine-VM and use it as a sandbox environment.
+1. [Purpose and installation of the ContentMine-VirtualMachine](vms/README.md) <br> A VirtualBox-Image contains all necessary software as well as sample datasets for getting started with content mining. This tutorial explains how to install the ContentMine-VM and use it as a sandbox environment.
 
-1. [Introduction to the command line interface](shell/README.md)
+1. [Introduction to the command line interface](shell/README.md) <br>
 This tutorial introduces the basic UNIX-commands and shows how to navigate folders and handle files.
 
-1. [Getting started with getpapers](getpapers/README.md)
+1. [Getting started with getpapers](getpapers/README.md) <br>
 This tutorial demonstrates how to create an initial corpus for fact extraction.
 
-1. [Getting started with quickscrape](quickscrape/README.md)
+1. [Getting started with quickscrape](quickscrape/README.md) <br>
 This tutorial introduces quickscrape, and how to use it to extract semi-structured information from web pages.
 
-1. [Create your own scraper definition](journal-scrapers/README.md)
+1. [Create your own scraper definition](journal-scrapers/README.md) <br>
 This tutorial shows how to contribute to, and extend the ContentMine scraper collection. If you need a specific definition for your use with quickscrape, here you can learn how to create it.
 
-1. [Normalizing scholarly literature](norma/README.md)
+1. [Normalizing scholarly literature](norma/README.md) <br>
 This tutorial shows how to normalize scientific literature into a unified format which can be processed by machines.
 
-1. [ContentMine data structure: CProject](cproject/README.md)
+1. [ContentMine data structure: CProject](cproject/README.md) <br>
 This tutorial gives an overview of the data structure used, and how it can be integrated in your analysis.
 
-1. [Extracting facts with AMI-plugins](ami/README.md)
+1. [Extracting facts with AMI-plugins](ami/README.md) <br>
 This tutorial demonstrates how to extract, aggregate, and filter facts from scholarly.html.
