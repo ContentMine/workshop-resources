@@ -21,9 +21,9 @@ The major points can be raised as personal issues for the facilitators/organizer
 		- [ ] Partners: Media, Organizers, Domain specific, institutions,
 		- [ ] Send to @GrahamSteel to create event page on contentmine.org
 1. (**4-6 weeks ahead**): Framing
-		- [ ] Think/talk about what people want to learn, check if any of our major use cases applies
-		- [ ] Think about requirements: skills, material, preparation
-		- [ ] Think about participant preparation: what people need to do in advance
+	- [ ] Think/talk about what people want to learn, check if any of our major use cases applies
+	- [ ] Think about requirements: skills, material, preparation
+	- [ ] Think about participant preparation: what people need to do in advance
 1. (**4-6 weeks ahead, optional**): Guest speaker
 	- [ ] ask for attendance
 	- [ ] aks for compliance with date
@@ -35,8 +35,8 @@ The major points can be raised as personal issues for the facilitators/organizer
 		- [ ] agenda
 		- [ ] short description of event
 1. (**3-5 weeks ahead**):
-		- [ ] Identify knowledge gaps and uncertainties and create pre-training assessment.
-		- [ ] **optional, 4 weeks ahead:** Send out pre-training assessment
+	- [ ] Identify knowledge gaps and uncertainties and create pre-training assessment.
+	- [ ] **optional, 4 weeks ahead:** Send out pre-training assessment
 1. (**28d ahead**) Set up repo via template [LINK]()
 	- [ ] Short description
 	- [ ] Time-Schedule
@@ -46,17 +46,17 @@ The major points can be raised as personal issues for the facilitators/organizer
 1. (**18d ahead**, optional) Remind participants of pre-training assessment
 1. (**14d ahead**) Draft session schedule
 	- [ ] Choose modules according to target audience after closing pre-training assessment. We have three module categories
-		- A: Introduction sessions
-		- B: application of CMtools to do content mining
-		- C: more hacky sessions, working together on user problems, downstream analysis
-  	- The session schedule should include short breaks after each session, and possibly time and space for a social event in the evening.
-		- think about: framing, target audience, purpose for project and participants
-		- discuss what should not / can not be done and why
-		- potential technical issues -> prepare solution (additional documentation)
-		- potential content questions / problems -> prepare answers
-		- offer some social event in the evening
-		- follow-ups
-1. (**14d ahead**) Update repo
+	- A: Introduction sessions
+	- B: application of CMtools to do content mining
+	- C: more hacky sessions, working together on user problems, downstream analysis
+	- The session schedule should include short breaks after each session, and possibly time and space for a social event in the evening.
+	- think about: framing, target audience, purpose for project and participants
+	- discuss what should not / can not be done and why
+	- potential technical issues -> prepare solution (additional documentation)
+	- potential content questions / problems -> prepare answers
+	- offer some social event in the evening
+	- follow-ups
+1. (**14d ahead**): Update repo
 	- [ ] schedule
 	- [ ] pre-requisites
 	- [ ] downloads / installations / datasets / tech requirements
