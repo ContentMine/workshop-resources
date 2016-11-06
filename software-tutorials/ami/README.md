@@ -275,7 +275,7 @@ We will now see a variety of regex-s and how they are used in a XML file.
 
 ```bash
 ami2-regex --project CPROJECTFOLDER -i INPUTFILE --context PRE POST --r.regex REGEXFILE.xml
-```.
+```
 
 - `PRE`: tells ami how many characters before a match should be captured
 - `POST`: tells ami how many characters after a match should be captured
