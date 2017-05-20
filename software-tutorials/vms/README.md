@@ -52,7 +52,7 @@ All the other things depend on the requirements of the virtual machine image, as
 	* 'Playground' VM for [EBI workshop](https://github.com/ContentMine/EBI_workshop_20150330) [2015/03/30] - [direct link](https://drive.google.com/uc?export=download&confirm=dp8f&id=0B6ChGXuXmOEDNWx2d0EwbDkyY00) - [installation instructions](https://github.com/ContentMine/EBI_workshop_20150330/blob/master/docs/pre-workshop_installation.pdf)
 
 The image should be fairly large (>1GB, now ca 3.3GB). Depending on your connection that can take between 10 and 60 minutes (or much longer if you have very slow connection).
-2. Double-click on the downloaded file (´´´*.ova´´´ file-extension) to open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
+2. Double-click on the downloaded file (´´´.ova´´´ file-extension) to open VirtualBox and offer to import the virtual machine. Please follow the on-screen instructions to complete the import.
 3. Configure the import of the image
 
 
@@ -77,9 +77,15 @@ If so, click the "Do not show this message again" and continue.
 
 ### Starting the ContentMine Virtual Machine image
 
-After installing VirtualBox and importing the virtual machine image you can start the machine from the VirtualBox interface. Start VirtualBox, select your image and click the "Start" button.
+After installing VirtualBox and importing the virtual machine image you can select the machine from the VirtualBox interface.
 
 ![Start the vm](../../assets/images/software/vms/starting-vm.png)
+
+Please go to "Settings" first and make sure you allocate at least 2000MB RAM to the Base Memory. Then click OK.
+
+![Memory Settings](../../assets/images/software/vms/memorysettings.png)
+
+To start VirtualBox, select your image and click the "Start" button.
 
 After a few seconds you land on the desktop.
 
