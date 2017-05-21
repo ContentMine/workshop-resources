@@ -40,7 +40,7 @@ All the other things depend on the requirements of the virtual machine image, as
 * Adequate hard drive space for the VM (at least 5 GB)
 
 1. Download the required ContentMine virtual machine image
-	* 'Current VM' as at [May 2016](https://drive.google.com/open?id=0B7pJKedx9b97LTBVRmEzbzJOVlU)
+	* 'Current VM' as at [May 2016](https://drive.google.com/open?id=0B7pJKedx9b97QVJWUzNnMGdPb00)
 		* getpapers v0.4.5
 		* quickscrape v0.4.7
 		* norma v0.2.26
