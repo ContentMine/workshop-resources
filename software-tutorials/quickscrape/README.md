@@ -63,7 +63,7 @@ quickscrape \
   --output peerj-384
 ```
 
-![quickscrape-url](../assets/images/software/quickscrape/quickscrape-url.png)
+![quickscrape-url](../../assets/images/software/quickscrape/quickscrape-url.png)
 
 Quickscrape now creates a subfolder for each searchresult, describing the article source, a fulltext.html with the scraping results, and a results.json containing metadata of the article, e.g. authors, title, abstract and bibliographic data. It may include other files such as fulltext PDFs, fulltext XMLs, or scraped images.  This is also one of the starting points for a [ctree](../ctree/README.md), the main datastructure of the ContentMine pipeline.
 
