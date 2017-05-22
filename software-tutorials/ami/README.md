@@ -6,7 +6,7 @@
 1. [Description](#description)
 1. [Preparations](#preparations)
 1. [Input data](#input-data)
-1. [Tutorial](#Tutorial)
+1. [Tutorial](#tutorial)
   1. [ami2-species](#ami2-species)
   1. [ami2-gene](#ami2-gene)
   1. [ami2-sequence](#ami2-sequence)
